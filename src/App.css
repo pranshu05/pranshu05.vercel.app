@@ -76,4 +76,11 @@ nav.navbar {
     font-size: large;
     color: #f2f2f2;
 }
+.top-abt-links{
+  font-size: xx-large;
+  margin: 10px;
+}
+.top-abt-links a{
+  margin: 5px;
+}
 /* TopAbtMe CSS End*/
