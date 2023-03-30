@@ -20,14 +20,19 @@ function SpotifyPlayer(props) {
     return result.isPlaying ? (
         <div className="nowplaying">
             <p>
-                <FaSpotify fontSize="xx-large" /> listening to {result.title} by{' '}
-                {result.artist}
+                <FaSpotify fontSize="xx-large" />{' '}
+                <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
+                    listening to {result.title} by {result.artist}
+                </a>
             </p>
         </div>
     ) : (
         <div className="nowplaying">
             <p>
-                <FaSpotify fontSize="xx-large" /> Not listening to Spotify rn!
+                <FaSpotify fontSize="xx-large" />{' '}
+                <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
+                    Not listening to Spotify rn!
+                </a>
             </p>
         </div>
     )

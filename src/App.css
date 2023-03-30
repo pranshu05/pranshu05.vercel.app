@@ -13,7 +13,7 @@
     transition:  0.32s ease-in-out;
   }
   
-  p, a, li, button, ul {
+  a, li, button, ul {
     line-height: normal;
     text-decoration: none;
   }
