@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import SpotifyPlayer from './Spotify'
 import {
     FaGithub,
     FaLinkedin,
@@ -50,6 +51,7 @@ export const TopAbtMe = () => {
                     <FaYoutube />
                 </a>
             </div>
+            <SpotifyPlayer />
         </div>
     )
 }
