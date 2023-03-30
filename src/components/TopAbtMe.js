@@ -30,7 +30,8 @@ export const TopAbtMe = () => {
                 specialize in creating discord bots using{' '}
                 <a href="https://discord.js.org/#/">discord.js</a> and web
                 development. Currently 🌡️ {temp !== null ? temp : 'Loading...'}{' '}
-                °C out here with ☁️ {weather !== null ? weather : 'Loading...'}
+                °C out here with ☁️ {weather !== null ? weather : 'Loading...'}{' '}
+                weather.
             </p>
             <div className="top-abt-links">
                 <a href="https://github.com/pranshu05">
