@@ -4,12 +4,10 @@
     padding: 0;
   }
   
-  body {
+  body{
     font-weight: 400;
-    overflow-x: hidden;
-    position: relative;
-    background-color: #121212 !important;
-    color: #fff !important;
+    background-color: #121212 ;
+    color: #fff ;
     margin: 0;
     padding: 0;
     transition:  0.32s ease-in-out;
@@ -29,18 +27,13 @@
 /* Navbar CSS Start */
 nav.navbar {
     position: fixed;
-    width: 75vw;
+    width: 100vw;
     padding-top: 20px;
     padding-bottom: 20px;
     left: 50%;
     transform: translate(-50%, 0%);
-    transition:  0.32s ease-in-out;
     text-align: center;
     z-index: 9999;
-    background-color: #1a1a1a;
-    border: #181818 1px solid;
-    border-radius: 10px;
-    margin-top: 50px;
   }
   nav.navbar.scrolled {
     padding: 0px 0;
@@ -48,7 +41,7 @@ nav.navbar {
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-weight: 400;
-    color: #fff !important;
+    color: #fff;
     letter-spacing: 0.8px;
     padding: 0 25px;
     font-size: 18px;
@@ -67,14 +60,11 @@ nav.navbar {
 
 /* TopAbtMe CSS Start*/
 .top-abt-me{
-    width: 70vw;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    top: 50%;
+    width: 65vw;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     position: absolute;
-    margin-top: 250px;
+    margin-top: 85px;
     padding: 20px;
 }
 .top-abt-me h1{
