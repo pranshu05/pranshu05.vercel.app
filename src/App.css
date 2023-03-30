@@ -83,4 +83,9 @@ nav.navbar {
 .top-abt-links a{
   margin: 5px;
 }
+@media (max-width: 800px){
+  .top-abt-me{
+    width: 85vw;
+  }
+}
 /* TopAbtMe CSS End*/
