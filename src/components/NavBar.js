@@ -21,6 +21,12 @@ export const NavBar = () => {
 
     const onUpdateActiveLink = (value) => {
         setActiveLink(value)
+
+        const section = document.getElementById(value)
+        window.scrollTo({
+            top: section.offsetTop,
+            behavior: 'smooth',
+        })
     }
 
     return (
@@ -40,13 +46,13 @@ export const NavBar = () => {
                             About Me
                         </Nav.Link>
                         <Nav.Link
-                            href="#skills"
+                            href="#techs"
                             className={
-                                activeLink === 'skills'
+                                activeLink === 'techs'
                                     ? 'active navbar-link'
                                     : 'navbar-link'
                             }
-                            onClick={() => onUpdateActiveLink('skills')}
+                            onClick={() => onUpdateActiveLink('techs')}
                         >
                             Skills
                         </Nav.Link>

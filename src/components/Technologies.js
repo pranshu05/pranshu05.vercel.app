@@ -10,8 +10,9 @@ import {
 
 export const Tech = () => {
     return (
-        <div className="techs">
-            <h1>technologies I use 💻</h1>
+        <div className="techs" id="techs">
+            {/* here techs = skills */}
+            <h1>Skills ⚡️</h1>
             <div className="techs-cont">
                 <div className="techs-icon">
                     <FaJs />

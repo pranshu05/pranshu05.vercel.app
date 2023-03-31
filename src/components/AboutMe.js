@@ -25,7 +25,7 @@ export const AboutMe = () => {
     }, [])
 
     return (
-        <div className="about-me">
+        <div className="about-me" id="about-me">
             <h1> Hi! I'm Pranshu ✌️</h1>
             <p>
                 I am a developer and high-school student based in India. I

@@ -1,9 +1,9 @@
 export const Projects = () => {
     return (
-        <div className="projects">
+        <div className="projects" id="projects">
             <h1>Projects 🛠️</h1>
             <p>I've listed some of my projects below 👇</p>
-            <div class="project-cards-container">
+            <div className="project-cards-container">
                 <div className="project-card">
                     <div className="project-card-img">
                         <img

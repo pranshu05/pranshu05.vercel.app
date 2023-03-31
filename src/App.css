@@ -3,7 +3,12 @@
     margin: 0;
     padding: 0;
   }
-  
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
   body{
     font-weight: 400;
     background-color: #121212 ;
@@ -194,6 +199,39 @@ nav.navbar {
   }
 }
 /* Project CSS End */
+
+/*Footer Start*/
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+  padding: 15px;
+}
+.right a{
+  margin-right: 10px;
+  font-size: xx-large;
+}
+@media (max-width: 800px) {
+  footer {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .left, .right {
+    flex: 0 0 100%;
+    margin-bottom: 10px;
+  }
+}
+/*Footer End*/
 
 /*Webkit Style Start*/
 ::-webkit-scrollbar {
