@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import SpotifyPlayer from './Spotify'
 import { Tech } from './Technologies'
+import TimeStatus from './TimeStatus'
+import Discord from './Discord'
 import {
     FaGithub,
     FaLinkedin,
@@ -35,6 +37,10 @@ export const AboutMe = () => {
                 {weather !== null ? weather : 'Loading...'} & 🌡️{' '}
                 {temp !== null ? temp : 'Loading...'} °C out here.
             </p>
+            <span>
+                <TimeStatus /> <Discord />
+            </span>
+            <br />
             <div className="top-abt-links">
                 <a href="https://github.com/pranshu05">
                     <FaGithub />

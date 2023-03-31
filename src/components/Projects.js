@@ -43,7 +43,7 @@ export const Projects = () => {
                             <a href="https://itch.io/pranshu05/df">
                                 Dark Forest
                             </a>
-                            is a fps game made with C# and Unity Engine.
+                            {''} is a fps game made with C# and Unity Engine.
                         </p>
                     </div>
                 </div>

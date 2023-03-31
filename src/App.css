@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    scroll-padding-top: 70px; 
   }
   body{
     font-weight: 400;
@@ -37,6 +38,7 @@ nav.navbar {
     padding-bottom: 20px;
     left: 50%;
     transform: translate(-50%, 0%);
+    transition: all 0.2s ease-in-out;
     text-align: center;
     z-index: 9999;
   }
@@ -129,6 +131,8 @@ nav.navbar {
   padding: 5px;
   margin: 5px;
   color: #dbb3fe;
+  background-color: #181818;
+  border-radius: 5px;
 }
 .techs-icon {
   margin-right: 15px;

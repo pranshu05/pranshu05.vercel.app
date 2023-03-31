@@ -3,8 +3,10 @@ import {
     FaGit,
     FaGithub,
     FaHtml5,
+    FaJava,
     FaJs,
     FaNode,
+    FaPython,
     FaReact,
 } from 'react-icons/fa'
 
@@ -21,12 +23,6 @@ export const Tech = () => {
             </div>
             <div className="techs-cont">
                 <div className="techs-icon">
-                    <FaCss3 />
-                </div>
-                <div className="techs-text">CSS</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
                     <FaReact />
                 </div>
                 <div className="techs-text">React</div>
@@ -39,6 +35,30 @@ export const Tech = () => {
             </div>
             <div className="techs-cont">
                 <div className="techs-icon">
+                    <FaHtml5 />
+                </div>
+                <div className="techs-text">HTML</div>
+            </div>
+            <div className="techs-cont">
+                <div className="techs-icon">
+                    <FaCss3 />
+                </div>
+                <div className="techs-text">CSS</div>
+            </div>
+            <div className="techs-cont">
+                <div className="techs-icon">
+                    <FaJava />
+                </div>
+                <div className="techs-text">Java</div>
+            </div>
+            <div className="techs-cont">
+                <div className="techs-icon">
+                    <FaPython />
+                </div>
+                <div className="techs-text">Python</div>
+            </div>
+            <div className="techs-cont">
+                <div className="techs-icon">
                     <FaGithub />
                 </div>
                 <div className="techs-text">GitHub</div>
@@ -48,12 +68,6 @@ export const Tech = () => {
                     <FaGit />
                 </div>
                 <div className="techs-text">Git</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaHtml5 />
-                </div>
-                <div className="techs-text">HTML</div>
             </div>
         </div>
     )
