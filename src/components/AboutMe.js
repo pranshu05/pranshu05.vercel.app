@@ -30,9 +30,9 @@ export const AboutMe = () => {
                 I am a developer and high-school student based in India. I
                 specialize in creating discord bots using{' '}
                 <a href="https://discord.js.org/#/">discord.js</a> and web
-                development. Currently 🌡️ {temp !== null ? temp : 'Loading...'}{' '}
-                °C out here with ☁️ {weather !== null ? weather : 'Loading...'}{' '}
-                weather.
+                development. Currently ☁️{' '}
+                {weather !== null ? weather : 'Loading...'} & 🌡️{' '}
+                {temp !== null ? temp : 'Loading...'} °C out here.
             </p>
             <div className="top-abt-links">
                 <a href="https://github.com/pranshu05">
