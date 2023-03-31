@@ -117,6 +117,20 @@ nav.navbar {
 }
 /** Spotify End/
 
+/*Techs Start*/
+.techs-cont {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+  color: #dbb3fe;
+}
+.techs-icon {
+  margin-right: 15px;
+  font-size: x-large;
+}
+/*Techs End*/
+
 /* Project CSS Start*/
 .project-cards-container {
   display: flex;
@@ -138,16 +152,16 @@ nav.navbar {
 }
 .project-card-img{
   float: left;
-  width: 25%;
+  width: 10%;
   padding: 10px;
 }
 .project-card-img img{
   width: 100%;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 .project-card-text{
   float: right;
-  width: 75%;
+  width: 90%;
   padding: 10px;
 }
 .project-card-text p{
@@ -171,8 +185,7 @@ nav.navbar {
     flex-direction: column;
   }
   .project-card-img{
-    margin-left: 10%;
-    width: 80%;
+    width: 25%;
     padding: 10px;
   }
   .project-card-text{

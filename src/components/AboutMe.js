@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import SpotifyPlayer from './Spotify'
+import { Tech } from './Technologies'
 import {
     FaGithub,
     FaLinkedin,
@@ -62,6 +63,8 @@ export const AboutMe = () => {
                 these things every day, and utilize my knowledge to further
                 understand how or why the technology around us works.
             </p>
+            <br />
+            <Tech />
             <br />
         </div>
     )
