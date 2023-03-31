@@ -97,6 +97,25 @@ nav.navbar {
 .top-abt-links a{
   margin: 5px;
 }
+/* TopAbtMe End*/
+
+/* Spotify Start*/
+.spotify-cont{
+  display: flex;
+  flex-direction: row;
+}
+.spotify-logo{
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+.spotify-track{
+  float: right;
+  width: 75%;
+  padding: 15px;
+  text-align: right;
+}
+/** Spotify End/
 
 /* Project CSS Start*/
 .project-cards-container {
@@ -139,11 +158,6 @@ nav.navbar {
   font-size: medium;
   margin: 10px;
   margin-left: 0;
-}
-@media (min-width : 1200px){
-  .project-card{
-    width: 45vw;
-  }
 }
 @media (max-width :800px){
   .project-card{

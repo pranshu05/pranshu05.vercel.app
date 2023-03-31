@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 
 export const NavBar = () => {
-    const [activeLink, setActiveLink] = useState('home')
+    const [activeLink, setActiveLink] = useState('about-me')
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(() => {
@@ -29,13 +29,13 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link
-                            href="#About Me"
+                            href="#about-me"
                             className={
-                                activeLink === 'About Me'
+                                activeLink === 'about-me'
                                     ? 'active navbar-link'
                                     : 'navbar-link'
                             }
-                            onClick={() => onUpdateActiveLink('About Me')}
+                            onClick={() => onUpdateActiveLink('about-me')}
                         >
                             About Me
                         </Nav.Link>
