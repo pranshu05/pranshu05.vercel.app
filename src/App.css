@@ -20,7 +20,7 @@
   
   a:link , a:hover, a:visited, a:active {
     text-decoration: none;
-    color: purple;
+    color: #dbb3fe;
   }
 /* Default CSS End*/
 
@@ -34,10 +34,6 @@ nav.navbar {
     transform: translate(-50%, 0%);
     text-align: center;
     z-index: 9999;
-  }
-  nav.navbar.scrolled {
-    padding: 0px 0;
-    background-color: #181818;
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-weight: 400;
@@ -58,24 +54,33 @@ nav.navbar {
   
 /* Navbar CSS End */
 
-/* TopAbtMe CSS Start*/
-.top-abt-me{
+/* HomePage CSS Start*/
+.home-page-cont{
     width: 65vw;
     left: 50%;
     transform: translate(-50%, 0%);
     position: absolute;
     margin-top: 85px;
     padding: 20px;
+    min-height: 500px;
 }
-.top-abt-me h1{
+.home-page-cont h1{
     font-size: 200%;
     font-weight: 900;
 }
-.top-abt-me p{
+.home-page-cont p{
     margin-top: 20px;
     font-size: large;
     color: #f2f2f2;
 }
+@media (max-width: 800px){
+  .home-page-cont{
+    width: 85vw;
+  }
+}
+/* HomePage CSS End*/
+
+/* TopAbtMe */
 .top-abt-links{
   font-size: xx-large;
   margin: 10px;
@@ -83,9 +88,56 @@ nav.navbar {
 .top-abt-links a{
   margin: 5px;
 }
+
+/* Project CSS Start*/
+.project-card{
+    width: 55vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 15px;
+    margin-bottom: 15psx;
+    padding: 20px;
+    background-color: #181818;
+    border-radius: 10px;
+}
+.project-card-img{
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+.project-card-img img{
+  width: 100%;
+  border-radius: 50%;
+}
+.project-card-text{
+  float: right;
+  width: 75%;
+  padding: 10px;
+}
+.project-card-text p{
+  margin-top: 0;
+}
+.project-lang p{
+  color: #818181;
+  font-size: medium;
+  margin: 10px;
+  margin-left: 0;
+}
 @media (max-width: 800px){
-  .top-abt-me{
+  .project{
     width: 85vw;
   }
+  .project-card{
+    width: 80vw;
+  }
 }
-/* TopAbtMe CSS End*/
+/* Project CSS End */
+
+/*Webkit Style Start*/
+::-webkit-scrollbar {
+  display: none;
+}
+/*Webkit Style End*/

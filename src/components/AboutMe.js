@@ -8,7 +8,7 @@ import {
     FaTwitter,
 } from 'react-icons/fa'
 
-export const TopAbtMe = () => {
+export const AboutMe = () => {
     const [temp, setTemp] = useState(null)
     const [weather, setWeather] = useState(null)
 
@@ -24,7 +24,7 @@ export const TopAbtMe = () => {
     }, [])
 
     return (
-        <div className="top-abt-me">
+        <div className="about-me">
             <h1> Hi! I'm Pranshu ✌️</h1>
             <p>
                 I am a developer and high-school student based in India. I
@@ -52,6 +52,17 @@ export const TopAbtMe = () => {
                 </a>
             </div>
             <SpotifyPlayer />
+            <br />
+            <h1>What Do I Do 💭</h1>
+            <p>
+                I'm passionate about everything technology; from designing and
+                developing software, to understanding how the many moving parts
+                of the internet work together, to cybersecurity, systems,
+                programming, and so much more. I strive to learn more about
+                these things every day, and utilize my knowledge to further
+                understand how or why the technology around us works.
+            </p>
+            <br />
         </div>
     )
 }

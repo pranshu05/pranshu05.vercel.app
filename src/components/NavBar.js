@@ -29,15 +29,15 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link
-                            href="#home"
+                            href="#About Me"
                             className={
-                                activeLink === 'home'
+                                activeLink === 'About Me'
                                     ? 'active navbar-link'
                                     : 'navbar-link'
                             }
-                            onClick={() => onUpdateActiveLink('home')}
+                            onClick={() => onUpdateActiveLink('About Me')}
                         >
-                            Home
+                            About Me
                         </Nav.Link>
                         <Nav.Link
                             href="#skills"
