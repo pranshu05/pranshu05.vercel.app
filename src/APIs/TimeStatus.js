@@ -21,7 +21,7 @@ const TimeStatus = () => {
         <div className="time">
             <p>
                 It's currently {time} for me, so I'm probably{' '}
-                {awake ? 'awake' : 'sleeping'} .
+                {awake ? 'awake 🌞' : 'sleeping 😴'} .
             </p>
         </div>
     )

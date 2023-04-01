@@ -18,6 +18,11 @@
     padding: 0;
     transition:  0.32s ease-in-out;
   }
+
+  .highlight {
+    background-color: #181818;
+    color: #dbb3fe;
+  }
   
   a, li, button, ul {
     line-height: normal;
@@ -141,6 +146,9 @@ nav.navbar {
 /*Techs End*/
 
 /* Project CSS Start*/
+.projects{
+  margin-bottom: 20px;
+}
 .project-cards-container {
   display: flex;
   justify-content: center;

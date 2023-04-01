@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import SpotifyPlayer from './Spotify'
 import { Tech } from './Technologies'
-import TimeStatus from './TimeStatus'
-import Discord from './Discord'
+import TimeStatus from '../APIs/TimeStatus'
+import Discord from '../APIs/Discord'
 import {
     FaGithub,
     FaLinkedin,
@@ -33,13 +33,12 @@ export const AboutMe = () => {
                 I am a developer and high-school student based in India. I
                 specialize in creating discord bots using{' '}
                 <a href="https://discord.js.org/#/">discord.js</a> and web
-                development. Currently ☁️{' '}
+                development. At the moment, the weather is ☁️{' '}
                 {weather !== null ? weather : 'Loading...'} & 🌡️{' '}
                 {temp !== null ? temp : 'Loading...'} °C out here.
             </p>
-            <span>
-                <TimeStatus /> <Discord />
-            </span>
+            <TimeStatus />
+            <Discord />
             <br />
             <div className="top-abt-links">
                 <a href="https://github.com/pranshu05">
@@ -62,12 +61,12 @@ export const AboutMe = () => {
             <br />
             <h1>What Do I Do 💭</h1>
             <p>
-                I'm passionate about everything technology; from designing and
-                developing software, to understanding how the many moving parts
-                of the internet work together, to cybersecurity, systems,
-                programming, and so much more. I strive to learn more about
-                these things every day, and utilize my knowledge to further
-                understand how or why the technology around us works.
+                I am passionate about everything related to technology,
+                including designing and developing software, understanding the
+                various components of the internet and how they work together,
+                cybersecurity, systems, programming, and more. I am constantly
+                striving to expand my knowledge in these areas and apply it to
+                gain a deeper understanding of the technology that surrounds us.
             </p>
             <br />
             <Tech />
