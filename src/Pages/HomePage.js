@@ -1,6 +1,6 @@
 import { Projects } from '../components/Projects'
 import { AboutMe } from '../components/AboutMe'
-import Footer from '../components/Footer'
+import { Footer } from '../components/Footer'
 import { GitHub } from '../components/GitHub'
 
 export const HomePage = () => {

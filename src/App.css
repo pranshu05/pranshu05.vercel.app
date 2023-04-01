@@ -1,127 +1,134 @@
 /* Default CSS start */
 * {
-    margin: 0;
-    padding: 0;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px; 
-  }
-  body{
-    font-weight: 400;
-    background-color: #121212 ;
-    color: #fff ;
-    margin: 0;
-    padding: 0;
-    transition:  0.32s ease-in-out;
-  }
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+body {
+  font-weight: 400;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  transition: 0.32s ease-in-out;
+}
 
-  .highlight {
-    background-color: #181818;
-    color: #dbb3fe;
-  }
-  
-  a, li, button, ul {
-    line-height: normal;
-    text-decoration: none;
-  }
-  
-  a:link , a:hover, a:visited, a:active {
-    text-decoration: none;
-    color: #dbb3fe;
-  }
+.highlight {
+  background-color: #181818;
+  color: #dbb3fe;
+}
+
+a,
+li,
+button,
+ul {
+  line-height: normal;
+  text-decoration: none;
+}
+
+a:link,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #dbb3fe;
+}
 /* Default CSS End*/
 
 /* Navbar CSS Start */
 nav.navbar {
-    position: fixed;
-    width: 100vw;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-    z-index: 9999;
-  }
+  position: fixed;
+  width: 100vw;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  z-index: 9999;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+  opacity: 1;
+}
+nav.navbar.scrolled {
+  background-color: #181818;
+}
+span.navbar-text {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 400px) {
   nav.navbar .navbar-nav .nav-link.navbar-link {
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: 0.8px;
-    padding: 0 25px;
-    font-size: 18px;
-    opacity: 0.75;
+    font-size: medium;
+    letter-spacing: 0px;
   }
-  nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
-  nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-      opacity: 1;
-  }
-  nav.navbar.scrolled {
-    background-color: #181818;
-  }
-  span.navbar-text {
-      display: flex;
-      align-items: center;
-  }
-  @media (max-width: 400px){
-    nav.navbar .navbar-nav .nav-link.navbar-link{
-      font-size: medium;
-      letter-spacing: 0px;
-    }
-  }
-  
+}
+
 /* Navbar CSS End */
 
 /* HomePage CSS Start*/
-.home-page-cont{
-    width: 65vw;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    position: absolute;
-    margin-top: 85px;
-    padding: 20px;
-    min-height: 500px;
+.home-page-cont {
+  width: 65vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  margin-top: 85px;
+  padding: 20px;
+  min-height: 500px;
 }
-.home-page-cont h1{
-    font-size: 200%;
-    font-weight: 900;
+.home-page-cont h1 {
+  font-size: 200%;
+  font-weight: 900;
 }
-.home-page-cont p{
-    margin-top: 20px;
-    font-size: large;
-    color: #f2f2f2;
+.home-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
 }
-@media (max-width: 800px){
-  .home-page-cont{
+@media (max-width: 800px) {
+  .home-page-cont {
     width: 85vw;
   }
 }
 /* HomePage CSS End*/
 
 /* TopAbtMe */
-.top-abt-links{
+.top-abt-links {
   font-size: xx-large;
   margin: 10px;
 }
-.top-abt-links a{
+.top-abt-links a {
   margin: 5px;
 }
 /* TopAbtMe End*/
 
 /* Spotify Start*/
-.spotify-cont{
+.spotify-cont {
   display: flex;
   flex-direction: row;
 }
-.spotify-logo{
+.spotify-logo {
   float: left;
   width: 25%;
   padding: 10px;
 }
-.spotify-track{
+.spotify-track {
   float: right;
   width: 75%;
   padding: 15px;
@@ -146,7 +153,7 @@ nav.navbar {
 /*Techs End*/
 
 /* Project CSS Start*/
-.projects{
+.projects {
   margin-bottom: 20px;
 }
 .project-cards-container {
@@ -155,7 +162,7 @@ nav.navbar {
   align-items: center;
   flex-direction: column;
 }
-.project-card{
+.project-card {
   width: 55vw;
   left: 50%;
   transform: translate(0%, 0%);
@@ -167,50 +174,101 @@ nav.navbar {
   background-color: #181818;
   border-radius: 10px;
 }
-.project-card-img{
+.project-card-img {
   float: left;
   width: 10%;
   padding: 10px;
 }
-.project-card-img img{
+.project-card-img img {
   width: 100%;
   border-radius: 10px;
 }
-.project-card-text{
+.project-card-text {
   float: right;
   width: 90%;
   padding: 10px;
 }
-.project-card-text p{
+.project-card-text p {
   margin-top: 0;
 }
-.project-lang p{
+.project-lang p {
   color: #818181;
   font-size: medium;
   margin: 10px;
   margin-left: 0;
 }
-@media (max-width :800px){
-  .project-card{
+@media (max-width: 800px) {
+  .project-card {
     width: 80vw;
   }
 }
-@media (max-width: 500px){
-  .project-card{
+@media (max-width: 500px) {
+  .project-card {
     width: 80vw;
     display: flex;
     flex-direction: column;
   }
-  .project-card-img{
+  .project-card-img {
     width: 25%;
     padding: 10px;
   }
-  .project-card-text{
+  .project-card-text {
     width: 100%;
     padding: 10px;
   }
 }
 /* Project CSS End */
+
+/*Github start*/
+.gh-repo-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.github-repo {
+  width: 50vw;
+  height: 150px;
+  margin: 10px;
+  background-color: #181818;
+  position: relative;
+  padding-right: 10px;
+  border-radius: 10px;
+}
+.repo-header {
+  position: relative;
+  font-size: larger;
+  font-weight: 500;
+  top: 10px;
+  left: 10px;
+}
+.repo-description {
+  position: relative;
+  left: 10px;
+  top: -5px;
+}
+.repo-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.repo-language {
+  margin-right: 5px;
+}
+.repo-forks {
+  margin-right: 5px;
+}
+@media (max-width: 800px) {
+  .github-repo {
+    width: 80vw;
+  }
+}
+/*GitHub End*/
 
 /*Footer Start*/
 footer {
@@ -228,7 +286,7 @@ footer {
   float: right;
   padding: 15px;
 }
-.right a{
+.right a {
   margin-right: 10px;
   font-size: xx-large;
 }
@@ -238,7 +296,8 @@ footer {
     padding: 10px;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: 0 0 100%;
     margin-bottom: 10px;
   }
@@ -248,5 +307,9 @@ footer {
 /*Webkit Style Start*/
 ::-webkit-scrollbar {
   display: none;
+}
+::selection {
+  color: #181818;
+  background: #dbb3fe;
 }
 /*Webkit Style End*/

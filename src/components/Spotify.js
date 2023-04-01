@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import getNowPlayingItem from '../APIs/SpotifyAPI'
 import { FaSpotify } from 'react-icons/fa'
 
-function SpotifyPlayer(props) {
+export function SpotifyPlayer(props) {
     const [result, setResult] = useState({})
 
     useEffect(() => {
@@ -47,5 +47,3 @@ function SpotifyPlayer(props) {
         </div>
     )
 }
-
-export default SpotifyPlayer

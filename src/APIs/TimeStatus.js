@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 
-const TimeStatus = () => {
+export const TimeStatus = () => {
     const [time, setTime] = useState('00:00:00 p.m.')
     const [awake, setAwake] = useState(true)
 
@@ -26,5 +26,3 @@ const TimeStatus = () => {
         </div>
     )
 }
-
-export default TimeStatus

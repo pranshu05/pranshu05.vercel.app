@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Discord = () => {
+export const Discord = () => {
     const [data, setData] = useState('')
     useEffect(() => {
         axios
@@ -24,5 +24,3 @@ const Discord = () => {
         </p>
     )
 }
-
-export default Discord

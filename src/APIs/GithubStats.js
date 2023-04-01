@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const GithubStats = ({ username }) => {
+export const GithubStats = ({ username }) => {
     const [reposData, setReposData] = useState([])
     const [userData, setUserData] = useState({})
     const [totalStars, setTotalStars] = useState(0)
@@ -43,13 +43,11 @@ const GithubStats = ({ username }) => {
                 skills and experience, I have made many repos on my{' '}
                 <a href="https://github.com/pranshu05">GitHub</a>. I have a
                 total of{' '}
-                <mark class="highlight">{totalFollowers} followers</mark>, and
-                my repositories have earned a total of{' '}
-                <mark class="highlight">{totalStars} stars</mark> and{' '}
-                <mark class="highlight">{totalForks} forks</mark>.
+                <mark className="highlight">{totalFollowers} followers</mark>,
+                and my repositories have earned a total of{' '}
+                <mark className="highlight">{totalStars} stars</mark> and{' '}
+                <mark className="highlight">{totalForks} forks</mark>.
             </p>
         </div>
     )
 }
-
-export default GithubStats

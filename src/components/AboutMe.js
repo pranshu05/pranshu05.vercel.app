@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import SpotifyPlayer from './Spotify'
+import { SpotifyPlayer } from './Spotify'
 import { Tech } from './Technologies'
-import TimeStatus from '../APIs/TimeStatus'
-import Discord from '../APIs/Discord'
+import { TimeStatus } from '../APIs/TimeStatus'
+import { Discord } from '../APIs/Discord'
 import {
     FaGithub,
     FaLinkedin,

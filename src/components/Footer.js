@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaGithub, FaTwitter, FaLinkedin, FaDiscord } from 'react-icons/fa'
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <footer>
             <div className="left">
@@ -27,5 +27,3 @@ const Footer = () => {
         </footer>
     )
 }
-
-export default Footer
