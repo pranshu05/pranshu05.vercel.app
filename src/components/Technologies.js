@@ -10,65 +10,36 @@ import {
     FaReact,
 } from 'react-icons/fa'
 
+const TechItem = ({ icon, text }) => {
+    const Icon = icon
+    return (
+        <div className="techs-cont">
+            <div className="techs-icon">
+                <Icon />
+            </div>
+            <div className="techs-text">{text}</div>
+        </div>
+    )
+}
+
 export const Tech = () => {
+    const techs = [
+        { icon: FaJs, text: 'JavaScript' },
+        { icon: FaReact, text: 'React' },
+        { icon: FaNode, text: 'Node' },
+        { icon: FaHtml5, text: 'HTML' },
+        { icon: FaCss3, text: 'CSS' },
+        { icon: FaJava, text: 'Java' },
+        { icon: FaPython, text: 'Python' },
+        { icon: FaGithub, text: 'GitHub' },
+        { icon: FaGit, text: 'Git' },
+    ]
     return (
         <div className="techs" id="techs">
-            {/* here techs = skills */}
             <h1>Skills ⚡️</h1>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaJs />
-                </div>
-                <div className="techs-text">JavaScript</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaReact />
-                </div>
-                <div className="techs-text">React</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaNode />
-                </div>
-                <div className="techs-text">Node</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaHtml5 />
-                </div>
-                <div className="techs-text">HTML</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaCss3 />
-                </div>
-                <div className="techs-text">CSS</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaJava />
-                </div>
-                <div className="techs-text">Java</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaPython />
-                </div>
-                <div className="techs-text">Python</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaGithub />
-                </div>
-                <div className="techs-text">GitHub</div>
-            </div>
-            <div className="techs-cont">
-                <div className="techs-icon">
-                    <FaGit />
-                </div>
-                <div className="techs-text">Git</div>
-            </div>
+            {techs.map((tech) => (
+                <TechItem icon={tech.icon} text={tech.text} key={tech.text} />
+            ))}
         </div>
     )
 }
