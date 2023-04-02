@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import getNowPlayingItem from '../APIs/SpotifyAPI'
-import { FaSpotify } from 'react-icons/fa'
 
 export function SpotifyPlayer(props) {
     const [result, setResult] = useState({})
@@ -41,9 +40,6 @@ export function SpotifyPlayer(props) {
         <div className="nowplaying">
             <h2>My music room 🎧</h2>
             <div className="spotify-cont">
-                <div className="spotify-logo">
-                    <FaSpotify fontSize="xx-large" color="#dbb3fe" />{' '}
-                </div>
                 <div className="spotify-track">
                     <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
                         Not listening to Spotify rn!

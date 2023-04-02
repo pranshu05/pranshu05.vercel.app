@@ -66,23 +66,15 @@ a:active {
 /* HomePage CSS End*/
 
 /* Spotify Start*/
-.spotify-cont {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-}
-.spotify-logo {
-  float: left;
-  width: 20%;
-  padding: 10px;
+.spotify-cont{
+  margin-top: 25px;
 }
 .spotify-track {
   display: flex;
   flex-direction: row;
-  float: right;
-  width: 80%;
-  padding: 15px;
   text-align: right;
+  font-size: larger;
+  font-weight: 500;
 }
 .song-info{
   display: flex;
@@ -109,6 +101,14 @@ a:active {
 .song-img img{
   width: 100%;
   border-radius: 5px;
+}
+@media (max-width: 600px){
+  .song-img{
+    width: 25%;
+  }
+  .song-info{
+    width: calc(75% - 10px);
+  }
 }
 /** Spotify End/
 
