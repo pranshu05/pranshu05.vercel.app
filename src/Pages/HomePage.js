@@ -1,4 +1,3 @@
-import { NavBar } from '../components/NavBar'
 import { Projects } from '../components/Projects'
 import { AboutMe } from '../components/AboutMe'
 import { Footer } from '../components/Footer'
@@ -8,7 +7,6 @@ import { Link } from 'react-router-dom'
 export const HomePage = () => {
     return (
         <div className="home-page-cont">
-            <NavBar />
             <AboutMe />
             <Projects />
             <GitHub />

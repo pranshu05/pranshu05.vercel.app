@@ -42,47 +42,6 @@ a:active {
 }
 /* Default CSS End*/
 
-/* Navbar CSS Start */
-nav.navbar {
-  position: relative;
-  top: -100px;
-  width: 100vw;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-  z-index: 9999;
-}
-nav.navbar .navbar-nav .nav-link.navbar-link {
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: 0.8px;
-  padding: 0 25px;
-  font-size: 18px;
-  opacity: 0.75;
-}
-nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
-nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-  opacity: 1;
-}
-nav.navbar.scrolled {
-  background-color: #181818;
-}
-span.navbar-text {
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 400px) {
-  nav.navbar .navbar-nav .nav-link.navbar-link {
-    font-size: medium;
-    letter-spacing: 0px;
-  }
-}
-
-/* Navbar CSS End */
-
 /* HomePage CSS Start*/
 .home-page-cont {
   width: 65vw;
