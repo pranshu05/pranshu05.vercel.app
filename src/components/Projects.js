@@ -1,4 +1,4 @@
-import GoLinkExternal from 'react-icons/go'
+import { GoLinkExternal } from 'react-icons/go'
 
 const ProjectCard = ({
     imgSrc,
