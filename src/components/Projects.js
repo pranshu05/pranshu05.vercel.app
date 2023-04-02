@@ -49,7 +49,7 @@ export const Projects = () => {
                     projectName="Dark Forest"
                     projectLangs="C#, Unity Engine"
                     projectDescription="Dark Forest is a fps game made with C# and Unity Engine."
-                    projectLink="https://itch.io/pranshu05/game"
+                    projectLink="https://itch.io/pranshu05/df"
                 />
                 <ProjectCard
                     imgSrc="https://images-ext-1.discordapp.net/external/onODAhJidPfekpmsRhD2NuUVhGwLvMVOOCk0HRAK8Go/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/1079000764204204052/637bfc2c6f484c9d9e753a0a0243541b.webp?width=616&height=616"
