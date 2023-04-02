@@ -318,6 +318,7 @@ span.navbar-text {
 .contact-page-cont h2{
   color: #818181;
   font-weight: 400;
+  text-decoration: line-through;
 }
 .contact-page-cont p {
   margin-top: 20px;
