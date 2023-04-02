@@ -9,14 +9,18 @@ const ProjectCard = ({
 }) => {
     return (
         <div className="project-card">
-            <a href={projectLink} target="_blank" rel="noopener noreferrer">
-                <div className="project-card-img">
-                    <img src={imgSrc} alt={projectName} />
-                </div>
-            </a>
+            <div className="project-card-img">
+                <img src={imgSrc} alt={projectName} />
+            </div>
             <div className="project-card-text">
                 <h2>
-                    {projectName} <GoLinkExternal />
+                    <a
+                        href={projectLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {projectName} <GoLinkExternal />
+                    </a>
                 </h2>
                 <div className="project-lang">
                     <p>{projectLangs}</p>
