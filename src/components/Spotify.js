@@ -21,9 +21,6 @@ export function SpotifyPlayer(props) {
         <div className="nowplaying">
             <h2>My music room 🎧</h2>
             <div className="spotify-cont">
-                <div className="spotify-logo">
-                    <FaSpotify fontSize="xx-large" color="#dbb3fe" />{' '}
-                </div>
                 <div className="spotify-track">
                     <a href={result.songUrl} target="_blank" rel="noreferrer">
                         <div className="song-img">

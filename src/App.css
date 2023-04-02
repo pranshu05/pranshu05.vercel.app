@@ -100,10 +100,10 @@ a:active {
 .song-info{
   display: flex;
   flex-direction: column;
-  float: left;
+  float: right;
   width: calc(85% - 10px);
-  text-align: right;
-  padding-right: 10px;
+  text-align: left;
+  padding-left: 10px;
 }
 .song-title{
   height: 75%;
@@ -112,12 +112,12 @@ a:active {
 }
 .song-artist{
   height: 25%;
-  position: relative;
-  bottom: 0%;
+  font-size: larger;
+  font-weight: 500;
 }
 .song-img{
   width: 15%;
-  float: right;
+  float: left;
 }
 .song-img img{
   width: 100%;
