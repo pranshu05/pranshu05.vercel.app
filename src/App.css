@@ -122,6 +122,7 @@ span.navbar-text {
 .spotify-cont {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 }
 .spotify-logo {
   float: left;
@@ -222,14 +223,15 @@ span.navbar-text {
 /*Github start*/
 .gh-repo-cont {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 100%; /* set the width of the parent container */
 }
 .github-repo {
-  width: 50vw;
+  width: calc(50% - 40px);
   height: 150px;
   margin: 10px;
   background-color: #181818;
@@ -263,9 +265,36 @@ span.navbar-text {
 .repo-forks {
   margin-right: 5px;
 }
-@media (max-width: 800px) {
+@media (max-width: 450px){
+  .gh-repo-cont{
+    flex-direction: column;
+  }
   .github-repo {
-    width: 80vw;
+    width: 95%;
+  }
+}
+@media (min-width: 450px) and (max-width: 600px) {
+  .gh-repo-cont{
+    flex-direction: column;
+  }
+  .github-repo {
+    width: 90%;
+  }
+}
+@media (min-width: 600px) and (max-width: 950px){
+  .gh-repo-cont{
+    flex-direction: column;
+  }
+  .github-repo {
+    width: 75%;
+  }
+}
+@media (min-width: 950px) and (max-width: 1150px){
+  .gh-repo-cont{
+    flex-direction: column;
+  }
+  .github-repo {
+    width: 65%;
   }
 }
 /*GitHub End*/

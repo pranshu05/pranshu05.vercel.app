@@ -38,6 +38,12 @@ export const Projects = () => {
                     projectLangs="C#, Unity Engine"
                     projectDescription="Dark Forest is a fps game made with C# and Unity Engine."
                 />
+                <ProjectCard
+                    imgSrc="https://images-ext-1.discordapp.net/external/onODAhJidPfekpmsRhD2NuUVhGwLvMVOOCk0HRAK8Go/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/1079000764204204052/637bfc2c6f484c9d9e753a0a0243541b.webp?width=616&height=616"
+                    projectName="Anti Ghost Ping"
+                    projectLangs="Node, discord.js, MongoDB"
+                    projectDescription="Powerful and open-source ghist ping setection bot. It can detect ghost pings in each and every channel of a server with a redirect message system!"
+                />
             </div>
         </div>
     )
