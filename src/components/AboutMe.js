@@ -3,13 +3,6 @@ import { SpotifyPlayer } from './Spotify'
 import { Tech } from './Technologies'
 import { TimeStatus } from '../APIs/TimeStatus'
 import { Discord } from '../APIs/Discord'
-import {
-    FaGithub,
-    FaLinkedin,
-    FaYoutube,
-    FaDiscord,
-    FaTwitter,
-} from 'react-icons/fa'
 
 export const AboutMe = () => {
     const [temp, setTemp] = useState(null)
@@ -40,23 +33,6 @@ export const AboutMe = () => {
             <TimeStatus />
             <Discord />
             <br />
-            <div className="top-abt-links">
-                <a href="https://github.com/pranshu05">
-                    <FaGithub />
-                </a>
-                <a href="https://twitter.com/pranshu_05">
-                    <FaTwitter />
-                </a>
-                <a href="https://linkedin.com/in/pranshu05">
-                    <FaLinkedin />
-                </a>
-                <a href="https://discord.gg/aGrgpT8nmZ">
-                    <FaDiscord />
-                </a>
-                <a href="https://www.youtube.com/channel/UCvxmP7_IDK5vPrCuNOLj_ag">
-                    <FaYoutube />
-                </a>
-            </div>
             <SpotifyPlayer />
             <br />
             <h1>What Do I Do 💭</h1>

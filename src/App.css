@@ -19,12 +19,10 @@ body {
   padding: 0;
   transition: 0.32s ease-in-out;
 }
-
 .highlight {
   background-color: #181818;
   color: #dbb3fe;
 }
-
 a,
 li,
 button,
@@ -32,7 +30,6 @@ ul {
   line-height: normal;
   text-decoration: none;
 }
-
 a:link,
 a:hover,
 a:visited,
@@ -67,16 +64,6 @@ a:active {
   }
 }
 /* HomePage CSS End*/
-
-/* TopAbtMe */
-.top-abt-links {
-  font-size: xx-large;
-  margin: 10px;
-}
-.top-abt-links a {
-  margin: 5px;
-}
-/* TopAbtMe End*/
 
 /* Spotify Start*/
 .spotify-cont {
@@ -123,7 +110,6 @@ a:active {
   width: 100%;
   border-radius: 5px;
 }
-
 /** Spotify End/
 
 /*Techs Start*/
@@ -334,11 +320,9 @@ footer {
   justify-content: space-between;
   margin-top: 20px;
 }
-
 .left {
   float: left;
 }
-
 .right {
   float: right;
   padding: 15px;
@@ -352,7 +336,6 @@ footer {
     flex-wrap: wrap;
     padding: 10px;
   }
-
   .left,
   .right {
     flex: 0 0 100%;
