@@ -48,7 +48,7 @@ a:active {
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
-  margin-top: 85px;
+  margin-top: 25px;
   padding: 20px;
   min-height: 500px;
 }
@@ -86,15 +86,44 @@ a:active {
 }
 .spotify-logo {
   float: left;
-  width: 25%;
+  width: 20%;
   padding: 10px;
 }
 .spotify-track {
+  display: flex;
+  flex-direction: row;
   float: right;
-  width: 75%;
+  width: 80%;
   padding: 15px;
   text-align: right;
 }
+.song-info{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: calc(85% - 10px);
+  text-align: right;
+  padding-right: 10px;
+}
+.song-title{
+  height: 75%;
+  font-size: x-large;
+  font-weight: 700;
+}
+.song-artist{
+  height: 25%;
+  position: relative;
+  bottom: 0%;
+}
+.song-img{
+  width: 15%;
+  float: right;
+}
+.song-img img{
+  width: 100%;
+  border-radius: 5px;
+}
+
 /** Spotify End/
 
 /*Techs Start*/

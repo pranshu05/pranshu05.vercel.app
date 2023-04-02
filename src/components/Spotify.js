@@ -25,8 +25,17 @@ export function SpotifyPlayer(props) {
                     <FaSpotify fontSize="xx-large" color="#dbb3fe" />{' '}
                 </div>
                 <div className="spotify-track">
-                    <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
-                        listening to {result.title} by {result.artist}
+                    <a href={result.songUrl} target="_blank" rel="noreferrer">
+                        <div className="song-img">
+                            <img
+                                src={result.albumImageUrl}
+                                alt={`Album cover for ${result.title}`}
+                            />
+                        </div>
+                        <span className="song-info">
+                            <span className="song-title">{result.title}</span>
+                            <span className="song-artist">{result.artist}</span>
+                        </span>
                     </a>
                 </div>
             </div>
