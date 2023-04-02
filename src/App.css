@@ -44,7 +44,8 @@ a:active {
 
 /* Navbar CSS Start */
 nav.navbar {
-  position: fixed;
+  position: relative;
+  top: -100px;
   width: 100vw;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -298,6 +299,44 @@ span.navbar-text {
   }
 }
 /*GitHub End*/
+
+/*Contact Page Start*/
+.contact-page-cont {
+  width: 65vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  margin-top: 85px;
+  padding: 20px;
+  min-height: 500px;
+}
+.contact-page-cont h1 {
+  font-size: 200%;
+  font-weight: 900;
+  margin: 10px;
+}
+.contact-page-cont h2{
+  color: #818181;
+  font-weight: 400;
+}
+.contact-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
+}
+.go-back-home{
+  font-size: larger;
+  color: #818181;
+}
+@media (max-width: 800px) {
+  .contact-page-cont {
+    width: 85vw;
+  }
+}
+.contact-redirect-heading{
+  text-align: center;
+}
+/*Contact Page End*/
 
 /*Footer Start*/
 footer {
