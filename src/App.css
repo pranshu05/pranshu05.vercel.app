@@ -75,6 +75,7 @@ a:active {
   text-align: right;
   font-size: larger;
   font-weight: 500;
+  position: relative;
 }
 .song-info{
   display: flex;
@@ -85,14 +86,12 @@ a:active {
   padding-left: 10px;
 }
 .song-title{
-  height: 75%;
   font-size: x-large;
   font-weight: 700;
 }
 .song-artist{
-  height: 25%;
   font-size: larger;
-  font-weight: 500;
+  font-weight: 300;
 }
 .song-img{
   width: 15%;
@@ -102,6 +101,7 @@ a:active {
   width: 100%;
   border-radius: 5px;
 }
+
 @media (max-width: 600px){
   .song-img{
     width: 25%;
