@@ -35,6 +35,8 @@ export const Quote = () => {
             })
     }, [])
 
+    if (!verse || !chapter || !verseNumber) return <div>loading...</div>
+
     return (
         <div className="gita-quote">
             <img
