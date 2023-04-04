@@ -44,7 +44,7 @@ export const Quote = () => {
             />
             <h3 className="quote-text">{verse}</h3>
             <h4 className="quote-auth">
-                ~ Bhagavad Gita {chapter}:{verseNumber}
+                ~ Bhagavad Gita {chapter} : {verseNumber}
             </h4>
         </div>
     )
