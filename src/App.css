@@ -274,6 +274,27 @@ a:active {
 }
 /*GitHub End*/
 
+/*Quote CSS start*/
+.gita-quote{
+  margin-top: 25px;
+  background-color: #181818;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.quote-text{
+  margin-top: 10px;
+}
+.quote-auth{
+  margin-top: 20px;
+}
+.gita-img{
+  width:75%;
+  margin: 10px;
+  border-radius: 10px;
+}
+/*Quote End*/
+
 /*Contact Page Start*/
 .contact-page-cont {
   width: 65vw;
