@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { DiscordStatus } from '../APIs/DiscordStatusAPI'
 
 export function Contact() {
     return (
@@ -20,6 +21,8 @@ export function Contact() {
                     pranshu05patel@gmail.com
                 </a>{' '}
             </p>
+            <DiscordStatus />
+            <br />
         </div>
     )
 }

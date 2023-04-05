@@ -1,5 +1,4 @@
 import { Tech } from './Technologies'
-import { DiscordStatus } from '../APIs/DiscordStatusAPI'
 
 export const AboutMe = () => {
     return (
@@ -11,7 +10,6 @@ export const AboutMe = () => {
                 <a href="https://discord.js.org/#/">discord.js</a> and web
                 development.
             </p>
-            <DiscordStatus />
             <br />
             <h2>What Do I Do 💭</h2>
             <p>

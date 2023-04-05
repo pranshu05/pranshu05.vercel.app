@@ -28,42 +28,53 @@ export const Home = () => {
 
     return (
         <div className="home">
-            <h1 style={{ fontSize: '400%' }} class="moving-gradient">
-                Pranshu
-            </h1>
-            <h3 style={{ color: '#818181' }}>
-                FullStack Developer based in India, He/Him
-            </h3>
-            <div className="top-abt-links">
-                <a href="https://github.com/pranshu05">
-                    <FaGithub />
-                </a>
-                <a href="https://twitter.com/pranshu_05">
-                    <FaTwitter />
-                </a>
-                <a href="https://linkedin.com/in/pranshu05">
-                    <FaLinkedin />
-                </a>
-                <a href="https://discord.gg/aGrgpT8nmZ">
-                    <FaDiscord />
-                </a>
-                <a href="https://www.youtube.com/channel/UCvxmP7_IDK5vPrCuNOLj_ag">
-                    <FaYoutube />
-                </a>
+            <div className="home-left">
+                <h1 style={{ fontSize: '400%' }} class="moving-gradient">
+                    Pranshu
+                </h1>
+                <h3 style={{ color: '#818181' }}>
+                    FullStack Developer based in India, He/Him
+                </h3>
+                <div className="top-abt-links">
+                    <a href="https://github.com/pranshu05">
+                        <FaGithub />
+                    </a>
+                    <a href="https://twitter.com/pranshu_05">
+                        <FaTwitter />
+                    </a>
+                    <a href="https://linkedin.com/in/pranshu05">
+                        <FaLinkedin />
+                    </a>
+                    <a href="https://discord.gg/aGrgpT8nmZ">
+                        <FaDiscord />
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCvxmP7_IDK5vPrCuNOLj_ag">
+                        <FaYoutube />
+                    </a>
+                </div>
+                <TimeStatus />
+                <p>
+                    {getWeatherIcon(weather)} Currently{' '}
+                    <strong>{temp !== null ? temp : 'Loading...'} °C </strong>(
+                    {weather !== null ? weather : 'Loading...'}) in{' '}
+                    <strong>Gandhinagar.</strong>
+                </p>
+                <br />
+                <SpotifyPlayer />
+                <br />
+                <h2>
+                    know more <Link to="/about">About Me</Link>
+                </h2>
             </div>
-            <TimeStatus />
-            <p>
-                {getWeatherIcon(weather)} Currently{' '}
-                <strong>{temp !== null ? temp : 'Loading...'} °C </strong>(
-                {weather !== null ? weather : 'Loading...'}) in{' '}
-                <strong>Gandhinagar.</strong>
-            </p>
-            <br />
-            <SpotifyPlayer />
-            <br />
-            <h2>
-                know more <Link to="/about">About Me</Link>
-            </h2>
+            <div className="home-right">
+                <details>
+                    <summary>Don't click this!!</summary>
+                    <img
+                        src="https://media.tenor.com/_4YgA77ExHEAAAAd/rick-roll.gif"
+                        alt="idk"
+                    ></img>
+                </details>
+            </div>
         </div>
     )
 }

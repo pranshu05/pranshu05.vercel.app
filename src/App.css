@@ -88,8 +88,10 @@ span.navbar-text {
   min-height: 500px;
 }
 .home-page-cont h1 {
-  font-size: 300%;
+  font-size: 400%;
   font-weight: 900;
+  margin: 10px;
+  margin-left: 0;
 }
 .moving-gradient {
   background: linear-gradient(-45deg, #8b5cf6, #d782e7, #ffc8dd, #bfe9ff);
@@ -98,7 +100,6 @@ span.navbar-text {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -115,9 +116,34 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
+.home{
+  display: flex;
+  align-items: center;
+}
+.home-left{
+  width: 60%;
+  float: left;
+}
+.home-right{
+  width: 40%;
+  float: right;
+}
+.home-right img{
+  width: 95%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
 @media (max-width: 800px) {
   .home-page-cont {
     width: 85vw;
+  }
+}
+@media (max-width: 1200px){
+  .home-left{
+    width: 100%;
+  }
+  .home-right{
+    display: none;
   }
 }
 .top-abt-links {
@@ -144,8 +170,9 @@ span.navbar-text {
   border-radius: 10px;
 }
 .about-me-page-cont h1 {
-  font-size: 300%;
+  font-size: 200%;
   font-weight: 900;
+  margin: 10px;
 }
 .about-me-page-cont p {
   margin-top: 20px;
@@ -160,9 +187,6 @@ span.navbar-text {
 /* AboutMePage CSS End*/
 
 /* Spotify Start*/
-.spotify-cont {
-  margin-top: 25px;
-}
 .spotify-track {
   display: flex;
   flex-direction: row;
@@ -400,7 +424,7 @@ span.navbar-text {
   min-height: 500px;
 }
 .contact-page-cont h1 {
-  font-size: 300%;
+  font-size: 200%;
   font-weight: 900;
   margin: 10px;
 }
