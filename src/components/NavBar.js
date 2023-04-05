@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const NavBar = () => {
     const location = useLocation()
@@ -36,7 +37,8 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link
-                            href="/"
+                            as={Link}
+                            to="/"
                             className={
                                 activeLink === 'home'
                                     ? 'active navbar-link'
@@ -47,7 +49,8 @@ export const NavBar = () => {
                             Home
                         </Nav.Link>
                         <Nav.Link
-                            href="/about"
+                            as={Link}
+                            to="/about"
                             className={
                                 activeLink === 'about'
                                     ? 'active navbar-link'
@@ -58,7 +61,8 @@ export const NavBar = () => {
                             About
                         </Nav.Link>
                         <Nav.Link
-                            href="/contact"
+                            as={Link}
+                            to="/contact"
                             className={
                                 activeLink === 'contact'
                                     ? 'active navbar-link'
