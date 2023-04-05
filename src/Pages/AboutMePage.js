@@ -11,6 +11,9 @@ export const AboutMePage = () => {
         <div>
             <NavBar />
             <div className="about-me-page-cont">
+                <p className="go-back-home">
+                    &larr; Go back <Link to="/">home.</Link>
+                </p>
                 <h1>About</h1>
                 <img
                     src="https://user-images.githubusercontent.com/70943732/229968644-a98f6144-2a8d-4fed-bf11-655ac1f84fa6.png"

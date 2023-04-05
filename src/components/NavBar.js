@@ -58,7 +58,7 @@ export const NavBar = () => {
                             }
                             onClick={() => setActiveLink('about')}
                         >
-                            About
+                            About Me
                         </Nav.Link>
                         <Nav.Link
                             as={Link}
