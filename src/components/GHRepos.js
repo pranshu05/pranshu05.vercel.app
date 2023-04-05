@@ -1,5 +1,5 @@
 import React from 'react'
-import { GithubRepo } from '../APIs/GithubRepos'
+import { GithubRepo } from '../APIs/GithubRepoAPI'
 
 export const GHRepos = () => {
     const repos = [

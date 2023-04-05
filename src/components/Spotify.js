@@ -18,7 +18,6 @@ export function SpotifyPlayer(props) {
 
     return result.isPlaying ? (
         <div className="nowplaying">
-            <h1>My music room 🎧</h1>
             <div className="spotify-cont">
                 <div className="spotify-track">
                     <a href={result.songUrl} target="_blank" rel="noreferrer">
@@ -38,7 +37,6 @@ export function SpotifyPlayer(props) {
         </div>
     ) : (
         <div className="nowplaying">
-            <h1>My music room 🎧</h1>
             <div className="spotify-cont">
                 <div className="spotify-track">
                     <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">

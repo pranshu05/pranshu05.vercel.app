@@ -39,19 +39,76 @@ a:active {
 }
 /* Default CSS End*/
 
+nav.navbar {
+  position: fixed;
+  width: 100vw;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  z-index: 9999;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+  opacity: 1;
+}
+nav.navbar.scrolled {
+  background-color: #181818;
+}
+span.navbar-text {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 400px) {
+  nav.navbar .navbar-nav .nav-link.navbar-link {
+    font-size: medium;
+    letter-spacing: 0px;
+  }
+}
+
+/* Navbar CSS End */
+
 /* HomePage CSS Start*/
 .home-page-cont {
   width: 65vw;
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
-  margin-top: 25px;
+  margin-top: 85px;
   padding: 20px;
   min-height: 500px;
 }
 .home-page-cont h1 {
-  font-size: 200%;
+  font-size: 300%;
   font-weight: 900;
+}
+.moving-gradient {
+  background: linear-gradient(-45deg, #8b5cf6, #d782e7, #ffc8dd, #bfe9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .home-page-cont p {
   margin-top: 20px;
@@ -63,10 +120,47 @@ a:active {
     width: 85vw;
   }
 }
+.top-abt-links {
+  font-size: xx-large;
+  margin: 10px;
+}
+.top-abt-links a {
+  margin: 5px;
+}
 /* HomePage CSS End*/
 
+/* AboutMePage CSS Start*/
+.about-me-page-cont {
+  width: 65vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  margin-top: 85px;
+  padding: 20px;
+  min-height: 500px;
+}
+.about-me-page-cont img {
+  width: 100%;
+  border-radius: 10px;
+}
+.about-me-page-cont h1 {
+  font-size: 300%;
+  font-weight: 900;
+}
+.about-me-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
+}
+@media (max-width: 800px) {
+  .about-me-page-cont {
+    width: 85vw;
+  }
+}
+/* AboutMePage CSS End*/
+
 /* Spotify Start*/
-.spotify-cont{
+.spotify-cont {
   margin-top: 25px;
 }
 .spotify-track {
@@ -77,7 +171,7 @@ a:active {
   font-weight: 500;
   position: relative;
 }
-.song-info{
+.song-info {
   display: flex;
   flex-direction: column;
   float: right;
@@ -85,28 +179,28 @@ a:active {
   text-align: left;
   padding-left: 10px;
 }
-.song-title{
+.song-title {
   font-size: x-large;
   font-weight: 700;
 }
-.song-artist{
+.song-artist {
   font-size: larger;
   font-weight: 300;
 }
-.song-img{
+.song-img {
   width: 15%;
   float: left;
 }
-.song-img img{
+.song-img img {
   width: 100%;
   border-radius: 5px;
 }
 
-@media (max-width: 600px){
-  .song-img{
+@media (max-width: 600px) {
+  .song-img {
     width: 25%;
   }
-  .song-info{
+  .song-info {
     width: calc(75% - 10px);
   }
 }
@@ -240,8 +334,8 @@ a:active {
 .repo-forks {
   margin-right: 5px;
 }
-@media (max-width: 450px){
-  .gh-repo-cont{
+@media (max-width: 450px) {
+  .gh-repo-cont {
     flex-direction: column;
   }
   .github-repo {
@@ -249,23 +343,23 @@ a:active {
   }
 }
 @media (min-width: 450px) and (max-width: 600px) {
-  .gh-repo-cont{
+  .gh-repo-cont {
     flex-direction: column;
   }
   .github-repo {
     width: 90%;
   }
 }
-@media (min-width: 600px) and (max-width: 950px){
-  .gh-repo-cont{
+@media (min-width: 600px) and (max-width: 950px) {
+  .gh-repo-cont {
     flex-direction: column;
   }
   .github-repo {
     width: 75%;
   }
 }
-@media (min-width: 950px) and (max-width: 1150px){
-  .gh-repo-cont{
+@media (min-width: 950px) and (max-width: 1150px) {
+  .gh-repo-cont {
     flex-direction: column;
   }
   .github-repo {
@@ -275,21 +369,21 @@ a:active {
 /*GitHub End*/
 
 /*Quote CSS start*/
-.gita-quote{
+.gita-quote {
   margin-top: 25px;
   background-color: #181818;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
 }
-.quote-text{
+.quote-text {
   margin-top: 10px;
 }
-.quote-auth{
+.quote-auth {
   margin-top: 20px;
 }
-.gita-img{
-  width:85%;
+.gita-img {
+  width: 85%;
   margin: 10px;
   border-radius: 10px;
 }
@@ -306,11 +400,11 @@ a:active {
   min-height: 500px;
 }
 .contact-page-cont h1 {
-  font-size: 200%;
+  font-size: 300%;
   font-weight: 900;
   margin: 10px;
 }
-.contact-page-cont h2{
+.contact-page-cont h2 {
   color: #818181;
   font-weight: 400;
   text-decoration: line-through;
@@ -320,7 +414,7 @@ a:active {
   font-size: large;
   color: #f2f2f2;
 }
-.go-back-home{
+.go-back-home {
   font-size: larger;
   color: #818181;
 }
@@ -329,7 +423,7 @@ a:active {
     width: 85vw;
   }
 }
-.contact-redirect-heading{
+.contact-redirect-heading {
   text-align: center;
 }
 /*Contact Page End*/

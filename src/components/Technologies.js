@@ -36,7 +36,7 @@ export const Tech = () => {
     ]
     return (
         <div className="techs" id="techs">
-            <h1>Skills ⚡️</h1>
+            <h2>Skills ⚡️</h2>
             <br />
             {techs.map((tech) => (
                 <TechItem icon={tech.icon} text={tech.text} key={tech.text} />

@@ -1,41 +1,19 @@
-import { useState, useEffect } from 'react'
-import { SpotifyPlayer } from './Spotify'
 import { Tech } from './Technologies'
-import { TimeStatus } from '../APIs/TimeStatus'
-import { Discord } from '../APIs/Discord'
+import { DiscordStatus } from '../APIs/DiscordStatusAPI'
 
 export const AboutMe = () => {
-    const [temp, setTemp] = useState(null)
-    const [weather, setWeather] = useState(null)
-
-    useEffect(() => {
-        fetch(
-            'http://api.weatherapi.com/v1/current.json?key=c39ef2dad5e24511884124359232903&q=Gandhinagar&aqi=no'
-        )
-            .then((response) => response.json())
-            .then((results) => {
-                setTemp(results.current.temp_c)
-                setWeather(results.current.condition.text)
-            })
-    }, [])
-
     return (
         <div className="about-me" id="about-me">
-            <h1> Hi! I'm Pranshu ✌️</h1>
+            <h2> Hi! I'm Pranshu ✌️</h2>
             <p>
-                I am a developer and high-school student based in India. I
+                I am a 17y/0 developer and high-school student based in India. I
                 specialize in creating discord bots using{' '}
                 <a href="https://discord.js.org/#/">discord.js</a> and web
-                development. At the moment, the weather is ☁️{' '}
-                {weather !== null ? weather : 'Loading...'} & 🌡️{' '}
-                {temp !== null ? temp : 'Loading...'} °C out here.
+                development.
             </p>
-            <TimeStatus />
-            <Discord />
+            <DiscordStatus />
             <br />
-            <SpotifyPlayer />
-            <br />
-            <h1>What Do I Do 💭</h1>
+            <h2>What Do I Do 💭</h2>
             <p>
                 I am passionate about everything related to technology,
                 including designing and developing software, understanding the

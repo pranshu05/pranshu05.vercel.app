@@ -34,7 +34,7 @@ const ProjectCard = ({
 export const Projects = () => {
     return (
         <div className="projects" id="projects">
-            <h1>Projects 🛠️</h1>
+            <h2>Projects 🛠️</h2>
             <p>I've listed some of my projects below 👇</p>
             <div className="project-cards-container">
                 <ProjectCard
