@@ -10,12 +10,8 @@ export const GithubRepo = ({ repoName }) => {
                 const response = await fetch(
                     `https://api.github.com/repos/${repoName}`
                 )
-                if (response.status === 403) {
-                    throw new Error('Unauthorized')
-                } else {
-                    const data = await response.json()
-                    setRepoInfo(data)
-                }
+                const data = await response.json()
+                setRepoInfo(data)
             } catch (error) {
                 console.error(error)
                 // handle the error here, for example by setting an error state
