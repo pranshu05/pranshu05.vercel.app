@@ -6,16 +6,32 @@ export const GithubRepo = ({ repoName }) => {
 
     useEffect(() => {
         const fetchRepoInfo = async () => {
-            const response = await fetch(
-                `https://api.github.com/repos/${repoName}`
-            )
-            const data = await response.json()
-            setRepoInfo(data)
+            try {
+                const response = await fetch(
+                    `https://api.github.com/repos/${repoName}`
+                )
+                if (response.status === 403) {
+                    throw new Error('Unauthorized')
+                } else {
+                    const data = await response.json()
+                    setRepoInfo(data)
+                }
+            } catch (error) {
+                console.error(error)
+                // handle the error here, for example by setting an error state
+                setRepoInfo('403 err')
+            }
         }
         fetchRepoInfo()
     }, [repoName])
 
-    if (!repoInfo) return <div>Loading...</div>
+    if (repoInfo === '403 err') {
+        return <div>Unauthorized (403 Error)</div>
+    }
+
+    if (!repoInfo) {
+        return <div>Loading...</div>
+    }
 
     const {
         name,
