@@ -2,6 +2,21 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+export const getDiscordStatusIcon = (data) => {
+    switch (data?.discord_status) {
+        case 'online':
+            return <span className="dot online" title="online"></span>
+        case 'idle':
+            return <span className="dot idle" title="idle"></span>
+        case 'dnd':
+            return <span className="dot dnd" title="dnd"></span>
+        case 'offline':
+            return <span className="dot offline" title="offline"></span>
+        default:
+            return null
+    }
+}
+
 export const DiscordStatus = () => {
     const [data, setData] = useState('')
     useEffect(() => {
@@ -17,10 +32,10 @@ export const DiscordStatus = () => {
 
     return (
         <p>
-            I'm currently {data.data?.discord_status} on{' '}
             <a href="https://discordapp.com/users/754381104034742415">
-                Discord.
+                Pranshu05#4726
             </a>
+            {getDiscordStatusIcon(data.data)}
         </p>
     )
 }

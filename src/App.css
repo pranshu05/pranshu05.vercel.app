@@ -442,6 +442,38 @@ span.navbar-text {
   font-size: larger;
   color: #818181;
 }
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: blink 1.5s ease-in-out infinite;
+  margin-left: 5px;
+}
+@keyframes blink {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: inherit;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+.online {
+  background-color: #22a55b;
+}
+.idle {
+  background-color: #f0b232;
+}
+.dnd {
+  background-color: #f23f43;
+}
+.offline {
+  background-color: #81848f;
+}
 @media (max-width: 800px) {
   .contact-page-cont {
     width: 85vw;
