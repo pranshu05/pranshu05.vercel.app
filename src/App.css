@@ -62,7 +62,11 @@ nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
 }
 nav.navbar.scrolled {
-  background-color: #181818;
+  background: rgba(24, 24, 24, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.4px);
+  -webkit-backdrop-filter: blur(7.4px);
+  border: 1px solid rgba(24, 24, 24, 0.3);
 }
 span.navbar-text {
   display: flex;
