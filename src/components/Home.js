@@ -65,6 +65,12 @@ export const Home = () => {
                 <h2>
                     know more <Link to="/about">About Me</Link>
                 </h2>
+                <br />
+                <details>
+                    <summary>More stuff!!</summary>
+                    <br />
+                    <Link to="/gallery">My photography</Link>
+                </details>
             </div>
             <div className="home-right">
                 <details>

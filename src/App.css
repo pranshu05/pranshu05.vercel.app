@@ -74,7 +74,6 @@ span.navbar-text {
     letter-spacing: 0px;
   }
 }
-
 /* Navbar CSS End */
 
 /* HomePage CSS Start*/
@@ -116,19 +115,19 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
-.home{
+.home {
   display: flex;
   align-items: center;
 }
-.home-left{
+.home-left {
   width: 60%;
   float: left;
 }
-.home-right{
+.home-right {
   width: 40%;
   float: right;
 }
-.home-right img{
+.home-right img {
   width: 95%;
   margin-top: 10px;
   border-radius: 10px;
@@ -138,11 +137,11 @@ span.navbar-text {
     width: 85vw;
   }
 }
-@media (max-width: 1200px){
-  .home-left{
+@media (max-width: 1200px) {
+  .home-left {
     width: 100%;
   }
-  .home-right{
+  .home-right {
     display: none;
   }
 }
@@ -154,6 +153,43 @@ span.navbar-text {
   margin: 5px;
 }
 /* HomePage CSS End*/
+
+/*Gallery Start*/
+.gallery-page-cont {
+  width: 85vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  margin-top: 85px;
+  padding: 20px;
+  min-height: 500px;
+}
+.gallery-page-cont h1 {
+  font-size: 200%;
+  font-weight: 900;
+  margin: 10px;
+}
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.image-card {
+  margin: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.image-card img {
+  height: 300px;
+  border-radius: 10px;
+}
+.image-location {
+  font-family: "Times New Roman", Times, serif;
+  padding-top: 5px;
+  font-size: 14px;
+  color: #818181;
+}
+/*Gallery End*/
 
 /* AboutMePage CSS Start*/
 .about-me-page-cont {
@@ -219,7 +255,6 @@ span.navbar-text {
   width: 100%;
   border-radius: 5px;
 }
-
 @media (max-width: 600px) {
   .song-img {
     width: 25%;
