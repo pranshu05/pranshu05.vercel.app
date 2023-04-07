@@ -88,7 +88,6 @@ span.navbar-text {
   position: absolute;
   margin-top: 85px;
   padding: 20px;
-  min-height: 500px;
 }
 .home-page-cont h1 {
   font-size: 400%;
@@ -160,13 +159,11 @@ span.navbar-text {
 
 /*Gallery Start*/
 .gallery-page-cont {
-  width: 85vw;
+  width: 95vw;
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
-  margin-top: 85px;
   padding: 20px;
-  min-height: 500px;
 }
 .gallery-page-cont h1 {
   font-size: 200%;
@@ -203,7 +200,6 @@ span.navbar-text {
   position: absolute;
   margin-top: 85px;
   padding: 20px;
-  min-height: 500px;
 }
 .about-me-page-cont img {
   width: 100%;
@@ -455,7 +451,6 @@ span.navbar-text {
   position: absolute;
   margin-top: 85px;
   padding: 20px;
-  min-height: 500px;
 }
 .contact-page-cont h1 {
   font-size: 200%;
