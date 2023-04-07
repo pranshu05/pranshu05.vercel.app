@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { DiscordStatus } from '../APIs/DiscordStatusAPI'
+import ContactForm from '../components/ContactForm'
 
 export function Contact() {
     return (
@@ -13,14 +14,8 @@ export function Contact() {
                 Fill out this form and I'll get back to you as soon as possible!
             </h2>
             <br />
+            <ContactForm />
             <br />
-            <p>
-                Sorry. Contact form is currently disabled.
-                <br /> Get in touch via{' '}
-                <a href="mailto:pranshu05patel@gmail.com">
-                    pranshu05patel@gmail.com
-                </a>{' '}
-            </p>
             <DiscordStatus />
             <br />
         </div>
