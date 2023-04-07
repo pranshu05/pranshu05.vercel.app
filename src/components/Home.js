@@ -62,10 +62,6 @@ export const Home = () => {
                 <br />
                 <SpotifyPlayer />
                 <br />
-                <h2>
-                    know more <Link to="/about">About Me</Link>
-                </h2>
-                <br />
                 <details>
                     <summary>More stuff!!</summary>
                     <br />
