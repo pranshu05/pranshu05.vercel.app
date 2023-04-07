@@ -5,10 +5,12 @@ export const AboutMe = () => {
         <div className="about-me" id="about-me">
             <h2> Hi! I'm Pranshu ✌️</h2>
             <p>
-                I am a 17y/0 developer and high-school student based in India. I
-                specialize in creating discord bots using{' '}
-                <a href="https://discord.js.org/#/">discord.js</a> and web
-                development.
+                I am a 17 y/o high school student and self-taught developer
+                based in India. During the COVID lockdown when I was 14, I began
+                programming and have since gained expertise in creating Discord
+                bots using <a href="https://discord.js.org/#/">discord.js</a> as
+                well as web development. I have learned various programming
+                languages along the way.
             </p>
             <br />
             <h2>What Do I Do 💭</h2>
