@@ -39,6 +39,7 @@ a:active {
 }
 /* Default CSS End*/
 
+/*Nav Start*/
 nav.navbar {
   position: fixed;
   width: 100vw;
@@ -205,38 +206,34 @@ span.navbar-text {
   font-size: larger;
   font-weight: 500;
   position: relative;
+  background: #181818;
+  border-radius: 10px;
+  max-width: 500px;
+  padding: 10px;
 }
 .song-info {
   display: flex;
   flex-direction: column;
   float: right;
-  width: calc(85% - 10px);
+  width: calc(75% - 10px);
   text-align: left;
   padding-left: 10px;
 }
 .song-title {
-  font-size: x-large;
+  font-size: larger;
   font-weight: 700;
 }
 .song-artist {
-  font-size: larger;
+  font-size: large;
   font-weight: 300;
 }
 .song-img {
-  width: 15%;
+  width: 25%;
   float: left;
 }
 .song-img img {
   width: 100%;
   border-radius: 5px;
-}
-@media (max-width: 600px) {
-  .song-img {
-    width: 25%;
-  }
-  .song-info {
-    width: calc(75% - 10px);
-  }
 }
 /** Spotify End/
 
@@ -461,16 +458,15 @@ span.navbar-text {
   min-height: 100px;
 }
 .contact-form button[type='submit'] {
-  padding: 0.5rem 1rem;
+  width: 100px;
+  margin-top: 10px;
+  padding: 10px;
   background-color: #181818;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-}
-.contact-form button[type='submit']:hover {
-  background-color: #181818;
 }
 .go-back-home {
   font-size: larger;

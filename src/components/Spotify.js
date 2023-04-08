@@ -37,7 +37,7 @@ export function SpotifyPlayer(props) {
         </div>
     ) : (
         <div className="nowplaying">
-            <div className="spotify-cont">
+            <div className="spotify-cont" style={{ display: 'inline-flex' }}>
                 <div className="spotify-track">
                     <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
                         Not listening to Spotify rn!
