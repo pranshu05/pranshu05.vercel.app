@@ -37,6 +37,7 @@ function ContactForm() {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -46,6 +47,7 @@ function ContactForm() {
                         name="_replyto"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -54,17 +56,20 @@ function ContactForm() {
                         name="message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
+                        required
                     ></textarea>
                 </label>
                 {status === 'success' && (
                     <p>
-                        Thanks for contacting! Message submitted successfully!
+                        Thanks for contacting! Message submitted successfully!{' '}
+                        <br />
                     </p>
                 )}
                 {status === 'error' && (
                     <p>
                         There was an error submitting your form. Please try
                         again later.
+                        <br />
                     </p>
                 )}
                 <button type="submit">Submit</button>
