@@ -118,34 +118,9 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
-.home {
-  display: flex;
-  align-items: center;
-}
-.home-left {
-  width: 60%;
-  float: left;
-}
-.home-right {
-  width: 40%;
-  float: right;
-}
-.home-right img {
-  width: 95%;
-  margin-top: 10px;
-  border-radius: 10px;
-}
 @media (max-width: 800px) {
   .home-page-cont {
     width: 85vw;
-  }
-}
-@media (max-width: 1200px) {
-  .home-left {
-    width: 100%;
-  }
-  .home-right {
-    display: none;
   }
 }
 .top-abt-links {
