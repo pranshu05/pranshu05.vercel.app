@@ -54,7 +54,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #dbb3fe;
   letter-spacing: 0.8px;
-  padding: 0 20px;
+  padding: 0 15px;
   font-size: 18px;
   opacity: 0.75;
 }
@@ -135,7 +135,7 @@ span.navbar-text {
 
 /*Gallery Start*/
 .gallery-page-cont {
-  width: 95vw;
+  width: 65vw;
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
@@ -146,6 +146,11 @@ span.navbar-text {
   font-size: 200%;
   font-weight: 900;
   margin: 10px;
+}
+.gallery-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
 }
 .image-gallery {
   display: flex;
@@ -166,6 +171,11 @@ span.navbar-text {
   padding-top: 5px;
   font-size: 14px;
   color: #818181;
+}
+@media (max-width: 800px) {
+  .gallery-page-cont {
+    width: 85vw;
+  }
 }
 /*Gallery End*/
 

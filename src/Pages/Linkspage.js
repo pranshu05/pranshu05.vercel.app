@@ -1,6 +1,7 @@
 import { NavBar } from '../components/NavBar'
 import { Links } from '../components/Links'
 import { Link } from 'react-router-dom'
+import { Footer } from '../components/Footer'
 
 export const LinksPage = () => {
     return (
@@ -11,6 +12,7 @@ export const LinksPage = () => {
                     &larr; Go back <Link to="/">home.</Link>
                 </p>
                 <Links />
+                <Footer />
             </div>
         </div>
     )

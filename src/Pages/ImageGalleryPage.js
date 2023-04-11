@@ -1,6 +1,7 @@
 import { ImageGallery } from '../components/ImageGallery'
 import { Link } from 'react-router-dom'
 import { NavBar } from '../components/NavBar'
+import { Footer } from '../components/Footer'
 
 export const ImageGalleryPage = () => {
     return (
@@ -12,6 +13,7 @@ export const ImageGalleryPage = () => {
                 </p>
                 <h1>My photography</h1>
                 <ImageGallery />
+                <Footer />
             </div>
         </div>
     )
