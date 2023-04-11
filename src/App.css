@@ -463,11 +463,11 @@ span.navbar-text {
     flex-direction: column;
   }
   .con-left{
-    width: 80%;
+    width: 100%;
     float: left;
   }
   .con-right{
-    width: 80%;
+    width: 100%;
     float: right;
     text-align: left;
     padding-left: 10px;
