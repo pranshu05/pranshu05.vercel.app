@@ -52,9 +52,9 @@ nav.navbar {
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #fff;
+  color: #dbb3fe;
   letter-spacing: 0.8px;
-  padding: 0 25px;
+  padding: 0 20px;
   font-size: 18px;
   opacity: 0.75;
 }
@@ -139,6 +139,7 @@ span.navbar-text {
   left: 50%;
   transform: translate(-50%, 0%);
   position: absolute;
+  margin-top: 85px;
   padding: 20px;
 }
 .gallery-page-cont h1 {
@@ -264,7 +265,8 @@ span.navbar-text {
   flex-direction: column;
 }
 .project-card {
-  width: 55vw;
+  width: 100%;
+  box-sizing: border-box;
   left: 50%;
   transform: translate(0%, 0%);
   display: flex;
@@ -298,14 +300,8 @@ span.navbar-text {
   margin: 10px;
   margin-left: 0;
 }
-@media (max-width: 800px) {
-  .project-card {
-    width: 80vw;
-  }
-}
 @media (max-width: 500px) {
   .project-card {
-    width: 80vw;
     display: flex;
     flex-direction: column;
   }
@@ -331,13 +327,21 @@ span.navbar-text {
   width: 100%; /* set the width of the parent container */
 }
 .github-repo {
-  width: calc(50% - 40px);
+  width: calc(50% - 20px);
   height: 150px;
-  margin: 10px;
   background-color: #181818;
   position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-right: 10px;
   border-radius: 10px;
+}
+.github-repo:nth-child(odd) {
+  margin-right: 10px;
+}
+
+.github-repo:nth-child(even) {
+  margin-left: 10px;
 }
 .repo-header {
   position: relative;
@@ -371,6 +375,7 @@ span.navbar-text {
   }
   .github-repo {
     width: 95%;
+    margin: 10px;
   }
 }
 @media (min-width: 450px) and (max-width: 600px) {
@@ -378,6 +383,7 @@ span.navbar-text {
     flex-direction: column;
   }
   .github-repo {
+    margin: 10px;
     width: 90%;
   }
 }
@@ -387,6 +393,7 @@ span.navbar-text {
   }
   .github-repo {
     width: 75%;
+    margin: 10px;
   }
 }
 @media (min-width: 950px) and (max-width: 1150px) {
@@ -395,6 +402,7 @@ span.navbar-text {
   }
   .github-repo {
     width: 65%;
+    margin: 10px;
   }
 }
 /*GitHub End*/
@@ -424,6 +432,37 @@ span.navbar-text {
   margin-top: 85px;
   padding: 20px;
 }
+.con{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.con-left{
+  width: 50%;
+  float: left;
+}
+.con-right{
+  width: 50%;
+  float: right;
+  text-align: right;
+  padding-right: 10px;
+}
+@media (max-width: 1200px){
+  .con{
+    flex-direction: column;
+  }
+  .con-left{
+    width: 80%;
+    float: left;
+  }
+  .con-right{
+    width: 80%;
+    float: right;
+    text-align: left;
+    padding-left: 10px;
+  }
+}
 .contact-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
@@ -437,7 +476,6 @@ span.navbar-text {
 .contact-form {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
 }
 .contact-form label {
   display: flex;

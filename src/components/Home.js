@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { TimeStatus } from '../APIs/TimeStatusAPI'
 import { SpotifyPlayer } from './Spotify'
 import { getWeatherIcon } from '../APIs/WeatherIconsAPI'
-import { Link } from 'react-router-dom'
 import {
     FaGithub,
     FaLinkedin,
@@ -60,12 +59,6 @@ export const Home = () => {
             </p>
             <br />
             <SpotifyPlayer />
-            <br />
-            <details>
-                <summary>More stuff!!</summary>
-                <br />
-                <Link to="/gallery">My photography</Link>
-            </details>
         </div>
     )
 }

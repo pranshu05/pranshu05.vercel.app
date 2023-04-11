@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { FaDiscord, FaMailBulk, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaEnvelope, FaTwitter } from 'react-icons/fa'
 
 export const getDiscordStatusIcon = (data) => {
     switch (data?.discord_status) {
@@ -33,17 +33,17 @@ export const DiscordStatus = () => {
 
     return (
         <p>
+            {getDiscordStatusIcon(data.data)} {''}
             <a href="https://discordapp.com/users/754381104034742415">
-                <FaDiscord /> Pranshu05#4726
+                Pranshu05#4726 <FaDiscord />
             </a>
-            {getDiscordStatusIcon(data.data)}
             <br />
             <a href="mailto:pranshu05patel@gmail.com">
-                <FaMailBulk /> pranshu05patel@gmail.com
+                pranshu05patel@gmail.com <FaEnvelope />
             </a>
             <br />
             <a href="https://twitter.com/pranshu_05">
-                <FaTwitter /> Pranshu_05
+                Pranshu_05 <FaTwitter />
             </a>
         </p>
     )
