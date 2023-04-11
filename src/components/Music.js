@@ -29,6 +29,9 @@ export const Music = () => {
     return (
         <div className="music">
             <h1>Spotify Stats</h1>
+            <small style={{ color: '#818181' }}>
+                My Spotify stats, updated every 24 hours.
+            </small>
             <div className="top-tracks-cont">
                 <h2>Top Tracks</h2>
                 <small style={{ color: '#818181' }}>
@@ -47,7 +50,7 @@ export const Music = () => {
                                 <br /> <small>{track.artist.name}</small>
                             </div>
                             <div className="top-tracks-plays">
-                                {track.playcount} plays
+                                <small>{track.playcount} plays</small>
                             </div>
                         </div>
                     </a>
@@ -70,7 +73,7 @@ export const Music = () => {
                                 {artist.name}
                             </div>
                             <div className="top-artists-plays">
-                                {artist.playcount} plays
+                                <small>{artist.playcount} plays</small>
                             </div>
                         </div>
                     </a>
