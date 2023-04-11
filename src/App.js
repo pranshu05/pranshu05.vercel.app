@@ -4,6 +4,7 @@ import { AboutMePage } from './Pages/AboutMePage'
 import { ContactPage } from './Pages/ContactPage'
 import { ImageGalleryPage } from './Pages/ImageGalleryPage'
 import { LinksPage } from './Pages/Linkspage'
+import { MusicPage } from './Pages/Musicpage'
 import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -21,6 +22,7 @@ function App() {
                         element={<ImageGalleryPage />}
                     />
                     <Route exact path="/links" element={<LinksPage />} />
+                    <Route exact path="/music" element={<MusicPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
