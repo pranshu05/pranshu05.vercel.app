@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { FaCamera, FaEnvelope, FaHome, FaUser } from 'react-icons/fa'
+import { FaCamera, FaEnvelope, FaHome, FaLink, FaUser } from 'react-icons/fa'
 
 export const NavBar = () => {
     const location = useLocation()
@@ -84,6 +84,18 @@ export const NavBar = () => {
                             onClick={() => setActiveLink('contact')}
                         >
                             <FaEnvelope />
+                        </Nav.Link>
+                        <Nav.Link
+                            as={Link}
+                            to="/links"
+                            className={
+                                activeLink === 'links'
+                                    ? 'active navbar-link'
+                                    : 'navbar-link'
+                            }
+                            onClick={() => setActiveLink('links')}
+                        >
+                            <FaLink />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

@@ -552,6 +552,60 @@ span.navbar-text {
 }
 /*Contact Page End*/
 
+/*Links Page Strat*/
+.links-page-cont {
+  width: 65vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+  margin-top: 85px;
+  padding: 20px;
+}
+.links-page-cont h1 {
+  font-size: 200%;
+  font-weight: 900;
+  margin: 10px;
+}
+.links-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
+}
+.links-cont{
+  width: 100%;
+  background-color: #181818;
+  min-height: 100px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.links-link{
+  background-color: #121212;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.links-link-text{
+  width: 80%;
+  float: left;
+  padding: 10px;
+}
+.links-link-icon{
+  width: 20%;
+  float: right;
+  text-align: right;
+  padding: 10px;
+}
+@media (max-width: 800px) {
+  .links-page-cont {
+    width: 85vw;
+  }
+}
+/*Links Page End*/
+
 /*Footer Start*/
 footer {
   display: flex;

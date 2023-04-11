@@ -27,7 +27,7 @@ export const Home = () => {
 
     return (
         <div className="home">
-            <h1 style={{ fontSize: '400%' }} class="moving-gradient">
+            <h1 style={{ fontSize: '400%' }} className="moving-gradient">
                 Pranshu
             </h1>
             <h3 style={{ color: '#818181' }}>
