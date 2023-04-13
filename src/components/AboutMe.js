@@ -2,11 +2,12 @@ import { Tech } from "./Technologies";
 import { useState, useEffect } from "react";
 
 export const AboutMe = () => {
-  const birthdate = new Date(2005, 10, 4);
+  const birthdate = new Date("2005-10-04");
   const ageInYears = Math.floor(
-    (new Date() - birthdate) / (1000 * 60 * 60 * 24 * 365.25)
+    (new Date() - birthdate) / (1000 * 60 * 60 * 24 * 365)
   );
-  const ageFormatted = ageInYears.toFixed(7);
+  const ageInPoints = (new Date() - birthdate) / (1000 * 60 * 60 * 24 * 365);
+  const ageFormatted = ageInPoints.toFixed(7);
 
   const [codingHours, setCodingHours] = useState(0);
 
