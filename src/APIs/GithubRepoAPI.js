@@ -14,7 +14,6 @@ export const GithubRepo = ({ repoName }) => {
                 setRepoInfo(data)
             } catch (error) {
                 console.error(error)
-                // handle the error here, for example by setting an error state
                 setRepoInfo('403 err')
             }
         }
