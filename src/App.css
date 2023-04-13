@@ -62,7 +62,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
-  background-color: #181818;
+  color: #fff;
 }
 nav.navbar.scrolled {
   background: rgba(24, 24, 24, 0.3);
