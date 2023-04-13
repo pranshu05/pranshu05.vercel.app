@@ -24,7 +24,7 @@ export const AboutMe = () => {
     <div className="about-me" id="about-me">
       <h2> Hi! I'm Pranshu ✌️</h2>
       <p>
-        I'm a {ageInYears}-year-old high school student and self-taught
+        I'm a {ageInYears} y/o high school student and self-taught
         developer from India. I started coding when I was 14 during the COVID
         lockdown and have gained expertise in creating Discord bots using{" "}
         <a href="https://discord.js.org/#/">discord.js</a> as well as web
