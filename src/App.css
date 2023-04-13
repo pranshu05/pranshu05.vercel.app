@@ -638,7 +638,7 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
-.top-tracks-cont,.top-artists-cont{
+.top-tracks-cont,.top-artists-cont, .recently-played-cont{
   width: 100%;
   background-color: #181818;
   min-height: 100px;
@@ -648,7 +648,7 @@ span.navbar-text {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.top-tracks-div,.top-artists-div{
+.top-tracks-div,.top-artists-div,.recently-played-div{
   background-color: #121212;
   box-sizing: border-box;
   border-radius: 10px;
@@ -657,12 +657,12 @@ span.navbar-text {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.top-tracks-text,.top-artists-text{
+.top-tracks-text,.top-artists-text,.recently-played-text{
   width: 80%;
   float: left;
   padding: 10px;
 }
-.top-tracks-plays,.top-artists-plays{
+.top-tracks-plays,.top-artists-plays,.recently-played-time{
   width: 20%;
   float: right;
   text-align: right;
