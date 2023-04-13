@@ -7,7 +7,7 @@ export const Music = () => {
     const [topArtists, setTopArtists] = useState([])
     const [recentlyPlayed, setRecentlyPlayed] = useState([])
     const [accessToken, setAccessToken] = useState('')
-    const API_KEY = process.env.LAST_FM_API_KEY
+    const API_KEY = '4e92a8637503023ef75aaec0105733fc'
     const username = 'pranshu05'
 
     useEffect(() => {
@@ -70,7 +70,7 @@ export const Music = () => {
             fetchTopArtists()
             fetchRecentlyPlayed()
         }
-    }, [accessToken])
+    })
 
     const getTimeAgo = (timestamp) => {
         const secondsAgo = Math.floor((new Date() - new Date(timestamp)) / 1000)

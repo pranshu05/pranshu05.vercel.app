@@ -8,14 +8,12 @@ function ContactForm() {
     const [message, setMessage] = useState('')
     const [status, setStatus] = useState('')
 
-    const form_id = process.env.FORMSPREE_FORM_ID
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             const response = await axios({
                 method: 'POST',
-                url: `https://formspree.io/f/${form_id}`,
+                url: `https://formspree.io/f/xbjeprqd`,
                 data: {
                     name,
                     email,
