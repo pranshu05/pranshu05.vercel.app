@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { FaPaperPlane } from 'react-icons/fa'
 
 function ContactForm() {
     const [name, setName] = useState('')
@@ -31,7 +32,7 @@ function ContactForm() {
         <div className="contact-form">
             <form onSubmit={handleSubmit}>
                 <label>
-                    Name
+                    <h4>NAME</h4>
                     <input
                         type="text"
                         name="name"
@@ -41,7 +42,7 @@ function ContactForm() {
                     />
                 </label>
                 <label>
-                    Email
+                    <h4>EMAIL</h4>
                     <input
                         type="email"
                         name="_replyto"
@@ -51,7 +52,7 @@ function ContactForm() {
                     />
                 </label>
                 <label>
-                    Message
+                    <h4>MESSAGE</h4>
                     <textarea
                         name="message"
                         value={message}
@@ -72,7 +73,9 @@ function ContactForm() {
                         <br />
                     </p>
                 )}
-                <button type="submit">Submit</button>
+                <button type="submit">
+                    SUBMIT <FaPaperPlane />
+                </button>
             </form>
         </div>
     )

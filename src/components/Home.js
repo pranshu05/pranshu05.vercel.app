@@ -53,9 +53,14 @@ export const Home = () => {
             <TimeStatus />
             <p>
                 {getWeatherIcon(weather)} Currently{' '}
-                <strong>{temp !== null ? temp : 'Loading...'} °C </strong>(
-                {weather !== null ? weather : 'Loading...'}) in{' '}
-                <strong>Gandhinagar.</strong>
+                <strong>{temp !== null ? temp : 'Loading...'} °C </strong>{' '}
+                <small>({weather !== null ? weather : 'Loading...'})</small> in{' '}
+                <strong>
+                    <a href="https://en.wikipedia.org/wiki/Gandhinagar">
+                        Gandhinagar
+                    </a>
+                </strong>
+                .
             </p>
             <br />
             <SpotifyPlayer />
