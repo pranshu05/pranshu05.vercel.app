@@ -30,7 +30,7 @@ export const Music = () => {
         <div className="music">
             <h1>Spotify Stats</h1>
             <small style={{ color: '#818181' }}>
-                My Spotify stats, updated every 24 hours.
+                My Spotify stats, updated in real-time.
             </small>
             <div className="top-tracks-cont">
                 <h2>Top Tracks</h2>
