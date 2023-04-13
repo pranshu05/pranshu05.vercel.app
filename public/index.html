@@ -2,26 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta
-            http-equiv="Content-Security-Policy"
-            content="upgrade-insecure-requests"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/70943732/231675688-40f704ee-437d-4a2e-85d0-d606a4d32b62.png" />
         <title>Pranshu05</title>
 
         <script>
-            const links = document.querySelectorAll('a')
-            links.forEach((link) => {
-                link.setAttribute('target', '_blank')
-            })
+            const titles = ["Pranshu05", "धर्मो रक्षति रक्षितः", "Protecting Sanatan Dharma"];
+            let currentIndex = 0;
+
+            setInterval(() => {
+              document.title = titles[currentIndex];
+              currentIndex = (currentIndex + 1) % titles.length;
+            }, 2000);
         </script>
+
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
     </body>
 </html>
