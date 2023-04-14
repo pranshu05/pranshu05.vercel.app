@@ -16,7 +16,7 @@ export const TimeStatus = () => {
         setTimeout(updateTime, 1000)
 
         let hour = new Date().getHours()
-        if (hour < 7 || hour >= 21) {
+        if (hour < 7 || hour >= 24) {
             setActivity('💤') // Sleep time or coding time
             setActivityTitle('Sleeping')
         } else if (hour === 7) {
