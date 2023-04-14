@@ -47,10 +47,7 @@ export const TimeStatus = () => {
     return (
         <div className="time">
             <p>
-                {activity}{' '}
-                <small>
-                    <span title={activityTitle}>{activityTitle}</span>
-                </small>{' '}
+                <span title={activityTitle}>{activity} </span>
                 {new Date().toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'short',
