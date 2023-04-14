@@ -27,20 +27,31 @@ export function SpotifyPlayer(props) {
                                 alt={`Album cover for ${result.title}`}
                             />
                         </div>
-                        <span className="song-info">
-                            <span className="song-title">{result.title}</span>
-                            <span className="song-artist">{result.artist}</span>
-                        </span>
+                        <div className="song-info">
+                            <div className="song-title">{result.title}</div>
+                            <div className="song-artist">{result.artist}</div>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
     ) : (
         <div className="nowplaying">
-            <div className="spotify-cont" style={{ display: 'inline-flex' }}>
+            <div className="spotify-cont">
                 <div className="spotify-track">
                     <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
-                        Not listening to Spotify rn!
+                        <div className="song-img">
+                            <img
+                                src="https://user-images.githubusercontent.com/70943732/232037055-e85d5b44-64a4-4192-838e-712faf93989e.png"
+                                alt="music"
+                            />
+                        </div>
+                        <div className="song-info">
+                            <div className="song-title">
+                                Listening nothing rn!
+                            </div>
+                            <div className="song-artist">Spotify</div>
+                        </div>
                     </a>
                 </div>
             </div>

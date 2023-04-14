@@ -160,7 +160,6 @@ span.navbar-text {
 }
 .image-card {
   margin: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
 }
@@ -215,33 +214,30 @@ span.navbar-text {
 .spotify-track {
   display: flex;
   flex-direction: row;
-  text-align: right;
-  font-size: larger;
-  font-weight: 500;
-  position: relative;
   background: #181818;
   border-radius: 10px;
-  max-width: 500px;
-  padding: 10px;
+  max-width: 350px;
+  padding: 5px;
 }
 .song-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
   float: right;
-  width: calc(75% - 10px);
-  text-align: left;
+  width: calc(80% - 10px);
   padding-left: 10px;
 }
 .song-title {
-  font-size: larger;
+  font-size: large;
   font-weight: 700;
 }
 .song-artist {
-  font-size: large;
+  font-size: medium;
   font-weight: 300;
 }
 .song-img {
-  width: 25%;
+  width: 20%;
   float: left;
 }
 .song-img img {
@@ -671,6 +667,9 @@ span.navbar-text {
 @media (max-width: 800px) {
   .music-page-cont {
     width: 85vw;
+  }
+  .recently-played-time{
+    display: none;
   }
 }
 /*Music page End*/
