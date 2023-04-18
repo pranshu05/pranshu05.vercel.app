@@ -29,7 +29,17 @@ export function SpotifyPlayer(props) {
                         </div>
                         <div className="song-info">
                             <div className="song-title">{result.title}</div>
-                            <div className="song-artist">{result.artist}</div>
+                            <div className="song-artist">
+                                <small>
+                                    by {result.artist} <br /> on{' '}
+                                    {result.albumName}
+                                </small>
+                            </div>
+                            <progress
+                                value={result.progressMs}
+                                max={result.durationMs}
+                                className="progress-bar"
+                            />
                         </div>
                     </a>
                 </div>

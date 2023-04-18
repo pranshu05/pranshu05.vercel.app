@@ -17,7 +17,7 @@ body {
   color: #eeeeee;
   margin: 0;
   padding: 0;
-  transition: 0.32s ease-in-out;
+  transition: 0.7s ease-in-out;
 }
 .highlight {
   background-color: #181818;
@@ -229,12 +229,11 @@ span.navbar-text {
   padding-left: 10px;
 }
 .song-title {
-  font-size: large;
+  font-size: medium;
   font-weight: 700;
 }
 .song-artist {
-  font-size: medium;
-  font-weight: 300;
+  font-weight: 500;
 }
 .song-img {
   width: 20%;
@@ -243,6 +242,9 @@ span.navbar-text {
 .song-img img {
   width: 100%;
   border-radius: 5px;
+}
+.progress-bar{
+  width: 100%;
 }
 /** Spotify End/
 
@@ -668,8 +670,11 @@ span.navbar-text {
   .music-page-cont {
     width: 85vw;
   }
-  .recently-played-time{
+  .recently-played-time,.top-tracks-plays,.top-artists-plays{
     display: none;
+  }
+  .recently-played-text,.top-tracks-text,.top-artists-text{
+    width: 100%;
   }
 }
 /*Music page End*/
