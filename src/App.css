@@ -234,6 +234,7 @@ span.navbar-text {
 }
 .song-artist {
   font-weight: 500;
+  margin-bottom: 4px;
 }
 .song-img {
   width: 20%;
@@ -242,9 +243,6 @@ span.navbar-text {
 .song-img img {
   width: 100%;
   border-radius: 5px;
-}
-.progress-bar{
-  width: 100%;
 }
 /** Spotify End/
 

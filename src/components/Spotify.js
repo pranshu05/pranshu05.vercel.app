@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import getNowPlayingItem from '../APIs/SpotifyAPI'
+import ProgressBar from '@ramonak/react-progress-bar'
 
 export function SpotifyPlayer(props) {
     const [result, setResult] = useState({})
@@ -35,10 +36,13 @@ export function SpotifyPlayer(props) {
                                     {result.albumName}
                                 </small>
                             </div>
-                            <progress
-                                value={result.progressMs}
-                                max={result.durationMs}
-                                className="progress-bar"
+                            <ProgressBar
+                                completed={result.progressMs}
+                                maxCompleted={result.durationMs}
+                                bgColor="#d782e7"
+                                height="8px"
+                                labelColor="#d782e7"
+                                baseBgColor="#121212"
                             />
                         </div>
                     </a>
