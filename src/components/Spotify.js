@@ -39,10 +39,11 @@ export function SpotifyPlayer(props) {
                             <ProgressBar
                                 completed={result.progressMs}
                                 maxCompleted={result.durationMs}
-                                bgColor="#d782e7"
+                                bgColor="#dbb3fe"
                                 height="8px"
-                                labelColor="#d782e7"
+                                labelColor="#dbb3fe"
                                 baseBgColor="#121212"
+                                transitionDuration="0s"
                             />
                         </div>
                     </a>
@@ -56,15 +57,14 @@ export function SpotifyPlayer(props) {
                     <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
                         <div className="song-img">
                             <img
-                                src="https://user-images.githubusercontent.com/70943732/232037055-e85d5b44-64a4-4192-838e-712faf93989e.png"
+                                src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
                                 alt="music"
                             />
                         </div>
                         <div className="song-info">
-                            <div className="song-title">
-                                Listening nothing rn!
+                            <div className="song-artist">
+                                Not listening to Spotify rn!
                             </div>
-                            <div className="song-artist">Spotify</div>
                         </div>
                     </a>
                 </div>
