@@ -2,7 +2,7 @@ A portfolio made with React.
 
 ## Preview
 
-![image](https://user-images.githubusercontent.com/70943732/231811449-aaab5386-6577-4a1a-9f89-84bb49d9b30b.png)
+![image](https://user-images.githubusercontent.com/70943732/232816372-26ed2f5a-b6da-45ad-bfe1-2bca6867494e.png)
 
 ## How to use
 
