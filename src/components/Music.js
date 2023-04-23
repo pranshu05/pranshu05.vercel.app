@@ -7,7 +7,7 @@ export const Music = () => {
     const [topArtists, setTopArtists] = useState([])
     const [recentlyPlayed, setRecentlyPlayed] = useState([])
     const [accessToken, setAccessToken] = useState('')
-    const API_KEY = '4e92a8637503023ef75aaec0105733fc'
+    const API_KEY = `4e92a8637503023ef75aaec0105733fc`
     const username = 'pranshu05'
 
     useEffect(() => {

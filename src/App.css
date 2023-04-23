@@ -612,6 +612,9 @@ span.navbar-text {
   .links-page-cont {
     width: 85vw;
   }
+  .username{
+    display: none;
+  }
 }
 /*Links Page End*/
 
@@ -682,18 +685,20 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .left {
   float: left;
 }
+.left p{
+  margin-top: 0;
+}
 .right {
   float: right;
-  padding: 15px;
 }
 .right a {
   margin-right: 10px;
-  font-size: xx-large;
+  font-size: x-large;
 }
 @media (max-width: 800px) {
   footer {

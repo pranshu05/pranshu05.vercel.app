@@ -1,6 +1,10 @@
 export function ImageGallery() {
     const images = [
         {
+            source: 'https://user-images.githubusercontent.com/70943732/233824664-e35abaac-8e1c-4282-8eeb-a2861c537b3a.png',
+            location: 'Gandhinagar, IN',
+        },
+        {
             source: 'https://user-images.githubusercontent.com/70943732/230519369-3f9337c6-79d7-40ff-8fd0-387b51786f80.png',
             location: 'Gandhinagar, IN',
         },
