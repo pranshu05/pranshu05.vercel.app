@@ -39,6 +39,10 @@ export const NavBar = () => {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [activeLink])
+
     return (
         <Navbar expand="md" className={scrolled ? 'scrolled' : ''}>
             <Container>
