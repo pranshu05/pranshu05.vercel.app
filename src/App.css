@@ -183,7 +183,7 @@ span.navbar-text {
 }
 .model{
   width: 100%;
-  height: 100vh;
+  height: 98vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -206,16 +206,11 @@ span.navbar-text {
   transform: scale(1);
   opacity: 1;
 }
-.model img{
-  width: auto;
+.model img {
   max-width: 100%;
-  height: auto;
   max-height: 100%;
-  display: block;
-  line-height: 0;
-  box-sizing: border-box;
-  padding: 20px 0 20px;
-  margin: 0 auto;
+  object-fit: contain;
+  margin: auto;
 }
 .model.open img:hover{
   filter: opacity(1);
@@ -228,12 +223,12 @@ span.navbar-text {
   width: 2rem;
   height: 2rem;
   padding: 5px;
-  color: #d782e7;
+  color: #dbb3fe;
   cursor: zoom-out;
 }
 @media (max-width: 800px) {
   .gallery-page-cont {
-    width: 100vw;
+    width: 96vw;
   }
   .image-gallery {
     -webkit-column-count: 2;
