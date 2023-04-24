@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { FaWindowClose } from 'react-icons/fa'
+
 export function ImageGallery() {
     const images = [
         {
@@ -50,10 +53,33 @@ export function ImageGallery() {
         },
     ]
 
+    const [model, setModel] = useState(false)
+    const [tempimgsrc, setTempImgSrc] = useState('')
+    const getImg = (source) => {
+        setTempImgSrc(source)
+        setModel(true)
+        document.body.style.overflow = 'hidden'
+    }
+
     return (
         <div className="image-gallery">
+            <div className={model ? 'model open' : 'model'}>
+                <img src={tempimgsrc} alt="n" />
+                <FaWindowClose
+                    onClick={() => {
+                        setModel(false)
+                        document.body.style.overflow = 'auto'
+                    }}
+                />
+            </div>
             {images.map((image, index) => (
-                <div className="image-card" key={index}>
+                <div
+                    className="image-card"
+                    key={index}
+                    onClick={() => {
+                        getImg(image.source)
+                    }}
+                >
                     <img src={image.source} alt="" />
                     <div className="image-location">📍 {image.location}</div>
                 </div>

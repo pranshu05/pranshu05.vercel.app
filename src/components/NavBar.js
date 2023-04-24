@@ -74,6 +74,18 @@ export const NavBar = () => {
                         </Nav.Link>
                         <Nav.Link
                             as={Link}
+                            to="/gallery"
+                            className={
+                                activeLink === 'gallery'
+                                    ? 'active navbar-link'
+                                    : 'navbar-link'
+                            }
+                            onClick={() => setActiveLink('gallery')}
+                        >
+                            <FaCamera />
+                        </Nav.Link>
+                        <Nav.Link
+                            as={Link}
                             to="/links"
                             className={
                                 activeLink === 'links'
@@ -95,18 +107,6 @@ export const NavBar = () => {
                             onClick={() => setActiveLink('music')}
                         >
                             <FaHeadphones />
-                        </Nav.Link>
-                        <Nav.Link
-                            as={Link}
-                            to="/gallery"
-                            className={
-                                activeLink === 'gallery'
-                                    ? 'active navbar-link'
-                                    : 'navbar-link'
-                            }
-                            onClick={() => setActiveLink('gallery')}
-                        >
-                            <FaCamera />
                         </Nav.Link>
                         <Nav.Link
                             as={Link}
