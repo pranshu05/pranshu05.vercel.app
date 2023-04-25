@@ -1,3 +1,5 @@
+header("Access-Control-Allow-Origin: http://localhost:3000")
+
 <?php
 // Retrieve visitor's IP address
 $ip = $_SERVER['REMOTE_ADDR'];
