@@ -3,8 +3,7 @@ const webhookHandler = async (req, res) => {
         const ip =
             req.headers['x-forwarded-for'] || req.connection.remoteAddress
 
-        const WEBHOOK_URL =
-            'https://discord.com/api/webhooks/1100272235740139610/iCHXpOVRBUmeMmIi5Zh1PAPZjfHQiVYKmHzkENYCxBOl2aLs-Uef0UngLvAgVJTj-1Qe'
+        const WEBHOOK_URL = process.env.WEBHOOK_URL
 
         const date = new Date().toLocaleDateString()
         const time = new Date().toLocaleTimeString()
@@ -14,7 +13,7 @@ const webhookHandler = async (req, res) => {
         const { country_name, country_code } = locationData
 
         const location = req.headers.referer
-        const message = `\`\`\`xl\n ${date} ${time} ${ip} ==> [${location}] \n [${country_name}, ${country_code}]\`\`\``
+        const message = `\`\`\`md\n ${date} ${time} (${ip}) ==> [${location}] \n [${country_name}, ${country_code}]\`\`\``
 
         await fetch(WEBHOOK_URL, {
             method: 'POST',
