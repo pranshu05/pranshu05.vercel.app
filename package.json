@@ -9,7 +9,6 @@
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "maxmind": "^4.3.11",
-    "node-fetch": "^3.3.1",
     "prettier": "^2.8.7",
     "querystring": "^0.2.1",
     "react": "^18.2.0",
