@@ -10,7 +10,8 @@ const webhookHandler = async (req, res) => {
     const flag = geo.country.toLowerCase()
 
     // Format the message
-    const WEBHOOK_URL = process.env.WEBHOOK_URL
+    const WEBHOOK_URL =
+        'https://discord.com/api/webhooks/1100272235740139610/iCHXpOVRBUmeMmIi5Zh1PAPZjfHQiVYKmHzkENYCxBOl2aLs-Uef0UngLvAgVJTj-1Qe'
     const date = new Date().toLocaleDateString()
     const time = new Date().toLocaleTimeString()
     const location = req.headers.referer
