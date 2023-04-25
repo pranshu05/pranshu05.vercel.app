@@ -41,13 +41,14 @@ a:active {
 
 /*Nav Start*/
 nav.navbar {
-  position: relative;
+  position: fixed;
   width: 100vw;
   padding-top: 20px;
+  padding-bottom: 20px;
   left: 50%;
   transform: translate(-50%, 0%);
   text-align: center;
-  z-index: -1;
+  z-index: 1;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -86,6 +87,7 @@ span.navbar-text {
 .home-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -137,6 +139,7 @@ span.navbar-text {
 .gallery-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -179,7 +182,7 @@ span.navbar-text {
   filter: opacity(0.8);
 }
 .model {
-  position: fixed;
+  position: absolute;
   left: calc(-17.5vw + 20px);
   width: 100vw;
   height: 100vh;
@@ -207,6 +210,7 @@ span.navbar-text {
   max-height: 100%;
   object-fit: contain;
   margin: auto;
+  z-index: 100;
 }
 .model.open img:hover{
   filter: opacity(1);
@@ -214,7 +218,7 @@ span.navbar-text {
 }
 .model.open svg{
   position: fixed;
-  top: 10px;
+  top: 85px;
   right: 10px;
   z-index: 100000;
   font-size: x-large;
@@ -245,6 +249,7 @@ span.navbar-text {
 .about-me-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -495,6 +500,7 @@ span.navbar-text {
 .contact-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -624,6 +630,7 @@ span.navbar-text {
 .links-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -680,6 +687,7 @@ span.navbar-text {
 .music-page-cont {
   width: 65vw;
   left: 50%;
+  margin-top: 50px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
