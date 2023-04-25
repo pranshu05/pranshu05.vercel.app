@@ -2,8 +2,21 @@ import { ImageGallery } from '../components/ImageGallery'
 import { Link } from 'react-router-dom'
 import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/Footer'
+import { useEffect } from 'react'
+import axios from 'axios'
 
 export const ImageGalleryPage = () => {
+    useEffect(() => {
+        axios
+            .get('https://pranshu05.vercel.app/api/webhook')
+            .then((response) => {
+                console.log('Webhook triggered successfully')
+            })
+            .catch((error) => {
+                console.log('Error triggering webhook', error)
+            })
+    }, [])
+
     return (
         <div>
             <NavBar />

@@ -2,8 +2,21 @@ import { NavBar } from '../components/NavBar'
 import { Links } from '../components/Links'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
+import { useEffect } from 'react'
+import axios from 'axios'
 
 export const LinksPage = () => {
+    useEffect(() => {
+        axios
+            .get('https://pranshu05.vercel.app/api/webhook')
+            .then((response) => {
+                console.log('Webhook triggered successfully')
+            })
+            .catch((error) => {
+                console.log('Error triggering webhook', error)
+            })
+    }, [])
+
     return (
         <div>
             <NavBar />
