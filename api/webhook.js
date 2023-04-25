@@ -11,9 +11,10 @@ const webhookHandler = async (req, res) => {
         const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`)
         const locationData = await locationResponse.json()
         const { country_name, country_code } = locationData
+        const small_code = country_code.toLowerCase()
 
         const location = req.headers.referer
-        const message = `\`\`\`md\n ${date} ${time} (${ip}) ==> [${location}] \n [${country_name}, ${country_code}]\`\`\``
+        const message = `${date} ${time} (${ip}) ==> [${location}] \n [${country_name}, ${country_code} (:flag_${small_code}:)]`
 
         await fetch(WEBHOOK_URL, {
             method: 'POST',
@@ -22,12 +23,7 @@ const webhookHandler = async (req, res) => {
             },
             body: JSON.stringify({ content: message }),
         })
-        console.log('Message sent to Discord')
-        res.status(200).send('Webhook triggered successfully')
-    } catch (error) {
-        console.log('Error sending message to Discord', error)
-        res.status(500).send('Failed to trigger webhook')
-    }
+    } catch (error) {}
 }
 
 export default webhookHandler

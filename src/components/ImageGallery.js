@@ -59,18 +59,10 @@ export function ImageGallery() {
         setTempImgSrc(source)
         setModel(true)
         document.body.style.overflow = 'hidden'
-        // calculate the vertical position of the modal
-        const scrollTop =
-            window.pageYOffset || document.documentElement.scrollTop
-        const windowHeight = window.innerHeight
-        const modalHeight = document.querySelector('.model').offsetHeight
-        const top = Math.max(
-            scrollTop + windowHeight / 2 - modalHeight / 2,
-            scrollTop
-        )
 
-        // set the top position of the modal
-        document.querySelector('.model').style.top = top + 'px'
+        const top = window.pageYOffset || document.documentElement.scrollTop
+
+        document.querySelector('.model').style.top = top - 45 + 'px'
     }
 
     return (
