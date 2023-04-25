@@ -7,8 +7,21 @@ import { LinksPage } from './Pages/Linkspage'
 import { MusicPage } from './Pages/Musicpage'
 import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 
 function App() {
+    useEffect(() => {
+        axios
+            .get('/api/webhook')
+            .then((response) => {
+                console.log('Webhook triggered successfully')
+            })
+            .catch((error) => {
+                console.log('Error triggering webhook', error)
+            })
+    }, [])
+
     return (
         <div className="App">
             <BrowserRouter>

@@ -12,6 +12,7 @@
     "bootstrap": "^5.2.3",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
+    "geoip-lite": "^1.4.7",
     "gh-pages": "^5.0.0",
     "prettier": "^2.8.7",
     "querystring": "^0.2.1",
