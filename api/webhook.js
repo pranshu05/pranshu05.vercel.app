@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const webhookHandler = async (req, res) => {
     try {
         const ip =
