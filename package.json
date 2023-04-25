@@ -2,18 +2,13 @@
   "name": "new",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pranshu05.github.io",
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.0.3",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.3.4",
+    "axios": "^1.3.6",
     "bootstrap": "^5.2.3",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "geoip-lite": "^1.4.7",
-    "gh-pages": "^5.0.0",
     "prettier": "^2.8.7",
     "querystring": "^0.2.1",
     "react": "^18.2.0",
@@ -27,10 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
