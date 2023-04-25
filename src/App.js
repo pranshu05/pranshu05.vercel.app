@@ -13,7 +13,7 @@ import React, { useEffect } from 'react'
 function App() {
     useEffect(() => {
         axios
-            .get('../api/webhook')
+            .get('https://pranshu05.vercel.app/api/webhook')
             .then((response) => {
                 console.log('Webhook triggered successfully')
             })
