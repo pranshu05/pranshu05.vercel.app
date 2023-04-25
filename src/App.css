@@ -87,7 +87,7 @@ span.navbar-text {
 .home-page-cont {
   width: 65vw;
   left: 50%;
-  margin-top: 50px;
+  margin-top: 85px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -197,8 +197,8 @@ span.navbar-text {
   opacity: 0;
   transform: scale(0);
   overflow: hidden;
-  z-index: 9999;
   border-radius: 10px;
+  z-index: 999;
 }
 .model.open{
   visibility: visible;
@@ -210,7 +210,6 @@ span.navbar-text {
   max-height: 100%;
   object-fit: contain;
   margin: auto;
-  z-index: 100;
 }
 .model.open img:hover{
   filter: opacity(1);
@@ -218,9 +217,9 @@ span.navbar-text {
 }
 .model.open svg{
   position: fixed;
+  z-index: 100;
   top: 85px;
   right: 10px;
-  z-index: 100000;
   font-size: x-large;
   padding: 5px;
   color: #dbb3fe;
