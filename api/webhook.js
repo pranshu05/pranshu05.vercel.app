@@ -8,8 +8,13 @@ const webhookHandler = async (req, res) => {
 
         const date = new Date().toLocaleDateString()
         const time = new Date().toLocaleTimeString()
+
+        const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`)
+        const locationData = await locationResponse.json()
+        const { country_name, country_code, country_flag } = locationData
+
         const location = req.headers.referer
-        const message = `${date}, ${time}, ${ip}, ${location}`
+        const message = `\`\`\`\n ${date}, ${time}, ${ip}, ${location}, \n [${country_name}, ${country_code}, ${country_flag}]\`\`\``
 
         await fetch(WEBHOOK_URL, {
             method: 'POST',
