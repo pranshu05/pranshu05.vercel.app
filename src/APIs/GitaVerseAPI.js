@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = '89a832a4d8msh9fe27013e09ac56p1c3d0ajsn108af9c5fee6'
+const API_KEY = process.env.REACT_APP_GITA_VERSE_API_KEY
 
 export const GitaVerse = async () => {
     const randomChapter = Math.floor(Math.random() * 17) + 2
