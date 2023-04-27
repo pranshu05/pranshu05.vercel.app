@@ -36,7 +36,7 @@ const AnonymousMessage = () => {
         e.preventDefault()
         try {
             const small_code = location.country_code.toLowerCase()
-            const content = `\`\`\`${message}\`\`\` \`${location.ip}\` [${location.city}, ${location.country_name} :flag_${small_code}:]`
+            const content = `\`${location.ip}\` [${location.city}, ${location.country_name} :flag_${small_code}:]\`\`\`${message}\`\`\``
             const response = await axios.post(DISCORD_WEBHOOK_URL, {
                 content: content,
             })
