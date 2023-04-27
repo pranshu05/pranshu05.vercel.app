@@ -121,6 +121,21 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
+.music-button{
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background-color: #181818;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: x-large;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .ano-cont {
   display: flex;
   flex-direction: row;
