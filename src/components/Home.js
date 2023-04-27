@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { TimeStatus } from '../APIs/TimeStatusAPI'
 import { SpotifyPlayer } from './Spotify'
 import { getWeatherIcon } from '../APIs/WeatherIconsAPI'
+import AnonymousMessage from './Anonymous'
 import {
     FaGithub,
     FaLinkedin,
@@ -64,6 +65,8 @@ export const Home = () => {
             </p>
             <br />
             <SpotifyPlayer />
+            <br />
+            <AnonymousMessage />
         </div>
     )
 }

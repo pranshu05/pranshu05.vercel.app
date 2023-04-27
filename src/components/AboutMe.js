@@ -1,6 +1,5 @@
 import { Tech } from './Technologies'
 import { useState, useEffect } from 'react'
-import AnonymousMessage from './Anonymous'
 
 export const AboutMe = () => {
     const BIRTHDATE = new Date('2005-10-04')

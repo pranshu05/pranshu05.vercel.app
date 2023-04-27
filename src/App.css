@@ -62,7 +62,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
-  color: #fff;
+  color: #eee;
 }
 nav.navbar.scrolled {
   background: rgba(24, 24, 24, 0.3);
@@ -120,6 +120,50 @@ span.navbar-text {
   margin-top: 20px;
   font-size: large;
   color: #f2f2f2;
+}
+.ano-cont {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  font-size: large;
+}
+.ano-cont form{
+  width: 100%;
+  font-size: large;
+  color: eee;
+}
+.ano-form-cont form:focus{
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.ano-form-cont {
+  display: inline-block;
+  width: 75%;
+}
+.ano-form-cont textarea {
+  min-height: 25px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #181818;
+  color: #eee;
+  resize: vertical;
+  outline: none;
+}
+.ano-button-cont {
+  display: inline-block;
+  width: 25%;
+  position: relative;
+  top: -10px;
+  right: 10px;
+}
+.ano-button-cont button{
+  font-size: large;
+  background-color: #181818;
+  color: #dbb3fe;
+  border: none;
 }
 @media (max-width: 800px) {
   .home-page-cont {
@@ -564,7 +608,7 @@ span.navbar-text {
   border: none;
   border-radius: 10px;
   background: #181818;
-  color: #fff;
+  color: #eee;
   resize: vertical;
 }
 .contact-form label textarea {
