@@ -124,46 +124,33 @@ span.navbar-text {
 .ano-cont {
   display: flex;
   flex-direction: row;
-  border-radius: 5px;
-  font-size: large;
-}
-.ano-cont form{
-  width: 100%;
-  font-size: large;
-  color: eee;
-}
-.ano-form-cont form:focus{
-  outline: none;
-  border: none;
-  box-shadow: none;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #181818;
+  max-width: 340px;
+  font-size: x-large;
 }
 .ano-form-cont {
-  display: inline-block;
-  width: 75%;
+  width: 85%;
+  display: flex;
 }
 .ano-form-cont textarea {
-  min-height: 25px;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+  margin-top: 5px;
+  min-height: 20px;
+  flex: 1;
   background-color: #181818;
   color: #eee;
   resize: vertical;
   outline: none;
+  border: none;
 }
 .ano-button-cont {
-  display: inline-block;
-  width: 25%;
-  position: relative;
-  top: -10px;
-  right: 10px;
-}
-.ano-button-cont button{
-  font-size: large;
+  width: 10%;
   background-color: #181818;
   color: #dbb3fe;
-  border: none;
+  cursor: pointer;
+  text-align: center;
 }
 @media (max-width: 800px) {
   .home-page-cont {
