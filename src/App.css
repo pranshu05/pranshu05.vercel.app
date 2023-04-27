@@ -123,7 +123,7 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .home-page-cont {
-    width: 85vw;
+    width: 96vw;
   }
 }
 .top-abt-links {
@@ -269,7 +269,7 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .about-me-page-cont {
-    width: 85vw;
+    width: 96vw;
   }
 }
 /* AboutMePage CSS End*/
@@ -617,7 +617,7 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .contact-page-cont {
-    width: 85vw;
+    width: 96vw;
   }
 }
 .contact-redirect-heading {
@@ -674,7 +674,7 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .links-page-cont {
-    width: 85vw;
+    width: 96vw;
   }
   .username{
     display: none;
@@ -733,7 +733,7 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .music-page-cont {
-    width: 85vw;
+    width: 96vw;
   }
   .recently-played-time,.top-tracks-plays,.top-artists-plays{
     display: none;
