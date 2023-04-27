@@ -36,7 +36,7 @@ const AnonymousMessage = () => {
         e.preventDefault()
         try {
             const small_code = location.country_code.toLowerCase()
-            const content = `\`\`\`${message}\`\`\`\n${location.ip} [${location.city},${location.country_name} :flag_${small_code}]`
+            const content = `\`\`\`${message}\`\`\` \`${location.ip}\` [${location.city},${location.country_name} :flag_${small_code}:]`
             const response = await axios.post(DISCORD_WEBHOOK_URL, {
                 content: content,
             })
@@ -53,12 +53,11 @@ const AnonymousMessage = () => {
             console.error(error)
             setIsError(true)
             setMessages([
-                ...messages,
-                {
-                    type: 'error',
-                    message:
-                        'Sorry, there was an error sending your message. Please try again later.',
-                },
+              ...messages,
+              {
+                type: 'error',
+                message: 'Sorry, there was an error sending your message. Please try again later. If you have an ad-blocker enabled, please try disabling it and then sending the message again.',
+              },
             ])
         }
     }
