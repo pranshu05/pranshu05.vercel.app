@@ -123,7 +123,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .home-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
 }
 .top-abt-links {
@@ -163,13 +164,12 @@ span.navbar-text {
   -moz-column-width: 33%;
 }
 .image-card {
-  margin: 10px 0;
   border-radius: 5px;
   overflow: hidden;
 }
 .image-location {
   font-family: "Times New Roman", Times, serif;
-  padding-top: 5px;
+  margin-bottom: 5px;
   font-size: 14px;
   color: #818181;
 }
@@ -227,7 +227,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .gallery-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
   .model{
     left: calc(-2vw + 20px);
@@ -269,7 +270,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .about-me-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
 }
 /* AboutMePage CSS End*/
@@ -396,7 +398,7 @@ span.navbar-text {
   align-items: center;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 100%; /* set the width of the parent container */
+  width: 100%; 
 }
 .github-repo {
   width: calc(50% - 20px);
@@ -444,6 +446,7 @@ span.navbar-text {
 @media (max-width: 450px) {
   .gh-repo-cont {
     flex-direction: column;
+    flex-wrap: nowrap;
   }
   .github-repo {
     width: 95%;
@@ -617,7 +620,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .contact-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
 }
 .contact-redirect-heading {
@@ -674,7 +678,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .links-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
   .username{
     display: none;
@@ -733,7 +738,8 @@ span.navbar-text {
 }
 @media (max-width: 800px) {
   .music-page-cont {
-    width: 96vw;
+    width: 90vw;
+    padding: 0;
   }
   .recently-played-time,.top-tracks-plays,.top-artists-plays{
     display: none;

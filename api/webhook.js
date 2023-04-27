@@ -23,7 +23,10 @@ const webhookHandler = async (req, res) => {
             },
             body: JSON.stringify({ content: message }),
         })
-    } catch (error) {}
+        res.status(200).send('Webhook triggered successfully')
+    } catch (error) {
+        res.status(500).send('Failed to trigger webhook')
+    }
 }
 
 export default webhookHandler

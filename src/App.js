@@ -12,14 +12,7 @@ import axios from 'axios'
 
 function App() {
     useEffect(() => {
-        axios
-            .get('https://pranshu05.vercel.app/api/webhook')
-            .then((response) => {
-                console.log('Webhook triggered successfully')
-            })
-            .catch((error) => {
-                console.log('Error triggering webhook', error)
-            })
+        axios.get('https://pranshu05.vercel.app/api/webhook')
     }, [])
 
     return (
