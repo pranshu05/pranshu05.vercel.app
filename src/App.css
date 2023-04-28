@@ -178,7 +178,9 @@ span.navbar-text {
   .home-page-cont {
     width: 90vw;
     padding: 0;
-    min-height: 700px;
+  }
+  .music-button{
+    display: none;
   }
 }
 .top-abt-links {
