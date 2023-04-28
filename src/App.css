@@ -277,7 +277,7 @@ span.navbar-text {
     padding: 0;
   }
   .model{
-    left: calc(-2vw + 20px);
+    left: calc(-5vw + 20px);
   }
   .image-gallery {
     -webkit-column-count: 2;
