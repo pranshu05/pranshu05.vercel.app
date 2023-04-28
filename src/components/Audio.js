@@ -10,9 +10,10 @@ const AudioPlayer = ({ isMuted, toggleMute }) => {
 
    useEffect(() => {
       audio.loop = true
-      audio.play()
       if (isMuted) {
          audio.pause()
+      } else {
+         audio.play()
       }
    }, [isMuted, audio])
 
