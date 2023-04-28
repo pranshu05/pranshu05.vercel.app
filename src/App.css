@@ -137,6 +137,7 @@ span.navbar-text {
   align-items: center;
   text-align: center;
   animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+  z-index: 1000;
 }
 @keyframes bounceAnim{
   0%, 10% { bottom: 40px; }
@@ -177,6 +178,7 @@ span.navbar-text {
   .home-page-cont {
     width: 90vw;
     padding: 0;
+    min-height: 700px;
   }
 }
 .top-abt-links {
