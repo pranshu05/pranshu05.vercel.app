@@ -136,6 +136,11 @@ span.navbar-text {
   justify-content: center;
   align-items: center;
   text-align: center;
+  animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+}
+@keyframes bounceAnim{
+  0%, 10% { bottom: 40px; }
+  100% { bottom: 10px; }
 }
 .ano-cont {
   display: flex;
