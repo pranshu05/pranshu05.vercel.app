@@ -14,7 +14,8 @@ const webhookHandler = async (req, res) => {
         const small_code = country_code.toLowerCase()
 
         const location = req.headers.referer
-        const message = `\`${date} ${time} (${ip})\` [${location}] \n [${city}, ${country_name} :flag_${small_code}:]`
+        const userAgent = req.headers['user-agent']
+        const message = `\`${date} ${time} (${ip})\` [${location}] \n[${city}, ${country_name} :flag_${small_code}:]\n${userAgent}`
 
         await fetch(WEBHOOK_URL, {
             method: 'POST',
