@@ -10,19 +10,11 @@ const AudioPlayer = ({ isMuted, toggleMute }) => {
 
    useEffect(() => {
       audio.loop = true
-      audio.addEventListener('canplay', () => {
-         if (!isMuted) {
-            audio.play()
-         }
-      })
-      return () => {
-         audio.removeEventListener('canplay', () => {
-            if (!isMuted) {
-               audio.play()
-            }
-         })
+      audio.play()
+      if (isMuted) {
+         audio.pause()
       }
-   }, [audio, isMuted])
+   }, [isMuted, audio])
 
    return (
       <div className="music-button" onClick={toggleMute}>
