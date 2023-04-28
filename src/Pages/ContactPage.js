@@ -5,17 +5,17 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 export const ContactPage = () => {
-    useEffect(() => {
-        axios.get('https://pranshu05.vercel.app/api/webhook')
-    }, [])
+   useEffect(() => {
+      axios.get('https://pranshu05.vercel.app/api/webhook')
+   }, [])
 
-    return (
-        <div>
-            <NavBar />
-            <div className="contact-page-cont">
-                <Contact />
-                <Footer />
-            </div>
-        </div>
-    )
+   return (
+      <div>
+         <NavBar />
+         <div className="contact-page-cont">
+            <Contact />
+            <Footer />
+         </div>
+      </div>
+   )
 }

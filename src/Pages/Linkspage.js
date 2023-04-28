@@ -6,20 +6,20 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 export const LinksPage = () => {
-    useEffect(() => {
-        axios.get('https://pranshu05.vercel.app/api/webhook')
-    }, [])
+   useEffect(() => {
+      axios.get('https://pranshu05.vercel.app/api/webhook')
+   }, [])
 
-    return (
-        <div>
-            <NavBar />
-            <div className="links-page-cont">
-                <p className="go-back-home">
-                    &larr; Go back <Link to="/">home.</Link>
-                </p>
-                <Links />
-                <Footer />
-            </div>
-        </div>
-    )
+   return (
+      <div>
+         <NavBar />
+         <div className="links-page-cont">
+            <p className="go-back-home">
+               &larr; Go back <Link to="/">home.</Link>
+            </p>
+            <Links />
+            <Footer />
+         </div>
+      </div>
+   )
 }

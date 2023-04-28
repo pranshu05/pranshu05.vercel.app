@@ -7,26 +7,31 @@ import { LinksPage } from './Pages/Linkspage'
 import { MusicPage } from './Pages/Musicpage'
 import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
+import AudioPlayer from './components/Audio'
+import { useState } from 'react'
 
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path="/" element={<HomePage />} />
-                    <Route exact path="/about" element={<AboutMePage />} />
-                    <Route exact path="/contact" element={<ContactPage />} />
-                    <Route
-                        exact
-                        path="/gallery"
-                        element={<ImageGalleryPage />}
-                    />
-                    <Route exact path="/links" element={<LinksPage />} />
-                    <Route exact path="/music" element={<MusicPage />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
-    )
+   const [isMuted, setIsMuted] = useState(false)
+
+   const toggleMute = () => {
+      setIsMuted(!isMuted)
+   }
+
+   return (
+      <div className="App">
+         <AudioPlayer isMuted={isMuted} toggleMute={toggleMute} />
+         <BrowserRouter>
+            <Routes>
+               <Route exact path="/" element={<HomePage />} />
+               <Route exact path="/about" element={<AboutMePage />} />
+               <Route exact path="/contact" element={<ContactPage />} />
+               <Route exact path="/gallery" element={<ImageGalleryPage />} />
+               <Route exact path="/links" element={<LinksPage />} />
+               <Route exact path="/music" element={<MusicPage />} />
+            </Routes>
+         </BrowserRouter>
+      </div>
+   )
 }
 
 export default App

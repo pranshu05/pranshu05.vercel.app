@@ -9,29 +9,29 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 export const AboutMePage = () => {
-    useEffect(() => {
-        axios.get('https://pranshu05.vercel.app/api/webhook')
-    }, [])
+   useEffect(() => {
+      axios.get('https://pranshu05.vercel.app/api/webhook')
+   }, [])
 
-    return (
-        <div>
-            <NavBar />
-            <div className="about-me-page-cont">
-                <p className="go-back-home">
-                    &larr; Go back <Link to="/">home.</Link>
-                </p>
-                <h1>About</h1>
-                <AboutMe />
-                <Projects />
-                <GitHub />
-                <div className="contact-redirect-heading">
-                    <h2>
-                        Stop stalking! Start <Link to="/contact">talking.</Link>
-                    </h2>
-                </div>
-                <Gita />
-                <Footer />
+   return (
+      <div>
+         <NavBar />
+         <div className="about-me-page-cont">
+            <p className="go-back-home">
+               &larr; Go back <Link to="/">home.</Link>
+            </p>
+            <h1>About</h1>
+            <AboutMe />
+            <Projects />
+            <GitHub />
+            <div className="contact-redirect-heading">
+               <h2>
+                  Stop stalking! Start <Link to="/contact">talking.</Link>
+               </h2>
             </div>
-        </div>
-    )
+            <Gita />
+            <Footer />
+         </div>
+      </div>
+   )
 }
