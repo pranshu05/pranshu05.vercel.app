@@ -18,6 +18,8 @@ export function getWeatherIcon(weather) {
          return <span>🌨️</span>
       case 'Patchy sleet possible':
          return <span>🌨️</span>
+      case 'Moderate or heavy rain with thunder':
+         return <span>🌩️</span>
       case 'Patchy freezing drizzle possible':
          return <span>🌨️</span>
       case 'Thundery outbreaks possible':

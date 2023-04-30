@@ -36,15 +36,26 @@ const AudioPlayer = ({ isMuted, toggleMute }) => {
       }
    }, [audio, currentSongIndex])
 
+   useEffect(() => {
+      if (!isMuted) {
+         const newCurrentSongIndex = Math.floor(
+            Math.random() * lofiData.songs.length
+         )
+         setCurrentSongIndex(newCurrentSongIndex)
+      }
+   }, [isMuted])
+
    return (
       <div className="lofi-cont">
          <div className="music-button" onClick={toggleMute}>
             {isMuted ? <MdMusicNote /> : <MdMusicOff />}
          </div>
-         <div className="lofi-artist">
-            {currentSong.name} <br />
-            {currentSong.artist}
-         </div>
+         {!isMuted && (
+            <div className="lofi-artist">
+               {currentSong.name} <br />
+               {currentSong.artist}
+            </div>
+         )}
       </div>
    )
 }
