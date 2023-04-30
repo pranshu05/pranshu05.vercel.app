@@ -121,23 +121,38 @@ span.navbar-text {
   font-size: large;
   color: #f2f2f2;
 }
-.music-button{
-  height: 40px;
-  width: 40px;
-  border-radius: 10px;
-  background-color: #181818;
+.lofi-cont {
+  min-height: 80px;
   color: #dbb3fe;
   position: fixed;
   bottom: 10px;
   left: 10px;
-  font-size: x-large;
   cursor: pointer;
   display: flex;
+  flex-direction: row;
+  z-index: 1000;
+}
+.music-button {
+  height: 40px;
+  width: 40px;
+  float: left;
+  border-radius: 10px;
+  background-color: #181818;
+  font-size: x-large;
+  position: fixed;
+  animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
+  display: flex;
+  margin-right: 10px; 
+  margin-left: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
-  z-index: 1000;
+}
+.lofi-artist {
+  width: calc(100% - 80px); 
+  position: fixed;
+  right: 10px;
+  margin-top: 20px;
 }
 @keyframes bounceAnim{
   0%, 10% { bottom: 40px; }
