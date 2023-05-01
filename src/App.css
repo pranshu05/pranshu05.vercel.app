@@ -92,11 +92,16 @@ span.navbar-text {
   transform: translate(-50%, -50%); 
   position: absolute;
   padding: 20px;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
 }
-.not-page-cont h1 {
+.not-page-all{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+.not-page-cont h2 {
   font-size: 400%;
   font-weight: 900;
   margin: 10px;
@@ -106,6 +111,10 @@ span.navbar-text {
   margin-top: 20px;
   font-size: large;
   color: #f2f2f2;
+}
+.not-page-cont img{
+  border-radius: 10px;
+  width: 80%;
 }
 @media (max-width: 800px) {
   .not-page-cont {

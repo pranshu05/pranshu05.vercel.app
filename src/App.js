@@ -29,7 +29,7 @@ function App() {
                <Route exact path="/gallery" element={<ImageGalleryPage />} />
                <Route exact path="/links" element={<LinksPage />} />
                <Route exact path="/music" element={<MusicPage />} />
-               <Route component={NotFoundPage} />
+               <Route exact path="*" element={<NotFoundPage />} />
             </Routes>
          </BrowserRouter>
       </div>
