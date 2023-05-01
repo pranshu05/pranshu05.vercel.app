@@ -12,9 +12,9 @@ const webhookHandler = async (req, res) => {
       const { country_name, country_code, city } = locationData
       const small_code = country_code.toLowerCase()
 
-      const location = req.headers.referer
-      const userAgent = req.headers['user-agent']
-      const message = `\`${date} ${time} (${ip})\` [${location}] \n[${city}, ${country_name} :flag_${small_code}:]\n${userAgent}`
+      const refererUrl = req.headers.referer
+      const origin = refererUrl ? new URL(refererUrl).origin : 'unknown'
+      const message = `\`${date} ${time} (${ip})\` [${origin}] \n[${city}, ${country_name} :flag_${small_code}:]`
 
       await fetch(WEBHOOK_URL, {
          method: 'POST',
