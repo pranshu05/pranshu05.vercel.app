@@ -83,6 +83,38 @@ span.navbar-text {
 }
 /* Navbar CSS End */
 
+/*404*/
+.not-page-cont {
+  width: 65vw;
+  height: 100vh;
+  left: 50%;
+  top: 50%; 
+  transform: translate(-50%, -50%); 
+  position: absolute;
+  padding: 20px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+.not-page-cont h1 {
+  font-size: 400%;
+  font-weight: 900;
+  margin: 10px;
+  margin-left: 0;
+}
+.not-page-cont p {
+  margin-top: 20px;
+  font-size: large;
+  color: #f2f2f2;
+}
+@media (max-width: 800px) {
+  .not-page-cont {
+    width: 90vw;
+    padding: 0;
+  }
+}
+/*404*/
+
 /* HomePage CSS Start*/
 .home-page-cont {
   width: 65vw;
