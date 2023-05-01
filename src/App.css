@@ -127,7 +127,6 @@ span.navbar-text {
   position: fixed;
   bottom: 10px;
   left: 10px;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   z-index: 1000;
@@ -147,6 +146,7 @@ span.navbar-text {
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 .lofi-artist {
   width: calc(100% - 80px); 
