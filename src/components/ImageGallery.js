@@ -96,7 +96,7 @@ export function ImageGallery() {
                   getImg(image.source)
                }}
             >
-               <img src={image.source} alt="" />
+               <img src={image.source} alt="" loading="lazy" />
                <div className="image-location">📍 {image.location}</div>
             </div>
          ))}

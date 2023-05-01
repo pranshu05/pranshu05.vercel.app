@@ -858,8 +858,9 @@ footer {
 ::-webkit-scrollbar {
   display: none;
 }
-::selection {
-  color: #181818;
-  background: #dbb3fe;
+body{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 /*Webkit Style End*/

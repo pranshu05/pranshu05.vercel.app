@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { TimeStatus } from '../APIs/TimeStatusAPI'
 import { SpotifyPlayer } from './Spotify'
-import { getWeatherIcon } from '../APIs/WeatherIconsAPI'
+import { getWeatherIcon } from '../Utils/WeatherIcons'
 import AnonymousMessage from './Anonymous'
 import {
    FaGithub,
