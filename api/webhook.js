@@ -22,7 +22,7 @@ const webhookHandler = async (req, res) => {
       const uaData = uaParser.setUA(uaString).getResult()
       const isBot = uaData.device && uaData.device.type === 'bot'
 
-      const message = `\`${date} ${time} (${ip}) [/${path}]\`\n[${city}, ${country_name} :flag_${small_code}:] ${
+      const message = `\`${date} ${time} (${ip}) [${path}]\`\n[${city}, ${country_name} :flag_${small_code}:] ${
          isBot ? ':robot_face: BOT DETECTED' : ''
       }`
 
