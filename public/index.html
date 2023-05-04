@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta name="description" content="Just a random portfolio website" />
+      <meta
+         name="description"
+         content="Portfolio website for Pranshu05, showcasing web development and design projects."
+      />
+      <meta
+         name="keywords"
+         content="web development, design, portfolio, Pranshu05"
+      />
+      <meta name="author" content="Pranshu05" />
       <meta
          property="og:image"
          content="https://user-images.githubusercontent.com/70943732/231675688-40f704ee-437d-4a2e-85d0-d606a4d32b62.png"
       />
-      <!-- Open Graph / Facebook -->
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Pranshu05" />
+      <meta property="og:title" content="Portfolio | Pranshu05" />
       <meta
          property="og:description"
-         content="Just a random portfolio website"
+         content="Portfolio website for Pranshu05, showcasing web development and design projects."
       />
       <meta
          property="og:image"
          content="https://user-images.githubusercontent.com/70943732/231675688-40f704ee-437d-4a2e-85d0-d606a4d32b62.png"
       />
-      <!-- Twitter -->
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content="Pranshu05" />
+      <meta property="twitter:title" content="Portfolio | Pranshu05" />
       <meta
          property="twitter:description"
-         content="Just a random portfolio website"
+         content="Portfolio website for Pranshu05, showcasing web development and design projects."
       />
       <meta
          property="twitter:image"
@@ -33,7 +39,6 @@
          http-equiv="Content-Security-Policy"
          content="upgrade-insecure-requests"
       />
-
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
       <link
          rel="icon"
@@ -41,21 +46,19 @@
          href="https://user-images.githubusercontent.com/70943732/231675688-40f704ee-437d-4a2e-85d0-d606a4d32b62.png"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Pranshu05</title>
-
-      <script>
-         const titles = [
-            'Pranshu05',
-            'धर्मो रक्षति रक्षितः',
-            'Protecting Sanatan Dharma',
-         ]
-         let currentIndex = 0
-
-         setInterval(() => {
-            document.title = titles[currentIndex]
-            currentIndex = (currentIndex + 1) % titles.length
-         }, 7000)
+      <script type="application/ld+json">
+         {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Pranshu05",
+            "url": "https://pranshu05.vercel.app",
+            "sameAs": [
+               "https://twitter.com/Pranshu_05",
+               "https://www.linkedin.com/in/pranshu05"
+            ]
+         }
       </script>
+      <title>Portfolio | Pranshu05</title>
    </head>
    <body>
       <div id="root"></div>
