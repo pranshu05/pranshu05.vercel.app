@@ -9,7 +9,7 @@ import NotFoundPage from './Pages/NotFoundPage'
 import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import AudioPlayer from './components/Audio'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
    const [isMuted, setIsMuted] = useState(true)
@@ -17,6 +17,16 @@ function App() {
    const toggleMute = () => {
       setIsMuted(!isMuted)
    }
+
+   useEffect(() => {
+      function disableRightClick(e) {
+         e.preventDefault()
+      }
+      document.addEventListener('contextmenu', disableRightClick)
+      return () => {
+         document.removeEventListener('contextmenu', disableRightClick)
+      }
+   }, [])
 
    return (
       <div className="App">

@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
-import 'react-lazy-load-image-component/src/effects/blur.css'
 
-export function ImageGallery({ scrollPosition }) {
+export function ImageGallery() {
    const images = [
       {
          source:
@@ -98,12 +96,7 @@ export function ImageGallery({ scrollPosition }) {
                   getImg(image.source)
                }}
             >
-               <LazyLoadImage
-                  src={image.source}
-                  alt=""
-                  scrollPosition={scrollPosition}
-                  effect="blur"
-               />
+               <img src={image.source} alt="" />
                <div className="image-location">📍 {image.location}</div>
             </div>
          ))}
