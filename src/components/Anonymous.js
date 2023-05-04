@@ -30,6 +30,19 @@ const AnonymousMessage = () => {
 
    const handleSubmit = async (e) => {
       e.preventDefault()
+
+      if (!message || message.trim().length === 0) {
+         setIsError(true)
+         setMessages([
+            ...messages,
+            {
+               type: 'error',
+               message: 'Please enter a message to send.',
+            },
+         ])
+         return
+      }
+      
       try {
          const small_code = location.country_code.toLowerCase()
          const content = `\`${location.ip}\` [${location.city}, ${location.country_name} :flag_${small_code}:]\`\`\`${message}\`\`\``

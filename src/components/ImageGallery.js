@@ -67,6 +67,7 @@ export function ImageGallery() {
 
    const [model, setModel] = useState(false)
    const [tempimgsrc, setTempImgSrc] = useState('')
+
    const getImg = (source) => {
       setTempImgSrc(source)
       setModel(true)
@@ -76,6 +77,24 @@ export function ImageGallery() {
 
       document.querySelector('.model').style.top = top + 15 + 'px'
    }
+
+   const handleScroll = () => {
+      const cards = document.querySelectorAll('.image-card')
+
+      cards.forEach((card) => {
+         const cardTop = card.getBoundingClientRect().top
+         const cardHeight = card.clientHeight
+
+         if (cardTop + cardHeight >= 0 && cardTop <= window.innerHeight) {
+            card.classList.add('visible')
+         } else {
+            card.classList.remove('visible')
+         }
+      })
+   }
+
+   // add scroll listener to window
+   window.addEventListener('scroll', handleScroll)
 
    return (
       <div className="image-gallery">
@@ -96,7 +115,7 @@ export function ImageGallery() {
                   getImg(image.source)
                }}
             >
-               <img src={image.source} alt="" />
+               <img src={image.source} alt="" loading="lazy" />
                <div className="image-location">📍 {image.location}</div>
             </div>
          ))}

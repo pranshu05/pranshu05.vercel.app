@@ -278,6 +278,7 @@ span.navbar-text {
 .image-card {
   border-radius: 5px;
   overflow: hidden;
+  min-height: 100px;
 }
 .image-location {
   font-family: "Times New Roman", Times, serif;
