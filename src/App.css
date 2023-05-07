@@ -128,7 +128,7 @@ span.navbar-text {
 .home-page-cont {
   width: 65vw;
   left: 50%;
-  margin-top: 85px;
+  margin-top: 130px;
   transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
@@ -140,27 +140,23 @@ span.navbar-text {
   margin-left: 0;
 }
 .moving-gradient {
-  background: linear-gradient(-45deg, #8b5cf6, #d782e7, #ffc8dd, #bfe9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  color: #dbb3fe;
 }
 .home-page-cont p {
   margin-top: 20px;
   font-size: large;
   color: #f2f2f2;
+}
+.h-left{
+  width: 50%;
+  float: left;
+}
+.h-right{
+  width: calc(50% - 10px);
+  float: right;
+  padding-top: 100px;
+  padding-right: 10px;
+  vertical-align: middle;
 }
 .lofi-cont {
   min-height: 80px;
@@ -230,10 +226,24 @@ span.navbar-text {
   cursor: pointer;
   text-align: center;
 }
+@media (max-width: 1200px){
+  .h-left{
+    width: 100%;
+    float: left;
+  }
+  .h-right{
+    width: 100%;
+    float: left;
+    text-align: left;
+    padding-left: 10px;
+    padding: 0;
+  }
+}
 @media (max-width: 800px) {
   .home-page-cont {
     width: 90vw;
     padding: 0;
+    margin-top: 85px;
   }
   .music-button{
     display: none;
