@@ -4,8 +4,6 @@ import { TbSend } from 'react-icons/tb'
 
 const AnonymousMessage = () => {
    const [message, setMessage] = useState('')
-   const [isSuccess, setIsSuccess] = useState(false)
-   const [isError, setIsError] = useState(false)
    const [location, setLocation] = useState(null)
    const [messages, setMessages] = useState([])
 
@@ -32,7 +30,6 @@ const AnonymousMessage = () => {
       e.preventDefault()
 
       if (!message || message.trim().length === 0) {
-         setIsError(true)
          setMessages([
             ...messages,
             {
@@ -42,7 +39,7 @@ const AnonymousMessage = () => {
          ])
          return
       }
-      
+
       try {
          const small_code = location.country_code.toLowerCase()
          const content = `\`${location.ip}\` [${location.city}, ${location.country_name} :flag_${small_code}:]\`\`\`${message}\`\`\``
@@ -50,7 +47,6 @@ const AnonymousMessage = () => {
             content: content,
          })
          console.log(response.data)
-         setIsSuccess(true)
          setMessages([
             ...messages,
             {
@@ -60,7 +56,6 @@ const AnonymousMessage = () => {
          ])
       } catch (error) {
          console.error(error)
-         setIsError(true)
          setMessages([
             ...messages,
             {

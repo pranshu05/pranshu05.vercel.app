@@ -18,7 +18,7 @@ export const AboutMePage = () => {
          <NavBar />
          <div className="about-me-page-cont">
             <p className="go-back-home">
-               &larr; Go back <Link to="/">home.</Link>
+               &larr; <Link to="/">home.</Link>
             </p>
             <h1>About</h1>
             <AboutMe />

@@ -38,6 +38,7 @@ function ContactForm() {
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  placeholder="Joe Mama"
                   required
                />
             </label>
@@ -48,6 +49,7 @@ function ContactForm() {
                   name="_replyto"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  placeholder="presidentbiden@hotmail.com"
                   required
                />
             </label>
@@ -57,6 +59,7 @@ function ContactForm() {
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Yoooo!!! Suppp"
                   required
                ></textarea>
             </label>

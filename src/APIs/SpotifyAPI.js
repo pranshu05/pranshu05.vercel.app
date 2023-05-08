@@ -60,8 +60,8 @@ export default async function getNowPlayingItem(
    const title = song.item.name
    const albumImageUrl = song.item.album.images[0].url
    const albumName = song.item.album.name
-   const progressMs = song.progress_ms // current position of the song in milliseconds
-   const durationMs = song.item.duration_ms // duration of the song in milliseconds
+   const progressMs = song.progress_ms
+   const durationMs = song.item.duration_ms
 
    return {
       artist,

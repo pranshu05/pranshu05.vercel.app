@@ -7,7 +7,7 @@ export function Contact() {
    return (
       <div>
          <p className="go-back-home">
-            &larr; Go back <Link to="/">home.</Link>
+            &larr; <Link to="/">home.</Link>
          </p>
          <h1>Get in touch 📨</h1>
          <h4>

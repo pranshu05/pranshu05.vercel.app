@@ -15,7 +15,7 @@ export const MusicPage = () => {
          <NavBar />
          <div className="music-page-cont">
             <p className="go-back-home">
-               &larr; Go back <Link to="/">home.</Link>
+               &larr; <Link to="/">home.</Link>
             </p>
             <Music />
             <Footer />

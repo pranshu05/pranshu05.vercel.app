@@ -17,7 +17,7 @@ export const TimeStatus = () => {
 
       let hour = new Date().getHours()
       if (hour < 7 || hour >= 24) {
-         setActivity('💤') // Sleep time or coding time
+         setActivity('💤') // Sleep time
          setActivityTitle('Sleeping')
       } else if (hour === 7) {
          setActivity('🍳') // Breakfast time

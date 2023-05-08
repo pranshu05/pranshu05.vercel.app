@@ -32,7 +32,7 @@ export const Home = () => {
             <h1 style={{ fontSize: '400%' }} className="moving-gradient">
                Pranshu
             </h1>
-            <h3 style={{ color: '#818181' }}>
+            <h3 style={{ color: '#818181', padding: '0' }}>
                FullStack Developer based in India, He/Him
             </h3>
             <div className="top-abt-links">

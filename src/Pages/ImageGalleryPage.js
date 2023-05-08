@@ -15,7 +15,7 @@ export const ImageGalleryPage = () => {
          <NavBar />
          <div className="gallery-page-cont">
             <p className="go-back-home">
-               &larr; Go back <Link to="/">home.</Link>
+               &larr; <Link to="/">home.</Link>
             </p>
             <h1>My photography</h1>
             <ImageGallery />

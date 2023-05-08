@@ -15,7 +15,7 @@ export const LinksPage = () => {
          <NavBar />
          <div className="links-page-cont">
             <p className="go-back-home">
-               &larr; Go back <Link to="/">home.</Link>
+               &larr; <Link to="/">home.</Link>
             </p>
             <Links />
             <Footer />

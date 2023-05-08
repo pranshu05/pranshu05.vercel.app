@@ -15,8 +15,6 @@ body {
   font-weight: 400;
   background-color: #121212;
   color: #eeeeee;
-  margin: 0;
-  padding: 0;
   transition: 0.7s ease-in-out;
 }
 .highlight {
@@ -48,7 +46,7 @@ nav.navbar {
   left: 50%;
   transform: translate(-50%, 0%);
   text-align: center;
-  z-index: 1;
+  z-index: 100;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -59,7 +57,9 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   opacity: 0.75;
   border-radius: 5px;
 }
-nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover{
+  color: #eee;
+}
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
   color: #eee;
@@ -83,7 +83,7 @@ span.navbar-text {
 }
 /* Navbar CSS End */
 
-/*404*/
+/*404 Start*/
 .not-page-cont {
   width: 65vw;
   height: 100vh;
@@ -102,8 +102,8 @@ span.navbar-text {
   text-align: center;
 }
 .not-page-cont h2 {
-  font-size: 400%;
-  font-weight: 900;
+  font-size: 250%;
+  font-weight: 700;
   margin: 10px;
   margin-left: 0;
 }
@@ -122,7 +122,7 @@ span.navbar-text {
     padding: 0;
   }
 }
-/*404*/
+/*404 End*/
 
 /* HomePage CSS Start*/
 .home-page-cont {
@@ -134,13 +134,11 @@ span.navbar-text {
   padding: 20px;
 }
 .home-page-cont h1 {
+  color: #dbb3fe;
   font-size: 400%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
   margin-left: 0;
-}
-.moving-gradient {
-  color: #dbb3fe;
 }
 .home-page-cont p {
   margin-top: 20px;
@@ -243,7 +241,7 @@ span.navbar-text {
   .home-page-cont {
     width: 90vw;
     padding: 0;
-    margin-top: 85px;
+    margin-top: 115px;
   }
   .music-button{
     display: none;
@@ -251,10 +249,10 @@ span.navbar-text {
 }
 .top-abt-links {
   font-size: xx-large;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .top-abt-links a {
-  margin: 5px;
+  margin: 5px 10px 5px 0;
 }
 /* HomePage CSS End*/
 
@@ -270,7 +268,7 @@ span.navbar-text {
 .gallery-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .gallery-page-cont p {
   margin-top: 20px;
@@ -384,7 +382,7 @@ span.navbar-text {
 .about-me-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .about-me-page-cont p {
   margin-top: 20px;
@@ -536,7 +534,6 @@ span.navbar-text {
 .github-repo:nth-child(odd) {
   margin-right: 10px;
 }
-
 .github-repo:nth-child(even) {
   margin-left: 10px;
 }
@@ -664,7 +661,7 @@ span.navbar-text {
 .contact-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .contact-page-cont p {
   margin-top: 20px;
@@ -674,6 +671,9 @@ span.navbar-text {
 .contact-form {
   display: flex;
   flex-direction: column;
+  background-color: #181818;
+  border-radius: 10px;
+  padding: 10px;
 }
 .contact-form label {
   display: flex;
@@ -685,8 +685,9 @@ span.navbar-text {
   margin-top: 10px;
   padding: 10px;
   border: none;
+  outline: none;
   border-radius: 10px;
-  background: #181818;
+  background: #121212;
   color: #eee;
   resize: vertical;
 }
@@ -701,6 +702,7 @@ span.navbar-text {
   color: #121212;
   font-weight: 800;
   border: none;
+  outline: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
@@ -711,22 +713,21 @@ span.navbar-text {
 }
 .dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  border: 2px solid transparent;
   animation: blink 1.5s ease-in-out infinite;
   margin-left: 5px;
 }
 @keyframes blink {
   0% {
-    border-color: transparent;
+    opacity: 0;
   }
   50% {
-    border-color: inherit;
+    opacity: 1;
   }
   100% {
-    border-color: transparent;
+    opacity: 0;
   }
 }
 .online {
@@ -764,7 +765,7 @@ span.navbar-text {
 .links-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .links-page-cont p {
   margin-top: 20px;
@@ -822,7 +823,7 @@ span.navbar-text {
 .music-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
 }
 .music-page-cont p {
   margin-top: 20px;
@@ -911,8 +912,12 @@ footer {
   display: none;
 }
 body{
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; 
+  -ms-user-select: none;
+  user-select: none;
 }
 /*Webkit Style End*/
+
+
+
+/*I just love you!! Thanks for scrolling <3*/

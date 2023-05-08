@@ -23,9 +23,7 @@ const AudioPlayer = ({ isMuted, toggleMute }) => {
 
    useEffect(() => {
       const handleEnded = () => {
-         // Play the next song in the sequence
          const nextSongIndex = (currentSongIndex + 1) % lofiData.songs.length
-
          setCurrentSongIndex(nextSongIndex)
       }
 
