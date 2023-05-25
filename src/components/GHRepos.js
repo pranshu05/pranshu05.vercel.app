@@ -5,6 +5,7 @@ export const GHRepos = () => {
    const repos = [
       'pranshu05/Elpha',
       'pranshu05/Chrome-Dino-game-AI',
+      'pranshu05/spotify-activity',
       'pranshu05/game',
       'pranshu05/iss',
    ]
