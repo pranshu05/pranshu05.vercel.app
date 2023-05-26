@@ -32,9 +32,21 @@ export const Home = () => {
             <h1 style={{ fontSize: '400%' }} className="moving-gradient">
                Pranshu
             </h1>
-            <h3 style={{ color: '#818181', padding: '0' }}>
-               FullStack Developer based in India, He/Him
-            </h3>
+            <p
+               style={{
+                  color: '#818181',
+                  padding: '0',
+                  fontSize: 'larger',
+                  marginTop: '0',
+                  fontWeight: 'bold',
+               }}
+            >
+               FullStack Developer based in{' '}
+               <a href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4">
+                  Bharat
+               </a>
+               , He/Him
+            </p>
             <div className="top-abt-links">
                <a href="https://github.com/pranshu05">
                   <FaGithub />

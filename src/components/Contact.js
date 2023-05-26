@@ -10,10 +10,10 @@ export function Contact() {
             &larr; <Link to="/">home.</Link>
          </p>
          <h1>Get in touch 📨</h1>
-         <h4>
+         <p style={{ fontWeight: 'bold', fontSize: 'medium' }}>
             Fill out this form and I'll get back to you as soon as possible! Or
             contact me via my e-mail or DM me on Twitter/Discord.
-         </h4>
+         </p>
          <br />
          <div className="con">
             <div className="con-left">

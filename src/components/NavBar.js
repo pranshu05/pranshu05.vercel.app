@@ -50,6 +50,7 @@ export const NavBar = () => {
                <Nav className="ms-auto">
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/"
                      className={
                         activeLink === 'home'
@@ -62,6 +63,7 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/about"
                      className={
                         activeLink === 'about'
@@ -74,6 +76,7 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/gallery"
                      className={
                         activeLink === 'gallery'
@@ -86,6 +89,7 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/links"
                      className={
                         activeLink === 'links'
@@ -98,6 +102,7 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/music"
                      className={
                         activeLink === 'music'
@@ -110,6 +115,7 @@ export const NavBar = () => {
                   </Nav.Link>
                   <Nav.Link
                      as={Link}
+                     aria-label=""
                      to="/contact"
                      className={
                         activeLink === 'contact'

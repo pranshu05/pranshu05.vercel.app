@@ -26,6 +26,8 @@ export function SpotifyPlayer(props) {
                      <img
                         src={result.albumImageUrl}
                         alt={`Album cover for ${result.title}`}
+                        width=""
+                        height=""
                      />
                   </div>
                   <div className="song-info">
@@ -58,6 +60,8 @@ export function SpotifyPlayer(props) {
                      <img
                         src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
                         alt="music"
+                        width=""
+                        height=""
                      />
                   </div>
                   <div className="song-info">

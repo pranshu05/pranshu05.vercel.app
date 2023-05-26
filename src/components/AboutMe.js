@@ -21,10 +21,14 @@ export const AboutMe = () => {
          <h2> Hi! I'm Pranshu ✌️</h2>
          <p>
             I'm a {ageInYearsFormatted} y/o high school student and self-taught
-            developer from India. I started coding when I was 14 during the
-            COVID lockdown and have gained expertise in creating Discord bots
-            using <a href="https://discord.js.org/#/">discord.js</a> as well as
-            web development. Along the way, I've learned various programming
+            developer based in {}
+            <a href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4">
+               Bharat
+            </a>
+            . I started coding when I was 14 during the COVID lockdown and have
+            gained expertise in creating Discord bots using{' '}
+            <a href="https://discord.js.org/#/">discord.js</a> as well as web
+            development. Along the way, I've learned various programming
             languages.
          </p>
          <br />

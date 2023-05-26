@@ -10,7 +10,7 @@ const ProjectCard = ({
    return (
       <div className="project-card">
          <div className="project-card-img">
-            <img src={imgSrc} alt={projectName} />
+            <img src={imgSrc} alt={projectName} width="" height="" />
          </div>
          <div className="project-card-text">
             <h2>

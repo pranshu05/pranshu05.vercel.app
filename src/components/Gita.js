@@ -24,11 +24,21 @@ export const Gita = () => {
             src="https://user-images.githubusercontent.com/62856848/194565916-2f0d5a4e-a038-4dcf-ba8d-1fd4f789a4a0.png"
             className="gita-img"
             alt="lord shri krishna"
+            width=""
+            height=""
          />
-         <h4 className="quote-text">{verse}</h4>
-         <h5 className="quote-auth">
+         <p
+            className="quote-text"
+            style={{ fontSize: 'medium', fontWeight: 'bold' }}
+         >
+            {verse}
+         </p>
+         <p
+            className="quote-auth"
+            style={{ fontSize: 'small', fontWeight: 'bold' }}
+         >
             ~ Bhagavad Gita {chapter} : {verseNumber}
-         </h5>
+         </p>
       </div>
    )
 }
