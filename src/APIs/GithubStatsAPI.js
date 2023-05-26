@@ -41,7 +41,10 @@ export const GithubStats = ({ username }) => {
             including developing Discord bots, web development, and contributing
             to open-source projects. To showcase my programming skills and
             experience, I have made many repos on my{' '}
-            <a href="https://github.com/pranshu05">GitHub</a>. I have a total of{' '}
+            <a href="https://github.com/pranshu05" aria-label="github">
+               GitHub
+            </a>
+            . I have a total of{' '}
             <mark className="highlight">{totalFollowers} followers</mark>, and
             my repositories have earned a total of{' '}
             <mark className="highlight">{totalStars} stars</mark> and{' '}

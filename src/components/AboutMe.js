@@ -22,14 +22,19 @@ export const AboutMe = () => {
          <p>
             I'm a {ageInYearsFormatted} y/o high school student and self-taught
             developer based in {}
-            <a href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4">
+            <a
+               href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
+               aria-label="bharat"
+            >
                Bharat
             </a>
             . I started coding when I was 14 during the COVID lockdown and have
             gained expertise in creating Discord bots using{' '}
-            <a href="https://discord.js.org/#/">discord.js</a> as well as web
-            development. Along the way, I've learned various programming
-            languages.
+            <a href="https://discord.js.org/#/" aria-label="discord.js">
+               discord.js
+            </a>{' '}
+            as well as web development. Along the way, I've learned various
+            programming languages.
          </p>
          <br />
          <h2>What Do I Do 💭</h2>

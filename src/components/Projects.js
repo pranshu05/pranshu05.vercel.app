@@ -14,7 +14,12 @@ const ProjectCard = ({
          </div>
          <div className="project-card-text">
             <h2>
-               <a href={projectLink} target="_blank" rel="noopener noreferrer">
+               <a
+                  href={projectLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="project link"
+               >
                   {projectName} <GoLinkExternal />
                </a>
             </h2>

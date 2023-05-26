@@ -40,7 +40,7 @@ export const GithubRepo = ({ repoName }) => {
    return (
       <div className="github-repo">
          <div className="repo-header">
-            <a href={html_url} className="repo-name">
+            <a href={html_url} className="repo-name" aria-label="github repo">
                <GoRepo /> {name}
             </a>
          </div>

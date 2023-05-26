@@ -93,6 +93,7 @@ export const Links = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={link.text}
+                  aria-label={link.text}
                >
                   <div className="links-link-text">
                      {link.text}

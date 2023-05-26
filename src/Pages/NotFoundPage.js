@@ -11,7 +11,7 @@ const NotFoundPage = () => {
             />
             <p>
                The page you were looking for does not exist,{' '}
-               <Link to="/" aria-label="">
+               <Link to="/" aria-label="home">
                   Click here
                </Link>{' '}
                to go to the homepage.

@@ -102,6 +102,7 @@ export const Music = () => {
                   href={track.track.external_urls.spotify}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="track link"
                >
                   <div className="recently-played-div">
                      <div className="recently-played-text">
@@ -127,6 +128,7 @@ export const Music = () => {
                   href={track.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="track url"
                >
                   <div className="top-tracks-div">
                      <div className="top-tracks-text">
@@ -151,6 +153,7 @@ export const Music = () => {
                   href={artist.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="artist url"
                >
                   <div className="top-artists-div">
                      <div className="top-artists-text">{artist.name}</div>

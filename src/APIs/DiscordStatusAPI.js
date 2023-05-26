@@ -34,15 +34,18 @@ export const DiscordStatus = () => {
    return (
       <p>
          {getDiscordStatusIcon(data.data)} {''}
-         <a href="https://discordapp.com/users/754381104034742415">
+         <a
+            href="https://discordapp.com/users/754381104034742415"
+            aria-label="discord"
+         >
             Pranshu05#4726 <FaDiscord />
          </a>
          <br />
-         <a href="mailto:pranshu05patel@gmail.com">
+         <a href="mailto:pranshu05patel@gmail.com" aria-label="mail">
             pranshu05patel@gmail.com <FaEnvelope />
          </a>
          <br />
-         <a href="https://twitter.com/pranshu_05">
+         <a href="https://twitter.com/pranshu_05" aria-label="twitter">
             Pranshu_05 <FaTwitter />
          </a>
       </p>

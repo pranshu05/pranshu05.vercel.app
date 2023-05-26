@@ -21,7 +21,12 @@ export function SpotifyPlayer(props) {
       <div className="nowplaying">
          <div className="spotify-cont">
             <div className="spotify-track">
-               <a href={result.songUrl} target="_blank" rel="noreferrer">
+               <a
+                  href={result.songUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="song url"
+               >
                   <div className="song-img">
                      <img
                         src={result.albumImageUrl}
@@ -55,7 +60,10 @@ export function SpotifyPlayer(props) {
       <div className="nowplaying">
          <div className="spotify-cont">
             <div className="spotify-track">
-               <a href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd">
+               <a
+                  href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd"
+                  aria-label="spotify"
+               >
                   <div className="song-img">
                      <img
                         src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
