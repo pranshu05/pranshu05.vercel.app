@@ -5,14 +5,8 @@ import { GitHub } from '../components/GitHub'
 import { Link } from 'react-router-dom'
 import { Gita } from '../components/Gita'
 import { NavBar } from '../components/NavBar'
-import { useEffect } from 'react'
-import axios from 'axios'
 
 export const AboutMePage = () => {
-   useEffect(() => {
-      axios.get('https://pranshu05.vercel.app/api/webhook')
-   }, [])
-
    return (
       <div>
          <NavBar />

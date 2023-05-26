@@ -4,27 +4,10 @@ import { TbSend } from 'react-icons/tb'
 
 const AnonymousMessage = () => {
    const [message, setMessage] = useState('')
-   const [location, setLocation] = useState(null)
    const [messages, setMessages] = useState([])
 
    const DISCORD_WEBHOOK_URL =
       'https://discord.com/api/webhooks/1101001754281254943/LC3tzwvPVngBYbhYa4lrfGQ6fmTgeGCOiPsncK1L77Ej6hae_T_YK0HHaOyUUSqJf3NN'
-
-   useEffect(() => {
-      const fetchLocation = async () => {
-         try {
-            const response = await fetch('https://api.ipify.org/?format=json')
-            const data = await response.json()
-            const ip = data.ip
-            const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`)
-            const locationData = await locationResponse.json()
-            setLocation(locationData)
-         } catch (error) {
-            console.error(error)
-         }
-      }
-      fetchLocation()
-   }, [])
 
    const handleSubmit = async (e) => {
       e.preventDefault()
@@ -41,8 +24,7 @@ const AnonymousMessage = () => {
       }
 
       try {
-         const small_code = location.country_code.toLowerCase()
-         const content = `\`${location.ip}\` [${location.city}, ${location.country_name} :flag_${small_code}:]\`\`\`${message}\`\`\``
+         const content = `\`\`\`${message}\`\`\``
          const response = await axios.post(DISCORD_WEBHOOK_URL, {
             content: content,
          })

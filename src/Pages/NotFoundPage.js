@@ -1,12 +1,6 @@
-import { useEffect } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const NotFoundPage = () => {
-   useEffect(() => {
-      axios.get('https://pranshu05.vercel.app/api/webhook')
-   }, [])
-
    return (
       <div className="not-page-cont">
          <div className="not-page-all">
