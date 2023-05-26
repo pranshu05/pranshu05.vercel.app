@@ -6,8 +6,7 @@ const AnonymousMessage = () => {
    const [message, setMessage] = useState('')
    const [messages, setMessages] = useState([])
 
-   const DISCORD_WEBHOOK_URL =
-      'https://discord.com/api/webhooks/1101001754281254943/LC3tzwvPVngBYbhYa4lrfGQ6fmTgeGCOiPsncK1L77Ej6hae_T_YK0HHaOyUUSqJf3NN'
+   const DISCORD_WEBHOOK_URL = process.env.REACT_APP_DISCORD_WEBHOOK_URL
 
    const handleSubmit = async (e) => {
       e.preventDefault()

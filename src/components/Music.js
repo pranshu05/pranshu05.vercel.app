@@ -7,7 +7,7 @@ export const Music = () => {
    const [topArtists, setTopArtists] = useState([])
    const [recentlyPlayed, setRecentlyPlayed] = useState([])
    const [accessToken, setAccessToken] = useState('')
-   const API_KEY = `4e92a8637503023ef75aaec0105733fc`
+   const LAST_FM_API_KEY = process.env.REACT_APP_LAST_FM_API_KEY
    const username = 'pranshu05'
 
    useEffect(() => {
@@ -39,14 +39,14 @@ export const Music = () => {
 
       const fetchTopTracks = async () => {
          const response = await axios.get(
-            `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${API_KEY}&format=json&limit=10&period=4week`
+            `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10&period=4week`
          )
          setTopTracks(response.data.toptracks.track)
       }
 
       const fetchTopArtists = async () => {
          const response = await axios.get(
-            `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${API_KEY}&format=json&limit=10&period=4week`
+            `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10&period=4week`
          )
          setTopArtists(response.data.topartists.artist)
       }
