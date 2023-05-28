@@ -25,7 +25,11 @@ export const GithubRepo = ({ repoName }) => {
    }
 
    if (!repoInfo) {
-      return <div>Loading...</div>
+      return (
+         <div className="github-repo">
+            <div className="gradient" />
+         </div>
+      )
    }
 
    const {

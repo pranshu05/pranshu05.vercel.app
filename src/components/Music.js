@@ -72,6 +72,26 @@ export const Music = () => {
       }
    })
 
+   if (
+      recentlyPlayed.length === 0 ||
+      topArtists.length === 0 ||
+      topTracks.length === 0
+   ) {
+      return (
+         <div>
+            <div style={{ width: '100%', height: '100px' }}>
+               <div className="gradient" />
+            </div>
+            <div style={{ width: '100%', height: '100px' }}>
+               <div className="gradient" />
+            </div>
+            <div style={{ width: '100%', height: '100px' }}>
+               <div className="gradient" />
+            </div>
+         </div>
+      )
+   }
+
    const getTimeAgo = (timestamp) => {
       const secondsAgo = Math.floor((new Date() - new Date(timestamp)) / 1000)
       if (secondsAgo < 60) {

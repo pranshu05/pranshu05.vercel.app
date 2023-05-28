@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
 import imagesData from '../Utils/Images.json'
+import { useEffect } from 'react'
 
 export function ImageGallery() {
    const [model, setModel] = useState(false)
    const [tempimgsrc, setTempImgSrc] = useState('')
+   const [showPlaceholder, setShowPlaceholder] = useState(true)
 
    const getImg = (source) => {
       setTempImgSrc(source)
@@ -15,6 +17,16 @@ export function ImageGallery() {
 
       document.querySelector('.model').style.top = top + 15 + 'px'
    }
+
+   useEffect(() => {
+      const timeout = setTimeout(() => {
+         setShowPlaceholder(false)
+      }, 2000)
+
+      return () => {
+         clearTimeout(timeout)
+      }
+   }, [])
 
    return (
       <div className="image-gallery">
@@ -35,7 +47,13 @@ export function ImageGallery() {
                   getImg(image.source)
                }}
             >
-               <img src={image.source} alt="" loading="lazy" />
+               {showPlaceholder ? (
+                  <div style={{ width: '100%', height: '100px' }}>
+                     <div className="gradient" />
+                  </div>
+               ) : (
+                  <img src={image.source} alt="" loading="lazy" />
+               )}
                <div className="image-location">📍 {image.location}</div>
             </div>
          ))}

@@ -16,7 +16,12 @@ export const Gita = () => {
       fetchVerse()
    }, [])
 
-   if (!verse || !chapter || !verseNumber) return <div>loading...</div>
+   if (!verse || !chapter || !verseNumber)
+      return (
+         <div style={{ width: '100%', height: '100px' }}>
+            <div className="gradient" />
+         </div>
+      )
 
    return (
       <div className="gita-quote">

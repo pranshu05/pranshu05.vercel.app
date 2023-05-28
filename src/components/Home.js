@@ -76,8 +76,19 @@ export const Home = () => {
             <TimeStatus />
             <p>
                {getWeatherIcon(weather)} Currently{' '}
-               <strong>{temp !== null ? temp : 'Loading...'} °C </strong>{' '}
-               <small>({weather !== null ? weather : 'Loading...'})</small> in{' '}
+               <strong>
+                  {temp !== null ? temp : <span className="gradient text" />} °C{' '}
+               </strong>{' '}
+               <small>
+                  (
+                  {weather !== null ? (
+                     weather
+                  ) : (
+                     <span className="gradient text" />
+                  )}
+                  )
+               </small>{' '}
+               in{' '}
                <strong>
                   <a
                      href="https://en.wikipedia.org/wiki/Gandhinagar"
