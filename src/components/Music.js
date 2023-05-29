@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import querystring from 'querystring'
+import { SpotifyPlayer } from './Spotify'
 
 export const Music = () => {
    const [topTracks, setTopTracks] = useState([])
@@ -78,7 +79,12 @@ export const Music = () => {
       topTracks.length === 0
    ) {
       return (
-         <div>
+         <div className="music">
+            <h1>Spotify Stats</h1>
+            <small style={{ color: '#818181' }}>
+               My Spotify stats, updated in real-time.
+            </small>
+            <SpotifyPlayer />
             <div style={{ width: '100%', height: '100px' }}>
                <div className="gradient" />
             </div>
@@ -114,6 +120,7 @@ export const Music = () => {
          <small style={{ color: '#818181' }}>
             My Spotify stats, updated in real-time.
          </small>
+         <SpotifyPlayer />
          <div className="recently-played-cont">
             <h2>Recently Played</h2>
             {recentlyPlayed.map((track) => (

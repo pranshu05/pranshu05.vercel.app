@@ -21,7 +21,7 @@ export function ImageGallery() {
    useEffect(() => {
       const timeout = setTimeout(() => {
          setShowPlaceholder(false)
-      }, 2000)
+      }, 3000)
 
       return () => {
          clearTimeout(timeout)

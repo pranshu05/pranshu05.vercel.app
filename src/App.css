@@ -102,7 +102,7 @@ span.navbar-text {
   text-align: center;
 }
 .not-page-cont h2 {
-  font-size: 250%;
+  font-size: 200%;
   font-weight: 700;
   margin: 10px;
   margin-left: 0;
@@ -110,7 +110,6 @@ span.navbar-text {
 .not-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 .not-page-cont img{
   border-radius: 10px;
@@ -126,35 +125,27 @@ span.navbar-text {
 
 /* HomePage CSS Start*/
 .home-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 130px;
-  transform: translate(-50%, 0%);
-  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+.home{
+  width: 100vw;
   padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 .home-page-cont h1 {
-  color: #808080;
-  font-size: 400%;
-  font-weight: 900;
+  font-size: 300%;
+  font-weight: bolder;
   margin: 10px 10px 10px 0;
   margin-left: 0;
 }
 .home-page-cont p {
   margin-top: 20px;
-  font-size: large;
-  color: #f2f2f2;
-}
-.h-left{
-  width: 50%;
-  float: left;
-}
-.h-right{
-  width: calc(50% - 10px);
-  float: right;
-  padding-top: 100px;
-  padding-right: 10px;
-  vertical-align: middle;
+  font-size: larger;
 }
 .lofi-cont {
   min-height: 80px;
@@ -195,6 +186,7 @@ span.navbar-text {
 }
 .ano-cont {
   display: flex;
+  margin-top: 20px;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
@@ -224,35 +216,10 @@ span.navbar-text {
   cursor: pointer;
   text-align: center;
 }
-@media (max-width: 1200px){
-  .h-left{
-    width: 100%;
-    float: left;
-  }
-  .h-right{
-    width: 100%;
-    float: left;
-    text-align: left;
-    padding-left: 10px;
-    padding: 0;
-  }
-}
 @media (max-width: 800px) {
-  .home-page-cont {
-    width: 90vw;
-    padding: 0;
-    margin-top: 115px;
-  }
   .music-button{
     display: none;
   }
-}
-.top-abt-links {
-  font-size: xx-large;
-  margin: 10px 10px 10px 0;
-}
-.top-abt-links a {
-  margin: 5px 10px 5px 0;
 }
 /* HomePage CSS End*/
 
@@ -273,7 +240,6 @@ span.navbar-text {
 .gallery-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 .image-gallery {
   -webkit-column-count: 3;
@@ -404,7 +370,11 @@ span.navbar-text {
   color: #808080;
   border-radius: 10px;
   max-width: 350px;
+  margin-top: 20px;
   padding: 5px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .song-info {
   display: flex;
@@ -628,37 +598,6 @@ span.navbar-text {
   position: absolute;
   padding: 20px;
 }
-.con{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.con-left{
-  width: 50%;
-  float: left;
-}
-.con-right{
-  width: 50%;
-  float: right;
-  text-align: right;
-  padding-right: 10px;
-}
-@media (max-width: 1200px){
-  .con{
-    flex-direction: column;
-  }
-  .con-left{
-    width: 100%;
-    float: left;
-  }
-  .con-right{
-    width: 100%;
-    float: right;
-    text-align: left;
-    padding-left: 10px;
-  }
-}
 .contact-page-cont h1 {
   font-size: 200%;
   font-weight: 900;
@@ -667,7 +606,6 @@ span.navbar-text {
 .contact-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 .contact-form {
   display: flex;
@@ -675,6 +613,7 @@ span.navbar-text {
   background-color: #181818;
   border-radius: 10px;
   padding: 10px;
+  max-width: 480px;
 }
 .contact-form label {
   display: flex;
@@ -712,37 +651,6 @@ span.navbar-text {
   font-size: larger;
   color: #818181;
 }
-.dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  animation: blink 1.5s ease-in-out infinite;
-  margin-left: 5px;
-}
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.online {
-  background-color: #22a55b;
-}
-.idle {
-  background-color: #f0b232;
-}
-.dnd {
-  background-color: #f23f43;
-}
-.offline {
-  background-color: #81848f;
-}
 @media (max-width: 800px) {
   .contact-page-cont {
     width: 90vw;
@@ -771,7 +679,6 @@ span.navbar-text {
 .links-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 .links-cont{
   width: 100%;
@@ -832,7 +739,6 @@ span.navbar-text {
 .music-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 .top-tracks-cont,.top-artists-cont, .recently-played-cont{
   width: 100%;
@@ -957,6 +863,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.924??*/
+/*OMG did you just scrolled to line no.866??*/
 
 /*I just love you!! Thanks for scrolling <3*/

@@ -1,22 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { FaDiscord, FaEnvelope, FaTwitter } from 'react-icons/fa'
-
-export const getDiscordStatusIcon = (data) => {
-   switch (data?.discord_status) {
-      case 'online':
-         return <span className="dot online" title="online"></span>
-      case 'idle':
-         return <span className="dot idle" title="idle"></span>
-      case 'dnd':
-         return <span className="dot dnd" title="dnd"></span>
-      case 'offline':
-         return <span className="dot offline" title="offline"></span>
-      default:
-         return null
-   }
-}
 
 export const DiscordStatus = () => {
    const [data, setData] = useState('')
@@ -32,34 +16,16 @@ export const DiscordStatus = () => {
    }, [data])
 
    return (
-      <p>
-         {getDiscordStatusIcon(data.data)} {''}
+      <span>
+         Currently {data.data?.discord_status} on{' '}
          <a
             href="https://discordapp.com/users/754381104034742415"
             aria-label="discord"
             target="_blank"
             rel="noopener noreferrer"
          >
-            Pranshu05#4726 <FaDiscord />
+            Discord
          </a>
-         <br />
-         <a
-            href="mailto:pranshu05patel@gmail.com"
-            aria-label="mail "
-            target="_blank"
-            rel="noopener noreferrer"
-         >
-            pranshu05patel@gmail.com <FaEnvelope />
-         </a>
-         <br />
-         <a
-            href="https://twitter.com/pranshu_05"
-            aria-label="twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-         >
-            Pranshu_05 <FaTwitter />
-         </a>
-      </p>
+      </span>
    )
 }

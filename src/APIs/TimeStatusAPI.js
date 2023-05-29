@@ -45,16 +45,14 @@ export const TimeStatus = () => {
    })
 
    return (
-      <div className="time">
-         <p>
-            <span title={activityTitle}>{activity} </span>
-            {new Date().toLocaleDateString('en-US', {
-               day: 'numeric',
-               month: 'short',
-               year: 'numeric',
-            })}{' '}
-            • {time}
-         </p>
-      </div>
+      <span className="time">
+         <span title={activityTitle}>{activity} </span>
+         {new Date().toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+         })}{' '}
+         • {time}
+      </span>
    )
 }
