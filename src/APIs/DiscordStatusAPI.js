@@ -37,15 +37,27 @@ export const DiscordStatus = () => {
          <a
             href="https://discordapp.com/users/754381104034742415"
             aria-label="discord"
+            target="_blank"
+            rel="noopener noreferrer"
          >
             Pranshu05#4726 <FaDiscord />
          </a>
          <br />
-         <a href="mailto:pranshu05patel@gmail.com" aria-label="mail">
+         <a
+            href="mailto:pranshu05patel@gmail.com"
+            aria-label="mail "
+            target="_blank"
+            rel="noopener noreferrer"
+         >
             pranshu05patel@gmail.com <FaEnvelope />
          </a>
          <br />
-         <a href="https://twitter.com/pranshu_05" aria-label="twitter">
+         <a
+            href="https://twitter.com/pranshu_05"
+            aria-label="twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+         >
             Pranshu_05 <FaTwitter />
          </a>
       </p>

@@ -25,12 +25,19 @@ export const AboutMe = () => {
             <a
                href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
                aria-label="bharat"
+               target="_blank"
+               rel="noopener noreferrer"
             >
                Bharat
             </a>
             . I started coding when I was 14 during the COVID lockdown and have
             gained expertise in creating Discord bots using{' '}
-            <a href="https://discord.js.org/#/" aria-label="discord.js">
+            <a
+               href="https://discord.js.org/#/"
+               aria-label="discord.js"
+               target="_blank"
+               rel="noopener noreferrer"
+            >
                discord.js
             </a>{' '}
             as well as web development. Along the way, I've learned various

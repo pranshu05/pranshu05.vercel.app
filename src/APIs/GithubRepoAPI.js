@@ -44,7 +44,13 @@ export const GithubRepo = ({ repoName }) => {
    return (
       <div className="github-repo">
          <div className="repo-header">
-            <a href={html_url} className="repo-name" aria-label="github repo">
+            <a
+               href={html_url}
+               className="repo-name"
+               aria-label="github repo"
+               target="_blank"
+               rel="noopener noreferrer"
+            >
                <GoRepo /> {name}
             </a>
          </div>

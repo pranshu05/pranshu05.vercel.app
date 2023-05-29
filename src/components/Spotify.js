@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import getNowPlayingItem from '../APIs/SpotifyAPI'
 import ProgressBar from '@ramonak/react-progress-bar'
+import { FaSpotify } from 'react-icons/fa'
 
 export function SpotifyPlayer(props) {
    const [result, setResult] = useState({})
@@ -45,9 +46,9 @@ export function SpotifyPlayer(props) {
                      <ProgressBar
                         completed={result.progressMs}
                         maxCompleted={result.durationMs}
-                        bgColor="#dbb3fe"
+                        bgColor="#808080"
                         height="8px"
-                        labelColor="#dbb3fe"
+                        labelColor="#808080"
                         baseBgColor="#121212"
                         transitionDuration="0s"
                      />
@@ -60,24 +61,21 @@ export function SpotifyPlayer(props) {
       <div className="nowplaying">
          <div className="spotify-cont">
             <div className="spotify-track">
-               <a
-                  href="https://open.spotify.com/user/awgtjjqdxae0pw5as3bcadxcd"
-                  aria-label="spotify"
+               <div
+                  className="song-img"
+                  style={{
+                     fontSize: 'xx-large',
+                     alignContent: 'center',
+                     textAlign: 'center',
+                  }}
                >
-                  <div className="song-img">
-                     <img
-                        src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
-                        alt="music"
-                        width=""
-                        height=""
-                     />
+                  <FaSpotify />
+               </div>
+               <div className="song-info">
+                  <div className="song-artist" style={{ textAlign: 'center' }}>
+                     Not listening to Spotify rn!
                   </div>
-                  <div className="song-info">
-                     <div className="song-artist">
-                        Not listening to Spotify rn!
-                     </div>
-                  </div>
-               </a>
+               </div>
             </div>
          </div>
       </div>

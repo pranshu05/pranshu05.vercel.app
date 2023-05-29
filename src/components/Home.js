@@ -45,30 +45,51 @@ export const Home = () => {
                <a
                   href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
                   aria-label="bharat"
+                  target="_blank"
+                  rel="noopener noreferrer"
                >
                   Bharat
                </a>
                , He/Him
             </p>
             <div className="top-abt-links">
-               <a href="https://github.com/pranshu05" aria-label="github">
+               <a
+                  href="https://github.com/pranshu05"
+                  aria-label="github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
                   <FaGithub />
                </a>
-               <a href="https://twitter.com/pranshu_05" aria-label="twitter">
+               <a
+                  href="https://twitter.com/pranshu_05"
+                  aria-label="twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
                   <FaTwitter />
                </a>
                <a
                   href="https://linkedin.com/in/pranshu05"
                   aria-label="linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
                >
                   <FaLinkedin />
                </a>
-               <a href="https://discord.gg/aGrgpT8nmZ" aria-label="discord">
+               <a
+                  href="https://discord.gg/aGrgpT8nmZ"
+                  aria-label="discord"
+                  target="_blank"
+                  rel="noopener noreferrer"
+               >
                   <FaDiscord />
                </a>
                <a
                   href="https://www.youtube.com/channel/UCvxmP7_IDK5vPrCuNOLj_ag"
                   aria-label="youtube"
+                  target="_blank"
+                  rel="noopener noreferrer"
                >
                   <FaYoutube />
                </a>
@@ -93,6 +114,8 @@ export const Home = () => {
                   <a
                      href="https://en.wikipedia.org/wiki/Gandhinagar"
                      aria-label="city"
+                     target="_blank"
+                     rel="noopener noreferrer"
                   >
                      Gandhinagar
                   </a>

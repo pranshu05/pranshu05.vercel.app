@@ -19,7 +19,7 @@ body {
 }
 .highlight {
   background-color: #181818;
-  color: #dbb3fe;
+  color: #808080;
 }
 a,
 li,
@@ -33,7 +33,7 @@ a:hover,
 a:visited,
 a:active {
   text-decoration: none;
-  color: #dbb3fe;
+  color: #808080;
 }
 /* Default CSS End*/
 
@@ -50,7 +50,7 @@ nav.navbar {
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #dbb3fe;
+  color: #808080;
   letter-spacing: 0.8px;
   padding: 0 15px;
   font-size: 18px;
@@ -134,7 +134,7 @@ span.navbar-text {
   padding: 20px;
 }
 .home-page-cont h1 {
-  color: #dbb3fe;
+  color: #808080;
   font-size: 400%;
   font-weight: 900;
   margin: 10px 10px 10px 0;
@@ -158,7 +158,7 @@ span.navbar-text {
 }
 .lofi-cont {
   min-height: 80px;
-  color: #dbb3fe;
+  color: #808080;
   position: fixed;
   bottom: 10px;
   left: 10px;
@@ -208,8 +208,8 @@ span.navbar-text {
   display: flex;
 }
 .ano-form-cont textarea {
-  margin-top: 5px;
-  min-height: 20px;
+  margin-top: auto;
+  min-height: 25px;
   flex: 1;
   background-color: #181818;
   color: #eee;
@@ -220,7 +220,7 @@ span.navbar-text {
 .ano-button-cont {
   width: 10%;
   background-color: #181818;
-  color: #dbb3fe;
+  color: #808080;
   cursor: pointer;
   text-align: center;
 }
@@ -343,7 +343,7 @@ span.navbar-text {
   right: 10px;
   font-size: x-large;
   padding: 5px;
-  color: #dbb3fe;
+  color: #808080;
   cursor: pointer;
 }
 @media (max-width: 800px) {
@@ -387,7 +387,6 @@ span.navbar-text {
 .about-me-page-cont p {
   margin-top: 20px;
   font-size: large;
-  color: #f2f2f2;
 }
 @media (max-width: 800px) {
   .about-me-page-cont {
@@ -402,6 +401,7 @@ span.navbar-text {
   display: flex;
   flex-direction: row;
   background: #181818;
+  color: #808080;
   border-radius: 10px;
   max-width: 350px;
   padding: 5px;
@@ -410,7 +410,6 @@ span.navbar-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   float: right;
   width: calc(80% - 10px);
   padding-left: 10px;
@@ -439,7 +438,7 @@ span.navbar-text {
   align-items: center;
   padding: 5px;
   margin: 5px;
-  color: #dbb3fe;
+  color: #808080;
   background-color: #181818;
   border-radius: 5px;
 }
@@ -612,9 +611,11 @@ span.navbar-text {
 }
 .quote-text {
   margin-top: 10px;
+  color: #808080;
 }
 .quote-auth {
   margin-top: 20px;
+  color: #808080;
 }
 /*Quote End*/
 
@@ -698,7 +699,7 @@ span.navbar-text {
   width: 100px;
   margin-top: 10px;
   padding: 10px;
-  background-color: #dbb3fe;
+  background-color: #808080;
   color: #121212;
   font-weight: 800;
   border: none;
@@ -781,13 +782,16 @@ span.navbar-text {
   padding: 20px;
 }
 .links-link{
-  background-color: #121212;
   box-sizing: border-box;
+  background-color: #161616;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.links-link:hover{
+  background-color: #121212;
 }
 .links-link-text{
   width: 80%;
@@ -841,13 +845,16 @@ span.navbar-text {
   margin-bottom: 20px;
 }
 .top-tracks-div,.top-artists-div,.recently-played-div{
-  background-color: #121212;
+  background-color: #161616;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.top-tracks-div:hover,.top-artists-div:hover,.recently-played-div:hover{
+  background-color: #121212;
 }
 .top-tracks-text,.top-artists-text,.recently-played-text{
   width: 80%;
@@ -941,10 +948,9 @@ footer {
 ::-webkit-scrollbar {
   display: none;
 }
-body{
-  -webkit-user-select: none; 
-  -ms-user-select: none;
-  user-select: none;
+::selection {
+  color: #181818;
+  background: #808080;
 }
 /*Webkit Style End*/
 
