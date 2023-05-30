@@ -32,7 +32,7 @@ function ContactForm() {
       <div className="contact-form">
          <form onSubmit={handleSubmit}>
             <label>
-               <h4>NAME</h4>
+               <p style={{ fonstSize: 'xx-large' }}>Name</p>
                <input
                   type="text"
                   name="name"
@@ -43,7 +43,7 @@ function ContactForm() {
                />
             </label>
             <label>
-               <h4>EMAIL</h4>
+               <p style={{ fonstSize: 'xx-large' }}>Email</p>
                <input
                   type="email"
                   name="_replyto"
@@ -54,7 +54,7 @@ function ContactForm() {
                />
             </label>
             <label>
-               <h4>MESSAGE</h4>
+               <p style={{ fonstSize: 'xx-large' }}>Message</p>
                <textarea
                   name="message"
                   value={message}

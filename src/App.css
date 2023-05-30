@@ -126,12 +126,12 @@ span.navbar-text {
 /* HomePage CSS Start*/
 .home-page-cont {
   min-height: 100vh;
-  width: 100vw;
+  width: calc(100vw - 40px);
   text-align: center;
+  padding: 20px;
 }
 .home{
-  width: 100vw;
-  padding: 20px;
+  width: calc(100vw - 40px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -146,6 +146,15 @@ span.navbar-text {
 .home-page-cont p {
   margin-top: 20px;
   font-size: larger;
+}
+@media (max-width: 800px){
+  .home-page-cont h1 {
+    font-size: 200%;
+    font-weight: bolder;
+  }
+  .home-page-cont p {
+    font-size: large;
+  }
 }
 .lofi-cont {
   min-height: 80px;
@@ -194,6 +203,9 @@ span.navbar-text {
   background-color: #181818;
   max-width: 340px;
   font-size: x-large;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 .ano-form-cont {
   width: 85%;
@@ -609,16 +621,20 @@ span.navbar-text {
 }
 .contact-form {
   display: flex;
+  margin-top: 40px;
   flex-direction: column;
-  background-color: #181818;
-  border-radius: 10px;
   padding: 10px;
-  max-width: 480px;
+  max-width: 700px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50% , 0%);
 }
 .contact-form label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .contact-form label input,
 .contact-form label textarea {
@@ -626,8 +642,8 @@ span.navbar-text {
   padding: 10px;
   border: none;
   outline: none;
-  border-radius: 10px;
-  background: #121212;
+  border-bottom: 1px solid #eee;
+  background: transparent;
   color: #eee;
   resize: vertical;
 }
@@ -863,6 +879,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.866??*/
+/*OMG did you just scrolled to line no.882??*/
 
 /*I just love you!! Thanks for scrolling <3*/
