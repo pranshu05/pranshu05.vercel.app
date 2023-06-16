@@ -1,48 +1,103 @@
+import React from 'react'
+
 export function getWeatherIcon(weather) {
-   switch (weather) {
-      case 'Sunny':
-         return <span>☀️</span>
-      case 'Clear':
-         return <span>🌞</span>
-      case 'Partly cloudy':
-         return <span>⛅️</span>
-      case 'Cloudy':
-         return <span>☁️</span>
-      case 'Overcast':
-         return <span>🌥️</span>
-      case 'Mist':
-         return <span>🌫️</span>
-      case 'Patchy rain possible':
-         return <span>🌦️</span>
-      case 'Patchy snow possible':
-         return <span>🌨️</span>
-      case 'Patchy sleet possible':
-         return <span>🌨️</span>
-      case 'Moderate or heavy rain with thunder':
-         return <span>🌩️</span>
-      case 'Patchy freezing drizzle possible':
-         return <span>🌨️</span>
-      case 'Thundery outbreaks possible':
-         return <span>🌩️</span>
-      case 'Blowing snow':
-         return <span>🌨️</span>
-      case 'Blizzard':
-         return <span>❄️</span>
-      case 'Fog':
-         return <span>🌁</span>
-      case 'Hail':
-         return <span>🌧️</span>
-      case 'Heavy rain':
-         return <span>🌧️</span>
-      case 'Heavy snow':
-         return <span>❄️</span>
-      case 'Heavy sleet':
-         return <span>🌨️</span>
-      case 'Heavy showers':
-         return <span>🌧️</span>
-      case 'Thunderstorms':
-         return <span>🌩️</span>
-      default:
-         return null
+   if (weather === null) {
+      return null
+   }
+
+   const lowercaseWeather = weather.toLowerCase()
+
+   if (lowercaseWeather.includes('sunny')) {
+      return (
+         <span role="img" aria-label="Sunny">
+            ☀️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('clear')) {
+      return (
+         <span role="img" aria-label="Clear">
+            🌞
+         </span>
+      )
+   } else if (lowercaseWeather.includes('partly cloudy')) {
+      return (
+         <span role="img" aria-label="Partly cloudy">
+            ⛅️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('cloudy')) {
+      return (
+         <span role="img" aria-label="Cloudy">
+            ☁️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('overcast')) {
+      return (
+         <span role="img" aria-label="Overcast">
+            🌥️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('mist')) {
+      return (
+         <span role="img" aria-label="Mist">
+            🌫️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('foggy')) {
+      return (
+         <span role="img" aria-label="Mist">
+            🌫️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('smoke')) {
+      return (
+         <span role="img" aria-label="Smoke">
+            🌫️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('rain')) {
+      return (
+         <span role="img" aria-label="Rain">
+            🌧️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('shower')) {
+      return (
+         <span role="img" aria-label="Rain">
+            🌧️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('drizzle')) {
+      return (
+         <span role="img" aria-label="Rain">
+            🌧️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('snow')) {
+      return (
+         <span role="img" aria-label="Snow">
+            ❄️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('thunder')) {
+      return (
+         <span role="img" aria-label="Thunderstorm">
+            🌩️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('storm')) {
+      return (
+         <span role="img" aria-label="Thunderstorm">
+            🌩️
+         </span>
+      )
+   } else if (lowercaseWeather.includes('hail')) {
+      return (
+         <span role="img" aria-label="Hail">
+            🌧️
+         </span>
+      )
+   } else {
+      return null
    }
 }
