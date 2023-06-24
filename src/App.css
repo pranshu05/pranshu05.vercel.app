@@ -125,7 +125,7 @@ span.navbar-text {
 
 /* HomePage CSS Start*/
 .home-page-cont {
-  min-height: 100vh;
+  min-height: 100%;
   width: calc(100vw - 40px);
   text-align: center;
   padding: 20px;

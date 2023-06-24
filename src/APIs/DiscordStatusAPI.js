@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const DiscordStatus = () => {
   const [data, setData] = useState('');
-  
+
   useEffect(() => {
     axios
       .get('https://api.lanyard.rest/v1/users/754381104034742415')
@@ -14,23 +14,31 @@ export const DiscordStatus = () => {
         console.log(err);
       });
   }, []);
-  
+
   const getActivityStatus = () => {
-    const activity = data?.data?.discord_status;
-    
-    if (activity?.type === 0) {
-      return `| Playing ${activity?.name}`;
-    } else if (activity?.type === 2) {
-      return `| Listening to ${activity?.name}`;
-    } else if (activity?.type === 4) {
-      return `| Streaming ${activity?.name}`;
-    } else if (activity?.type === 5) {
-      return `| Watching ${activity?.name}`;
-    } else {
-      return '';
+    const activities = data?.data?.activities;
+
+    if (!activities || activities.length === 0) {
+      return ''; 
     }
+
+    let status = '';
+
+    activities.forEach(activity => {
+      if (activity?.type === 0) {
+        status += `Playing ${activity?.name} | `;
+      } else if (activity?.type === 1) {
+        status += `Streaming ${activity?.name} | `;
+      } else if (activity?.type === 2) {
+        status += `Listening ${activity?.details} by ${activity?.state} | `;
+      } else if (activity?.type === 3) {
+        status += `Watching ${activity?.name} | `;
+      }
+    });
+
+    return status.trim();
   };
-  
+
   return (
     <span>
       {getActivityStatus()} 
