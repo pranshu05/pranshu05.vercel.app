@@ -2,7 +2,7 @@ A portfolio made with React.
 
 ## Preview
 
-![image](https://media.discordapp.net/attachments/1041730214763446324/1102220048661237770/235354454-ceaaca44-4739-4fd8-b6db-0d56a453a28d.png?width=1250&height=616)
+![image](https://github.com/pranshu05/pranshu05.vercel.app/assets/70943732/fec30696-afcb-44ed-91ec-8033da298b3f)
 
 ## How to use
 

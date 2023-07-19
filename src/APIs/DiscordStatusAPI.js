@@ -36,7 +36,7 @@ export const DiscordStatus = () => {
       }
     });
 
-    return status.trim();
+    return status;
   };
 
   return (
