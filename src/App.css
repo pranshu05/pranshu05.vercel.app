@@ -3,6 +3,14 @@
   margin: 0;
   padding: 0;
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
 body {
   font-weight: 400;
   background-color: #121212;
@@ -54,8 +62,10 @@ nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
   color: #eee;
 }
-nav.navbar.active {
+nav.navbar.active{
   margin-top: 10px;
+}
+nav.navbar.scrolled {
   background: rgba(91, 91, 91, 0.3);
   box-shadow: 6px 6px 35px rgba(91, 91, 91, 0.2);
   backdrop-filter: blur(4px);

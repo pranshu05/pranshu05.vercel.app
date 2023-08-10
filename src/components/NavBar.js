@@ -67,7 +67,7 @@ export const NavBar = () => {
    }, [activeLink]);
 
    return (
-      <Navbar expand="md" className={scrolled || userActive ? 'navbar scrolled active' : 'navbar'}>
+      <Navbar expand="md" className={scrolled && userActive ? 'navbar scrolled active' : userActive ? 'navbar active' : 'navbar'}>
          <Container>
             <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="ms-auto">
