@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap'
-import { useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
    FaCamera,
    FaEnvelope,
@@ -9,42 +9,65 @@ import {
    FaHome,
    FaLink,
    FaUser,
-} from 'react-icons/fa'
+} from 'react-icons/fa';
 
 export const NavBar = () => {
-   const location = useLocation()
-   const [activeLink, setActiveLink] = useState('home')
-   const [scrolled, setScrolled] = useState(false)
+   const location = useLocation();
+   const [activeLink, setActiveLink] = useState('home');
+   const [scrolled, setScrolled] = useState(false);
+   const [userActive, setUserActive] = useState(true); 
 
    useEffect(() => {
-      const { pathname } = location
+      const { pathname } = location;
       if (pathname === '/') {
-         setActiveLink('home')
+         setActiveLink('home');
       } else {
-         setActiveLink(pathname.substring(1))
+         setActiveLink(pathname.substring(1));
       }
-   }, [location])
+   }, [location]);
 
    useEffect(() => {
+      let timeoutId;
+
       const onScroll = () => {
          if (window.scrollY > 50) {
-            setScrolled(true)
+            setScrolled(true);
+            setUserActive(true);
+
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+               setUserActive(false);
+            }, 2200); 
          } else {
-            setScrolled(false)
+            setScrolled(false);
          }
-      }
+      };
 
-      window.addEventListener('scroll', onScroll)
+      const onMouseMove = () => {
+         setUserActive(true);
 
-      return () => window.removeEventListener('scroll', onScroll)
-   }, [])
+         clearTimeout(timeoutId);
+         timeoutId = setTimeout(() => {
+            setUserActive(false);
+         }, 2200); 
+      };
+
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('mousemove', onMouseMove);
+
+      return () => {
+         window.removeEventListener('scroll', onScroll);
+         window.removeEventListener('mousemove', onMouseMove);
+         clearTimeout(timeoutId);
+      };
+   }, []);
 
    useEffect(() => {
-      window.scrollTo(0, 0)
-   }, [activeLink])
+      window.scrollTo(0, 0);
+   }, [activeLink]);
 
    return (
-      <Navbar expand="md" className={scrolled ? 'scrolled' : ''}>
+      <Navbar expand="md" className={scrolled || userActive ? 'navbar scrolled active' : 'navbar'}>
          <Container>
             <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="ms-auto">
@@ -130,5 +153,5 @@ export const NavBar = () => {
             </Navbar.Collapse>
          </Container>
       </Navbar>
-   )
+   );
 }
