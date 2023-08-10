@@ -11,7 +11,7 @@ export const ImageGalleryPage = () => {
             <p className="go-back-home">
                &larr; <Link to="/">home.</Link>
             </p>
-            <h1>My photography</h1>
+            <h1>My Photography</h1>
             <ImageGallery />
             <Footer />
          </div>

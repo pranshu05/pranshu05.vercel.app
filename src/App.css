@@ -3,19 +3,10 @@
   margin: 0;
   padding: 0;
 }
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px;
-}
 body {
   font-weight: 400;
   background-color: #121212;
   color: #eeeeee;
-  transition: 0.7s ease-in-out;
 }
 .highlight {
   background-color: #181818;
@@ -40,22 +31,21 @@ a:active {
 /*Nav Start*/
 nav.navbar {
   position: fixed;
-  width: 100vw;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: auto;
+  border-radius: 50px;
+  padding: 12px;
+  margin-top: 10px;
   left: 50%;
   transform: translate(-50%, 0%);
-  text-align: center;
   z-index: 100;
+  transition: all 0.4s ease-in-out;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #808080;
-  letter-spacing: 0.8px;
   padding: 0 15px;
   font-size: 18px;
   opacity: 0.75;
-  border-radius: 5px;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover{
   color: #eee;
@@ -65,17 +55,19 @@ nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   color: #eee;
 }
 nav.navbar.scrolled {
-  background: rgba(24, 24, 24, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.4px);
-  -webkit-backdrop-filter: blur(7.4px);
-  border: 1px solid rgba(24, 24, 24, 0.3);
+  background: rgba(91, 91, 91, 0.3);
+  box-shadow: 6px 6px 35px rgba(91, 91, 91, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 span.navbar-text {
   display: flex;
   align-items: center;
 }
 @media (max-width: 400px) {
+  nav.navbar{
+    width: 90vw;
+  }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-size: medium;
     letter-spacing: 0px;
@@ -156,6 +148,9 @@ span.navbar-text {
     font-size: large;
   }
 }
+/* HomePage CSS End*/
+
+/* Extra Components CSS Start*/
 .lofi-cont {
   min-height: 80px;
   color: #808080;
@@ -177,7 +172,6 @@ span.navbar-text {
   animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
   display: flex;
   margin-right: 10px; 
-  margin-left: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -187,7 +181,7 @@ span.navbar-text {
   width: calc(100% - 80px); 
   position: fixed;
   right: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 @keyframes bounceAnim{
   0%, 10% { bottom: 40px; }
@@ -233,7 +227,7 @@ span.navbar-text {
     display: none;
   }
 }
-/* HomePage CSS End*/
+/* Extra Components CSS End*/
 
 /*Gallery Start*/
 .gallery-page-cont {
@@ -245,8 +239,9 @@ span.navbar-text {
   padding: 20px;
 }
 .gallery-page-cont h1 {
-  font-size: 200%;
+  font-size: 270%;
   font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
   margin: 10px 10px 10px 0;
 }
 .gallery-page-cont p {
@@ -358,8 +353,9 @@ span.navbar-text {
   border-radius: 10px;
 }
 .about-me-page-cont h1 {
-  font-size: 200%;
+  font-size: 270%;
   font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
   margin: 10px 10px 10px 0;
 }
 .about-me-page-cont p {
@@ -611,8 +607,9 @@ span.navbar-text {
   padding: 20px;
 }
 .contact-page-cont h1 {
-  font-size: 200%;
+  font-size: 270%;
   font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
   margin: 10px 10px 10px 0;
 }
 .contact-page-cont p {
@@ -688,8 +685,9 @@ span.navbar-text {
   padding: 20px;
 }
 .links-page-cont h1 {
-  font-size: 200%;
+  font-size: 270%;
   font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
   margin: 10px 10px 10px 0;
 }
 .links-page-cont p {
@@ -748,8 +746,9 @@ span.navbar-text {
   padding: 20px;
 }
 .music-page-cont h1 {
-  font-size: 200%;
+  font-size: 270%;
   font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
   margin: 10px 10px 10px 0;
 }
 .music-page-cont p {

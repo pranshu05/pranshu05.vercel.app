@@ -84,7 +84,7 @@ export const Links = () => {
 
    return (
       <div className="Links">
-         <h1>Links</h1>
+         <h1>My Socials</h1>
          <div className="links-cont">
             {links.map((link) => (
                <a
