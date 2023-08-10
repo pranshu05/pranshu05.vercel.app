@@ -65,8 +65,9 @@ span.navbar-text {
   display: flex;
   align-items: center;
 }
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   nav.navbar{
+    text-align: center;
     width: 90vw;
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
@@ -879,6 +880,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.882??*/
+/*OMG did you just scrolled to line no.883??*/
 
 /*I just love you!! Thanks for scrolling <3*/
