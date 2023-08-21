@@ -21,12 +21,12 @@ export const GithubRepo = ({ repoName }) => {
    }, [repoName])
 
    if (repoInfo === '403 err') {
-      return <div>Unauthorized (403 Error)</div>
+      return <div>Unauthorized (403 Error in fetching the data!)</div>
    }
 
    if (!repoInfo) {
       return (
-         <div className="github-repo">
+         <div className="github-repo-grad">
             <div className="gradient" />
          </div>
       )

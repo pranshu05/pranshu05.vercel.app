@@ -5,7 +5,6 @@
 }
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
@@ -29,8 +28,8 @@ ul {
 }
 a:link,
 a:hover,
-a:visited,
-a:active {
+a:active,
+a:visited {
   text-decoration: none;
   color: #808080;
 }
@@ -132,7 +131,6 @@ span.navbar-text {
   min-height: 100%;
   width: calc(100vw - 40px);
   text-align: center;
-  padding: 20px;
 }
 .home{
   width: calc(100vw - 40px);
@@ -520,6 +518,15 @@ span.navbar-text {
   padding-right: 10px;
   border-radius: 10px;
 }
+.github-repo-grad{
+  width: calc(50% - 20px);
+  height: 150px;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
 .github-repo:nth-child(odd) {
   margin-right: 10px;
 }
@@ -531,12 +538,13 @@ span.navbar-text {
   font-size: larger;
   font-weight: 500;
   top: 10px;
-  left: 10px;
+  width: 100%;
+  padding-left: 10px;
 }
 .repo-description {
+  width: 100%;
   position: relative;
-  left: 10px;
-  top: -5px;
+  padding-left: 10px;
 }
 .repo-footer {
   display: flex;
@@ -546,10 +554,7 @@ span.navbar-text {
   right: 10px;
   bottom: 10px;
 }
-.repo-language {
-  margin-right: 5px;
-}
-.repo-forks {
+.repo-language,.repo-forks {
   margin-right: 5px;
 }
 @media (max-width: 450px) {
@@ -860,6 +865,7 @@ footer {
   height: 100%;
   width: 100%;
   margin: 20px 0;
+  border-radius: 10px;
 }
 @keyframes placeHolderShimmer{
   0%{
