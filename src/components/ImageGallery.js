@@ -15,7 +15,7 @@ export function ImageGallery() {
 
       const top = window.pageYOffset || document.documentElement.scrollTop
 
-      document.querySelector('.model').style.top = top + 15 + 'px'
+      document.querySelector('.model').style.top = top 
    }
 
    useEffect(() => {
