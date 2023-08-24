@@ -7,16 +7,16 @@ export const Home = () => {
       <div className="home">
          <h1>Hey, I'm Pranshu!</h1>
          <p>
-            FullStack Developer based in{' '}
+            B.Tech ICT fresher {''}
             <a
-               href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
-               aria-label="bharat"
+               href="https://daiict.ac.in"
+               aria-label="daiict"
                target="_blank"
                rel="noopener noreferrer"
             >
-               Bharat
+               @DA-IICT
             </a>
-            , He/Him
+            , He/Him 
          </p>
          <br />
          <div>

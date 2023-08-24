@@ -20,11 +20,11 @@ export const AboutMe = () => {
       <div className="about-me" id="about-me">
          <h2> Hi! I'm Pranshu ✌️</h2>
          <p>
-            I'm a {ageInYearsFormatted} y/o high school student and self-taught
+            I'm a {ageInYearsFormatted} y/o B.Tech frsher and self-taught
             developer based in {}
             <a
-               href="https://hi.wikipedia.org/wiki/%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4"
-               aria-label="bharat"
+               href="https://hi.wikipedia.org/wiki/India"
+               aria-label="india"
                target="_blank"
                rel="noopener noreferrer"
             >

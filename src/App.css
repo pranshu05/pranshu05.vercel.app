@@ -5,8 +5,6 @@
 }
 html,
 body {
-  margin: 0;
-  padding: 0;
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
 }
@@ -32,6 +30,10 @@ a:active,
 a:visited {
   text-decoration: none;
   color: #808080;
+}
+.go-back-home {
+  font-size: larger;
+  color: #818181;
 }
 /* Default CSS End*/
 
@@ -86,17 +88,59 @@ span.navbar-text {
 }
 /* Navbar CSS End */
 
-/*404 Start*/
-.not-page-cont {
+/*Basic All Pages CSS Start*/
+.gallery-page-cont,
+.about-me-page-cont,
+.contact-page-cont,
+.links-page-cont,
+.music-page-cont,
+.not-page-cont{
   width: 65vw;
-  height: 100vh;
   left: 50%;
-  top: 50%; 
-  transform: translate(-50%, -50%); 
+  margin-top: 50px;
+  transform: translate(-50%, 0%);
   position: absolute;
   padding: 20px;
 }
-.not-page-all{
+.gallery-page-cont p,
+.about-me-page-cont p,
+.contact-page-cont p,
+.links-page-cont p,
+.music-page-cont p,
+.not-page-cont p{
+  margin-top: 20px;
+  font-size: large;
+}
+.gallery-page-cont h1,
+.about-me-page-cont h1,
+.contact-page-cont h1,
+.links-page-cont h1,
+.music-page-cont h1 {
+  font-size: 270%;
+  font-weight: 900;
+  text-decoration: underline wavy #808080 3px;
+  margin: 10px 10px 10px 0;
+}
+@media (max-width: 800px) {
+  .not-page-cont,
+  .about-me-page-cont,
+  .gallery-page-cont,
+  .contact-page-cont,
+  .links-page-cont,
+  .music-page-cont {
+    width: 90vw;
+    padding: 0;
+  }
+}
+/*Basic All Pages CSS End*/
+
+/*404 Start*/
+.not-page-cont {
+  top: 50%;
+  margin-top: 0;
+  transform: translate(-50%, -50%);
+}
+.not-page-all {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -110,30 +154,18 @@ span.navbar-text {
   margin: 10px;
   margin-left: 0;
 }
-.not-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
 .not-page-cont img{
   border-radius: 10px;
   width: 80%;
-}
-@media (max-width: 800px) {
-  .not-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
 }
 /*404 End*/
 
 /* HomePage CSS Start*/
 .home-page-cont {
-  min-height: 100%;
-  width: calc(100vw - 40px);
+  width: 100vw;
   text-align: center;
 }
 .home{
-  width: calc(100vw - 40px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -240,24 +272,6 @@ span.navbar-text {
 /* Extra Components CSS End*/
 
 /*Gallery Start*/
-.gallery-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 50px;
-  transform: translate(-50%, 0%);
-  position: absolute;
-  padding: 20px;
-}
-.gallery-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
-}
-.gallery-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
 .image-gallery {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -329,10 +343,6 @@ span.navbar-text {
   cursor: pointer;
 }
 @media (max-width: 800px) {
-  .gallery-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
   .model{
     left: -5vw;
   }
@@ -349,33 +359,9 @@ span.navbar-text {
 /*Gallery End*/
 
 /* AboutMePage CSS Start*/
-.about-me-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 50px;
-  transform: translate(-50%, 0%);
-  position: absolute;
-  padding: 20px;
-}
 .about-me-page-cont img {
   width: 100%;
   border-radius: 10px;
-}
-.about-me-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
-}
-.about-me-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
-@media (max-width: 800px) {
-  .about-me-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
 }
 /* AboutMePage CSS End*/
 
@@ -508,16 +494,10 @@ span.navbar-text {
   width: 100%; 
 }
 .github-repo {
-  width: calc(50% - 20px);
-  height: 150px;
   background-color: #181818;
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
 }
-.github-repo-grad{
+.github-repo-grad,
+.github-repo{
   width: calc(50% - 20px);
   height: 150px;
   position: relative;
@@ -614,24 +594,6 @@ span.navbar-text {
 /*Quote End*/
 
 /*Contact Page Start*/
-.contact-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 50px;
-  transform: translate(-50%, 0%);
-  position: absolute;
-  padding: 20px;
-}
-.contact-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
-}
-.contact-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
 .contact-form {
   display: flex;
   margin-top: 40px;
@@ -676,40 +638,12 @@ span.navbar-text {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
-.go-back-home {
-  font-size: larger;
-  color: #818181;
-}
-@media (max-width: 800px) {
-  .contact-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
-}
 .contact-redirect-heading {
   text-align: center;
 }
 /*Contact Page End*/
 
 /*Links Page Strat*/
-.links-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 50px;
-  transform: translate(-50%, 0%);
-  position: absolute;
-  padding: 20px;
-}
-.links-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
-}
-.links-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
 .links-cont{
   width: 100%;
   background-color: #181818;
@@ -742,10 +676,6 @@ span.navbar-text {
   padding: 10px;
 }
 @media (max-width: 800px) {
-  .links-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
   .username{
     display: none;
   }
@@ -753,24 +683,6 @@ span.navbar-text {
 /*Links Page End*/
 
 /*Music Page Start*/
-.music-page-cont {
-  width: 65vw;
-  left: 50%;
-  margin-top: 50px;
-  transform: translate(-50%, 0%);
-  position: absolute;
-  padding: 20px;
-}
-.music-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
-}
-.music-page-cont p {
-  margin-top: 20px;
-  font-size: large;
-}
 .top-tracks-cont,.top-artists-cont, .recently-played-cont{
   width: 100%;
   background-color: #181818;
@@ -805,10 +717,6 @@ span.navbar-text {
   padding: 10px;
 }
 @media (max-width: 800px) {
-  .music-page-cont {
-    width: 90vw;
-    padding: 0;
-  }
   .recently-played-time,.top-tracks-plays,.top-artists-plays{
     display: none;
   }
