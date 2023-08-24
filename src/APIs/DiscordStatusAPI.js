@@ -6,7 +6,7 @@ export const DiscordStatus = () => {
 
   useEffect(() => {
     axios
-      .get('https://api.lanyard.rest/v1/users/754381104034742415')
+      .get('https://api.lanyard.rest/v1/users/754381104034742415') //Using lanyard API for discord presence
       .then((res) => {
         setData(res.data);
       })
@@ -24,7 +24,7 @@ export const DiscordStatus = () => {
 
     let status = '';
 
-    activities.forEach(activity => {
+    activities.forEach(activity => { //Setting different activities in lanyard API
       if (activity?.type === 0) {
         status += `Playing ${activity?.name} | `;
       } else if (activity?.type === 1) {
@@ -39,18 +39,35 @@ export const DiscordStatus = () => {
     return status;
   };
 
-  return (
-    <span>
-      {getActivityStatus()} 
-      Currently {data.data?.discord_status} on{' '}
-      <a
-        href="https://discordapp.com/users/754381104034742415"
-        aria-label="discord"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Discord
-      </a>
-    </span>
-  );
+
+  if (!data.data?.discord_status) {
+    return (
+      <span>
+        {getActivityStatus()} Currently {data.data?.discord_status} <span className='gradient text'></span> on{' '}
+        <a
+          href="https://discordapp.com/users/754381104034742415"
+          aria-label="discord"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discord
+        </a>
+      </span>
+    );
+  } else {
+    return (
+      <span>
+        {getActivityStatus()} 
+        Currently {data.data?.discord_status} on{' '}
+        <a
+          href="https://discordapp.com/users/754381104034742415"
+          aria-label="discord"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discord
+        </a>
+      </span>
+    );
+  }
 };

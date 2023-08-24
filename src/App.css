@@ -35,6 +35,11 @@ a:visited {
   font-size: larger;
   color: #818181;
 }
+.last-updated{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
 /* Default CSS End*/
 
 /*Nav Start*/
@@ -506,10 +511,21 @@ span.navbar-text {
   padding-right: 10px;
   border-radius: 10px;
 }
-.github-repo:nth-child(odd) {
+.github-repo-grad{
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(to right, #181818 8%, #202020 38%, #181818 54%);
+  background-size: 1000px 640px;
+  border-radius: 10px;
+  text-align: center;
+}
+.github-repo:nth-child(odd), .github-repo-grad:nth-child(odd) {
   margin-right: 10px;
 }
-.github-repo:nth-child(even) {
+.github-repo:nth-child(even), .github-repo-grad:nth-child(even) {
   margin-left: 10px;
 }
 .repo-header {
@@ -535,6 +551,9 @@ span.navbar-text {
 }
 .repo-language,.repo-forks {
   margin-right: 5px;
+}
+.err-grad-text{
+  position: relative;
 }
 @media (max-width: 450px) {
   .gh-repo-cont {
@@ -786,7 +805,9 @@ footer {
   height: 18px;
   width: 60px;
   display: inline-block;
-  margin: 0;
+  margin: 0 5px;
+  position: relative;
+  top: 6px;
 }
 /*Gradient loading end*/
 

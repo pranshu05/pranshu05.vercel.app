@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 export const TimeStatus = () => {
    const [time, setTime] = useState('')
-   const [activity, setActivity] = useState('💻')
+   const [activity, setActivity] = useState('💻') //setting initial state as coding
    const [activityTitle, setActivityTitle] = useState('Coding')
 
    function updateTime() {
@@ -11,9 +11,9 @@ export const TimeStatus = () => {
       })
       let timeString = `${current.slice(-11, -3)} ${current
          .slice(-2)
-         .toUpperCase()}`
+         .toUpperCase()}` // slicing the time in the formate of 00:00:00 AM/PM
       setTime(timeString)
-      setTimeout(updateTime, 1000)
+      setTimeout(updateTime, 1000) //Updating time every second
 
       let hour = new Date().getHours()
       if (hour < 7 || hour >= 24) {
