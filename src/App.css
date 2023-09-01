@@ -5,6 +5,8 @@
 }
 html,
 body {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
 }
@@ -167,10 +169,12 @@ span.navbar-text {
 
 /* HomePage CSS Start*/
 .home-page-cont {
+  min-height: 100%;
   width: 100vw;
   text-align: center;
 }
-.home{
+.home {
+  width: 100vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -192,7 +196,7 @@ span.navbar-text {
     font-weight: bolder;
   }
   .home-page-cont p {
-    font-size: large;
+    font-size: medium;
   }
 }
 /* HomePage CSS End*/
@@ -824,6 +828,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.883??*/
+/*OMG did you just scrolled to line no.827??*/
 
 /*I just love you!! Thanks for scrolling <3*/
