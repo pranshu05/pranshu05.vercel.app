@@ -309,7 +309,10 @@ span.navbar-text {
   filter: opacity(0.8);
 }
 .model {
-  position: absolute;
+  position: absolute;left: calc(-17.5vw + 18px);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -323,9 +326,6 @@ span.navbar-text {
   z-index: 999;
 }
 .model.open{
-  left: calc(-17.5vw + 18px);
-  width: 100vw;
-  height: 100vh;
   visibility: visible;
   transform: scale(1);
   opacity: 1;
