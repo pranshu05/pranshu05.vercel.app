@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FaWindowClose } from 'react-icons/fa'
 import imagesData from '../Utils/Images.json'
-import { useEffect } from 'react'
 
-export function ImageGallery() {
+export function ImageGallery({ onModelOpen }) {
    const [model, setModel] = useState(false)
    const [tempimgsrc, setTempImgSrc] = useState('')
    const [showPlaceholder, setShowPlaceholder] = useState(true)
@@ -11,11 +10,12 @@ export function ImageGallery() {
    const getImg = (source) => {
       setTempImgSrc(source)
       setModel(true)
+      onModelOpen(true)
       document.body.style.overflow = 'hidden'
 
       const top = window.pageYOffset || document.documentElement.scrollTop
 
-      document.querySelector('.model').style.top = top + 'px'
+      document.querySelector('.model').style.top = top - 50 + 'px'
    }
 
    useEffect(() => {
@@ -26,7 +26,7 @@ export function ImageGallery() {
       return () => {
          clearTimeout(timeout)
       }
-   }, [])
+   }, )
 
    return (
       <div className="image-gallery">
@@ -35,6 +35,7 @@ export function ImageGallery() {
             <FaWindowClose
                onClick={() => {
                   setModel(false)
+                  onModelOpen(false)
                   document.body.style.overflow = 'auto'
                }}
             />

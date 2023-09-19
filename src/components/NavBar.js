@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -11,11 +11,11 @@ import {
    FaUser,
 } from 'react-icons/fa';
 
-export const NavBar = () => {
+export const NavBar = ({ hideNavbar }) => {
    const location = useLocation();
    const [activeLink, setActiveLink] = useState('home');
    const [scrolled, setScrolled] = useState(false);
-   const [userActive, setUserActive] = useState(true); 
+   const [userActive, setUserActive] = useState(true);
 
    useEffect(() => {
       const { pathname } = location;
@@ -37,7 +37,7 @@ export const NavBar = () => {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(() => {
                setUserActive(false);
-            }, 2200); 
+            }, 2200);
          } else {
             setScrolled(false);
          }
@@ -49,7 +49,7 @@ export const NavBar = () => {
          clearTimeout(timeoutId);
          timeoutId = setTimeout(() => {
             setUserActive(false);
-         }, 2200); 
+         }, 2200);
       };
 
       window.addEventListener('scroll', onScroll);
@@ -67,7 +67,18 @@ export const NavBar = () => {
    }, [activeLink]);
 
    return (
-      <Navbar expand="md" className={scrolled && userActive ? 'navbar scrolled active' : userActive ? 'navbar active' : 'navbar'}>
+      <Navbar
+         expand="md"
+         className={
+            hideNavbar
+               ? 'navbar hide'
+               : scrolled && userActive
+               ? 'navbar scrolled active'
+               : userActive
+               ? 'navbar active'
+               : 'navbar'
+         }
+      >
          <Container>
             <Navbar.Collapse id="basic-navbar-nav">
                <Nav className="ms-auto">
