@@ -47,9 +47,9 @@ a:visited {
 /*Nav Start*/
 nav.navbar {
   position: fixed;
-  width: auto;
+  width: max-content;
   border-radius: 50px;
-  padding: 12px;
+  padding: 10px;
   margin-top: -60px;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -59,23 +59,26 @@ nav.navbar {
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #808080;
-  padding: 0 15px;
+  padding: 0 10px;
   font-size: 18px;
   opacity: 0.75;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover{
-  color: #eee;
+  color: #ddd;
+  font-size: 120%;
+  padding: 0 13px;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
   color: #eee;
+  font-size: 130%;
 }
 nav.navbar.active{
   margin-top: 10px;
 }
 nav.navbar.scrolled {
   background: rgba(91, 91, 91, 0.3);
-  box-shadow: 6px 6px 35px rgba(91, 91, 91, 0.2);
+  box-shadow: 6px 6px 20px rgba(91, 91, 91, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -84,10 +87,6 @@ span.navbar-text {
   align-items: center;
 }
 @media (max-width: 800px) {
-  nav.navbar{
-    text-align: center;
-    width: 90vw;
-  }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-size: medium;
     letter-spacing: 0px;
@@ -122,7 +121,8 @@ span.navbar-text {
 .about-me-page-cont h1,
 .contact-page-cont h1,
 .links-page-cont h1,
-.music-page-cont h1 {
+.music-page-cont h1,
+.not-page-cont h1 {
   font-size: 270%;
   font-weight: 900;
   text-decoration: underline wavy #808080 3px;
@@ -148,30 +148,24 @@ span.navbar-text {
   transform: translate(-50%, -50%);
 }
 .not-page-all {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   text-align: center;
 }
-.not-page-cont h2 {
-  font-size: 200%;
-  font-weight: 700;
-  margin: 10px;
-  margin-left: 0;
-}
 .not-page-cont img{
   border-radius: 10px;
-  width: 80%;
+  width: 90%;
 }
 /*404 End*/
 
 /* HomePage CSS Start*/
 .home-page-cont {
   min-height: 100%;
-  width: 100vw;
   text-align: center;
+  padding: 10px;
 }
 .home {
   width: 100vw;
@@ -193,7 +187,6 @@ span.navbar-text {
 @media (max-width: 800px){
   .home-page-cont h1 {
     font-size: 200%;
-    font-weight: bolder;
   }
   .home-page-cont p {
     font-size: medium;
@@ -827,6 +820,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.827??*/
+/*OMG did you just scrolled to line no.823??*/
 
 /*I just love you!! Thanks for scrolling <3*/
