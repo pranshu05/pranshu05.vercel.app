@@ -10,7 +10,7 @@ export function ImageGallery({ onModelOpen }) {
   const fetchImagesFromUnsplash = async () => {
     try {
       const response = await axios.get(
-         `https://api.unsplash.com/users/pranshu05/photos`,
+        `https://api.unsplash.com/users/pranshu05/photos`,
         {
           params: {
             client_id: 'IpuBMtdoSBFo8bS7L1gevS7rRFBdEDN9Wp7du9QFh1A',
@@ -59,7 +59,7 @@ export function ImageGallery({ onModelOpen }) {
             handleImageClick(image);
           }}
         >
-          <img src={tempimgsrc} alt="" loading="lazy" />
+          <img src={image.urls.regular} alt="" loading="lazy" />
         </div>
       ))}
     </div>
