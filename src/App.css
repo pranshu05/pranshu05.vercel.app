@@ -286,12 +286,7 @@ span.navbar-text {
   border-radius: 5px;
   overflow: hidden;
   min-height: 100px;
-}
-.image-location {
-  font-family: "Times New Roman", Times, serif;
-  margin-bottom: 5px;
-  font-size: 14px;
-  color: #818181;
+  margin-bottom: 15px;
 }
 .image-gallery img{
   width: 100%;
@@ -327,7 +322,6 @@ span.navbar-text {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  margin: auto;
 }
 .model.open img:hover{
   filter: opacity(1);
@@ -789,6 +783,20 @@ footer {
   margin: 20px 0;
   border-radius: 10px;
 }
+.img-grad{
+  animation-duration: 1.8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(to right, #181818 8%, #202020 38%, #181818 54%);
+  background-size: 1000px 640px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 5px 0;
+  border-radius: 10px;
+}
 @keyframes placeHolderShimmer{
   0%{
     background-position: -468px 0
@@ -820,6 +828,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.823??*/
+/*OMG did you just scrolled to line no.817??*/
 
 /*I just love you!! Thanks for scrolling <3*/
