@@ -375,8 +375,8 @@ span.navbar-text {
 }
 /* AboutMePage CSS End*/
 
-/* Spotify Start*/
-.spotify-track {
+/* Music player Start*/
+.music-track {
   display: flex;
   flex-direction: row;
   background: #181818;
@@ -425,7 +425,7 @@ span.navbar-text {
     transform:rotate(360deg);
   }
 }
-/** Spotify End/
+/*music End*/
 
 /*Techs Start*/
 .techs-cont {
