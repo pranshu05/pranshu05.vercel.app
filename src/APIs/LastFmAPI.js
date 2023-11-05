@@ -21,7 +21,7 @@ export default async function getNowPlayingItem() {
 
   const track = data.recenttracks.track[0];
   const artist = track.artist['#text'];
-  const isPlaying = !track['@attr'] || track['@attr'].nowplaying === 'true';
+  const isPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
   const songUrl = track.url;
   const title = track.name;
   const albumName = track.album['#text'];
