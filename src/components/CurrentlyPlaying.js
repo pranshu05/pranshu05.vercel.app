@@ -30,7 +30,7 @@ export function CurrentlyPlaying() {
             <div className="song-info">
               <div className="song-title">{result.title}</div>
               <div className="song-artist">
-                <small>by {result.artist}<br /> on {result.albumName}</small>
+                <small>by {result.artist} | on {result.albumName}</small>
               </div>
             </div>
           </a>

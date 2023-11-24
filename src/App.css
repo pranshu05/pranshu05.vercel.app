@@ -392,18 +392,19 @@ span.navbar-text {
 .song-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   float: right;
-  width: calc(80% - 10px);
-  padding-left: 10px;
+  width: calc(80% - 20px);
+  padding-left: 20px;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
 }
 .song-title {
-  font-size: medium;
-  font-weight: 700;
+  font-size: larger;
+  font-weight: 900;
 }
 .song-artist {
   font-weight: 500;
-  margin-bottom: 4px;
 }
 .song-img {
   width: 20%;
