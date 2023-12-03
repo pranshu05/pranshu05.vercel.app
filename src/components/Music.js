@@ -12,29 +12,29 @@ export const Music = () => {
   useEffect(() => {
     const fetchLastFmTopTracks = async () => {
       const response = await axios.get(
-        `http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10`
+        `http://ws.audioscrobbler.com/2.0/?method=user.getweeklytrackchart&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10`
       );
-      setTopTracks(response.data.toptracks.track);
+      setTopTracks(response.data.weeklytrackchart.track);
     };
-
+  
     const fetchLastFmTopArtists = async () => {
       const response = await axios.get(
-        `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10`
+        `http://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10`
       );
-      setTopArtists(response.data.topartists.artist);
+      setTopArtists(response.data.weeklyartistchart.artist);
     };
-
+  
     const fetchLastFmRecentlyPlayed = async () => {
       const response = await axios.get(
         `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${LAST_FM_API_KEY}&format=json&limit=10`
       );
       setRecentlyPlayed(response.data.recenttracks.track);
     };
-
+  
     fetchLastFmTopTracks();
     fetchLastFmTopArtists();
     fetchLastFmRecentlyPlayed();
-  });
+  },); 
 
   const getTimeAgo = (timestamp) => {
     const secondsAgo = Math.floor((new Date() - new Date(timestamp * 1000)) / 1000);
@@ -102,7 +102,7 @@ export const Music = () => {
       </div>
       <div className="top-tracks-cont">
         <h2>Top Tracks</h2>
-        <small style={{ color: '#818181' }}>All time stats.</small>
+        <small style={{ color: '#818181' }}>Weekly stats.</small>
         {topTracks.map((track) => (
           <a
             key={track.name}
@@ -115,7 +115,7 @@ export const Music = () => {
               <div className="top-tracks-text">
                 {track.name}
                 <br />
-                <small>{track.artist.name}</small>
+                <small>{track.artist["#text"]}</small>
               </div>
               <div className="top-tracks-plays">
                 <small>{track.playcount} plays</small>
@@ -126,7 +126,7 @@ export const Music = () => {
       </div>
       <div className="top-artists-cont">
         <h2>Top Artists</h2>
-        <small style={{ color: '#818181' }}>All time stats.</small>
+        <small style={{ color: '#818181' }}>Weekly stats.</small>
         {topArtists.map((artist) => (
           <a
             key={artist.name}
