@@ -3,34 +3,24 @@ import {
    FaDiscord,
    FaGithub,
    FaInstagram,
+   FaItchIo,
    FaLastfm,
    FaLinkedin,
    FaNpm,
-   FaReddit,
    FaSpotify,
    FaTwitter,
+   FaUnsplash,
+   FaYoutube,
 } from 'react-icons/fa'
 import { SiBuymeacoffee } from 'react-icons/si'
 
 export const Links = () => {
    const links = [
       {
-         text: 'Discord',
-         username: ' // @Pranshu05#4726',
-         icon: <FaDiscord />,
-         href: 'https://discordapp.com/users/754381104034742415',
-      },
-      {
          text: 'GitHub',
          username: ' // @pranshu05',
          icon: <FaGithub />,
          href: 'https://github.com/pranshu05',
-      },
-      {
-         text: 'Instagram',
-         username: ' // @pranshu.05',
-         icon: <FaInstagram />,
-         href: 'https://instagram.com/pranshu.05',
       },
       {
          text: 'LinkedIn',
@@ -39,10 +29,22 @@ export const Links = () => {
          href: 'https://linkedin.com/in/pranshu05',
       },
       {
+         text: 'Instagram',
+         username: ' // @pranshu.05',
+         icon: <FaInstagram />,
+         href: 'https://instagram.com/pranshu.05',
+      },
+      {
          text: 'Twitter',
          username: ' // @pranshu_05',
          icon: <FaTwitter />,
          href: 'https://twitter.com/pranshu_05',
+      },
+      {
+         text: 'YouTube',
+         username: ' // @pranshu05',
+         icon: <FaYoutube />,
+         href: 'https://www.youtube.com/@pranshu05',
       },
       {
          text: 'Spotify',
@@ -57,10 +59,22 @@ export const Links = () => {
          href: 'https://www.last.fm/user/pranshu05',
       },
       {
-         text: 'Reddit',
-         username: ' // @pranshu2005',
-         icon: <FaReddit />,
-         href: 'https://www.reddit.com/user/pranshu2005',
+         text: 'Itch.io',
+         username: ' // @pranshu05',
+         icon: <FaItchIo />,
+         href: 'https://pranshu05.itch.io/',
+      },
+      {
+         text: 'Unsplash',
+         username: ' // @pranshu05',
+         icon: <FaUnsplash />,
+         href: 'https://unsplash.com/@pranshu05',
+      },
+      {
+         text: 'Discord',
+         username: ' // @pranshu05',
+         icon: <FaDiscord />,
+         href: 'https://discordapp.com/users/754381104034742415',
       },
       {
          text: 'Dev.to',

@@ -3,7 +3,6 @@ import { AboutMe } from '../components/AboutMe'
 import { Footer } from '../components/Footer'
 import { GitHub } from '../components/GitHub'
 import { Link } from 'react-router-dom'
-import { Gita } from '../components/Gita'
 import { NavBar } from '../components/NavBar'
 
 export const AboutMePage = () => {
@@ -23,7 +22,6 @@ export const AboutMePage = () => {
                   Stop stalking! Start <Link to="/contact">talking.</Link>
                </h2>
             </div>
-            <Gita />
             <Footer />
          </div>
       </div>
