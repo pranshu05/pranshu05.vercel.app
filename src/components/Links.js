@@ -12,7 +12,7 @@ import {
    FaUnsplash,
    FaYoutube,
 } from 'react-icons/fa'
-import { SiBuymeacoffee } from 'react-icons/si'
+import { SiBuymeacoffee, SiWakatime } from 'react-icons/si'
 
 export const Links = () => {
    const links = [
@@ -57,6 +57,12 @@ export const Links = () => {
          username: ' // @pranshu05',
          icon: <FaLastfm />,
          href: 'https://www.last.fm/user/pranshu05',
+      },
+      {
+         text: 'WakaTime',
+         username: ' // @pranshu05',
+         icon: <SiWakatime />,
+         href: 'https://wakatime.com/@pranshu05',
       },
       {
          text: 'Itch.io',
