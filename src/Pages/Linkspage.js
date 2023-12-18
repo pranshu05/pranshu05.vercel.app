@@ -7,6 +7,10 @@ export const LinksPage = () => {
    return (
       <div>
          <NavBar />
+         <div className='grad-bg' />
+         <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/SPqIWBG.png")'}}>
+            <h1>My Socials</h1>
+         </div>
          <div className="links-page-cont">
             <p className="go-back-home">
                &larr; <Link to="/">home.</Link>

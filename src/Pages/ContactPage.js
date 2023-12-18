@@ -6,6 +6,10 @@ export const ContactPage = () => {
    return (
       <div>
          <NavBar />
+         <div className='grad-bg' />
+         <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/FOAvyvu.png")'}}>
+            <h1>Get in touch 📨</h1>
+         </div>
          <div className="contact-page-cont">
             <Contact />
             <Footer />

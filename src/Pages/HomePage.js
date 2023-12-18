@@ -6,6 +6,7 @@ export const HomePage = () => {
    return (
       <div>
          <NavBar />
+         <div className='grad-bg' />
          <div className="home-page-cont">
             <Home />
             <GitHubLastUpdated />

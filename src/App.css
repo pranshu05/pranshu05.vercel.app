@@ -13,11 +13,15 @@ body {
 body {
   font-weight: 400;
   background-color: #121212;
-  color: #eeeeee;
+  color: #cccccc;
 }
 .highlight {
-  background-color: #181818;
-  color: #808080;
+  color: #fff;
+  font-weight: 700;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 a,
 li,
@@ -31,16 +35,50 @@ a:hover,
 a:active,
 a:visited {
   text-decoration: none;
-  color: #808080;
+  color: #fff;
+  text-decoration: underline solid #fff 1px;
 }
 .go-back-home {
   font-size: larger;
-  color: #818181;
+  color: #fff;
+  margin-bottom: 30px;
 }
 .last-updated{
   position: absolute;
   bottom: 10px;
   right: 10px;
+  color: #fff;
+}
+.grad-bg{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: rgb(6,0,64);
+  background: radial-gradient(circle, rgba(6,0,64,1) 0%, rgba(6,0,70,1) 15%, rgba(6,0,72,1) 30%, rgba(7,0,38,1) 55%, rgba(0,0,0,1) 100%);
+}
+.banner{
+  min-height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner h1 {
+  font-size: 600%;
+  font-weight: 900;
+  color: #fff;
+}
+@media (max-width: 500px){
+  .banner h1 {
+    font-size: 300%;
+  }
 }
 /* Default CSS End*/
 
@@ -55,6 +93,9 @@ nav.navbar {
   transform: translate(-50%, 0%);
   z-index: 100;
   transition: all 0.4s ease-in-out;
+  background: rgba(91, 91, 91, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -116,17 +157,6 @@ span.navbar-text {
 .not-page-cont p{
   margin-top: 20px;
   font-size: large;
-}
-.gallery-page-cont h1,
-.about-me-page-cont h1,
-.contact-page-cont h1,
-.links-page-cont h1,
-.music-page-cont h1,
-.not-page-cont h1 {
-  font-size: 270%;
-  font-weight: 900;
-  text-decoration: underline wavy #808080 3px;
-  margin: 10px 10px 10px 0;
 }
 @media (max-width: 800px) {
   .not-page-cont,
@@ -210,7 +240,6 @@ span.navbar-text {
   width: 40px;
   float: left;
   border-radius: 10px;
-  background-color: #181818;
   font-size: x-large;
   position: fixed;
   animation: bounceAnim 1s cubic-bezier(.63,.09,.75,.46) infinite alternate;
@@ -220,6 +249,11 @@ span.navbar-text {
   align-items: center;
   text-align: center;
   cursor: pointer;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .lofi-artist {
   width: calc(100% - 80px); 
@@ -238,12 +272,16 @@ span.navbar-text {
   justify-content: space-between;
   padding: 10px;
   border-radius: 10px;
-  background-color: #181818;
   max-width: 340px;
   font-size: x-large;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0%);
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .ano-form-cont {
   width: 85%;
@@ -253,16 +291,16 @@ span.navbar-text {
   margin-top: auto;
   min-height: 25px;
   flex: 1;
-  background-color: #181818;
-  color: #eee;
   resize: vertical;
   outline: none;
   border: none;
+  color: #fff;
+  background: transparent;
 }
 .ano-button-cont {
   width: 10%;
-  background-color: #181818;
-  color: #808080;
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
   text-align: center;
 }
@@ -287,6 +325,10 @@ span.navbar-text {
   width: 100%;
   margin: 5px 0;
   border-radius: 10px;
+  opacity: 40%;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .image-gallery {
   margin-top: 15px;
@@ -379,8 +421,6 @@ span.navbar-text {
 .music-track {
   display: flex;
   flex-direction: row;
-  background: #181818;
-  color: #808080;
   border-radius: 10px;
   max-width: 350px;
   margin-top: 20px;
@@ -388,6 +428,11 @@ span.navbar-text {
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .song-info {
   display: flex;
@@ -434,9 +479,12 @@ span.navbar-text {
   align-items: center;
   padding: 5px;
   margin: 5px;
-  color: #808080;
-  background-color: #181818;
   border-radius: 5px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .techs-icon {
   margin-right: 15px;
@@ -464,8 +512,12 @@ span.navbar-text {
   margin-top: 15px;
   margin-bottom: 15psx;
   padding: 20px;
-  background-color: #181818;
   border-radius: 10px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .project-card-img {
   float: left;
@@ -485,7 +537,7 @@ span.navbar-text {
   margin-top: 0;
 }
 .project-lang p {
-  color: #818181;
+  color: #fff;
   font-size: medium;
   margin: 10px;
   margin-left: 0;
@@ -517,7 +569,11 @@ span.navbar-text {
   width: 100%; 
 }
 .github-repo {
-  background-color: #181818;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .github-repo-grad,
 .github-repo{
@@ -539,6 +595,10 @@ span.navbar-text {
   background-size: 1000px 640px;
   border-radius: 10px;
   text-align: center;
+  opacity: 40%;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .github-repo:nth-child(odd), .github-repo-grad:nth-child(odd) {
   margin-right: 10px;
@@ -615,10 +675,14 @@ span.navbar-text {
 /*Quote CSS start*/
 .gita-quote {
   margin-top: 25px;
-  background-color: #181818;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .quote-text {
   margin-top: 10px;
@@ -666,14 +730,17 @@ span.navbar-text {
   width: 100px;
   margin-top: 10px;
   padding: 10px;
-  background-color: #808080;
-  color: #121212;
   font-weight: 800;
   border: none;
   outline: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .contact-redirect-heading {
   text-align: center;
@@ -683,23 +750,36 @@ span.navbar-text {
 /*Links Page Strat*/
 .links-cont{
   width: 100%;
-  background-color: #181818;
   min-height: 100px;
+  margin-top: 25px;
   border-radius: 10px;
   box-sizing: border-box;
   padding: 20px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .links-link{
   box-sizing: border-box;
-  background-color: #161616;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .links-link:hover{
-  background-color: #121212;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .links-link-text{
   width: 80%;
@@ -722,25 +802,37 @@ span.navbar-text {
 /*Music Page Start*/
 .top-tracks-cont,.top-artists-cont, .recently-played-cont{
   width: 100%;
-  background-color: #181818;
   min-height: 100px;
   border-radius: 10px;
   box-sizing: border-box;
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .top-tracks-div,.top-artists-div,.recently-played-div{
-  background-color: #161616;
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #fff;
+  background: rgba(91, 91, 91, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .top-tracks-div:hover,.top-artists-div:hover,.recently-played-div:hover{
-  background-color: #121212;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 .top-tracks-text,.top-artists-text,.recently-played-text{
   width: 80%;
@@ -810,6 +902,10 @@ footer {
   width: 100%;
   margin: 20px 0;
   border-radius: 10px;
+  opacity: 40%;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
 }
 @keyframes placeHolderShimmer{
   0%{
@@ -842,6 +938,6 @@ footer {
 
 
 
-/*OMG did you just scrolled to line no.844??*/
+/*OMG did you just scrolled to line no.936??*/
 
 /*I just love you!! Thanks for scrolling <3*/

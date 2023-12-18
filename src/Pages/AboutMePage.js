@@ -9,11 +9,14 @@ export const AboutMePage = () => {
    return (
       <div>
          <NavBar />
+         <div className='grad-bg' />
+         <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/O2wIpFN.jpg")'}}>
+            <h1>About</h1>
+         </div>
          <div className="about-me-page-cont">
             <p className="go-back-home">
                &larr; <Link to="/">home.</Link>
             </p>
-            <h1>About</h1>
             <AboutMe />
             <Projects />
             <GitHub />

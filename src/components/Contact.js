@@ -9,7 +9,6 @@ export function Contact() {
          <p className="go-back-home">
             &larr; <Link to="/">home.</Link>
          </p>
-         <h1>Get in touch 📨</h1>
          <p style={{ fontSize: 'larger', color: '#808080' }}>
             Fill out this form and I'll get back to you ASAP!
          </p>

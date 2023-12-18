@@ -55,8 +55,7 @@ export const Music = () => {
   if ( recentlyPlayed.length === 0 || topArtists.length === 0 | topTracks.length === 0 ){
    return (
       <div className="music">
-         <h1>Listening Activity</h1>
-         <small style={{ color: '#818181' }}>My music listening activity 👀, updated in real-time.</small>
+         <p>My music listening activity 👀, updated in real-time.</p>
             <CurrentlyPlaying />
             <div style={{ width: '100%', height: '100px' }}>
                <div className="gradient" />
@@ -73,8 +72,7 @@ export const Music = () => {
 
   return (
     <div className="music">
-      <h1>Listening Activity</h1>
-      <small style={{ color: '#818181' }}>My music listening activity 👀, updated in real-time.</small>
+      <p>My music listening activity 👀, updated in real-time.</p>
       <CurrentlyPlaying />
       <div className="recently-played-cont">
         <h2>Recently Played</h2>

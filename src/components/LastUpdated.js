@@ -26,7 +26,7 @@ const GitHubLastUpdated = () => {
   }, []);
 
   return (
-    <small style={{ color: '#808080' }} className='last-updated'>
+    <small className='last-updated'>
       Last Updated: {lastUpdated}
     </small>
   );

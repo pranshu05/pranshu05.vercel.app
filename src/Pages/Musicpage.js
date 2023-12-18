@@ -7,6 +7,10 @@ export const MusicPage = () => {
    return (
       <div>
          <NavBar />
+         <div className='grad-bg' />
+         <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/98DHuSX.png")'}}>
+            <h1>Listening Activity</h1>
+         </div>
          <div className="music-page-cont">
             <p className="go-back-home">
                &larr; <Link to="/">home.</Link>

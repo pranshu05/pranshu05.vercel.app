@@ -9,11 +9,14 @@ export const ImageGalleryPage = () => {
     return (
         <div>
             <NavBar hideNavbar={isModelOpen} />
+            <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/hI7qP4z.jpg")'}}>
+                <h1>My Photography</h1>
+            </div>
+            <div className='grad-bg' />
             <div className="gallery-page-cont">
                 <p className="go-back-home">
                     &larr; <Link to="/">home.</Link>
                 </p>
-                <h1>My Photography</h1>
                 <p>
                     Visit my
                     <a
