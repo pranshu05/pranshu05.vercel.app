@@ -8,6 +8,7 @@ export const LinksPage = () => {
       <div>
          <NavBar />
          <div className='grad-bg' />
+         <div className='grain' />
          <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/SPqIWBG.png")'}}>
             <h1>My Socials</h1>
          </div>

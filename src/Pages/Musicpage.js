@@ -8,6 +8,7 @@ export const MusicPage = () => {
       <div>
          <NavBar />
          <div className='grad-bg' />
+         <div className='grain' />
          <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/98DHuSX.png")'}}>
             <h1>Listening Activity</h1>
          </div>

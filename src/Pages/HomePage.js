@@ -7,6 +7,7 @@ export const HomePage = () => {
       <div>
          <NavBar />
          <div className='grad-bg' />
+         <div className='grain' />
          <div className="home-page-cont">
             <Home />
             <GitHubLastUpdated />

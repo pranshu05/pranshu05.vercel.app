@@ -10,6 +10,7 @@ export const AboutMePage = () => {
       <div>
          <NavBar />
          <div className='grad-bg' />
+         <div className='grain' />
          <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/O2wIpFN.jpg")'}}>
             <h1>About</h1>
          </div>

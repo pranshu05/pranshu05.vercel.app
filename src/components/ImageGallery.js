@@ -32,7 +32,7 @@ export function ImageGallery({ onModelOpen }) {
     document.body.style.overflow = 'hidden';
 
     const top = window.pageYOffset || document.documentElement.scrollTop;
-    document.querySelector('.model').style.top = top - 50 + 'px';
+    document.querySelector('.model').style.top = top - 350 + 'px';
   };
 
   useEffect(() => {
