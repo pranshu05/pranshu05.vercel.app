@@ -40,10 +40,8 @@ export function CurrentlyPlaying() {
   ) : (
     <div className="nowplaying">
       <div className="music-cont">
-        <div className="music-track">
-          <div className="song-img">
+        <div className="music-track inactive">
             <FaLastfm />
-          </div>
           <div className="song-info">
             <div className="song-artist" style={{ textAlign: 'center' }}>
               Not enjoying music rn!

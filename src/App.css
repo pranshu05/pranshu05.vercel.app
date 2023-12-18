@@ -434,6 +434,12 @@ span.navbar-text {
   backdrop-filter: blur( 2px );
   -webkit-backdrop-filter: blur( 2px );
 }
+.music-track.inactive{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+}
 .song-info {
   display: flex;
   flex-direction: column;
