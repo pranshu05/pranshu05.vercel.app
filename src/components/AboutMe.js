@@ -20,7 +20,7 @@ export const AboutMe = () => {
       <div className="about-me" id="about-me">
          <h2> Hi! I'm Pranshu ✌️</h2>
          <p>
-            I'm a {ageInYearsFormatted} y/o B.Tech frsher and self-taught
+            I'm a {ageInYearsFormatted} y/o B.Tech fresher and self-taught
             developer based in {}
             <a
                href="https://hi.wikipedia.org/wiki/India"

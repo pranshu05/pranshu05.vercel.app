@@ -455,8 +455,7 @@ span.navbar-text {
   display: flex;
   flex-direction: column;
   float: right;
-  width: calc(80% - 20px);
-  padding-left: 20px;
+  width: 80%;
   height: 100%;
   justify-content: center;
   text-align: center;
