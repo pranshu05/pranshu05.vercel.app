@@ -66,7 +66,8 @@ a:visited {
   top: 0;
   left: 0;
   z-index: 0;
-  background:url('https://i.imgur.com/hDrJaGd.png');  
+  background:url('https://images.unsplash.com/photo-1602475063211-3d98d60e3b1f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JhaW4lMjB0ZXh0dXJlfGVufDB8fDB8fHww');  
+  opacity: 0.15;
 }
 .banner{
   min-height: 300px;
