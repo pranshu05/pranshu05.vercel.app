@@ -7,7 +7,8 @@ export const GHRepos = () => {
       'pranshu05/Chrome-Dino-game-AI',
       'pranshu05/spotify-activity',
       'pranshu05/game',
-      'pranshu05/iss',
+      'pranshu05/AcadVault2.0',
+      'pranshu05/Anti-Ghost-Ping',
    ]
 
    return (
