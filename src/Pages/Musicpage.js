@@ -16,6 +16,17 @@ export const MusicPage = () => {
             <p className="go-back-home">
                &larr; <Link to="/">home.</Link>
             </p>
+            <p>
+                  Visit my
+                  <a
+                     href={`https://www.last.fm/user/pranshu05`}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                  >
+                     {' '}
+                     Last.fm Profile{' '}
+                  </a>{' '}
+               </p>
             <Music />
             <Footer />
          </div>

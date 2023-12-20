@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaWindowClose } from 'react-icons/fa';
+import { FaWindowClose, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 export function ImageGallery({ onModelOpen }) {
   const [model, setModel] = useState(false);
   const [tempimgsrc, setTempImgSrc] = useState('');
   const [imageData, setImageData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const fetchImagesFromUnsplash = async () => {
     try {
@@ -25,14 +26,27 @@ export function ImageGallery({ onModelOpen }) {
     }
   };
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image, index) => {
     setTempImgSrc(image.urls.regular);
+    setCurrentIndex(index);
     setModel(true);
     onModelOpen(true);
     document.body.style.overflow = 'hidden';
 
     const top = window.pageYOffset || document.documentElement.scrollTop;
     document.querySelector('.model').style.top = top - 350 + 'px';
+  };
+
+  const handlePrevClick = () => {
+    const prevIndex = (currentIndex - 1 + imageData.length) % imageData.length;
+    setTempImgSrc(imageData[prevIndex].urls.regular);
+    setCurrentIndex(prevIndex);
+  };
+
+  const handleNextClick = () => {
+    const nextIndex = (currentIndex + 1) % imageData.length;
+    setTempImgSrc(imageData[nextIndex].urls.regular);
+    setCurrentIndex(nextIndex);
   };
 
   useEffect(() => {
@@ -43,20 +57,26 @@ export function ImageGallery({ onModelOpen }) {
     <div className="image-gallery">
       <div className={model ? 'model open' : 'model'}>
         <img src={tempimgsrc} alt="n" />
-        <FaWindowClose
-          onClick={() => {
-            setModel(false);
-            onModelOpen(false);
-            document.body.style.overflow = 'auto';
-          }}
-        />
+        <div className='close-svg'>
+          <FaWindowClose
+            onClick={() => {
+              setModel(false);
+              onModelOpen(false);
+              document.body.style.overflow = 'auto';
+            }}
+          />
+        </div>
+        <div className="navigation">
+          <FaArrowLeft id='left' onClick={handlePrevClick} />
+          <FaArrowRight id='right' onClick={handleNextClick} />
+        </div>
       </div>
       {imageData.map((image, index) => (
         <div
           className="image-card"
           key={index}
           onClick={() => {
-            handleImageClick(image);
+            handleImageClick(image, index);
           }}
         >
           <img src={image.urls.regular} alt="" loading="lazy" />
