@@ -15,7 +15,6 @@ export function ImageGallery({ onModelOpen }) {
         {
           params: {
             client_id: 'IpuBMtdoSBFo8bS7L1gevS7rRFBdEDN9Wp7du9QFh1A',
-            per_page: 10,
           },
         }
       );
