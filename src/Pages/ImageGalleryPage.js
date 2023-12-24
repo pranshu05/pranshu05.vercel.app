@@ -6,48 +6,63 @@ import { Footer } from '../components/Footer'
 import axios from 'axios'
 
 export const ImageGalleryPage = () => {
+    useEffect(() => {
+        axios.get('https://pranshu05.vercel.app/api/webhook')
+    }, [])
+
     const [isModelOpen, setIsModelOpen] = useState(false)
     const [profileInfo, setProfileInfo] = useState({})
-    
+
     useEffect(() => {
         const fetchProfileInfo = async () => {
-          try {
-            const response = await axios.get(
-              'https://api.unsplash.com/users/pranshu05/statistics',
-              {
-                params: {
-                  client_id: 'IpuBMtdoSBFo8bS7L1gevS7rRFBdEDN9Wp7du9QFh1A',
-                },
-              }
-            );
-    
-            setProfileInfo(response.data);
-          } catch (error) {
-            console.error('Error fetching profile information:', error);
-          }
-        };
-    
-        fetchProfileInfo();
-      }, []);
+            try {
+                const response = await axios.get(
+                    'https://api.unsplash.com/users/pranshu05/statistics',
+                    {
+                        params: {
+                            client_id:
+                                'IpuBMtdoSBFo8bS7L1gevS7rRFBdEDN9Wp7du9QFh1A',
+                        },
+                    }
+                )
+
+                setProfileInfo(response.data)
+            } catch (error) {
+                console.error('Error fetching profile information:', error)
+            }
+        }
+
+        fetchProfileInfo()
+    }, [])
 
     return (
         <div>
             <NavBar hideNavbar={isModelOpen} />
-            <div className='grad-bg' />
-            <div className='grain' />
-            <div className='banner' style={{backgroundImage:'url("https://i.imgur.com/hI7qP4z.jpg")'}}>
+            <div className="grad-bg" />
+            <div className="grain" />
+            <div
+                className="banner"
+                style={{
+                    backgroundImage: 'url("https://i.imgur.com/hI7qP4z.jpg")',
+                }}
+            >
                 <h1>My Photography</h1>
             </div>
             <div className="gallery-page-cont">
                 <p className="go-back-home">
                     &larr; <Link to="/">home.</Link>
                 </p>
-                <p> Visit my{' '}
+                <p>
+                    {' '}
+                    Visit my{' '}
                     <a
                         href={`https://unsplash.com/@pranshu05`}
                         target="_blank"
                         rel="noopener noreferrer"
-                    >Unsplash Profile</a>{' '}| Total views on Unsplash: {profileInfo.views?.total}
+                    >
+                        Unsplash Profile
+                    </a>{' '}
+                    | Total views on Unsplash: {profileInfo.views?.total}
                 </p>
                 <ImageGallery onModelOpen={setIsModelOpen} />
                 <Footer />
