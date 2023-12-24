@@ -42,16 +42,12 @@ export const ImageGalleryPage = () => {
                 <p className="go-back-home">
                     &larr; <Link to="/">home.</Link>
                 </p>
-                <p>
-                    Visit my
+                <p> Visit my{' '}
                     <a
                         href={`https://unsplash.com/@pranshu05`}
                         target="_blank"
                         rel="noopener noreferrer"
-                    >
-                        {' '}
-                        Unsplash Profile
-                    </a>{' '}| Total views on Unsplash: {profileInfo.views?.total}
+                    >Unsplash Profile</a>{' '}| Total views on Unsplash: {profileInfo.views?.total}
                 </p>
                 <ImageGallery onModelOpen={setIsModelOpen} />
                 <Footer />
