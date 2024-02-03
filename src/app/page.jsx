@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <div className="h-full w-full p-0 m-0">
-      <Image alt="Gradient background" priority={true} width={1000} height={1000} className="absolute left-0 md:left-1/2 top-0 -z-10 -translate-x-1/2 scale-150 md:scale-100 object-cover w-full md:w-auto" src="https://i.imgur.com/1dlcOkw.png" />
       <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-2/5 mx-auto mt-32">
         <div className="flex items-baseline">
           <h1 className="text-xl font-medium">Pranshu Patel</h1>
