@@ -1,6 +1,0 @@
-{
-    "name": "My React App",
-    "short_name": "React App",
-    "start_url": "./index.html",
-    "display": "standalone"
-  }
