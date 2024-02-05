@@ -13,7 +13,7 @@ export default function Home() {
         <p className="mt-10 text-zinc-400">
           Hey there! 👋 I&apos;m Pranshu, a fullstack developer based in India. I&apos;m currently working on a few projects. I&apos;m also a student, and I&apos;m currently pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank">DA-IICT</a>.
         </p>
-        <div className="my-4 grid grid-flow-col md:grid-flow-row md:grid-cols-2 gap-2 md:gap-4">
+        <div className="my-4 grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-2 sm:gap-4">
           <div className="flex flex-row items-center backdrop backdrop-blur-sm outline outline-1 outline-zinc-400 rounded-lg p-2">
             <img src="https://avatars.githubusercontent.com/u/70943732?v=4" alt="GitHub" className="rounded-full w-[20%]" ></img>
             <div className="flex flex-col ml-2 align-center text-center w-[80%]">
