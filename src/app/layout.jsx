@@ -10,9 +10,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html className="bg-neutral-950 text-zinc-100" lang="en">
+    <html lang="en">
       <div className="absolute top-0 left-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.2)_0,rgba(0,163,255,0.12)_50%,rgba(0,163,255,0)_100%)]"></div>
-      <body className={inter.className}>
+      <body className={[inter.className, "bg-neutral-950 text-zinc-100"]}>
         {children}
       </body>
     </html>

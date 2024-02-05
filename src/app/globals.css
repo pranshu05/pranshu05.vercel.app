@@ -9,13 +9,10 @@
 }
 
 .link {
-  border-radius: calc(var(--radius) - 4px);
   text-decoration-line: underline;
-  text-decoration-color: rgba(82,82,91,.2);
+  text-decoration-color: rgba(115, 115, 115, 0.4);
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
   transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(.4,0,.2,1);
   transition-duration: .15s;
@@ -24,5 +21,5 @@
 }
 
 .link:hover {
-  text-decoration-color: rgba(120, 120, 131, 0.4);
+  text-decoration-color: rgba(191, 191, 191, 0.8);
 }
