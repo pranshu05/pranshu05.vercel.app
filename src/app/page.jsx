@@ -1,5 +1,6 @@
 import { Footer } from "../components/footer";
 import { ageInYears } from "../lib/ageInYears";
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -13,20 +14,18 @@ export default function Home() {
         <p className="mt-10 text-zinc-400">
           Hey there! 👋 I&apos;m Pranshu, a fullstack developer based in India. I&apos;m currently working on a few projects. I&apos;m also a student, and I&apos;m currently pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank">DA-IICT</a>.
         </p>
-        <div className="my-4 grid grid-flow-col sm:grid-cols-2 gap-2 sm:gap-4">
-          <div className="flex flex-row items-center backdrop backdrop-blur-sm outline outline-1 outline-zinc-400 rounded-lg p-2">
-            <img src="https://avatars.githubusercontent.com/u/70943732?v=4" alt="GitHub" className="rounded-full w-0 sm:w-[20%]" ></img>
-            <div className="flex flex-col sm:ml-2 align-center text-center w-full sm:w-[80%]">
-              <a href="https://github.com/pranshu05" target="_blank" className="link">@pranshu05</a>
-              <p className="text-zinc-400">Checkout my GitHub</p>
-            </div>
+        <div className="my-4 grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
+          <div className=" outline outline-1 outline-zinc-400 rounded-lg p-2">
+            <a href="https://github.com/pranshu05" target="_blank" className="link flex items-center justify-center"><FaGithub className="mr-2" /> GitHub</a>
           </div>
-          <div className="flex flex-row items-center backdrop backdrop-blur-sm outline outline-1 outline-zinc-400 rounded-lg p-2">
-            <img src="https://pbs.twimg.com/profile_images/1746581867095302144/grYJiUYL_400x400.jpg" alt="Twitter" className="rounded-full w-0 sm:w-[20%]" ></img>
-            <div className="flex flex-col sm:ml-2 align-center text-center w-full sm:w-[80%]">
-              <a href="https://twitter.com/pranshu_05" target="_blank" className="link">@pranshu_05</a>
-              <p className="text-zinc-400">Follow me on Twitter</p>
-            </div>
+          <div className=" outline outline-1 outline-zinc-400 rounded-lg p-2">
+            <a href="https://linkedin.com/in/pranshu05" target="_blank" className="link flex items-center justify-center"><FaLinkedin className="mr-2" /> Linkedin</a>
+          </div>
+          <div className=" outline outline-1 outline-zinc-400 rounded-lg p-2">
+            <a href="https://twitter.com/pranshu_05" target="_blank" className="link flex items-center justify-center"><FaTwitter className="mr-2" /> Twitter</a>
+          </div>
+          <div className=" outline outline-1 outline-zinc-400 rounded-lg p-2">
+            <a href="https://instagram.com/pranshu.05" target="_blank" className="link flex items-center justify-center"><FaInstagram className="mr-2" /> Instagram</a>
           </div>
         </div>
         <Footer />
