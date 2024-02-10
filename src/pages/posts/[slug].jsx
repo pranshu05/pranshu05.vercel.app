@@ -3,15 +3,21 @@ import { MDXRemote } from 'next-mdx-remote'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import SyntaxHighlighter from 'react-syntax-highlighter'
 
-const components = { SyntaxHighlighter }
+const components = {}
 
-const BlogPost = ({ frontMatter: { title, date }, mdxSource }) => {
+const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
   return (
-    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-2/5 mx-auto mt-32">
-      <h1 className='text-2xl font-bold pb-8'>{title}</h1>
-      <MDXRemote {...mdxSource} components={components} />
+    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
+      <div className='pb-8'>
+        <h1 className='text-3xl font-bold'>{title}</h1>
+        <div className='text-zinc-400 flex items-baseline text-base'>
+          📅 {date} • ⏰ {readTime} minutes
+        </div>
+      </div>
+      <div className='post break-words w-full p-0 m-0'>
+        <MDXRemote {...mdxSource} components={components} />
+      </div>
     </div>
   )
 }
