@@ -1,10 +1,9 @@
-import { Footer } from "../components/footer";
-import { ageInYears } from "../lib/ageInYears";
+import { Footer } from "../components/Footer";
+import { ageInYears } from "../lib/AgeInYears";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="h-full w-full p-0 m-0">
       <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-2/5 mx-auto mt-32">
         <div className="flex items-baseline">
           <h1 className="text-xl font-medium">Pranshu Patel</h1>
@@ -30,6 +29,5 @@ export default function Home() {
         </div>
         <Footer />
       </div>
-    </div>
   );
 }

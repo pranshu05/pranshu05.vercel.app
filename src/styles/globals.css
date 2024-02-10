@@ -8,6 +8,11 @@
   }
 }
 
+:root{
+  --foreground-rgb: 0, 0, 0;
+  --bg: #202020;
+}
+
 .link {
   text-decoration-line: underline;
   text-decoration-color: rgba(115, 115, 115, 0.4);
