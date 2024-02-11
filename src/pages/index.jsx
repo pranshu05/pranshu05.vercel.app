@@ -1,4 +1,3 @@
-import { Footer } from "../components/Footer";
 import { ageInYears } from "../lib/AgeInYears";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
@@ -29,7 +28,6 @@ export default function Home() {
           <a href="https://instagram.com/pranshu.05" target="_blank" className="link flex items-center justify-center"><FaInstagram className="mr-2" /> Instagram</a>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

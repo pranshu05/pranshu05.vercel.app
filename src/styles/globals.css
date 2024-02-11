@@ -31,58 +31,58 @@
 
 .post h1{
   font-size: 1.5rem;
-  font-weight: 700;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.5rem;
+  font-weight: 700;
   color: #fff;
 }
 .post h2{
   font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1.25rem;
+  font-weight: 700;
   color: #fff;
 }
 .post h3{
   font-size: 1.125rem;
-  font-weight: 700;
-  margin-top: 1.125rem;
-  margin-bottom: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1.125rem;
+  font-weight: 700;
   color: #fff;
 }
 .post h4{
   font-size: 1rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1rem;
+  font-weight: 700;
   color: #fff;
 }
 .post h5{
   font-size: 0.875rem;
-  font-weight: 700;
-  margin-top: 0.875rem;
-  margin-bottom: 0.875rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 0.875rem;
+  font-weight: 700;
   color: #fff;
 }
 .post h6{
   font-size: 0.75rem;
-  font-weight: 700;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 0.75rem;
+  font-weight: 700;
   color: #fff;
 }
 .post p{
   font-size: 1rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1.5rem;
+  font-weight: 400;
   color: #dfdfdf;
 } 
 .post a{
@@ -106,7 +106,7 @@
   margin-bottom: 1rem;
   line-height: 1.5rem;
   list-style: disc;
-  list-style-position: inside;
+  margin-left: 1rem;
 }
 .post ol{
   font-size: 1rem;
@@ -115,12 +115,12 @@
   margin-bottom: 1rem;
   line-height: 1.5rem;
   list-style: decimal;
-  list-style-position: inside;
+  margin-left: 1rem;
 }
 .post li{
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
   color: #dfdfdf;
 }
 .post blockquote{
@@ -153,8 +153,20 @@
   line-height: 1.5rem;
   color: #dfdfdf;
   background-color: #1e1e1e;
-  padding: 0.25rem;
+  padding: 0.2rem;
   border-radius: 0.25rem;
+}
+.post hr{
+  border-color: rgb(39 39 42);
+  border-width: 2px;
+  margin: 32px 0;
+}
+.post img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar{
