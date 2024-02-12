@@ -11,7 +11,7 @@ export const NavBar = () => {
     };
 
     return (
-        <header className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-20'>
+        <header className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-10'>
             <div className='flex items-center'>
                 <nav className='flex justify-between rounded-3xl px-1 py-2 w-full'>
                     <div>

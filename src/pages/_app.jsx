@@ -10,9 +10,11 @@ export const metadata = {
 export default function App({ Component, pageProps }) {
     return (
         <>
-            <div className="min-h-dvh w-dvw p-0 m-0 text-zinc-100">
+            <div className="min-h-dvh w-dvw p-0 m-0 text-zinc-100 flex flex-col">
                 <NavBar />
-                <Component {...pageProps} />
+                <div className="flex-1">
+                    <Component {...pageProps} />
+                </div>
                 <Footer />
             </div>
             <div className="fixed left-0 top-0 -z-10 h-dvh w-dvw">
