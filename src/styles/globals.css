@@ -192,6 +192,9 @@
   margin: 1rem auto;
   border-radius: 10px;
 }
+nav a {
+  transition: background 0.3s ease-in-out;
+}
 
 ::-webkit-scrollbar{
   display: none;

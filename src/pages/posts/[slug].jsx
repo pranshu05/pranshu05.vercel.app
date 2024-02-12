@@ -11,7 +11,7 @@ const components = {};
 
 const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
   return (
-    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
+    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto ">
       <div className='pb-8'>
         <h1 className='text-3xl font-bold'>{title}</h1>
         <div className='text-zinc-400 flex items-baseline text-base'>

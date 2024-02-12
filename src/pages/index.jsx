@@ -3,7 +3,7 @@ import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
+    <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
       <div className="pb-8">
         <div className="flex items-baseline">
           <h1 className="text-3xl font-medium">Pranshu Patel</h1>
