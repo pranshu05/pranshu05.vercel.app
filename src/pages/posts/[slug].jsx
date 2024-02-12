@@ -5,17 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import langPython from 'highlight.js/lib/languages/python';
-import langRust from 'highlight.js/lib/languages/rust';
-import langCPP from 'highlight.js/lib/languages/cpp';
-
-import 'prism-themes/themes/prism-material-dark.css';
-
-export const langauges = {
-  python: langPython,
-  rust: langRust,
-  cpp: langCPP,
-}
+import 'prism-themes/themes/prism-holi-theme.css';
 
 const components = {};
 
@@ -31,7 +21,6 @@ const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
       <div className='post break-words w-full p-0 m-0'>
         <MDXRemote {...mdxSource} components={components} />
       </div>
-      <style jsx global>{``}</style>
     </div>
   );
 };
@@ -63,7 +52,6 @@ const getStaticProps = async ({ params: { slug } }) => {
       rehypePlugins: [
         [rehypePrism, {
           ignoreMissing: true,
-          langauges,
           aliases: {}
         }],
       ],

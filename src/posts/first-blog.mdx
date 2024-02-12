@@ -7,7 +7,7 @@ readTime: 10
 
 Here we go 😅. So hello everyone 👋🏻 this is my first time writing a blog.
 
-When I satrted redesigning this portfolio in `NextJS` from my old portfolio which was created using `ReactJS`, I wanted to make something cool like a blog or something, here it is! I created this using `MDX`. Believe me I faced many problems while creating this blog page. There was that one problem in which I was stuck for 2 days.
+When I started redesigning this portfolio in `NextJS` from my old portfolio which was created using `ReactJS`, I wanted to make something cool like a blog or something, here it is! I created this using `MDX`. Believe me, I faced many problems while creating this blog page. There was that one problem in which I was stuck for 2 days.
 
 The problem was that in the latest file structure of NextJS the Routing is done in the `./src/app` directory and I couldn't use `getStaticProps()` function in the `./src/app` directory, so I had to change the whole file structure of this project.
 
@@ -17,19 +17,19 @@ Below are some cool things I can do with `MDX`
 
 ```javascript
 // the hello world program in js
-alert("Hello, World!");
-//MDX doesn't provide any styling by default so I had to style evry different classes of MDX
+alert('Hello, World!')
+//MDX doesn't provide any styling by default so I had to style every different classes of MDX
 ```
 
 ```
 This is a plain text code block.
 ```
 
-> This is a quote text. And there's may more things I can do!!
+> This is a quoted text. And there are many more things I can do!!
 
 ---
 
-So this is how it actually works. I changed the project file stucture so routing is done in the `./src/pages` directory.
+So this is how it works. I changed the project file structure so routing is done in the `./src/pages` directory.
 
 ### ./src/pages/posts/index.jsx
 
@@ -174,26 +174,157 @@ const getStaticProps = async ({ params: { slug } }) => {
 export { getStaticProps, getStaticPaths }
 export default BlogPost
 ```
+
 1. ## BlogPost Component:
-   - It receives two props: `frontMatter` and `mdxSource`.
-      - frontMatter: Metadata of the blog post extracted from the front matter of the MDX file (e.g., title, date, readTime).
-      - mdxSource: The serialized MDX content obtained from the MDX file, which is transformed into a format that `MDXRemote` can render.
-   - The component renders the blog post's title, date, and estimated reading time, and the MDX content is rendered using the `MDXRemote` component.
+    - It receives two props: `frontMatter` and `mdxSource`.
+        - frontMatter: Metadata of the blog post extracted from the front matter of the MDX file (e.g., title, date, readTime).
+        - mdxSource: The serialized MDX content obtained from the MDX file, which is transformed into a format that `MDXRemote` can render.
+    - The component renders the blog post's title, date, and estimated reading time, and the MDX content is rendered using the `MDXRemote` component.
 2. ## getStaticPaths Function:
-   - The `getStaticPaths` function is used to generate static paths for blog posts at build time.
-   - It reads the list of MDX files from the `.src/posts` directory and creates an array of `params` objects for each file. Each object contains a `slug` parameter derived from the MDX file name (excluding the `.mdx` extension).
-   - The function returns an object with `paths` (an array of paths) and `fallback` (set to `false` to return a 404 page for unknown paths).
+    - The `getStaticPaths` function is used to generate static paths for blog posts at build time.
+    - It reads the list of MDX files from the `.src/posts` directory and creates an array of `params` objects for each file. Each object contains a `slug` parameter derived from the MDX file name (excluding the `.mdx` extension).
+    - The function returns an object with `paths` (an array of paths) and `fallback` (set to `false` to return a 404 page for unknown paths).
 3. ## getStaticProps Function:
-   - The `getStaticProps` function is used to generate static props for a specific blog post at build time.
-   - It receives a `slug` parameter representing the filename (without the extension) of the MDX file.
-   - The function reads the content of the corresponding MDX file, extracts front matter and content using `gray-matter`, and then serializes the MDX content using `next-mdx-remote`.
-   - The function returns an object with `props` containing `frontMatter`, `slug`, and `mdxSource`.
+    - The `getStaticProps` function is used to generate static props for a specific blog post at build time.
+    - It receives a `slug` parameter representing the filename (without the extension) of the MDX file.
+    - The function reads the content of the corresponding MDX file, extracts front matter and content using `gray-matter`, and then serializes the MDX content using `next-mdx-remote`.
+    - The function returns an object with `props` containing `frontMatter`, `slug`, and `mdxSource`.
 4. ## Usage:
-   - When a user visits a blog post page (e.g., `/posts/some-post`), Next.js will use the static paths generated by `getStaticPaths` and fetch the static props for that specific post using `getStaticProps`.
+    - When a user visits a blog post page (e.g., `/posts/some-post`), Next.js will use the static paths generated by `getStaticPaths` and fetch the static props for that specific post using `getStaticProps`.
 
 ![bazinga](https://i.imgur.com/SIfHlcM.gif)
 
-Bazinga! And its done 😂. Thanks for reading my first blog \<3.
-
+Bazinga! And it's done 😂. Thanks for reading my first blog \<3.
 
 ---
+
+## Syntax Highlighting
+
+I've used `rehype-prism` and `prism-themes` to highlight code-blocks. Here's the updated code.
+
+### ./src/pages/posts/[slug].jsx
+
+```javascript
+//./src/pages/posts/[slug].jsx
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemote } from 'next-mdx-remote'
+import rehypePrism from 'rehype-prism'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+import 'prism-themes/themes/prism-holi-theme.css'
+
+const components = {}
+
+const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
+    return (
+        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
+            <div className="pb-8">
+                <h1 className="text-3xl font-bold">{title}</h1>
+                <div className="text-zinc-400 flex items-baseline text-base">
+                    📅 {date} • ⏰ {readTime} minutes
+                </div>
+            </div>
+            <div className="post break-words w-full p-0 m-0">
+                <MDXRemote {...mdxSource} components={components} />
+            </div>
+        </div>
+    )
+}
+
+const getStaticPaths = async () => {
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts')
+    const fileNames = fs.readdirSync(postsDirectory)
+
+    const paths = fileNames.map((fileName) => ({
+        params: {
+            slug: fileName.replace(/\.mdx$/, ''),
+        },
+    }))
+
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+const getStaticProps = async ({ params: { slug } }) => {
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts')
+    const filePath = path.join(postsDirectory, `${slug}.mdx`)
+    const fileContent = fs.readFileSync(filePath, 'utf-8')
+
+    const { data: frontMatter, content } = matter(fileContent)
+    const mdxSource = await serialize(content, {
+        mdxOptions: {
+            rehypePlugins: [
+                [
+                    rehypePrism,
+                    {
+                        ignoreMissing: true,
+                        aliases: {},
+                    },
+                ],
+            ],
+        },
+    })
+
+    return {
+        props: {
+            frontMatter,
+            slug,
+            mdxSource,
+        },
+    }
+}
+
+export { getStaticProps, getStaticPaths }
+export default BlogPost
+```
+
+I personally liked `Holi-Theme` so much which I'm using. Below are some code snippets in different languages.
+
+### Python
+
+```python
+# This program adds two numbers
+
+num1 = 1.5
+num2 = 6.3
+
+# Add two numbers
+sum = num1 + num2
+
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+```
+
+### Java
+
+```java
+class Main {
+
+  public static void main(String[] args) {
+    
+    int first = 10;
+    int second = 20;
+
+    // add two numbers
+    int sum = first + second;
+    System.out.println(first + " + " + second + " = "  + sum);
+  }
+}
+```
+
+### CSS
+
+```css
+div {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+```
+
+So finally thank you so much for scrolling till the end. Cya in the next blog!

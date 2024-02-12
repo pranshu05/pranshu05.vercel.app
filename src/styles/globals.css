@@ -136,23 +136,47 @@
   font-family: 'Merriweather', serif;
 }
 .post pre{
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.5rem;
-  color: #dfdfdf;
-  background-color: #1e1e1e;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
+  border: 1px solid #2a4555;
+  border-radius: 5px;
+  padding: 1.5em 1em;
+  margin: 1em 0;
+  overflow: auto;
+  color: #d6e7ff;
+  background: #030314;
+  text-shadow: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  letter-spacing: .2px;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  text-align: left;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 .post code{
+  color: #d6e7ff;
+  background: #030314;
+  text-shadow: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1rem;
-  font-weight: 400;
   line-height: 1.5rem;
-  color: #dfdfdf;
-  background-color: #1e1e1e;
+  letter-spacing: .2px;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  text-align: left;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
   padding: 0.2rem;
   border-radius: 0.25rem;
 }
