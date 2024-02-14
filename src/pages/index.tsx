@@ -22,9 +22,9 @@ const Home: React.FC = () => (
     <div className="my-4 grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
       {[
         { href: 'https://github.com/pranshu05', icon: <FaGithub className='mr-2' />, text: 'GitHub' },
-        { href: 'https://linkedin.com/in/pranshu05', icon: <FaLinkedin className='mr-2' />, text: 'LinkedIn'},
-        { href: 'https://twitter.com/pranshu_05', icon: <FaTwitter className='mr-2' />, text: 'Twitter'},
-        { href: 'https://instagram.com/pranshu.05', icon: <FaInstagram className='mr-2' />, text: 'Instagram'},
+        { href: 'https://linkedin.com/in/pranshu05', icon: <FaLinkedin className='mr-2' />, text: 'LinkedIn' },
+        { href: 'https://twitter.com/pranshu_05', icon: <FaTwitter className='mr-2' />, text: 'Twitter' },
+        { href: 'https://instagram.com/pranshu.05', icon: <FaInstagram className='mr-2' />, text: 'Instagram' },
       ].map((item, index) => (
         <div key={index} className="outline outline-1 outline-zinc-400 rounded-lg p-2">
           <a href={item.href} target="_blank" rel="noopener noreferrer" className="link flex items-center justify-center">

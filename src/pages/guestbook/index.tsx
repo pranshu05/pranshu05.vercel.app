@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
 import GitHubLogin from "@/components/GitHubLogin";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import MessageList from '@/components/MessageList';
+import PostMessage from '@/components/PostMessage';
 import { useState } from 'react';
+import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 
 export const metadata: Metadata = {
     title: 'Pranshu05 // Guestbook',
     description: 'My guestbook, feel free to leave a message!',
 }
 
-const Home: React.FC = () => {
+const Guestbook: React.FC = () => {
     const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
+    const [githubUser, setGithubUser] = useState<User | null>(null);
 
     const user_auth = getAuth();
     onAuthStateChanged(user_auth, (user) => {
         if (user) {
             setIsSignedIn(true)
+            setGithubUser(user);
         } else {
-            setIsSignedIn(false)
+            setIsSignedIn(false);
+            setGithubUser(null);
         }
     });
 
@@ -27,8 +32,10 @@ const Home: React.FC = () => {
                 <p>Welcome to my Guestbook! Feel free to leave a message!</p>
             </div>
             <GitHubLogin />
+            {isSignedIn && <PostMessage user={githubUser!} />} {/* Use non-null assertion */}
+            <MessageList />
         </div>
-    )
+    );
 };
 
-export default Home;
+export default Guestbook;
