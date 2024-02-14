@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
         <header className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-10'>
             <nav className='flex justify-between rounded-3xl px-1 py-2 w-full'>
                 <div className='flex gap-4'>
-                    {['/', '/about', '/posts'].map((route) => (
+                    {['/', '/about', '/posts', '/guestbook'].map((route) => (
                         <Link key={route} href={route} passHref>
                             <p className={`text-white py-1 px-2 rounded-full ${path === route ? 'bg-black bg-opacity-50' : 'hover:bg-black hover:bg-opacity-40'}`} onClick={handleLinkClick}> {route === '/' ? '/' : route.substring(1)} </p>
                         </Link>
