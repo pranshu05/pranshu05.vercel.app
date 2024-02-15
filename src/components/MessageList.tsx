@@ -7,6 +7,7 @@ interface Message {
     id: string;
     displayName: string;
     photoURL: string;
+    timestamp: Date;
     message: string;
 }
 
@@ -21,10 +22,10 @@ const MessageList: React.FC = () => {
 
         const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
             try {
-                const newMessages: Message[] = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                })) as Message[];
+                const newMessages: Message[] = snapshot.docs.map((doc) => {
+                    const data = doc.data();
+                    return { id: doc.id, ...data, timestamp: data.timestamp.toDate(), };
+                }) as Message[];
 
                 setMessages(newMessages);
                 setLoading(false);
@@ -55,7 +56,7 @@ const MessageList: React.FC = () => {
                         <Image src={message.photoURL} alt={message.displayName} width={32} height={32} className="rounded-full" />
                         <div className="flex flex-col">
                             <p className="font-semibold">{message.displayName}</p>
-                            <p className="text-gray-500"></p>
+                            <p className="text-gray-500">{message.timestamp instanceof Date ? message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', }) : 'Invalid Date'}</p>
                         </div>
                     </div>
                     <p>{message.message}</p>
