@@ -2,12 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Pranshu05 // Posts',
     description: 'My personal Blogs',
-}
+};
 
 interface Frontmatter {
     title: string;

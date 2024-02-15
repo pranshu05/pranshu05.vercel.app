@@ -26,20 +26,24 @@ const components = {};
 
 const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
     if (!frontMatter) {
-        return <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto"> Error: Front matter not available </div>;
+        return (
+            <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
+                Error: Front matter not available
+            </div>
+        );
     }
 
     const { title, date, readTime } = frontMatter;
 
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
-            <div className='pb-8'>
-                <h1 className='text-3xl font-bold'>{title}</h1>
-                <div className='text-zinc-400 flex items-baseline text-base'>
+            <div className="pb-8">
+                <h1 className="text-3xl font-bold">{title}</h1>
+                <div className="text-zinc-400 flex items-baseline text-base">
                     📅 {date} • ⏰ {readTime} minutes
                 </div>
             </div>
-            <div className='post break-words w-full p-0 m-0'>
+            <div className="post break-words w-full p-0 m-0">
                 <MDXRemote {...mdxSource} components={components} frontmatter={frontMatter} />
             </div>
         </div>
@@ -71,12 +75,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
     const mdxSource = await serialize(content, {
         mdxOptions: {
-            rehypePlugins: [
-                [rehypePrism, {
-                    ignoreMissing: true,
-                    aliases: {}
-                }] as any,
-            ],
+            rehypePlugins: [[rehypePrism, { ignoreMissing: true, aliases: {} }] as any],
         },
     });
 

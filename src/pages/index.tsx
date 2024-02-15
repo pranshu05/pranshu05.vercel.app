@@ -1,6 +1,13 @@
-import { ageInYears } from '../lib/AgeInYears';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import type { Metadata } from "next";
+import { ageInYears } from '@/lib/AgeInYears';
+
+const socialLinks = [
+  { href: 'https://github.com/pranshu05', icon: <FaGithub />, text: 'GitHub' },
+  { href: 'https://linkedin.com/in/pranshu05', icon: <FaLinkedin />, text: 'LinkedIn' },
+  { href: 'https://twitter.com/pranshu_05', icon: <FaTwitter />, text: 'Twitter' },
+  { href: 'https://instagram.com/pranshu.05', icon: <FaInstagram />, text: 'Instagram' },
+];
 
 export const metadata: Metadata = {
   title: 'Pranshu05',
@@ -17,15 +24,10 @@ const Home: React.FC = () => (
       <p className="text-zinc-400">{ageInYears}y/o Developer, India</p>
     </div>
     <p className="text-zinc-400">
-      Hey there! 👋 I&apos;m Pranshu, a fullstack developer and college fresher based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.
+      Hey there! 👋🏻 I&apos;m Pranshu, a fullstack developer and college fresher based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.
     </p>
     <div className="my-4 grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
-      {[
-        { href: 'https://github.com/pranshu05', icon: <FaGithub className='mr-2' />, text: 'GitHub' },
-        { href: 'https://linkedin.com/in/pranshu05', icon: <FaLinkedin className='mr-2' />, text: 'LinkedIn' },
-        { href: 'https://twitter.com/pranshu_05', icon: <FaTwitter className='mr-2' />, text: 'Twitter' },
-        { href: 'https://instagram.com/pranshu.05', icon: <FaInstagram className='mr-2' />, text: 'Instagram' },
-      ].map((item, index) => (
+      {socialLinks.map((item, index) => (
         <div key={index} className="outline outline-1 outline-zinc-400 rounded-lg p-2">
           <a href={item.href} target="_blank" rel="noopener noreferrer" className="link flex items-center justify-center">
             {item.icon} {item.text}

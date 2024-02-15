@@ -10,6 +10,7 @@ interface PostMessageProps {
 const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
     const [newMessage, setNewMessage] = useState<string>('');
     const [showWarning, setShowWarning] = useState<boolean>(false);
+    const [postSuccess, setPostSuccess] = useState<boolean>(false);
 
     const handlePostMessage = async () => {
         if (newMessage.trim() === '') {
@@ -22,24 +23,32 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
 
         const messagesCollection = collection(db, 'messages');
 
-        await addDoc(messagesCollection, {
-            displayName: user.displayName,
-            photoURL: user.photoURL,
-            timestamp: serverTimestamp(),
-            message: newMessage,
-        });
+        try {
+            await addDoc(messagesCollection, {
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                timestamp: serverTimestamp(),
+                message: newMessage,
+            });
 
-        setNewMessage('');
+            setNewMessage('');
+            setPostSuccess(true);
+
+            setTimeout(() => {
+                setPostSuccess(false);
+            }, 2000);
+        } catch (error) {
+            console.error('Error posting message:', error);
+        }
     };
 
     return (
-        <div className="mt-4 p-4 bg-black bg-opacity-40 backdrop backdrop-blur-sm rounded-md w-full border boder-zinc-400">
+        <div className="mt-4 p-4 bg-black bg-opacity-40 backdrop backdrop-blur-sm rounded-md w-full border border-zinc-400">
             <h2 className="text-xl font-bold mb-2">Post a Message</h2>
             <textarea value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="w-full min-h-20 p-2 border border-zinc-400 bg-transparent rounded-md" placeholder="Write your message here..." />
-            <button onClick={handlePostMessage} className="mt-2 bg-black text-white p-2 rounded-md border border-zinc-400">
-                Post Message
-            </button>
-            {showWarning && ( <p className="text-red-500 mt-2"> Warning: You cannot post an empty message. Please enter a message. </p>)}
+            <button onClick={handlePostMessage} className="mt-2 bg-black text-white p-2 rounded-md border border-zinc-400">Post Message</button>
+            {showWarning && <p className="text-red-500 mt-2"> Warning: You cannot post an empty message. Please enter a message. </p>}
+            {postSuccess && <p className="text-green-500 mt-2"> Message posted successfully! </p>}
         </div>
     );
 };

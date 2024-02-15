@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import Image from 'next/image';
 
@@ -7,35 +7,44 @@ interface Message {
     id: string;
     displayName: string;
     photoURL: string;
-    timestamp: {
-        seconds: number;
-        nanoseconds: number;
-    };
     message: string;
 }
 
 const MessageList: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const messagesCollection = collection(db, 'messages');
+        const messagesQuery = query(messagesCollection, orderBy('timestamp', 'desc'));
 
-        const unsubscribe = onSnapshot(messagesCollection, (snapshot) => {
-            const newMessages: Message[] = snapshot.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-            })) as Message[];
+        const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
+            try {
+                const newMessages: Message[] = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                })) as Message[];
 
-            setMessages(newMessages);
+                setMessages(newMessages);
+                setLoading(false);
+                setError(null);
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+                setLoading(false);
+                setError('Error fetching messages. Please try again.');
+            }
         });
 
         return () => unsubscribe();
     }, []);
 
-    // const formatTimestamp = (timestamp: { seconds: number; nanoseconds: number }): string => {
-    //     const date = new Date(timestamp.seconds * 1000); 
-    //     return date.toLocaleDateString();
-    // };
+    if (loading) {
+        return <p>Loading messages...</p>;
+    }
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
 
     return (
         <div>
@@ -45,8 +54,8 @@ const MessageList: React.FC = () => {
                     <div className="flex items-center gap-2 mb-1">
                         <Image src={message.photoURL} alt={message.displayName} width={32} height={32} className="rounded-full" />
                         <div className="flex flex-col">
-                            <span className="font-semibold">{message.displayName}</span>
-                            {/* <p className="text-gray-500">{formatTimestamp(message.timestamp)}</p> */}
+                            <p className="font-semibold">{message.displayName}</p>
+                            <p className="text-gray-500"></p>
                         </div>
                     </div>
                     <p>{message.message}</p>
