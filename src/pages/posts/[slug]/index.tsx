@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-import 'prism-themes/themes/prism-holi-theme.css';
+import 'prism-themes/themes/prism-atom-dark.css';
 
 interface Frontmatter {
     title: string;

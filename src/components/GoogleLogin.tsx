@@ -1,14 +1,21 @@
 import { auth, signInWithPopup, GoogleAuthProvider } from '../firebase/firebase';
 import { FaGoogle } from 'react-icons/fa';
 
-const GoogleLogin: React.FC = () => {
+interface GoogleLoginProps {
+    setErrorMsg: React.Dispatch<React.SetStateAction<string | null>>;
+}
 
+const GoogleLogin: React.FC<GoogleLoginProps> = ({ setErrorMsg }) => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, new GoogleAuthProvider());
             console.log(result.user);
         } catch (error: any) {
-            console.error(error.message);
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                setErrorMsg('Account exists with different credentials');
+            } else {
+                console.error(error.message);
+            }
         }
     };
 

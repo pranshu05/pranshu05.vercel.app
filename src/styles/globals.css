@@ -136,13 +136,13 @@
   font-family: 'Merriweather', serif;
 }
 .post pre{
-  border: 1px solid #2a4555;
+  border: 1px solid #a1a1a1;
   border-radius: 5px;
   padding: 1.5em 1em;
   margin: 1em 0;
   overflow: auto;
-  color: #d6e7ff;
-  background: #030314;
+  color: #c5c8c6;;
+  background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
@@ -160,8 +160,8 @@
   hyphens: none;
 }
 .post code{
-  color: #d6e7ff;
-  background: #030314;
+  color: #c5c8c6;;
+  background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1rem;
