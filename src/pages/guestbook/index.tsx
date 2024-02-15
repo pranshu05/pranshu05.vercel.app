@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import GitHubLogin from "@/components/GitHubLogin";
+import LoginContainer from "@/components/LoginContainer";
 import MessageList from "@/components/MessageList";
 import PostMessage from "@/components/PostMessage";
 import { useState, useEffect } from "react";
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 const Guestbook: React.FC = () => {
     const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
-    const [githubUser, setGithubUser] = useState<User | null>(null);
+    const [myUser, setMyUser] = useState<User | null>(null);
 
     useEffect(() => {
         const userAuth = getAuth();
         const authStateChanged = onAuthStateChanged(userAuth, (user) => {
             setIsSignedIn(!!user);
-            setGithubUser(user || null);
+            setMyUser(user || null);
         });
 
         return () => authStateChanged();
@@ -30,8 +30,8 @@ const Guestbook: React.FC = () => {
                 <h1 className="text-3xl font-bold">Guestbook</h1>
                 <p>Welcome to my Guestbook! Feel free to leave a message!</p>
             </div>
-            <GitHubLogin />
-            {isSignedIn && <PostMessage user={githubUser!} />}
+            <LoginContainer />
+            {isSignedIn && <PostMessage user={myUser!} />}
             <MessageList />
         </div>
     );

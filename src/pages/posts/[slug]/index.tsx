@@ -40,7 +40,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
             <div className="pb-8">
                 <h1 className="text-3xl font-bold">{title}</h1>
                 <div className="text-zinc-400 flex items-baseline text-base">
-                    📅 {date} • ⏰ {readTime} minutes
+                    {date} • {readTime} min read
                 </div>
             </div>
             <div className="post break-words w-full p-0 m-0">
