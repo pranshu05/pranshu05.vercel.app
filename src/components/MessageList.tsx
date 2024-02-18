@@ -26,7 +26,6 @@ const MessageList: React.FC = () => {
                     const data = doc.data();
                     return { id: doc.id, ...data, timestamp: data.timestamp.toDate(), };
                 }) as Message[];
-
                 setMessages(newMessages);
                 setLoading(false);
                 setError(null);
@@ -36,7 +35,6 @@ const MessageList: React.FC = () => {
                 setError('Error fetching messages. Please try again.');
             }
         });
-
         return () => unsubscribe();
     }, []);
 

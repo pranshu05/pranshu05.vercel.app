@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { ageInYears } from '@/lib/AgeInYears';
 import { useEffect, useState } from 'react';
 import { getFormattedTime } from '@/lib/Time';
+import HomeImageGrid from '@/components/HomeImageGrid';
 
 const socialLinks = [
   { href: 'https://github.com/pranshu05', icon: <FaGithub />, text: 'GitHub' },
@@ -50,6 +51,7 @@ const Home: React.FC = () => {
           </div>
         ))}
       </div>
+      <HomeImageGrid />
     </div>
   );
 };
