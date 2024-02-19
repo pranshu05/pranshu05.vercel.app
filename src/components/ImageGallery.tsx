@@ -25,9 +25,13 @@ const ImageGallery: React.FC = () => {
 
     const openFullscreen = (index: number) => {
         setSelectedImageIndex(index);
+        document.body.style.overflow = 'hidden'
     };
 
-    const closeFullscreen = () => setSelectedImageIndex(null);
+    const closeFullscreen = () => {
+        setSelectedImageIndex(null);
+        document.body.style.overflow = 'auto'
+    }
 
     const navigateImage = (step: number) => {
         if (selectedImageIndex !== null) {
