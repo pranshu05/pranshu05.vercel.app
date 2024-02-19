@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import React from 'react';
 
 const images = [
@@ -16,7 +16,7 @@ const HomeImageGrid: React.FC = () => {
         <div className="columns-2 md:columns-3 my-2 gap-2 md:gap-4">
             {images.map((src, index) => (
                 <div key={index} className="mb-2 md:mb-4">
-                    <img className="h-auto max-w-full rounded-lg grayscale  transition-all duration-300 ease-in-out transform hover:grayscale-0" src={src} alt="" />
+                    <Image className="h-auto max-w-full rounded-lg grayscale transition-all duration-300 ease-in-out transform hover:grayscale-0" width={1000} height={1000} src={src} alt="" />
                 </div>
             ))}
         </div>

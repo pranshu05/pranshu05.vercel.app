@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MdNavigateBefore, MdNavigateNext, MdOutlineClose } from "react-icons/md";
@@ -45,13 +45,13 @@ const ImageGallery: React.FC = () => {
         <div className="columns-2 md:columns-3 gap-2 md:gap-4">
             {imageData.map((image, index) => (
                 <div key={index} className='mb-2 md:mb-4' onClick={() => openFullscreen(index)}>
-                    <img className="w-full h-auto rounded-lg grayscale transition-all duration-300 ease-in-out transform hover:grayscale-0 cursor-pointer" src={image.urls.regular} alt="" loading="lazy" />
+                    <Image className="w-full h-auto rounded-lg grayscale transition-all duration-300 ease-in-out transform hover:grayscale-0 cursor-pointer" width={1000} height={1000} src={image.urls.regular} alt="" loading="lazy" />
                 </div>
             ))}
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop backdrop-blur-sm" onClick={closeFullscreen}>
                     <div className="relative h-dvh w-dvw flex items-center">
-                        <img className="max-w-full max-h-full my-auto mx-auto rounded-lg" src={imageData[selectedImageIndex]?.urls.regular} alt="" />
+                        <Image className="max-w-full max-h-full my-auto mx-auto rounded-lg" width={1000} height={1000} src={imageData[selectedImageIndex]?.urls.regular} alt="" />
                         <button className="absolute p-4 left-0 top-1/2 transform -translate-y-1/2 cursor-pointer text-2xl" onClick={(e) => { e.stopPropagation(); navigateImage(-1); }}><MdNavigateBefore /></button>
                         <button className="absolute p-4 right-0 top-1/2 transform -translate-y-1/2 cursor-pointer text-2xl" onClick={(e) => { e.stopPropagation(); navigateImage(1); }}><MdNavigateNext /></button>
                         <button className="absolute top-0 right-0 p-4 cursor-pointer text-2xl" onClick={(e) => { e.stopPropagation(); closeFullscreen(); }}><MdOutlineClose /></button>
