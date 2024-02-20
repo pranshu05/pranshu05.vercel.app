@@ -4,6 +4,8 @@ import rehypePrism from 'rehype-prism';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { useEffect, useState } from 'react';
+import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
 
 import 'prism-themes/themes/prism-atom-dark.css';
 
@@ -13,8 +15,13 @@ interface Frontmatter {
     readTime: number;
 }
 
+interface Post {
+    slug: string;
+    frontmatter: Frontmatter;
+}
+
 interface BlogPostProps {
-    frontMatter: Frontmatter;
+    frontMatter: Frontmatter & { slug: string };
     mdxSource: {
         compiledSource: string;
         renderedOutput: string;
@@ -25,6 +32,23 @@ interface BlogPostProps {
 const components = {};
 
 const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
+    const { slug, title, date, readTime } = frontMatter;
+    const [viewCount, setViewCount] = useState<number | null>(null);
+
+    useEffect(() => {
+        const fetchViewCount = async () => {
+            try {
+                await incrementViewCount(slug);
+                const count = await getViewCount(slug);
+                setViewCount(count);
+            } catch (error) {
+                console.error('Error getting view count:', error);
+            }
+        };
+
+        fetchViewCount();
+    }, [slug]);
+
     if (!frontMatter) {
         return (
             <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
@@ -33,14 +57,12 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
         );
     }
 
-    const { title, date, readTime } = frontMatter;
-
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div className="pb-8">
                 <h1 className="text-3xl font-bold">{title}</h1>
                 <div className="text-zinc-400 flex items-baseline text-base">
-                    {date} • {readTime} min read
+                    {date} • {readTime} min read • {viewCount !== null ? viewCount : 'Loading'} views
                 </div>
             </div>
             <div className="post break-words w-full p-0 m-0">
@@ -81,7 +103,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
     return {
         props: {
-            frontMatter,
+            frontMatter: { ...frontMatter, slug },
             mdxSource,
         },
     };

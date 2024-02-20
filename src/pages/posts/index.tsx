@@ -3,6 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { useEffect, useState } from 'react';
+import { getViewCount } from '../../lib/ViewsData';
 
 export const metadata: Metadata = {
     title: 'Pranshu05 // Posts',
@@ -24,26 +26,43 @@ interface BlogProps {
     posts: Post[];
 }
 
-const Blog: React.FC<BlogProps> = ({ posts }) => (
-    <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
-        <div className='pb-8'>
-            <h1 className='text-3xl font-bold'>Blogs</h1>
-            <p>Welcome to my blog page! I write some cool stuff here. Feel free to read 😅</p>
+const Blog: React.FC<BlogProps> = ({ posts }) => {
+    const [viewCounts, setViewCounts] = useState<{ [key: string]: number }>({});
+
+    useEffect(() => {
+        const fetchViewCounts = async () => {
+            const counts = await Promise.all(posts.map(({ slug }) => getViewCount(slug)));
+            const viewCountMap: { [key: string]: number } = {};
+            posts.forEach(({ slug }, index) => {
+                viewCountMap[slug] = counts[index];
+            });
+            setViewCounts(viewCountMap);
+        };
+
+        fetchViewCounts();
+    }, [posts]);
+
+    return (
+        <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
+            <div className='pb-8'>
+                <h1 className='text-3xl font-bold'>Blogs</h1>
+                <p>Welcome to my blog page! I write some cool stuff here. Feel free to read 😅</p>
+            </div>
+            <ul className='w-full p-2 break-words whitespace-normal'>
+                {posts.map(({ slug, frontmatter }) => (
+                    <li key={slug} className='my-2'>
+                        <Link href={`/posts/${slug}`} passHref>
+                            <div className='w-full flex justify-between items-baseline font-lg link'>
+                                {frontmatter.title}
+                                <span className='text-zinc-400 text-sm'>{frontmatter.date} • {viewCounts[slug]} views</span>
+                            </div>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <ul className='w-full p-2 break-words whitespace-normal'>
-            {posts.map(({ slug, frontmatter }) => (
-                <li key={slug} className='my-2'>
-                    <Link href={`/posts/${slug}`} passHref>
-                        <div className='w-full flex justify-between items-baseline font-lg link'>
-                            {frontmatter.title}
-                            <span className='text-zinc-400 text-sm'>{frontmatter.date}</span>
-                        </div>
-                    </Link>
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+    )
+}
 
 export async function getStaticProps() {
     const postsDirectory = path.join(process.cwd(), 'src', 'posts');

@@ -6,6 +6,7 @@ import { ageInYears } from '@/lib/AgeInYears';
 import { useEffect, useState } from 'react';
 import { getFormattedTime } from '@/lib/Time';
 import HomeImageGrid from '@/components/HomeImageGrid';
+import Link from 'next/link';
 
 const socialLinks = [
     { href: 'https://github.com/pranshu05', icon: <FaGithub />, text: 'GitHub' },
@@ -49,7 +50,13 @@ const Home: React.FC = () => {
                     </div>
                 ))}
             </div>
+            <p className="text-zinc-400">
+                In my free time, I like to click photos, from which some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more.
+            </p>
             <HomeImageGrid />
+            <p className="text-zinc-400">
+                I love to work on web development, and I&apos;m currently learning about cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects </a>and writing <Link className='link' href='/posts'>technical blogs</Link>.
+            </p>
         </div>
     );
 };
