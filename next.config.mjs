@@ -29,15 +29,6 @@ const nextConfig = {
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
     },
-    async redirects() {
-        return [
-            {
-                source: '/404',
-                destination: '/404',
-                permanent: true,
-            },
-        ];
-    },
 };
 
 export default nextConfig;
