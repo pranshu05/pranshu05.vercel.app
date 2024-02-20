@@ -8,7 +8,7 @@
   }
 }
 
-:root{
+:root {
   --foreground-rgb: 0, 0, 0;
   --bg: #202020;
 }
@@ -18,8 +18,8 @@
   text-decoration-color: rgba(115, 115, 115, 0.4);
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -29,7 +29,7 @@
   text-decoration-color: rgba(191, 191, 191, 0.8);
 }
 
-.post h1{
+.post h1 {
   font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -37,7 +37,8 @@
   font-weight: 700;
   color: #fff;
 }
-.post h2{
+
+.post h2 {
   font-size: 1.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -45,7 +46,8 @@
   font-weight: 700;
   color: #fff;
 }
-.post h3{
+
+.post h3 {
   font-size: 1.125rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -53,7 +55,8 @@
   font-weight: 700;
   color: #fff;
 }
-.post h4{
+
+.post h4 {
   font-size: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -61,7 +64,8 @@
   font-weight: 700;
   color: #fff;
 }
-.post h5{
+
+.post h5 {
   font-size: 0.875rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -69,7 +73,8 @@
   font-weight: 700;
   color: #fff;
 }
-.post h6{
+
+.post h6 {
   font-size: 0.75rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -77,15 +82,17 @@
   font-weight: 700;
   color: #fff;
 }
-.post p{
+
+.post p {
   font-size: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.5rem;
   font-weight: 400;
   color: #dfdfdf;
-} 
-.post a{
+}
+
+.post a {
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
@@ -95,11 +102,13 @@
   text-decoration: none;
   transition: color 0.15s ease;
 }
-.post a:hover{
+
+.post a:hover {
   color: #00a0f3;
   text-decoration: underline;
 }
-.post ul{
+
+.post ul {
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
@@ -108,7 +117,8 @@
   list-style: disc;
   margin-left: 1rem;
 }
-.post ol{
+
+.post ol {
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
@@ -117,13 +127,15 @@
   list-style: decimal;
   margin-left: 1rem;
 }
-.post li{
+
+.post li {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75rem;
   color: #dfdfdf;
 }
-.post blockquote{
+
+.post blockquote {
   font-size: 1.125rem;
   font-weight: 400;
   margin-top: 1rem;
@@ -135,13 +147,15 @@
   font-style: italic;
   font-family: 'Merriweather', serif;
 }
-.post pre{
+
+.post pre {
   border: 1px solid #a1a1a1;
   border-radius: 5px;
   padding: 1.5em 1em;
   margin: 1em 0;
   overflow: auto;
-  color: #c5c8c6;;
+  color: #c5c8c6;
+  ;
   background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -159,8 +173,10 @@
   -webkit-hyphens: none;
   hyphens: none;
 }
-.post code{
-  color: #c5c8c6;;
+
+.post code {
+  color: #c5c8c6;
+  ;
   background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -180,22 +196,43 @@
   padding: 0.2rem;
   border-radius: 0.25rem;
 }
-.post hr{
+
+.post hr {
   border-color: rgb(39 39 42);
   border-width: 2px;
   margin: 32px 0;
 }
-.post img{
+
+.post img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 1rem auto;
   border-radius: 10px;
 }
+
 nav a {
   transition: background 0.3s ease-in-out;
 }
 
-::-webkit-scrollbar{
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink {
+  animation: blink 3s infinite ease-in-out;
+}
+
+::-webkit-scrollbar {
   display: none;
 }

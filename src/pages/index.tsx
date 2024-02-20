@@ -55,7 +55,7 @@ const Home: React.FC = () => {
             </p>
             <HomeImageGrid />
             <p className="text-zinc-400">
-                I love to work on web development, and I&apos;m currently learning about cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects </a>and writing <Link className='link' href='/posts'>technical blogs</Link>.
+                I love to work on web development, and I&apos;m insterested in cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects </a>and writing <Link className='link' href='/posts'>technical blogs</Link>.
             </p>
         </div>
     );
