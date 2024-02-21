@@ -35,12 +35,12 @@ const Home: React.FC = () => {
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div className="pb-8">
                 <div className="flex items-baseline">
-                    <h1 className="text-3xl font-medium">Pranshu Patel</h1>
+                    <h1 className="text-3xl font-medium text-zinc-100">Pranshu Patel</h1>
                     <p className="text-sm px-1 text-zinc-400">(He/Him)</p>
                 </div>
                 <p className="text-zinc-400">{ageInYears}y/o Developer, India • {currentTime}</p>
             </div>
-            <p className="text-zinc-400">
+            <p>
                 Hey there! 👋🏻 I&apos;m Pranshu, a fullstack developer and college fresher based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.
             </p>
             <div className="my-4 grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
@@ -50,11 +50,11 @@ const Home: React.FC = () => {
                     </div>
                 ))}
             </div>
-            <p className="text-zinc-400">
+            <p>
                 In my free time, I like to click photos, from which some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more.
             </p>
             <HomeImageGrid />
-            <p className="text-zinc-400">
+            <p>
                 I love to work on web development, and I&apos;m insterested in cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects </a>and writing <Link className='link' href='/posts'>technical blogs</Link>.
             </p>
         </div>

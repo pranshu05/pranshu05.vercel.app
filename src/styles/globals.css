@@ -13,20 +13,18 @@
   --bg: #202020;
 }
 
-.link {
+.link, .post a {
   text-decoration-line: underline;
-  text-decoration-color: rgba(115, 115, 115, 0.4);
+  text-decoration-color: rgb(63 63 70);
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-  transition-duration: .15s;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
 }
 
 .link:hover {
-  text-decoration-color: rgba(191, 191, 191, 0.8);
+  text-decoration-color: rgb(212, 212, 216);
 }
 
 .post h1 {
@@ -35,7 +33,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post h2 {
@@ -44,7 +42,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post h3 {
@@ -53,7 +51,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.125rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post h4 {
@@ -62,7 +60,7 @@
   margin-bottom: 1.5rem;
   line-height: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post h5 {
@@ -71,7 +69,7 @@
   margin-bottom: 1.5rem;
   line-height: 0.875rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post h6 {
@@ -80,7 +78,7 @@
   margin-bottom: 1.5rem;
   line-height: 0.75rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(244 244 245);
 }
 
 .post p {
@@ -89,23 +87,6 @@
   margin-bottom: 1.5rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: #dfdfdf;
-}
-
-.post a {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.5rem;
-  color: #0070f3;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.post a:hover {
-  color: #00a0f3;
-  text-decoration: underline;
 }
 
 .post ul {
@@ -132,7 +113,6 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75rem;
-  color: #dfdfdf;
 }
 
 .post blockquote {
@@ -141,11 +121,9 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.5rem;
-  color: #dfdfdf;
   border-left: 4px solid #8a8a8a;
   padding-left: 0.75rem;
-  font-style: italic;
-  font-family: 'Merriweather', serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .post pre {
@@ -154,8 +132,6 @@
   padding: 1.5em 1em;
   margin: 1em 0;
   overflow: auto;
-  color: #c5c8c6;
-  ;
   background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -175,8 +151,6 @@
 }
 
 .post code {
-  color: #c5c8c6;
-  ;
   background: #1d1f21;
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;

@@ -20,7 +20,7 @@ const GoogleLogin: React.FC<GoogleLoginProps> = ({ setErrorMsg }) => {
     };
 
     return (
-        <button onClick={handleGoogleLogin} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-zinc-300'>
+        <button onClick={handleGoogleLogin} className='py-2 px-4 rounded-md bg-transparent flex gap-2 items-center border border-zinc-400'>
             <FaGoogle />
             Sign in
         </button>
