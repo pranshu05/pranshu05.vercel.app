@@ -210,3 +210,8 @@ nav a {
 ::-webkit-scrollbar {
   display: none;
 }
+
+::selection{
+  background: rgb(212 212 216);
+  color: rgb(10 10 10);
+}

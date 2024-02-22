@@ -17,15 +17,9 @@ const MessageList: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const messagesCollection = collection(db, 'messages');
-        const messagesQuery = query(messagesCollection, orderBy('timestamp', 'desc'));
-
-        const unsubscribe = onSnapshot(messagesQuery, (snapshot) => {
+        const unsubscribe = onSnapshot(query(collection(db, 'messages'), orderBy('timestamp', 'desc')), (snapshot) => {
             try {
-                const newMessages: Message[] = snapshot.docs.map((doc) => {
-                    const data = doc.data();
-                    return { id: doc.id, ...data, timestamp: data.timestamp.toDate(), };
-                }) as Message[];
+                const newMessages: Message[] = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data(), timestamp: doc.data().timestamp.toDate() })) as Message[];
                 setMessages(newMessages);
                 setLoading(false);
                 setError(null);
@@ -38,12 +32,8 @@ const MessageList: React.FC = () => {
         return () => unsubscribe();
     }, []);
 
-    if (loading) {
-        return <p>Loading messages...</p>;
-    }
-    if (error) {
-        return <p>Error: {error}</p>;
-    }
+    { loading && <p className='my-4'>Loading messages...</p> }
+    { error && <p className='my-4'>Error: {error}</p> }
 
     return (
         <div>
@@ -54,7 +44,7 @@ const MessageList: React.FC = () => {
                         <Image src={message.photoURL} alt={message.displayName} width={32} height={32} className="rounded-full" />
                         <div className="flex flex-col">
                             <p className="font-semibold">{message.displayName}</p>
-                            <p className="text-zinc-400">{message.timestamp instanceof Date ? message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', }) : 'Invalid Date'}</p>
+                            <p className="text-zinc-400">{message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', })}</p>
                         </div>
                     </div>
                     <p>{message.message}</p>

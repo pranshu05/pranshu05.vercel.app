@@ -13,13 +13,7 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
     const [postSuccess, setPostSuccess] = useState<boolean>(false);
 
     const handlePostMessage = async () => {
-        if (newMessage.trim() === '') {
-            setShowWarning(true);
-            setTimeout(() => {
-                setShowWarning(false);
-            }, 2000);
-            return;
-        }
+        newMessage.trim() === '' && (setShowWarning(true), setTimeout(() => setShowWarning(false), 2000));
 
         const messagesCollection = collection(db, 'messages');
 
@@ -34,9 +28,7 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
             setNewMessage('');
             setPostSuccess(true);
 
-            setTimeout(() => {
-                setPostSuccess(false);
-            }, 2000);
+            setTimeout(() => setPostSuccess(false), 2000);
         } catch (error) {
             console.error('Error posting message:', error);
         }

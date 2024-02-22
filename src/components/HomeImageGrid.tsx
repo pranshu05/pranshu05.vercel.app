@@ -1,15 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-const images = [
-    '/home-1.jpg',
-    '/home-2.jpg',
-    '/home-3.jpg',
-    '/home-4.jpg',
-    '/home-5.jpg',
-    '/home-6.jpg',
-    '/home-7.jpg',
-];
+const images = ['/home-1.jpg', '/home-2.jpg', '/home-3.jpg', '/home-4.jpg', '/home-5.jpg', '/home-6.jpg', '/home-7.jpg'];
 
 const HomeImageGrid: React.FC = () => {
     const [isLoading, setLoading] = useState(true);
