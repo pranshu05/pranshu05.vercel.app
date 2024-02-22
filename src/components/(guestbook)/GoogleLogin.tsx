@@ -1,4 +1,4 @@
-import { auth, signInWithPopup, GoogleAuthProvider } from '../firebase/firebase';
+import { auth, signInWithPopup, GoogleAuthProvider } from '../../firebase/firebase';
 import { FaGoogle } from 'react-icons/fa';
 
 interface GoogleLoginProps {

@@ -1,4 +1,4 @@
-import { auth, signInWithPopup, GithubAuthProvider } from '../firebase/firebase';
+import { auth, signInWithPopup, GithubAuthProvider } from '../../firebase/firebase';
 import { FaGithub } from 'react-icons/fa';
 
 interface GitHubLoginProps {
