@@ -21,9 +21,7 @@ const TechStack: React.FC = () => (
     <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 my-8 text-4xl md:text-5xl gap-4 md:gap-6">
         {techs.map(({ icon, href }, index) => (
             <div key={index} className="flex items-center justify-center">
-                <a className="link" href={href} target="_blank" rel="noopener noreferrer">
-                    {icon}
-                </a>
+                <a className="link" href={href} target="_blank" rel="noopener noreferrer">{icon}</a>
             </div>
         ))}
     </div>
