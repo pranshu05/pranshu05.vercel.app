@@ -15,6 +15,10 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'images.unsplash.com'
             },
+            {
+                hostname: 'lastfm.freetls.fastly.net',
+                protocol: 'https',
+            }
         ],
     },
     env: {
@@ -28,6 +32,7 @@ const nextConfig = {
         APP_ID: process.env.APP_ID,
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
+        LASTFM_KEY: process.env.LASTFM_KEY,
     },
 };
 
