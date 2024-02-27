@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import RecentlyPlayed from '@/components/(music)/RecentlyPlayed';
+import TopTracks from '@/components/(music)/TopTracks';
+import TopAlbums from '@/components/(music)/TopAlbums';
 
 export const metadata: Metadata = {
     title: 'Pranshu05 // Music',
@@ -14,6 +16,8 @@ const MusicPage: React.FC = () => {
                 <p>My Music Activity, feel free to explore! Visit my <a className='link' href='https://last.fm/user/pranshu05' target='_blank'>Last.fm</a> profile</p>
             </div>
             <RecentlyPlayed />
+            <TopTracks />
+            <TopAlbums />
         </div>
     );
 };
