@@ -59,12 +59,14 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
 
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
-            <div className="pb-8">
-                <h1 className="text-3xl font-bold text-zinc-100">{title}</h1>
-                <div className="text-zinc-400 flex items-baseline text-base">
-                    {date} • {readTime} min read • {viewCount !== null ? viewCount : 'Loading'} views
+            <div className="py-28 text-center">
+                <p className="text-zinc-400 text-lg">{date}</p>
+                <h1 className="text-6xl font-bold text-zinc-100">{title}</h1>
+                <div className="text-zinc-400 text-center text-base ">
+                    {readTime} min read • {viewCount !== null ? viewCount : 'Loading'} views
                 </div>
             </div>
+            <hr />
             <div className="post break-words w-full p-0 m-0">
                 <MDXRemote {...mdxSource} components={components} frontmatter={frontMatter} />
             </div>

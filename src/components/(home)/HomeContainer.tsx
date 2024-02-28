@@ -22,9 +22,9 @@ const HomeContainer: React.FC = () => {
                 </div>
                 <p className="text-zinc-400">{ageInYears}y/o Developer, India • {currentTime}</p>
             </div>
-            <p>Hey there! 👋🏻 I&apos;m Pranshu, a fullstack developer and college fresher based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.</p>
+            <p>Hey there! 👋🏻 I&apos;m Pranshu, a full-stack developer and college fresher based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.</p>
             <SocialLinksGrid />
-            <p>In my free time, I like to click photos, from which some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more.</p>
+            <p>In my free time, I like to click photos, some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more.</p>
             <HomeImageGrid />
             <p>I love to work on web development, and I&apos;m insterested in cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects</a> and writing <Link className='link' href='/posts'>technical blogs</Link>.</p>
         </div>
