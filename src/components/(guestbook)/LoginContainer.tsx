@@ -18,9 +18,7 @@ const LoginContainer: React.FC = () => {
     };
 
     const userAuth = getAuth();
-    onAuthStateChanged(userAuth, (user: User | null) => {
-        user ? (setUserName(user.displayName || ''), setIsSignedIn(true)) : setIsSignedIn(false);
-    });
+    onAuthStateChanged(userAuth, (user: User | null) => user ? (setUserName(user.displayName || ''), setIsSignedIn(true)) : setIsSignedIn(false));
 
     useEffect(() => {
         const timeoutId = setTimeout(() => setErrorMessage(null), 2000);

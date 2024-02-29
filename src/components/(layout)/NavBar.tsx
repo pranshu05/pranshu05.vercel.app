@@ -21,15 +21,15 @@ const NavBar: React.FC = () => {
                         </Link>
                     ))}
                     <div className="relative inline-block">
-                        <button type="button" className="inline-flex w-full justify-center gap-x-1.5 text-zinc-100 py-1 px-2 rounded-full hover:bg-zinc-600 hover:bg-opacity-40 transition" onClick={() => setIsOpen(!isOpen)}>more
+                        <button type="button" className={`inline-flex w-full justify-center gap-x-1.5 text-zinc-100 py-1 px-2 rounded-full hover:bg-zinc-600 hover:bg-opacity-40 transition`} onClick={() => setIsOpen(!isOpen)}>more
                             <svg className="-mr-1 h-6 w-6 pt-1 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                             </svg>
                         </button>
                         <div className={`absolute ${isOpen ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-0'} transition-all duration-300 ease-in-out delay-150 left-0 z-10 mt-2 w-fit origin-top-right rounded-md shadow-lg bg-zinc-950 border border-zinc-400 text-zinc-100`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
                             <div className="p-2" role="none">
-                                {menuRoutes.map((route, index) => (
-                                    <Link key={index} href={route} passHref>
+                                {menuRoutes.map((route) => (
+                                    <Link key={route} href={route} passHref>
                                         <p className={`block text-zinc-100 my-1 px-2 rounded-full py-1 ${path === route ? 'bg-zinc-500 bg-opacity-50' : 'hover:bg-zinc-600 hover:bg-opacity-40'}`} onClick={handleLinkClick} role="menuitem" tabIndex={-1}>{route.substring(1)}</p>
                                     </Link>
                                 ))}
