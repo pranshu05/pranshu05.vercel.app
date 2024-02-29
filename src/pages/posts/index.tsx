@@ -1,16 +1,11 @@
+import { useEffect, useState } from 'react';
+import { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { useEffect, useState } from 'react';
-import { Metadata } from 'next';
 import { getViewCount } from '../../lib/ViewsData';
 import BlogPageHeader from '@/components/(posts)/BlogPageHeader';
 import BlogPostList from '@/components/(posts)/BlogPostList';
-
-export const metadata: Metadata = {
-    title: 'Pranshu05 // Posts',
-    description: 'My personal Blogs',
-};
 
 interface Frontmatter {
     title: string;
@@ -23,30 +18,24 @@ interface Post {
     frontmatter: Frontmatter;
 }
 
-interface BlogProps {
-    posts: Post[];
-}
+const metadata: Metadata = {
+    title: 'Pranshu05 // Posts',
+    description: 'My personal Blogs',
+};
 
-const Blog: React.FC<BlogProps> = ({ posts }) => {
+const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
     const [viewCounts, setViewCounts] = useState<{ [key: string]: number }>({});
 
-    const postsByYear: { [year: string]: Post[] } = {};
-    posts.forEach((post) => {
+    const postsByYear: { [year: string]: Post[] } = posts.reduce((acc, post) => {
         const year = post.frontmatter.date.slice(-4);
-        if (!postsByYear[year]) {
-            postsByYear[year] = [];
-        }
-        postsByYear[year].push(post);
-    });
+        acc[year] = [...(acc[year] || []), post];
+        return acc;
+    }, {});
 
     useEffect(() => {
         const fetchViewCounts = async () => {
             const counts = await Promise.all(posts.map(({ slug }) => getViewCount(slug)));
-            const viewCountMap: { [key: string]: number } = {};
-            posts.forEach(({ slug }, index) => {
-                viewCountMap[slug] = counts[index];
-            });
-            setViewCounts(viewCountMap);
+            setViewCounts(Object.fromEntries(posts.map((post, i) => [post.slug, counts[i]])));
         };
 
         fetchViewCounts();
@@ -67,33 +56,23 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-    const postsDirectory = path.join(process.cwd(), 'src', 'posts');
-    const fileNames = fs.readdirSync(postsDirectory);
-
-    const posts: Post[] = fileNames.map((fileName) => {
-        const filePath = path.join(postsDirectory, fileName);
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
-        const { data } = matter(fileContent);
-
-        const frontmatter: Frontmatter = {
-            title: data.title || '',
-            date: data.date || '',
-            readTime: data.readTime || 0,
-        };
+    const posts = fs.readdirSync(path.join(process.cwd(), 'src', 'posts')).map((fileName) => {
+        const filePath = path.join(process.cwd(), 'src', 'posts', fileName);
+        const { data } = matter(fs.readFileSync(filePath, 'utf-8'));
 
         return {
             slug: fileName.replace(/\.mdx$/, ''),
-            frontmatter,
+            frontmatter: {
+                title: data.title || '',
+                date: data.date || '',
+                readTime: data.readTime || 0,
+            },
         };
     });
 
     posts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
 
-    return {
-        props: {
-            posts,
-        },
-    };
+    return { props: { posts } };
 }
 
 export default Blog;

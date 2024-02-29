@@ -1,4 +1,4 @@
-import BlogPostItem from '@/components/(posts)/BlogPostItem';
+import BlogPostItem from './BlogPostItem';
 
 interface BlogPostListProps {
     posts: { slug: string; frontmatter: { title: string; date: string; readTime: number } }[];
