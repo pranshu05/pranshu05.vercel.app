@@ -8,7 +8,6 @@ import BlogContent from '@/components/(posts)/(slug)/BlogContent';
 import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
 import matter from 'gray-matter';
 import 'prism-themes/themes/prism-atom-dark.css';
-import { url } from 'inspector';
 
 interface Frontmatter {
     title: string;
