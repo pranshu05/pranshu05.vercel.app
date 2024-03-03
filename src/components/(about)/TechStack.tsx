@@ -1,15 +1,19 @@
-import { FaHtml5, FaCss3, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaDiscord } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiVisualstudiocode, SiVisualstudio } from 'react-icons/si';
+import { FaHtml5, FaCss3, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaDiscord, FaGit } from 'react-icons/fa';
+import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiVisualstudiocode, SiVisualstudio, SiMongodb, SiTypescript, SiFirebase } from 'react-icons/si';
 
 const techs = [
     { icon: <FaHtml5 />, href: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
     { icon: <FaCss3 />, href: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
     { icon: <FaJsSquare />, href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { icon: <SiTypescript />, href: 'https://www.typescriptlang.org/' },
     { icon: <FaReact />, href: 'https://reactjs.org/' },
     { icon: <SiNextdotjs />, href: 'https://nextjs.org/' },
     { icon: <FaNodeJs />, href: 'https://nodejs.org/' },
     { icon: <SiTailwindcss />, href: 'https://tailwindcss.com/' },
     { icon: <SiMdx />, href: 'https://mdxjs.com/' },
+    { icon: <SiMongodb />, href: 'https://www.mongodb.com/' },
+    { icon: <SiFirebase />, href: 'https://firebase.google.com/' },
+    { icon: <FaGit />, href: 'https://git-scm.com/' },
     { icon: <FaGithub />, href: 'https://github.com/' },
     { icon: <SiVercel />, href: 'https://vercel.com/' },
     { icon: <SiVisualstudiocode />, href: 'https://code.visualstudio.com/' },
