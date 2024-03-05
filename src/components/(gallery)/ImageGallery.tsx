@@ -46,7 +46,7 @@ const ImageGallery: React.FC = () => {
         <div className="columns-2 md:columns-3 gap-2 md:gap-4">
             {imageData.map((image, index) => (
                 <div key={index} className="mb-2 md:mb-4" onClick={() => handleFullscreen(index)}>
-                    <Image className={`w-full h-auto rounded-lg grayscale transition-all duration-500 ease-in-out transform hover:grayscale-0 cursor-pointer ${isLoading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} width={1000} height={1000} src={image.urls.regular} alt="" loading="lazy" />
+                    <Image className={`w-full h-auto rounded-lg transition-all duration-500 ease-in-out transform cursor-pointer ${isLoading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} width={1000} height={1000} src={image.urls.regular} alt="" loading="lazy" />
                 </div>
             ))}
             {selectedImageIndex !== null && (

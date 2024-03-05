@@ -10,7 +10,9 @@ import BlogPostList from '@/components/(posts)/BlogPostList';
 interface Frontmatter {
     title: string;
     date: string;
+    description: string;
     readTime: number;
+    img: string;
 }
 
 interface Post {
@@ -18,7 +20,7 @@ interface Post {
     frontmatter: Frontmatter;
 }
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
     title: 'Pranshu05 // Posts',
     description: 'My personal Blogs',
 };
@@ -65,7 +67,9 @@ export async function getStaticProps() {
             frontmatter: {
                 title: data.title || '',
                 date: data.date || '',
+                description: data.description || '',
                 readTime: data.readTime || 0,
+                img: data.img || '',
             },
         };
     });

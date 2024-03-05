@@ -12,6 +12,7 @@ import 'prism-themes/themes/prism-atom-dark.css';
 interface Frontmatter {
     title: string;
     date: string;
+    description: string;
     readTime: number;
     img: string;
 }
@@ -27,7 +28,7 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
-    const { slug, title, date, readTime, img } = frontMatter;
+    const { slug, title, date, description, readTime, img } = frontMatter;
     const [viewCount, setViewCount] = useState<number | null>(null);
 
     useEffect(() => {
@@ -48,8 +49,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
             <div className="py-28 text-center bg-contain bg-no-repeat bg-center bg-fixed" style={{ backgroundImage: `url(${img})` }}>
                 <MetaInfo date={date} readTime={readTime} viewCount={viewCount} />
                 <h1 className="text-6xl font-bold text-zinc-100">{title}</h1>
+                <p className="text-xl text-zinc-100">{description}</p>
             </div>
-            <hr className='my-4' />
+            <hr className='mt-8 mb-4' />
             <BlogContent mdxSource={mdxSource} />
         </div>
     );
