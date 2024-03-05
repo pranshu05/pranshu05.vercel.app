@@ -16,8 +16,12 @@ const nextConfig = {
                 hostname: 'images.unsplash.com'
             },
             {
-                hostname: 'lastfm.freetls.fastly.net',
                 protocol: 'https',
+                hostname: 'lastfm.freetls.fastly.net',
+            },
+            {
+                protocol: 'https',
+                hostname: 'github.com',
             }
         ],
     },
