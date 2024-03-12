@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
-import Image from 'next/image';
 
 interface Message {
     id: string;
@@ -41,7 +41,7 @@ const MessageList: React.FC = () => {
             {messages.map((message) => (
                 <div key={message.id} className="bg-transparent border border-zinc-400 rounded-md p-4 my-2">
                     <div className="flex items-center gap-2 mb-1">
-                        <Image src={message.photoURL} alt={message.displayName} width={1080} height={1080} className="rounded-full w-8 h-8" />
+                        <img src={message.photoURL} alt={message.displayName} width={1080} height={1080} className={`rounded-full w-8 h-8 grayscale transition-all duration-500 ease-in-out transform hover:grayscale-0 ${loading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} />
                         <div className="flex flex-col">
                             <p className="font-semibold">{message.displayName}</p>
                             <p className="text-zinc-400">{message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', })}</p>
