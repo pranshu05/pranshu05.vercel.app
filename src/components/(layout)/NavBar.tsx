@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
                                 <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
                             </svg>
                         </button>
-                        <div className={`absolute ${isOpen ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-0'} transition-all duration-300 ease-in-out delay-150 left-0 z-10 mt-2 w-fit origin-top-right rounded-md shadow-lg bg-zinc-950 border border-zinc-400 text-zinc-100`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
+                        <div className={`absolute ${isOpen ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-0'} transition-all duration-300 ease-in-out delay-150 left-0 z-10 mt-2 w-fit origin-top-right rounded-md shadow-lg bg-zinc-950 border border-zinc-700 text-zinc-100`} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
                             <div className="p-2" role="none">
                                 {menuRoutes.map((route) => (
                                     <Link key={route} href={route} passHref>
