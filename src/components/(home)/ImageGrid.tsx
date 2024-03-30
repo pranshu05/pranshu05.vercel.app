@@ -10,7 +10,7 @@ const HomeImageGrid: React.FC = () => {
         <div className="columns-2 md:columns-3 my-4 gap-2 md:gap-4">
             {images.map((src, index) => (
                 <div key={index} className="mb-2 md:mb-4">
-                    <img className={`w-full h-auto rounded-lg grayscale transition-all duration-500 ease-in-out transform hover:grayscale-0 cursor-pointer ${isLoading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} width={1000} height={1000} src={src} alt="" loading="lazy" />
+                    <img className={`w-full h-auto rounded-lg grayscale transition-all duration-500 ease-in-out transform ${isLoading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} width={1000} height={1000} src={src} alt="" loading="lazy" />
                 </div>
             ))}
         </div>

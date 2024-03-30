@@ -35,7 +35,7 @@ const RecentlyPlayed: React.FC = () => {
             <h1 className="text-2xl font-bold mb-2">{isCurrentlyPlaying ? 'Currently Playing' : 'Recently Played'}</h1>
             <a href={url} target="_blank" rel="noopener noreferrer" className="flex gap-2 w-fit">
                 <div className="w-fit">
-                    <img className="rounded-md" src={image[3]['#text']} alt={`${name} by ${artist['#text']}`} width={100} height={100} />
+                    <img className="rounded-md grayscale" src={image[3]['#text']} alt={`${name} by ${artist['#text']}`} width={100} height={100} />
                 </div>
                 <div className="flex flex-col justify-center">
                     <p className="text-zinc-400">{isCurrentlyPlaying ? <div className="flex items-baseline"><BsMusicNote /> Currently Playing</div> : TimeAgo(new Date(date.uts * 1000))}</p>
