@@ -1,13 +1,33 @@
 import { useEffect, useState } from 'react';
-import { serialize } from 'next-mdx-remote/serialize';
-import rehypePrism from 'rehype-prism';
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeHighlight from "rehype-highlight";
+
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
 import BlogContent from '@/components/(posts)/(slug)/BlogContent';
 import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
-import matter from 'gray-matter';
-import 'prism-themes/themes/prism-atom-dark.css';
+
+import langPython from "highlight.js/lib/languages/python"
+import langJava from "highlight.js/lib/languages/java"
+import langCPP from "highlight.js/lib/languages/cpp"
+import langCSS from "highlight.js/lib/languages/css"
+import langHTML from "highlight.js/lib/languages/xml"
+import langJS from "highlight.js/lib/languages/javascript"
+import langBash from "highlight.js/lib/languages/bash"
+import "highlight.js/styles/github-dark.css";
+
+const languages = {
+    cpp: langCPP,
+    java: langJava,
+    python: langPython,
+    css: langCSS,
+    html: langHTML,
+    sh: langBash,
+    js: langJS
+};
+
 
 interface Frontmatter {
     title: string;
@@ -73,7 +93,13 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     const { data: frontMatter, content } = matter(fileContent);
 
     const mdxSource = await serialize(content, {
-        mdxOptions: { rehypePlugins: [[rehypePrism, { ignoreMissing: true, aliases: {} }] as any] },
+        mdxOptions: {
+            rehypePlugins: [[rehypeHighlight, {
+                ignoreMissing: true,
+                languages,
+                aliases: {}
+            }]] as any
+        },
     });
 
     return { props: { frontMatter: { ...frontMatter, slug }, mdxSource } };

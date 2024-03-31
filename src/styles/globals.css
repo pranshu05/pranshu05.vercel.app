@@ -127,49 +127,11 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-.post pre {
-  border: 1px solid #a1a1a1;
-  border-radius: 5px;
-  padding: 1.5em 1em;
-  margin: 1em 0;
-  overflow: auto;
-  background: #1d1f21;
-  text-shadow: none;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 1em;
-  line-height: 1.5;
-  letter-spacing: .2px;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  text-align: left;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  hyphens: none;
-}
-
 .post code {
-  background: #1d1f21;
-  text-shadow: none;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  letter-spacing: .2px;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  text-align: left;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  hyphens: none;
-  padding: 0.2rem;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
+  color: #c9d1d9;
+  background: #0d1117;
+  padding: 0.1rem 0.3rem;
 }
 
 .post hr {
