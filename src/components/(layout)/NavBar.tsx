@@ -8,8 +8,8 @@ const NavBar: React.FC = () => {
 
     const handleLinkClick = () => setIsOpen(false);
 
-    const routes = ['/', '/about', '/posts', '/guestbook'];
-    const menuRoutes = ['/music', '/gallery'];
+    const routes = ['/', '/about', '/gallery'];
+    const menuRoutes = ['/posts', '/music', '/guestbook'];
 
     return (
         <header className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-10">
@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
                             <div className="p-2" role="none">
                                 {menuRoutes.map((route) => (
                                     <Link key={route} href={route} passHref>
-                                        <p className={`block text-zinc-100 my-1 px-2 rounded-full py-1 ${path === route ? 'bg-zinc-500 bg-opacity-50' : 'hover:bg-zinc-600 hover:bg-opacity-40'}`} onClick={handleLinkClick} role="menuitem" tabIndex={-1}>{route.substring(1)}</p>
+                                        <p className={`block w-fit text-zinc-100 my-1 px-2 rounded-full py-1 ${path === route ? 'bg-zinc-500 bg-opacity-50' : 'hover:bg-zinc-600 hover:bg-opacity-40'}`} onClick={handleLinkClick} role="menuitem" tabIndex={-1}>{route.substring(1)}</p>
                                     </Link>
                                 ))}
                             </div>
