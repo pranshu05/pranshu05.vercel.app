@@ -13,25 +13,19 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
     const [postSuccess, setPostSuccess] = useState<boolean>(false);
 
     const handlePostMessage = async () => {
-        newMessage.trim() === '' && (setShowWarning(true), setTimeout(() => setShowWarning(false), 2000));
-
-        const messagesCollection = collection(db, 'messages');
-
-        try {
-            await addDoc(messagesCollection, {
-                displayName: user.displayName,
-                photoURL: user.photoURL,
-                timestamp: serverTimestamp(),
-                message: newMessage,
-            });
-
-            setNewMessage('');
-            setPostSuccess(true);
-
-            setTimeout(() => setPostSuccess(false), 2000);
-        } catch (error) {
-            console.error('Error posting message:', error);
-        }
+        newMessage.trim() === '' ?
+            (setShowWarning(true), setTimeout(() => setShowWarning(false), 2000)) :
+            (
+                await addDoc(collection(db, 'messages'), {
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    timestamp: serverTimestamp(),
+                    message: newMessage,
+                }),
+                setNewMessage(''),
+                setPostSuccess(true),
+                setTimeout(() => setPostSuccess(false), 2000)
+            );
     };
 
     return (
