@@ -13,7 +13,7 @@ const GoogleLogin: React.FC<GoogleLoginProps> = ({ setErrorMsg }) => (
         } catch (error: any) {
             setErrorMsg(error.code === 'auth/account-exists-with-different-credential' ? 'Account exists with different credentials' : error.message);
         }
-    }} className='py-2 px-4 rounded-md bg-transparent flex gap-2 items-center border border-zinc-700'>
+    }} className='py-2 px-4 rounded-lg bg-zinc-900 flex gap-2 items-center'>
         <FaGoogle /> Sign in
     </button>
 );

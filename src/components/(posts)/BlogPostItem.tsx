@@ -10,7 +10,7 @@ interface BlogPostItemProps {
 }
 
 const BlogPostItem: React.FC<BlogPostItemProps> = ({ slug, title, date, description, viewCount, img }) => (
-    <Link href={`/posts/${slug}`} passHref className='border border-zinc-700 rounded-md p-4'>
+    <Link href={`/posts/${slug}`} passHref className='border border-zinc-700 rounded-lg p-4'>
         <div className='w-full flex flex-col mt-2'>
             <div className='w-full flex justify-between mb-2'>
                 <span className='text-zinc-400 text-sm'>{date}</span>
