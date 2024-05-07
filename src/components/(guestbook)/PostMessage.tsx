@@ -29,10 +29,10 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
     };
 
     return (
-        <div className="mt-4 p-4 bg-transparent rounded-md w-full border border-zinc-700">
-            <h2 className="text-xl font-bold mb-2 text-zinc-100">Post a Message</h2>
-            <textarea value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="w-full min-h-20 p-2 border border-zinc-700 bg-transparent rounded-md" placeholder="Write your message here..." />
-            <button onClick={handlePostMessage} className="mt-2 py-2 px-4 rounded-lg bg-zinc-900 flex gap-2 items-center">Post Message</button>
+        <div className="mt-4 p-4 bg-transparent rounded-md w-full border border-[#b4befe]">
+            <h2 className="text-xl font-bold mb-2 text-[#74c7ec]">Post a Message</h2>
+            <textarea value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className="w-full min-h-20 p-2 border border-[#b4befe] bg-transparent rounded-md" placeholder="Write your message here..." />
+            <button onClick={handlePostMessage} className="mt-2 py-2 px-4 rounded-lg bg-[#11111b] flex gap-2 items-center">Post Message</button>
             {showWarning && <p className="text-red-500 mt-2"> Warning: You cannot post an empty message. Please enter a message. </p>}
             {postSuccess && <p className="text-green-500 mt-2"> Message posted successfully! </p>}
         </div>

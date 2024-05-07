@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => {
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div className="pb-8">
-                <h1 className="text-3xl font-bold text-zinc-100">About me!</h1>
+                <h1 className="text-3xl font-bold text-[#74c7ec]">About me!</h1>
             </div>
             <p>
                 Hey there! 👋🏻 I&apos;m Pranshu, a passionate full-stack developer and college fresher based in India. Currently working
@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
                 pandemic. I started with the basics of C and programming and then moved to web development. I have been working with web technologies like HTML, CSS, JavaScript, React, and Node.js. I also have experience with discord bot development using discord.js and Node.js and have worked with databases like
                 MongoDB and Firebase. I&apos;m currently exploring Next.js and TypeScript. I&apos;m also passionate about UI/UX and its design and development.
             </p>
-            <h2 className="text-2xl font-bold my-4 text-zinc-100">Tech Stack</h2>
+            <h2 className="text-2xl font-bold my-4 text-[#74c7ec]">Tech Stack</h2>
             <p>Below is a list of technologies which I use for development and programming purpose. Including languages, frameworks, IDEs, apps and various softwares.</p>
             <TechStack />
             <p>

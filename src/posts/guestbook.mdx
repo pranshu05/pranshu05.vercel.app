@@ -106,7 +106,7 @@ const GitHubLogin: React.FC<GitHubLoginProps> = ({ setErrorMsg }) => {
     };
 
     return (
-        <button onClick={handleGitHubLogin} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-zinc-300'>
+        <button onClick={handleGitHubLogin} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-[#b4befe]'>
             <FaGithub />
             Sign in
         </button>
@@ -142,7 +142,7 @@ const GoogleLogin: React.FC<GoogleLoginProps> = ({ setErrorMsg }) => {
     };
 
     return (
-        <button onClick={handleGoogleLogin} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-zinc-300'>
+        <button onClick={handleGoogleLogin} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-[#b4befe]'>
             <FaGoogle />
             Sign in
         </button>
@@ -198,7 +198,7 @@ const LoginContainer: React.FC = () => {
             {isSignedIn ? (
                 <div className='flex items-baseline gap-2'>
                     <p>Signed In as {userName}</p>
-                    <button onClick={handleLogOut} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-zinc-300'>
+                    <button onClick={handleLogOut} className='py-2 px-4 rounded-md bg-black text-white flex gap-2 items-center border border-[#b4befe]'>
                         Sign out
                     </button>
                 </div>
@@ -272,17 +272,17 @@ const PostMessage: React.FC<PostMessageProps> = ({ user }) => {
     }
 
     return (
-        <div className="mt-4 p-4 bg-black bg-opacity-40 backdrop backdrop-blur-sm rounded-md w-full border border-zinc-400">
+        <div className="mt-4 p-4 bg-black bg-opacity-40 backdrop backdrop-blur-sm rounded-md w-full border border-[#b4befe]">
             <h2 className="text-xl font-bold mb-2">Post a Message</h2>
             <textarea
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
-                className="w-full min-h-20 p-2 border border-zinc-400 bg-transparent rounded-md"
+                className="w-full min-h-20 p-2 border border-[#b4befe] bg-transparent rounded-md"
                 placeholder="Write your message here..."
             />
             <button
                 onClick={handlePostMessage}
-                className="mt-2 bg-black text-white p-2 rounded-md border border-zinc-400"
+                className="mt-2 bg-black text-white p-2 rounded-md border border-[#b4befe]"
             >
                 Post Message
             </button>
@@ -366,7 +366,7 @@ const MessageList: React.FC = () => {
         <div>
             <h2 className="text-xl font-bold mt-4">Messages</h2>
             {messages.map((message) => (
-                <div key={message.id} className="border border-zinc-400 rounded-md bg-transparent p-4 my-2">
+                <div key={message.id} className="border border-[#b4befe] rounded-md bg-transparent p-4 my-2">
                     <div className="flex items-center gap-2 mb-1">
                         <Image src={message.photoURL} alt={message.displayName} width={32} height={32} className="rounded-full" />
                         <div className="flex flex-col">

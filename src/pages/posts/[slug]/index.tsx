@@ -68,8 +68,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div className="py-28 text-center">
                 <MetaInfo date={date} readTime={readTime} viewCount={viewCount} />
-                <h1 className="text-5xl font-bold text-zinc-100">{title}</h1>
-                <p className="text-lg mt-2 text-zinc-100">{description}</p>
+                <h1 className="text-5xl font-bold text-[#74c7ec]">{title}</h1>
+                <p className="text-lg mt-2 text-[#f38ba8]">{description}</p>
             </div>
             <hr className='mt-8 mb-4' />
             <BlogContent mdxSource={mdxSource} />

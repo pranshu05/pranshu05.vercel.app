@@ -30,7 +30,7 @@ const LoginContainer: React.FC = () => {
             {isSignedIn ? (
                 <div className='flex items-baseline gap-2'>
                     <p>Signed In as {userName}</p>
-                    <button onClick={handleSignOut} className='py-2 px-4 rounded-lg bg-zinc-900 flex gap-2 items-center'> Sign out</button>
+                    <button onClick={handleSignOut} className='py-2 px-4 rounded-lg bg-[#11111b] flex gap-2 items-center'> Sign out</button>
                 </div>
             ) : (
                 <div className='flex flex-col items-baseline gap-2'>

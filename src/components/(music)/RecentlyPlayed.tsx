@@ -23,24 +23,24 @@ const RecentlyPlayed: React.FC = () => {
             });
     }, [LASTFM_KEY]);
 
-    if (loading) return <div className="text-lg font-bold text-zinc-400 my-4">Loading...</div>;
-    if (error) return <div className="text-lg font-bold text-zinc-400 my-4">{error}</div>;
-    if (!recentlyPlayed.length) return <div className="text-lg font-bold text-zinc-400 my-4">No recently played tracks</div>;
+    if (loading) return <div className="text-lg font-bold text-[#b4befe] my-4">Loading...</div>;
+    if (error) return <div className="text-lg font-bold text-[#b4befe] my-4">{error}</div>;
+    if (!recentlyPlayed.length) return <div className="text-lg font-bold text-[#b4befe] my-4">No recently played tracks</div>;
 
     const { date, artist, name, image, url } = recentlyPlayed[0];
     const isCurrentlyPlaying = !date;
 
     return (
         <div className="mb-4">
-            <h1 className="text-2xl font-bold mb-2">{isCurrentlyPlaying ? 'Currently Playing' : 'Recently Played'}</h1>
+            <h1 className="text-2xl font-bold mb-2 text-[#74c7ec]">{isCurrentlyPlaying ? 'Currently Playing' : 'Recently Played'}</h1>
             <a href={url} target="_blank" rel="noopener noreferrer" className="flex gap-2 w-fit">
                 <div className="w-fit">
-                    <img className="rounded-md grayscale" src={image[3]['#text']} alt={`${name} by ${artist['#text']}`} width={100} height={100} />
+                    <img className="rounded-md" src={image[3]['#text']} alt={`${name} by ${artist['#text']}`} width={100} height={100} />
                 </div>
                 <div className="flex flex-col justify-center">
-                    <p className="text-zinc-400">{isCurrentlyPlaying ? <div className="flex items-baseline"><BsMusicNote /> Currently Playing</div> : TimeAgo(new Date(date.uts * 1000))}</p>
+                    <p className="text-[#f2cdcd]">{isCurrentlyPlaying ? <div className="flex items-baseline"><BsMusicNote /> Currently Playing</div> : TimeAgo(new Date(date.uts * 1000))}</p>
                     <p className="text-lg font-bold">{name}</p>
-                    <p className="text-sm">{artist['#text']}</p>
+                    <p className="text-[#f38ba8] text-sm">{artist['#text']}</p>
                 </div>
             </a>
         </div>

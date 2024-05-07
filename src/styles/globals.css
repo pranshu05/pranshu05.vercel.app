@@ -16,16 +16,17 @@
 .link,
 .post a {
   text-decoration-line: underline;
-  text-decoration-color: rgb(63 63 70);
+  text-decoration-color: #eba0ac;
   text-decoration-thickness: 2px;
   text-underline-offset: 2px;
   transition-property: all;
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
+  color: #89b4fa;
 }
 
 .link:hover {
-  text-decoration-color: rgb(212, 212, 216);
+  text-decoration-color: #f38ba8;
 }
 
 .post h1 {
@@ -34,7 +35,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.5rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post h2 {
@@ -43,7 +44,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.25rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post h3 {
@@ -52,7 +53,7 @@
   margin-bottom: 1.5rem;
   line-height: 1.125rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post h4 {
@@ -61,7 +62,7 @@
   margin-bottom: 1.5rem;
   line-height: 1rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post h5 {
@@ -70,7 +71,7 @@
   margin-bottom: 1.5rem;
   line-height: 0.875rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post h6 {
@@ -79,7 +80,7 @@
   margin-bottom: 1.5rem;
   line-height: 0.75rem;
   font-weight: 700;
-  color: rgb(244 244 245);
+  color: #74c7ec;
 }
 
 .post p {
@@ -135,13 +136,13 @@
 }
 
 .post hr {
-  border-color: rgb(39 39 42);
+  border-color: #f9e2af;
   border-width: 2px;
   margin: 32px 0;
 }
 
 .g-hr {
-  border-color: rgb(39 39 42);
+  border-color: #f9e2af;
   border-width: 2px;
   margin: 10px 0;
 }

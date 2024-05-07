@@ -5,7 +5,7 @@ interface MetaInfoProps {
 }
 
 const MetaInfo: React.FC<MetaInfoProps> = ({ date, readTime, viewCount }) => (
-    <div className="text-zinc-400 mx-auto text-base">
+    <div className="text-[#f2cdcd] mx-auto text-base">
         {readTime} min read • {viewCount !== null ? viewCount : 'Loading'} views • {date}
     </div>
 );

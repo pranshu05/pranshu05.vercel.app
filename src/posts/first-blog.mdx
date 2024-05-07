@@ -62,7 +62,7 @@ export default function Blog({ posts }) {
                             <div className="font-lg link">
                                 {post.frontmatter.title}
                             </div>
-                            <div className="text-zinc-400 text-sm">
+                            <div className="text-[#b4befe] text-sm">
                                 {post.frontmatter.date}
                             </div>
                         </Link>
@@ -128,7 +128,7 @@ const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
             <div className="pb-8">
                 <h1 className="text-3xl font-bold">{title}</h1>
-                <div className="text-zinc-400 flex items-baseline text-base">
+                <div className="text-[#b4befe] flex items-baseline text-base">
                     📅 {date} • ⏰ {readTime} minutes
                 </div>
             </div>
@@ -223,7 +223,7 @@ const BlogPost = ({ frontMatter: { title, date, readTime }, mdxSource }) => {
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto mt-32">
             <div className="pb-8">
                 <h1 className="text-3xl font-bold">{title}</h1>
-                <div className="text-zinc-400 flex items-baseline text-base">
+                <div className="text-[#b4befe] flex items-baseline text-base">
                     📅 {date} • ⏰ {readTime} minutes
                 </div>
             </div>

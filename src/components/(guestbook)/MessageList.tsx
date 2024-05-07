@@ -37,17 +37,17 @@ const MessageList: React.FC = () => {
 
     return (
         <div>
-            <h2 className="text-xl font-bold mt-4 text-zinc-100">Messages</h2>
+            <h2 className="text-xl font-bold mt-4 text-[#74c7ec]">Messages</h2>
             {messages.map((message) => (
-                <div key={message.id} className="bg-transparent border border-zinc-700 rounded-md p-4 my-2">
+                <div key={message.id} className="bg-transparent border border-[#cba6f7] rounded-md p-4 my-2">
                     <div className="flex items-center gap-2 mb-1">
-                        <img src={message.photoURL} alt={message.displayName} width={1080} height={1080} className={`rounded-full w-8 h-8 grayscale transition-all duration-500 ease-in-out transform ${loading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} />
+                        <img src={message.photoURL} alt={message.displayName} width={1080} height={1080} className={`rounded-full w-8 h-8 transition-all duration-500 ease-in-out transform ${loading ? 'blur-2xl' : 'blur-0'}`} onLoad={() => setLoading(false)} />
                         <div className="flex flex-col">
-                            <p className="font-semibold">{message.displayName}</p>
-                            <p className="text-zinc-400">{message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', })}</p>
+                            <p className="text-[#74c7ec] font-semibold">{message.displayName}</p>
+                            <p className="text-[#f2cdcd]">{message.timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', })}</p>
                         </div>
                     </div>
-                    <p>{message.message}</p>
+                    <p className='text-[#f38ba8]'>{message.message}</p>
                 </div>
             ))}
         </div>
