@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import TechStack from '@/components/(about)/TechStack'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
     title: 'Pranshu05 // About',
@@ -13,6 +14,7 @@ const AboutPage: React.FC = () => {
                 <h1 className="text-3xl font-bold text-zinc-100">About me!</h1>
             </div>
             <p>
+                <Image src='https://i.imgur.com/gyDSUsG.jpg' width={200} height={200} alt='me' className='float-right rounded-md grayscale ml-3'/>
                 Hey there! 👋🏻 I&apos;m Pranshu, a passionate full-stack developer and college fresher based in India. Currently working
                 on a few projects and pursuing B.Tech. in ICT from{' '}<a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.
                 <br />

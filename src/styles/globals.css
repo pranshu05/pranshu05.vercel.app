@@ -158,24 +158,6 @@ nav a {
   transition: background 0.3s ease-in-out;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.blink {
-  animation: blink 3s infinite ease-in-out;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
