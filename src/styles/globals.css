@@ -24,62 +24,45 @@
   transition-duration: 300ms;
 }
 
-.link:hover {
+.link:hover,
+.post a:hover {
   text-decoration-color: rgb(212, 212, 216);
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: rgb(244 244 245);
 }
 
 .post h1 {
   font-size: 1.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post h2 {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.25rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post h3 {
   font-size: 1.125rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.125rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post h4 {
   font-size: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post h5 {
   font-size: 0.875rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 0.875rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post h6 {
   font-size: 0.75rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 0.75rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
 }
 
 .post p {
@@ -90,24 +73,21 @@
   font-weight: 400;
 }
 
-.post ul {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.5rem;
-  list-style: disc;
-  margin-left: 1rem;
-}
-
+.post ul,
 .post ol {
   font-size: 1rem;
   font-weight: 400;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  line-height: 1.5rem;
-  list-style: decimal;
   margin-left: 1rem;
+}
+
+.post ul {
+  list-style: disc;
+}
+
+.post ol {
+  list-style: decimal;
 }
 
 .post li {

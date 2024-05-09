@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
 import LoginContainer from "@/components/(guestbook)/LoginContainer";
 import MessageList from "@/components/(guestbook)/MessageList";
 import PostMessage from "@/components/(guestbook)/PostMessage";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-
-export const metadata: Metadata = {
-    title: "Pranshu05 // Guestbook",
-    description: "My guestbook, feel free to leave a message!",
-};
 
 const Guestbook: React.FC = () => {
     const [isSignedIn, setIsSignedIn] = useState<boolean>(false);

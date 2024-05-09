@@ -1,13 +1,6 @@
-import type { Metadata } from 'next';
 import RecentlyPlayed from '@/components/(music)/RecentlyPlayed';
 import RecentTracks from '@/components/(music)/RecentTracks';
-// import TopTracks from '@/components/(music)/TopTracks';
 import TopAlbums from '@/components/(music)/TopAlbums';
-
-export const metadata: Metadata = {
-    title: 'Pranshu05 // Music',
-    description: 'My Music Activity, feel free to explore!',
-};
 
 const MusicPage: React.FC = () => {
     return (
@@ -18,7 +11,6 @@ const MusicPage: React.FC = () => {
             </div>
             <RecentlyPlayed />
             <RecentTracks />
-            {/* <TopTracks /> */}
             <TopAlbums />
         </div>
     );

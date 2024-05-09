@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Metadata } from 'next';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -19,11 +18,6 @@ interface Post {
     slug: string;
     frontmatter: Frontmatter;
 }
-
-export const metadata: Metadata = {
-    title: 'Pranshu05 // Posts',
-    description: 'My personal Blogs',
-};
 
 const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
     const [viewCounts, setViewCounts] = useState<{ [key: string]: number }>({});
