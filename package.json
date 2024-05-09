@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
     "gray-matter": "^4.0.3",

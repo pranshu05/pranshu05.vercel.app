@@ -14,7 +14,7 @@ const HomeContainer: React.FC = () => {
     }, []);
 
     return (
-        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
+        <div data-aos="fade-up" className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
             <div className="pb-8">
                 <div className="flex items-baseline">
                     <h1 className="text-3xl font-medium text-zinc-100">Pranshu Patel</h1>

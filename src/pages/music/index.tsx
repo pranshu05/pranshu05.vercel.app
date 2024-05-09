@@ -9,9 +9,11 @@ const MusicPage: React.FC = () => {
                 <h1 className="text-3xl font-bold text-zinc-100">Music</h1>
                 <p>My Music Activity, feel free to explore! Visit my <a className='link' href='https://last.fm/user/pranshu05' target='_blank'>Last.fm</a> profile</p>
             </div>
-            <RecentlyPlayed />
-            <RecentTracks />
-            <TopAlbums />
+            <div data-aos="fade-up" >
+                <RecentlyPlayed />
+                <RecentTracks />
+                <TopAlbums />
+            </div>
         </div>
     );
 };
