@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const images = ['/home-1.jpg', '/home-2.jpg', '/home-3.jpg', '/home-4.jpg', '/home-5.jpg', '/home-6.jpg', '/home-7.jpg'];
+const images = ['/home-1.webp', '/home-2.webp', '/home-3.webp', '/home-4.webp', '/home-5.webp', '/home-6.webp', '/home-7.webp'];
 
 const HomeImageGrid: React.FC = () => (
     <div className="columns-2 md:columns-3 my-4 gap-2 md:gap-4">
