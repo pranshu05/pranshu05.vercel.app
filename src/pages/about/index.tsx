@@ -1,4 +1,5 @@
 import TechStack from '@/components/(about)/TechStack'
+import CurrentGame from '@/components/(about)/CurrentGame'
 import Image from 'next/image'
 
 const AboutPage: React.FC = () => {
@@ -12,6 +13,7 @@ const AboutPage: React.FC = () => {
             <p>Below is a list of technologies which I use for development and programming purpose. Including languages, frameworks, IDEs, apps and various softwares.</p>
             <TechStack />
             <p>I am always open to learning new technologies and love to work on new projects. If you have any project ideas or want to collaborate, feel free to reach out to me on{' '}<a className="link" href="https://twitter.com/pranshu_05" target="_blank" rel="noopener noreferrer">Twitter</a>{' '}[I may be delayed in responding at times].</p>
+            <CurrentGame />
         </div>
     )
 }

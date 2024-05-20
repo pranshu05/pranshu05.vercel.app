@@ -26,6 +26,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'i.imgur.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.akamai.steamstatic.com',
             }
         ],
     },
@@ -41,6 +45,7 @@ const nextConfig = {
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
         LASTFM_KEY: process.env.LASTFM_KEY,
+        STEAM_KEY: process.env.STEAM_KEY,
     },
 };
 
