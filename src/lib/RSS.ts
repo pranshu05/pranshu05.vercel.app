@@ -3,8 +3,8 @@ import { Post } from '../pages/posts/index';
 
 export const generateRSSFeed = (posts: Post[]) => {
     const feed = new RSS({
-        title: 'My Blog',
-        description: 'Latest posts from my blog',
+        title: 'Pranshu05 RSS feed',
+        description: 'RSS feed of my blog posts.',
         feed_url: 'https://pranshu05.vercel.app/rss.xml',
         site_url: 'https://pranshu05.vercel.app',
         language: 'en',
@@ -14,7 +14,7 @@ export const generateRSSFeed = (posts: Post[]) => {
         feed.item({
             title: post.frontmatter.title,
             description: post.frontmatter.description,
-            url: `${process.env.BASE_URL}/posts/${post.slug}`,
+            url: `https://pranshu05.vercel.app/posts/${post.slug}`,
             date: post.frontmatter.date,
         });
     });
