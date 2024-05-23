@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { getViewCount } from '../../lib/ViewsData';
 import BlogPageHeader from '@/components/(posts)/BlogPageHeader';
 import BlogPostList from '@/components/(posts)/BlogPostList';
+import { generateRSSFeed } from '../../lib/RSS';
 
 interface Frontmatter {
     title: string;
@@ -14,7 +15,7 @@ interface Frontmatter {
     img: string;
 }
 
-interface Post {
+export interface Post {
     slug: string;
     frontmatter: Frontmatter;
 }
@@ -52,8 +53,11 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-    const posts = fs.readdirSync(path.join(process.cwd(), 'src', 'posts')).map((fileName) => {
-        const filePath = path.join(process.cwd(), 'src', 'posts', fileName);
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts');
+    const files = fs.readdirSync(postsDirectory);
+
+    const posts = files.map((fileName) => {
+        const filePath = path.join(postsDirectory, fileName);
         const { data } = matter(fs.readFileSync(filePath, 'utf-8'));
 
         return {
@@ -69,6 +73,9 @@ export async function getStaticProps() {
     });
 
     posts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+
+    const rss = generateRSSFeed(posts);
+    fs.writeFileSync(path.join(process.cwd(), 'public', 'rss.xml'), rss);
 
     return { props: { posts } };
 }
