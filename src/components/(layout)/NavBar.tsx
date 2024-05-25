@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
     const menuRoutes = ['/posts', '/music', '/guestbook'];
 
     return (
-        <header data-aos="fade-right" className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-10 z-[2147483647]">
+        <header className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto py-10">
             <nav className="bg-zinc-900 rounded-lg p-2 w-full">
                 <div className="flex gap-4">
                     {routes.map((route) => (
