@@ -1,18 +1,12 @@
-import { useEffect, useState } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { getViewCount } from '../../lib/ViewsData';
-import BlogPageHeader from '@/components/(posts)/BlogPageHeader';
 import BlogPostList from '@/components/(posts)/BlogPostList';
 import { generateRSSFeed } from '../../lib/RSS';
 
 interface Frontmatter {
     title: string;
     date: string;
-    description: string;
-    readTime: number;
-    img: string;
 }
 
 export interface Post {
@@ -21,7 +15,6 @@ export interface Post {
 }
 
 const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
-    const [viewCounts, setViewCounts] = useState<{ [key: string]: number }>({});
 
     const postsByYear: { [year: string]: Post[] } = posts.reduce((acc, post) => {
         const year = post.frontmatter.date.slice(-4);
@@ -29,24 +22,18 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
         return acc;
     }, {});
 
-    useEffect(() => {
-        const fetchViewCounts = async () => {
-            const counts = await Promise.all(posts.map(({ slug }) => getViewCount(slug)));
-            setViewCounts(Object.fromEntries(posts.map((post, i) => [post.slug, counts[i]])));
-        };
-
-        fetchViewCounts();
-    }, [posts]);
-
     return (
         <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
-            <BlogPageHeader />
-            <p className='mb-4'>My RSS feed is available{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            <div className='pb-8'>
+                <h1 className='text-3xl font-bold text-zinc-100'>Blogs</h1>
+                <p>Welcome to my blog page! I write some cool stuff here. Feel free to read 😅</p>
+                <p className='mb-4'>My RSS feed is available{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            </div>
             {Object.entries(postsByYear).map(([year, yearPosts]) => (
                 <div key={year}>
                     <h2 className='text-2xl font-bold'>{year}</h2>
                     <hr className='g-hr' />
-                    <BlogPostList posts={yearPosts} viewCounts={viewCounts} />
+                    <BlogPostList posts={yearPosts} />
                 </div>
             ))}
         </div>
@@ -65,10 +52,7 @@ export async function getStaticProps() {
             slug: fileName.replace(/\.mdx$/, ''),
             frontmatter: {
                 title: data.title || '',
-                date: data.date || '',
-                description: data.description || '',
-                readTime: data.readTime || 0,
-                img: data.img || '',
+                date: data.date || ''
             },
         };
     });

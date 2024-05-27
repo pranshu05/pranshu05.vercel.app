@@ -36,7 +36,7 @@ const LoginContainer: React.FC = () => {
                 <div className='flex flex-col items-baseline gap-2'>
                     {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
                     <p>Sign In to leave a message!</p>
-                    <div className='flex gap-2'>
+                    <div className='flex gap-2 mb-4'>
                         <GoogleLogin setErrorMsg={setErrorMessage} />
                         <GitHubLogin setErrorMsg={setErrorMessage} />
                     </div>

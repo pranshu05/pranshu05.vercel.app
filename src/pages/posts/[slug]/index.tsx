@@ -34,7 +34,6 @@ interface Frontmatter {
     date: string;
     description: string;
     readTime: number;
-    img: string;
 }
 
 interface BlogPostProps {
@@ -48,7 +47,7 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
-    const { slug, title, date, description, readTime, img } = frontMatter;
+    const { slug, title, date, description, readTime } = frontMatter;
     const [viewCount, setViewCount] = useState<number | null>(null);
 
     useEffect(() => {
