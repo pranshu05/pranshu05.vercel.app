@@ -13,7 +13,6 @@ export const generateRSSFeed = (posts: Post[]) => {
     posts.forEach(post => {
         feed.item({
             title: post.frontmatter.title,
-            description: post.frontmatter.description,
             url: `https://pranshu05.vercel.app/posts/${post.slug}`,
             date: post.frontmatter.date,
         });
