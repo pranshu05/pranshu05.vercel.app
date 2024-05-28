@@ -8,8 +8,8 @@ interface BlogPostItemProps {
 
 const BlogPostItem: React.FC<BlogPostItemProps> = ({ slug, title, date }) => (
     <Link href={`/posts/${slug}`} passHref className='my-2'>
-        <div className='w-full flex items-baseline gap-1'>
-            <span className='text-xl font-bold'>{title}</span>
+        <div className='flex items-baseline gap-1'>
+            <span className='text-xl font-semibold link'>{title}</span>
             <span className='text-zinc-400 text-sm'>{date}</span>
         </div>
     </Link>
