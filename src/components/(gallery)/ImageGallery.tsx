@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { MdNavigateBefore, MdNavigateNext, MdOutlineClose } from 'react-icons/md';
 
 interface UnsplashImage {
@@ -13,14 +13,16 @@ const ImageGallery: React.FC = () => {
 
     const fetchImagesFromUnsplash = async () => {
         try {
-            const totalImages = 100; 
+            const totalImages = 100;
             const totalPages = Math.ceil(totalImages / 30);
-            const imageRequests = [];
+            const imageRequests: Promise<AxiosResponse<UnsplashImage[]>>[] = [];
 
             for (let page = 1; page <= totalPages; page++) {
-                imageRequests.push(await axios.get('https://api.unsplash.com/users/pranshu05/photos', {
-                    params: { client_id: process.env.UNSPLASH_KEY, per_page: 30, page },
-                }));
+                imageRequests.push(
+                    axios.get<UnsplashImage[]>('https://api.unsplash.com/users/pranshu05/photos', {
+                        params: { client_id: process.env.UNSPLASH_KEY, per_page: 30, page },
+                    })
+                );
             }
 
             const imageResponses = await Promise.all(imageRequests);
