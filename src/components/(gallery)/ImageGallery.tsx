@@ -13,10 +13,20 @@ const ImageGallery: React.FC = () => {
 
     const fetchImagesFromUnsplash = async () => {
         try {
-            const response = await axios.get('https://api.unsplash.com/users/pranshu05/photos', {
-                params: { client_id: process.env.UNSPLASH_KEY, per_page: 30 },
-            });
-            setImageData(response.data);
+            const totalImages = 100; 
+            const totalPages = Math.ceil(totalImages / 30);
+            const imageRequests = [];
+
+            for (let page = 1; page <= totalPages; page++) {
+                imageRequests.push(await axios.get('https://api.unsplash.com/users/pranshu05/photos', {
+                    params: { client_id: process.env.UNSPLASH_KEY, per_page: 30, page },
+                }));
+            }
+
+            const imageResponses = await Promise.all(imageRequests);
+            const allImages = imageResponses.flatMap(response => response.data);
+
+            setImageData(allImages);
         } catch (error) {
             console.error('Error fetching images:', error);
         }
