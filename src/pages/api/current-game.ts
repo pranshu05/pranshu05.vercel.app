@@ -1,10 +1,10 @@
-import { NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 
 const API_KEY = process.env.STEAM_KEY;
 const STEAM_ID = '76561199519078335';
 
-const handler = async (res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const playerSummariesUrl = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/`;
     const params = {
         key: API_KEY,
