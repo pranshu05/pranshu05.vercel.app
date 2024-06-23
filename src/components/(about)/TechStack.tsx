@@ -1,5 +1,5 @@
 import { FaHtml5, FaCss3, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaDiscord, FaGit } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiVisualstudiocode, SiVisualstudio, SiMongodb, SiTypescript, SiFirebase } from 'react-icons/si';
+import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiVisualstudiocode, SiVisualstudio, SiMongodb, SiTypescript, SiFirebase, SiVim, SiObsidian } from 'react-icons/si';
 
 const techs = [
     { icon: <FaHtml5 />, href: 'https://developer.mozilla.org/en-US/docs/Web/HTML', name: 'HTML' },
@@ -18,7 +18,9 @@ const techs = [
     { icon: <SiVercel />, href: 'https://vercel.com/', name: 'Vercel' },
     { icon: <SiVisualstudiocode />, href: 'https://code.visualstudio.com/', name: 'VSCode' },
     { icon: <SiVisualstudio />, href: 'https://visualstudio.microsoft.com/', name: 'VisualStudio' },
-    { icon: <FaDiscord />, href: 'https://discord.com/', name: 'Discord' },
+    { icon: <SiVim />, href: 'https://neovim.io', name: 'NeoVim'},
+    { icon: <SiObsidian />, href: 'https://obsidian.md', name: 'Obsidian'},
+    { icon: <FaDiscord />, href: 'https://discord.com/', name: 'Discord' }
 ];
 
 const TechStack: React.FC = () => (

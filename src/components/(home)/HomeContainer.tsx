@@ -24,9 +24,9 @@ const HomeContainer: React.FC = () => {
             </div>
             <p>Hey there! 👋🏻 I&apos;m Pranshu, a full-stack developer and uni sophomore based in India. Currently working on a few projects and pursuing B.Tech. in ICT from <a className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>.</p>
             <SocialLinksGrid />
-            <p>In my free time, I like to click photos, some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more.</p>
+            <p>In my free time, I like to click photos, some of them are showcased below. Check out my <Link className='link' href='/gallery'>gallery</Link> for more. (Checkout my <a href='https://unsplash.com/@pranshu05' target='_blank' className='link'>Unsplash profile</a>.)</p>
             <HomeImageGrid />
-            <p>I love to work on web development, and I&apos;m insterested in cloud computing, DevOps, and cybersecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects</a> and writing <Link className='link' href='/posts'>technical blogs</Link>.</p>
+            <p>I love to work on web development, and I&apos;m insterested in web3, Cloud Computing, DevOps, and CyberSecurity. I also enjoy contributing to <a className='link' href='https://github.com/pranshu05' target='_blank'>open-source projects</a> and writing <Link className='link' href='/posts'>technical blogs</Link>.</p>
         </div>
     )
 }
