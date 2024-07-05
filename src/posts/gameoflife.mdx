@@ -1,0 +1,310 @@
+---
+title: 'Game of Life'
+date: 'Jul 05, 2024'
+description: 'Conway’s Game of Life simulation using React'
+readTime: '5 min'
+---
+
+# Game of Life
+
+Conway’s Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.
+
+## Rules
+
+The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead. Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+
+1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+2. Any live cell with two or three live neighbours lives on to the next generation.
+3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+These rules, which compare the behavior of the automaton to real life, can be condensed into the following:
+
+1. Any live cell with two or three live neighbours survives.
+2. Any dead cell with three live neighbours becomes a live cell.
+3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+## Implementation
+
+Let's implement the Game of Life simulation using React. We will create a grid of cells that evolve according to the rules mentioned above.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+const GameOfLife = () => { //Calculating number of cells for the grid according to the size of the screen.
+  const cellSize = 20;
+  const columns = Math.floor(window.innerWidth / cellSize);
+  const rows = Math.floor(window.innerHeight / cellSize);
+
+  const generateEmptyGrid = (rows, columns) => { //Generating grid of all dead cells.
+    return Array.from({ length: rows }, () => Array(columns).fill(false));
+  };
+
+  /* To make the simulation long and dense.
+  const initializeRandomCells = (grid) => { //Adding random alive cells in 45% of the grid.
+    grid.forEach((row, x) => {
+      grid[x] = row.map(() => Math.random() > 0.45);
+    });
+  };
+  */
+
+  const addRandomPatterns = (grid) => { //Generating 50 random patterns of 3x3 matrices.
+    for (let i = 0; i < 50; i++) {
+      const patternX = Math.floor(Math.random() * (grid.length - 2));
+      const patternY = Math.floor(Math.random() * (grid[0].length - 2));
+      addPattern(grid, patternX, patternY);
+    }
+  };
+
+  const addPattern = (grid, startX, startY) => {
+    const pattern = [
+      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
+      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
+      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
+    ];
+
+    for (let x = 0; x < 3; x++) {
+      for (let y = 0; y < 3; y++) {
+        grid[startX + x][startY + y] = pattern[x][y];
+      }
+    }
+  };
+
+  const countNeighbors = (grid, x, y) => {//Takes a cell as [0,0] and counts number of alive cells surrounding it.
+    let count = 0;
+    const directions = [
+      [-1, -1], [-1, 0], [-1, 1],
+      [0, -1],           [0, 1],
+      [1, -1], [1, 0], [1, 1]
+    ];
+
+    for (const [dx, dy] of directions) {
+      const newX = x + dx;
+      const newY = y + dy;
+
+      if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
+        count += grid[newX][newY] ? 1 : 0;
+      }
+    }
+
+    return count;
+  };
+
+  const [gridSize, setGridSize] = useState({ rows, columns });//To update GridSize
+
+  useEffect(() => {//Updates the grid size.
+    const handleResize = () => {
+      const newColumns = Math.floor(window.innerWidth / cellSize);
+      const newRows = Math.floor(window.innerHeight / cellSize);
+      setGridSize({ rows: newRows, columns: newColumns });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [cellSize]);
+
+  const [grid, setGrid] = useState(() => {//updating grid for above conditions.
+    const initialGrid = generateEmptyGrid(gridSize.rows, gridSize.columns);
+    //initializeRandomCells(initialGrid);
+    addRandomPatterns(initialGrid);
+    return initialGrid;
+  });
+
+  useEffect(() => {//Updating according to Game of Life's three rules.
+    const updateGrid = () => {
+      setGrid((prevGrid) => {
+        return prevGrid.map((row, x) =>
+          row.map((cell, y) => {
+            const neighbors = countNeighbors(prevGrid, x, y);
+
+            if (cell && (neighbors < 2 || neighbors > 3)) {
+              return false;
+            } else if (!cell && neighbors === 3) {
+              return true;
+            } else {
+              return cell;
+            }
+          })
+        );
+      });
+    };
+
+    const intervalId = setInterval(() => {
+      updateGrid();
+    }, 200);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const toggleCell = (x, y) => {//Makes a dead cell alive by clicking it.
+    setGrid((prevGrid) => {
+      const newGrid = [...prevGrid];
+      newGrid[x] = [...prevGrid[x]];
+      newGrid[x][y] = !newGrid[x][y];
+      return newGrid;
+    });
+  };
+
+  return (//Renders the final grid.
+    <div className="game-container">
+      {grid.map((row, x) =>
+        row.map((cell, y) => (
+          <div
+            key={`${x}-${y}`}
+            onClick={() => toggleCell(x, y)}
+            className={`cell ${cell ? 'alive' : ''}`}
+            style={{ width: cellSize, height: cellSize }}
+          />
+        ))
+      )}
+    </div>
+  );
+};
+
+export default GameOfLife;
+```
+
+In the code above we have implemented the Game of Life simulation using React. We have created a grid of cells that evolve according to the rules mentioned above. The grid is updated every 200ms to show the evolution of the cells.
+
+step by step explanation of the code:
+
+1. ### We calculate the number of cells for the grid according to the size of the screen.
+
+```jsx
+const cellSize = 20;
+const columns = Math.floor(window.innerWidth / cellSize);
+const rows = Math.floor(window.innerHeight / cellSize);
+```
+
+2. ### We generate an empty grid of cells.
+
+```jsx
+const generateEmptyGrid = (rows, columns) => {
+  return Array.from({ length: rows }, () => Array(columns).fill(false));
+};
+```
+
+3. ### We add random patterns of 3x3 matrices to the grid.
+
+```jsx
+const addRandomPatterns = (grid) => {
+  for (let i = 0; i < 50; i++) {
+    const patternX = Math.floor(Math.random() * (grid.length - 2));
+    const patternY = Math.floor(Math.random() * (grid[0].length - 2));
+    addPattern(grid, patternX, patternY);
+  }
+};
+```
+
+4. ### We count the number of alive cells surrounding a cell.
+
+```jsx
+const countNeighbors = (grid, x, y) => {
+  let count = 0;
+  const directions = [
+    [-1, -1], [-1, 0], [-1, 1],
+    [0, -1],           [0, 1],
+    [1, -1], [1, 0], [1, 1]
+  ];
+
+  for (const [dx, dy] of directions) {
+    const newX = x + dx;
+    const newY = y + dy;
+
+    if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
+      count += grid[newX][newY] ? 1 : 0;
+    }
+  }
+
+  return count;
+};
+```
+
+5. ### We update the grid size when the window is resized.
+
+```jsx
+useEffect(() => {
+  const handleResize = () => {
+    const newColumns = Math.floor(window.innerWidth / cellSize);
+    const newRows = Math.floor(window.innerHeight / cellSize);
+    setGridSize({ rows: newRows, columns: newColumns });
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, [cellSize]);
+```
+
+6. ### We update the grid according to the Game of Life rules.
+
+```jsx
+useEffect(() => {
+  const updateGrid = () => {
+    setGrid((prevGrid) => {
+      return prevGrid.map((row, x) =>
+        row.map((cell, y) => {
+          const neighbors = countNeighbors(prevGrid, x, y);
+
+          if (cell && (neighbors < 2 || neighbors > 3)) {
+            return false;
+          } else if (!cell && neighbors === 3) {
+            return true;
+          } else {
+            return cell;
+          }
+        })
+      );
+    });
+  };
+
+  const intervalId = setInterval(() => {
+    updateGrid();
+  }, 200);
+
+  return () => clearInterval(intervalId);
+}, []);
+```
+
+7. ### We toggle a cell from dead to alive by clicking on it.
+
+```jsx
+const toggleCell = (x, y) => {
+  setGrid((prevGrid) => {
+    const newGrid = [...prevGrid];
+    newGrid[x] = [...prevGrid[x]];
+    newGrid[x][y] = !newGrid[x][y];
+    return newGrid;
+  });
+};
+```
+
+8. ### We render the grid of cells.
+
+```jsx
+return (
+  <div className="game-container">
+    {grid.map((row, x) =>
+      row.map((cell, y) => (
+        <div
+          key={`${x}-${y}`}
+          onClick={() => toggleCell(x, y)}
+          className={`cell ${cell ? 'alive' : ''}`}
+          style={{ width: cellSize, height: cellSize }}
+        />
+      ))
+    )}
+  </div>
+);
+```
+
+You can see the live demo of the Game of Life simulation [here](https://conway-alpha.vercel.app/).
+
+That's it! We have successfully implemented the Game of Life simulation using React. You can now experiment with different patterns and see how they evolve over time.
+
+Happy coding! 🚀
