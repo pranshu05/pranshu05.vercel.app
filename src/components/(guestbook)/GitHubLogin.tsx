@@ -8,8 +8,7 @@ interface GitHubLoginProps {
 const GitHubLogin: React.FC<GitHubLoginProps> = ({ setErrorMsg }) => (
     <button onClick={async () => {
         try {
-            const result = await signInWithPopup(auth, new GithubAuthProvider());
-            console.log(result.user);
+            await signInWithPopup(auth, new GithubAuthProvider());
         } catch (error: any) {
             setErrorMsg(error.code === 'auth/account-exists-with-different-credential' ? 'Account exists with different credentials' : error.message);
         }

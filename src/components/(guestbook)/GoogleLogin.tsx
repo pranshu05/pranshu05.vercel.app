@@ -8,8 +8,7 @@ interface GoogleLoginProps {
 const GoogleLogin: React.FC<GoogleLoginProps> = ({ setErrorMsg }) => (
     <button onClick={async () => {
         try {
-            const result = await signInWithPopup(auth, new GoogleAuthProvider());
-            console.log(result.user);
+            await signInWithPopup(auth, new GoogleAuthProvider());
         } catch (error: any) {
             setErrorMsg(error.code === 'auth/account-exists-with-different-credential' ? 'Account exists with different credentials' : error.message);
         }

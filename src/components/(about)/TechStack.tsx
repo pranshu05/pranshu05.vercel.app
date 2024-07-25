@@ -18,18 +18,15 @@ const techs = [
     { icon: <SiVercel />, href: 'https://vercel.com/', name: 'Vercel' },
     { icon: <SiVisualstudiocode />, href: 'https://code.visualstudio.com/', name: 'VSCode' },
     { icon: <SiVisualstudio />, href: 'https://visualstudio.microsoft.com/', name: 'VisualStudio' },
-    { icon: <SiVim />, href: 'https://neovim.io', name: 'NeoVim'},
-    { icon: <SiObsidian />, href: 'https://obsidian.md', name: 'Obsidian'},
+    { icon: <SiVim />, href: 'https://neovim.io', name: 'NeoVim' },
+    { icon: <SiObsidian />, href: 'https://obsidian.md', name: 'Obsidian' },
     { icon: <FaDiscord />, href: 'https://discord.com/', name: 'Discord' }
 ];
 
 const TechStack: React.FC = () => (
     <div className="flex my-8 gap-2 md:gap-3 flex-wrap">
         {techs.map(({ icon, href, name }, index) => (
-            <a key={index} className="flex items-center justify-center p-2 gap-2 md:gap-3 rounded-lg bg-zinc-900" href={href} target="_blank" rel="noopener noreferrer">
-                {icon}
-                {name}
-            </a>
+            <a key={index} className="flex items-center justify-center p-2 gap-2 md:gap-3 rounded-lg bg-zinc-900" href={href} target="_blank" rel="noopener noreferrer">{icon}{name}</a>
         ))}
     </div>
 );
