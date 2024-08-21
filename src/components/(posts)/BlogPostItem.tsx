@@ -4,13 +4,14 @@ interface BlogPostItemProps {
     slug: string;
     title: string;
     date: string;
+    viewCount: number | null;
 }
 
-const BlogPostItem: React.FC<BlogPostItemProps> = ({ slug, title, date }) => (
+const BlogPostItem: React.FC<BlogPostItemProps> = ({ slug, title, date, viewCount }) => (
     <Link href={`/posts/${slug}`} passHref className='my-2'>
         <div className='flex items-baseline gap-1'>
             <span className='text-xl font-semibold link'>{title}</span>
-            <span className='text-zinc-400 text-sm'>{date}</span>
+            <span className='text-zinc-400 text-sm'>{date} | {viewCount} Views</span>
         </div>
     </Link>
 )
