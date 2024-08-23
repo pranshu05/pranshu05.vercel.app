@@ -12,7 +12,7 @@ const projects = [
     },
     {
         title: 'CPPVault',
-        description: 'A dynamic and collaborative open-source repository of C++ documentations.',
+        description: 'A dynamic and collaborative open-source repository of C++ and Data Structure documentations.',
         techStack: ['NextJS', 'Tailwind CSS', 'Vercel', 'MongoDB'],
         github: 'https://github.com/pranshu05/CPPVault',
         website: 'https://cppvault.vercel.app',
@@ -32,7 +32,7 @@ const projects = [
     },
     {
         title: 'Elpha',
-        description: 'An open-source verified multi-purpose discord bot with over 150k users. Made with love by the community, for the community.',
+        description: 'An open-source verified multi-purpose discord bot with over 150k users.',
         techStack: ['NodeJS', 'MongoDB', 'Discord.js'],
         github: 'https://github.com/pranshu05/Elpha',
         website: 'https://elphabot.github.io'
@@ -46,13 +46,13 @@ const projects = [
 ]
 
 const Projects: React.FC = () => (
-    <div className="w-full my-4 flex flex-col gap-4">
+    <div className="w-full my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map(({ title, description, techStack, github, website }, index) => (
-            <div className="rounded-lg bg-zinc-900 w-full p-4 flex flex-col gap-2" key={index}>
+            <div className="bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg w-full p-4 flex flex-col gap-2" key={index}>
                 <div className="text-xl font-bold">{title}</div>
-                <div className="flex gap-1">{techStack.map((tech, index) => (<div key={index} className="rounded-lg border-[0.3px] border-zinc-700 p-1 text-sm">{tech}</div>))}</div>
                 <div>{description}</div>
-                <div className="flex gap-2">
+                <div className="flex gap-2">{techStack.map((tech, index) => (<div key={index} className="rounded-lg bg-zinc-900 p-[6px] text-sm">{tech}</div>))}</div>
+                <div className="flex gap-2 text-xs">
                     {github && <a href={github} target="_blank" className="text-xl my-1"><FaGithub /></a>}
                     {website && <a href={website} target="_blank" className="text-xl my-1"><FaGlobe /></a>}
                 </div>

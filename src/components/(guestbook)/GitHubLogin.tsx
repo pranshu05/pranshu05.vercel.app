@@ -12,7 +12,7 @@ const GitHubLogin: React.FC<GitHubLoginProps> = ({ setErrorMsg }) => (
         } catch (error: any) {
             setErrorMsg(error.code === 'auth/account-exists-with-different-credential' ? 'Account exists with different credentials' : error.message);
         }
-    }} className='py-2 px-4 rounded-lg bg-zinc-900 flex gap-2 items-center'>
+    }} className='py-2 px-4 bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg flex gap-2 items-center'>
         <FaGithub /> Sign in
     </button>
 );

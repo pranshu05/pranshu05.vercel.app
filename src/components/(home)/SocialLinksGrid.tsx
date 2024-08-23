@@ -10,7 +10,7 @@ const socialLinks = [
 const SocialLinksGrid: React.FC = () => (
     <div className="my-4 grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
         {socialLinks.map((item, index) => (
-            <a key={index} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 gap-2 rounded-lg bg-zinc-900"> {item.icon} {item.text}</a>
+            <a key={index} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 gap-2 bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg"> {item.icon} {item.text}</a>
         ))}
     </div>
 );

@@ -26,281 +26,285 @@ These rules, which compare the behavior of the automaton to real life, can be co
 
 ## Implementation
 
-Let's implement the Game of Life simulation using React. We will create a grid of cells that evolve according to the rules mentioned above.
+Let's implement the Game of Life simulation using React. We will create a grid of cells that evolve according to the rules mentioned above. Step by step explanation of the implementation and code:
 
+1. We start by importing the `useState` and `useEffect` hooks from React.
 ```jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+```
 
-const GameOfLife = () => { //Calculating number of cells for the grid according to the size of the screen.
-  const cellSize = 20;
-  const columns = Math.floor(window.innerWidth / cellSize);
-  const rows = Math.floor(window.innerHeight / cellSize);
+2. We define the `GameOfLife` component that will contain the logic for the simulation.
+```jsx
+const GameOfLife = () => {
+    // Component logic goes here
+};
+```
 
-  const generateEmptyGrid = (rows, columns) => { //Generating grid of all dead cells.
+3. We set the `cellSize` to 5 pixels and calculate the number of columns and rows based on the window size.
+```jsx
+const cellSize = 5;
+const columns = Math.floor(window.innerWidth / cellSize);
+const rows = Math.floor(window.innerHeight / cellSize);
+```
+
+4. We define a helper function `generateEmptyGrid` that creates a 2D array filled with `false` values.
+```jsx
+const generateEmptyGrid = (rows, columns) => {
     return Array.from({ length: rows }, () => Array(columns).fill(false));
-  };
+};
+```
 
-  /* To make the simulation long and dense.
-  const initializeRandomCells = (grid) => { //Adding random alive cells in 45% of the grid.
+5. We define a helper function `initializeRandomCells` that randomly sets some cells to be alive (`true`) based on a probability threshold.
+```jsx
+const initializeRandomCells = (grid) => {
     grid.forEach((row, x) => {
-      grid[x] = row.map(() => Math.random() > 0.45);
+        grid[x] = row.map(() => Math.random() > 0.4);
     });
-  };
-  */
+};
+```
 
-  const addRandomPatterns = (grid) => { //Generating 50 random patterns of 3x3 matrices.
-    for (let i = 0; i < 50; i++) {
-      const patternX = Math.floor(Math.random() * (grid.length - 2));
-      const patternY = Math.floor(Math.random() * (grid[0].length - 2));
-      addPattern(grid, patternX, patternY);
-    }
-  };
-
-  const addPattern = (grid, startX, startY) => {
-    const pattern = [
-      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
-      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
-      [Math.random() > 0.5, Math.random() > 0.5, Math.random() > 0.5],
-    ];
-
-    for (let x = 0; x < 3; x++) {
-      for (let y = 0; y < 3; y++) {
-        grid[startX + x][startY + y] = pattern[x][y];
-      }
-    }
-  };
-
-  const countNeighbors = (grid, x, y) => {//Takes a cell as [0,0] and counts number of alive cells surrounding it.
+6. We define a helper function `countNeighbors` that counts the number of live neighbors for a given cell.
+```jsx
+const countNeighbors = (grid, x, y) => {
     let count = 0;
     const directions = [
-      [-1, -1], [-1, 0], [-1, 1],
-      [0, -1],           [0, 1],
-      [1, -1], [1, 0], [1, 1]
+        [-1, -1], [-1, 0], [-1, 1],
+        [0, -1], [0, 1],
+        [1, -1], [1, 0], [1, 1]
     ];
 
     for (const [dx, dy] of directions) {
-      const newX = x + dx;
-      const newY = y + dy;
+        const newX = x + dx;
+        const newY = y + dy;
 
-      if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
-        count += grid[newX][newY] ? 1 : 0;
-      }
+        if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
+            count += grid[newX][newY] ? 1 : 0;
+        }
     }
-
     return count;
-  };
+};
+```
 
-  const [gridSize, setGridSize] = useState({ rows, columns });//To update GridSize
+7. We use the `useState` hook to store the grid size and initialize it with the calculated number of rows and columns.
+```jsx
+const [gridSize, setGridSize] = useState({ rows, columns });
+```
 
-  useEffect(() => {//Updates the grid size.
+8. We use the `useEffect` hook to update the grid size when the window is resized.
+```jsx
+useEffect(() => {
     const handleResize = () => {
-      const newColumns = Math.floor(window.innerWidth / cellSize);
-      const newRows = Math.floor(window.innerHeight / cellSize);
-      setGridSize({ rows: newRows, columns: newColumns });
+        const newColumns = Math.floor(window.innerWidth / cellSize);
+        const newRows = Math.floor(window.innerHeight / cellSize);
+        setGridSize({ rows: newRows, columns: newColumns });
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+        window.removeEventListener('resize', handleResize);
     };
-  }, [cellSize]);
-
-  const [grid, setGrid] = useState(() => {//updating grid for above conditions.
-    const initialGrid = generateEmptyGrid(gridSize.rows, gridSize.columns);
-    //initializeRandomCells(initialGrid);
-    addRandomPatterns(initialGrid);
-    return initialGrid;
-  });
-
-  useEffect(() => {//Updating according to Game of Life's three rules.
-    const updateGrid = () => {
-      setGrid((prevGrid) => {
-        return prevGrid.map((row, x) =>
-          row.map((cell, y) => {
-            const neighbors = countNeighbors(prevGrid, x, y);
-
-            if (cell && (neighbors < 2 || neighbors > 3)) {
-              return false;
-            } else if (!cell && neighbors === 3) {
-              return true;
-            } else {
-              return cell;
-            }
-          })
-        );
-      });
-    };
-
-    const intervalId = setInterval(() => {
-      updateGrid();
-    }, 200);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const toggleCell = (x, y) => {//Makes a dead cell alive by clicking it.
-    setGrid((prevGrid) => {
-      const newGrid = [...prevGrid];
-      newGrid[x] = [...prevGrid[x]];
-      newGrid[x][y] = !newGrid[x][y];
-      return newGrid;
-    });
-  };
-
-  return (//Renders the final grid.
-    <div className="game-container">
-      {grid.map((row, x) =>
-        row.map((cell, y) => (
-          <div
-            key={`${x}-${y}`}
-            onClick={() => toggleCell(x, y)}
-            className={`cell ${cell ? 'alive' : ''}`}
-            style={{ width: cellSize, height: cellSize }}
-          />
-        ))
-      )}
-    </div>
-  );
-};
-
-export default GameOfLife;
-```
-
-In the code above we have implemented the Game of Life simulation using React. We have created a grid of cells that evolve according to the rules mentioned above. The grid is updated every 200ms to show the evolution of the cells.
-
-step by step explanation of the code:
-
-1. ### We calculate the number of cells for the grid according to the size of the screen.
-
-```jsx
-const cellSize = 20;
-const columns = Math.floor(window.innerWidth / cellSize);
-const rows = Math.floor(window.innerHeight / cellSize);
-```
-
-2. ### We generate an empty grid of cells.
-
-```jsx
-const generateEmptyGrid = (rows, columns) => {
-  return Array.from({ length: rows }, () => Array(columns).fill(false));
-};
-```
-
-3. ### We add random patterns of 3x3 matrices to the grid.
-
-```jsx
-const addRandomPatterns = (grid) => {
-  for (let i = 0; i < 50; i++) {
-    const patternX = Math.floor(Math.random() * (grid.length - 2));
-    const patternY = Math.floor(Math.random() * (grid[0].length - 2));
-    addPattern(grid, patternX, patternY);
-  }
-};
-```
-
-4. ### We count the number of alive cells surrounding a cell.
-
-```jsx
-const countNeighbors = (grid, x, y) => {
-  let count = 0;
-  const directions = [
-    [-1, -1], [-1, 0], [-1, 1],
-    [0, -1],           [0, 1],
-    [1, -1], [1, 0], [1, 1]
-  ];
-
-  for (const [dx, dy] of directions) {
-    const newX = x + dx;
-    const newY = y + dy;
-
-    if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
-      count += grid[newX][newY] ? 1 : 0;
-    }
-  }
-
-  return count;
-};
-```
-
-5. ### We update the grid size when the window is resized.
-
-```jsx
-useEffect(() => {
-  const handleResize = () => {
-    const newColumns = Math.floor(window.innerWidth / cellSize);
-    const newRows = Math.floor(window.innerHeight / cellSize);
-    setGridSize({ rows: newRows, columns: newColumns });
-  };
-
-  window.addEventListener('resize', handleResize);
-
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
 }, [cellSize]);
 ```
 
-6. ### We update the grid according to the Game of Life rules.
+9. We use the `useState` hook to store the grid state and initialize it with an empty grid filled with random cells.
+```jsx
+const [grid, setGrid] = useState(() => {
+    const initialGrid = generateEmptyGrid(gridSize.rows, gridSize.columns);
+    initializeRandomCells(initialGrid);
+    return initialGrid;
+});
+```
 
+10. We use the `useEffect` hook to update the grid state based on the rules of the Game of Life.
 ```jsx
 useEffect(() => {
-  const updateGrid = () => {
-    setGrid((prevGrid) => {
-      return prevGrid.map((row, x) =>
-        row.map((cell, y) => {
-          const neighbors = countNeighbors(prevGrid, x, y);
+    const updateGrid = () => {
+        setGrid((prevGrid) => {
+            return prevGrid.map((row, x) =>
+                row.map((cell, y) => {
+                    const neighbors = countNeighbors(prevGrid, x, y);
+                    if (cell && (neighbors < 2 || neighbors > 3)) {
+                        return false;
+                    } else if (!cell && neighbors === 3) {
+                        return true;
+                    } else {
+                        return cell;
+                    }
+                })
+            );
+        });
+    };
 
-          if (cell && (neighbors < 2 || neighbors > 3)) {
-            return false;
-          } else if (!cell && neighbors === 3) {
-            return true;
-          } else {
-            return cell;
-          }
-        })
-      );
-    });
-  };
+    const intervalId = setInterval(() => {
+        updateGrid();
+    }, 100);
 
-  const intervalId = setInterval(() => {
-    updateGrid();
-  }, 200);
-
-  return () => clearInterval(intervalId);
+    return () => clearInterval(intervalId);
 }, []);
 ```
 
-7. ### We toggle a cell from dead to alive by clicking on it.
-
+11. We define a helper function `toggleCell` that toggles the state of a cell when clicked.
 ```jsx
 const toggleCell = (x, y) => {
-  setGrid((prevGrid) => {
-    const newGrid = [...prevGrid];
-    newGrid[x] = [...prevGrid[x]];
-    newGrid[x][y] = !newGrid[x][y];
-    return newGrid;
-  });
+    setGrid((prevGrid) => {
+        const newGrid = [...prevGrid];
+        newGrid[x] = [...prevGrid[x]];
+        newGrid[x][y] = !newGrid[x][y];
+        return newGrid;
+    });
 };
 ```
 
-8. ### We render the grid of cells.
-
+12. We render the grid of cells and attach the `toggleCell` function to the `onClick` event of each cell.
 ```jsx
 return (
-  <div className="game-container">
-    {grid.map((row, x) =>
-      row.map((cell, y) => (
-        <div
-          key={`${x}-${y}`}
-          onClick={() => toggleCell(x, y)}
-          className={`cell ${cell ? 'alive' : ''}`}
-          style={{ width: cellSize, height: cellSize }}
-        />
-      ))
-    )}
-  </div>
+    <div className="game-container">
+        {grid.map((row, x) => row.map((cell, y) => (<div key={`${x}-${y}`} onClick={() => toggleCell(x, y)} className={`cell ${cell ? 'alive' : ''}`} style={{ width: cellSize, height: cellSize }} />)))}
+    </div>
 );
+```
+
+13. We apply the `alive` class to cells that are alive to style them differently.
+```jsx
+className={`cell ${cell ? 'alive' : ''}`}
+```
+
+14. We export the `GameOfLife` component as the default export.
+```jsx
+export default GameOfLife;
+```
+
+## Styling
+
+To style the Game of Life simulation, you can add the following CSS code to your project:
+
+```css
+.alive {
+  background-color: #808080;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 5px);
+  gap: 0px;
+  background-color: #121212;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+```
+
+The whole code for the Game of Life simulation component looks like this:
+
+```jsx
+import { useState, useEffect } from 'react';
+
+const GameOfLife = () => {
+    const cellSize = 5;
+    const columns = Math.floor(window.innerWidth / cellSize);
+    const rows = Math.floor(window.innerHeight / cellSize);
+
+    const generateEmptyGrid = (rows, columns) => {
+        return Array.from({ length: rows }, () => Array(columns).fill(false));
+    };
+
+    const initializeRandomCells = (grid) => {
+        grid.forEach((row, x) => {
+            grid[x] = row.map(() => Math.random() > 0.4);
+        });
+    };
+
+    const countNeighbors = (grid, x, y) => {
+        let count = 0;
+        const directions = [
+            [-1, -1], [-1, 0], [-1, 1],
+            [0, -1], [0, 1],
+            [1, -1], [1, 0], [1, 1]
+        ];
+
+        for (const [dx, dy] of directions) {
+            const newX = x + dx;
+            const newY = y + dy;
+
+            if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length) {
+                count += grid[newX][newY] ? 1 : 0;
+            }
+        }
+        return count;
+    };
+
+    const [gridSize, setGridSize] = useState({ rows, columns });
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newColumns = Math.floor(window.innerWidth / cellSize);
+            const newRows = Math.floor(window.innerHeight / cellSize);
+            setGridSize({ rows: newRows, columns: newColumns });
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [cellSize]);
+
+    const [grid, setGrid] = useState(() => {
+        const initialGrid = generateEmptyGrid(gridSize.rows, gridSize.columns);
+        initializeRandomCells(initialGrid);
+        return initialGrid;
+    });
+
+    useEffect(() => {
+        const updateGrid = () => {
+            setGrid((prevGrid) => {
+                return prevGrid.map((row, x) =>
+                    row.map((cell, y) => {
+                        const neighbors = countNeighbors(prevGrid, x, y);
+                        if (cell && (neighbors < 2 || neighbors > 3)) {
+                            return false;
+                        } else if (!cell && neighbors === 3) {
+                            return true;
+                        } else {
+                            return cell;
+                        }
+                    })
+                );
+            });
+        };
+
+        const intervalId = setInterval(() => {
+            updateGrid();
+        }, 100);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const toggleCell = (x, y) => {
+        setGrid((prevGrid) => {
+            const newGrid = [...prevGrid];
+            newGrid[x] = [...prevGrid[x]];
+            newGrid[x][y] = !newGrid[x][y];
+            return newGrid;
+        });
+    };
+
+    return (
+        <div className="game-container">
+            {grid.map((row, x) => row.map((cell, y) => (<div key={`${x}-${y}`} onClick={() => toggleCell(x, y)} className={`cell ${cell ? 'alive' : ''}`} style={{ width: cellSize, height: cellSize }} />)))}
+        </div>
+    );
+};
+
+export default GameOfLife;
 ```
 
 You can see the live demo of the Game of Life simulation [here](https://conway-alpha.vercel.app/).

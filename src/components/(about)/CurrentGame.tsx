@@ -30,7 +30,7 @@ const CurrentGame: React.FC = () => {
     return (
         <a href='https://steamcommunity.com/id/pranshu05/' target='_blank'>
             {currentGame && (
-                <div className='w-fit mx-auto my-4 rounded-lg bg-zinc-900 p-3 flex gap-3 align-middle items-center'>
+                <div className='w-fit mx-auto my-4 bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg p-3 flex gap-3 align-middle items-center'>
                     {gameImage && <Image className='rounded-md grayscale' width={231} height={87} src={gameImage} alt={`${currentGame} logo`} />}
                     <div className='flex flex-col'>
                         <p className='text-zinc-400'>Currently playing</p>
