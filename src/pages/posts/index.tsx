@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import BlogPostList from '@/components/(posts)/BlogPostList';
 import { generateRSSFeed } from '../../lib/RSS';
+import Head from 'next/head';
 
 interface Frontmatter {
     title: string;
@@ -24,6 +25,11 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
 
     return (
         <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
+            <Head>
+                <title>Posts | Pranshu05</title>
+                <meta name="og:description" content="Technical Blog-Page by Pranshu05." />
+                <meta name="og:title" content="Posts | Pranshu05" />
+            </Head>
             <div className='pb-8'>
                 <h1 className='text-3xl font-bold text-zinc-100'>Posts</h1>
                 <p>Welcome to my post page! I write some cool stuff here. Feel free to read 😅</p>

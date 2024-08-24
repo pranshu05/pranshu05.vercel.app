@@ -1,0 +1,64 @@
+---
+title: 'How do Computers Store Images?'
+date: 'Aug 24, 2024'
+description: 'How computer stores Black and White images as a 2D Matrix'
+readTime: '5 min'
+---
+
+# Introduction
+
+We all know that images are made up of tiny little dots called pixels. But how do computers store these pixels? In this post, we will explore how computers store black and white images as a 2D matrix. Black and White images are the simplest form of images and are a great starting point to understand how images are stored in computers. It contains only two colors and can be easily represented as a 2D matrix.
+
+## What is black and white image?
+
+A black-and-white image is composed of pixels, where each pixel represents a single point in the image. In the case of a BNW (Black and White) image, each pixel can have one of two values: black or white. This binary nature means that each pixel can be mathematically represented as either:
+
+- 0: Black
+- 1: White
+
+## Understanding the 2D Matrix
+
+To store a black and white image, we can use a 2D matrix where each element of the matrix represents a pixel in the image. The value of each element in the matrix will be either 0 or 1, representing black or white respectively.
+
+### Example of a 2D Matrix representation of a Black and White image
+
+Let's consider a simple 3x3 black and white image:
+
+```plaintext
+0 1 0
+1 0 1
+0 1 0
+```
+
+In this matrix, the value 0 represents black and the value 1 represents white. Each row of the matrix corresponds to a row of pixels in the image, and each column corresponds to a column of pixels.
+
+In this example we see that each pixel are either black or white, but in reality a BNW image is not only made of Black and White it also contains grayscale, each pixel can have a range of values from 0 to 255, where 0 represents black and 255 represents white. This is known as grayscale image.
+
+## Representing Grayscale images
+
+Grayscale images are a bit more complex than black and white images. In grayscale images, each pixel can have a value ranging from 0 to 255, where 0 represents black and 255 represents white. This allows for a wider range of shades between black and white, making grayscale images more detailed and realistic. Grayscale images can also be represented as a 2D matrix, where each element of the matrix represents a pixel in the image. The value of a pixel represents the intensity of the pixel. The matrix in which all these values are stored is known as channel.
+
+## Mapping an Image to a 2D Matrix
+
+To map an image to a 2D matrix, we can use the following steps:
+
+1. **Pixel Mapping**: Each pixel in the image is mapped to an element in the matrix. The value ranges from 0 to 255 for grayscale images.
+2. **Matrix Formation**: The matrix is formed by arranging the pixel values in rows and columns. The number of rows and columns in the matrix will be equal to the height and width of the image respectively.
+
+## Analyzing Image properties through 2D Matrix
+
+By analyzing the 2D matrix representation of an image, we can extract various properties of the image such as:
+
+- **Image Resolution**: The number of rows and columns in the matrix represent the resolution of the image.
+- **Image Intensity**: The values of the elements in the matrix represent the intensity of the pixels in the image.
+- **Image Contrast**: The difference in intensity values between adjacent pixels can be used to determine the contrast of the image.
+- **Image Brightness**: The average intensity value of all the pixels in the image can be used to determine the brightness of the image.
+- **Edge Detection**: By analyzing the intensity values of adjacent pixels, we can detect edges in the image.
+- **Image Compression**: By applying compression algorithms to the matrix, we can reduce the size of the image without losing much quality.
+- **Symmetry Detection**: By analyzing the symmetry of the matrix, we can detect symmetrical patterns in the image.
+
+## Conclusion
+
+In this post, we explored how computers store black and white images as a 2D matrix. We learned that each pixel in the image is represented by an element in the matrix, with the value of the element representing the color of the pixel. We also discussed how grayscale images can be represented as a 2D matrix, and how we can extract various properties of the image by analyzing the matrix.
+
+As we dive deeper in the computer processing, another fascination concept to explore is **Perlins Noise**.  Perlin Noise is a type of gradient noise used to create natural-looking textures, terrains, and other effects in computer graphics. It plays a crucial role in generating procedural content, simulating organic structures, and adding realism to digital scenes. In the next post, we will explore how Perlin Noise is generated and how it can be used to create realistic textures and terrains in computer graphics. Stay tuned!

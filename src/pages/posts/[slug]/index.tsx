@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from "rehype-highlight";
+import Head from 'next/head';
 
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
 import BlogContent from '@/components/(posts)/(slug)/BlogContent';
@@ -65,6 +66,11 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
 
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
+            <Head>
+                <title>{title}</title>
+                <meta name="og:description" content={description} />
+                <meta name="og:title" color={title} />
+            </Head>
             <div className="py-28 text-center">
                 <MetaInfo date={date} readTime={readTime} viewCount={viewCount} />
                 <h1 className="text-5xl font-bold text-zinc-100">{title}</h1>
