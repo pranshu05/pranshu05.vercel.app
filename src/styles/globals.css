@@ -134,6 +134,10 @@
   border-radius: 10px;
 }
 
+.katex{
+  color: #58E6FF;
+}
+
 nav a {
   transition: background 0.3s ease-in-out;
 }

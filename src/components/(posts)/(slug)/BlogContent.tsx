@@ -1,4 +1,6 @@
 import { MDXRemote } from 'next-mdx-remote';
+import { InlineMath, BlockMath } from 'react-katex'; 
+import 'katex/dist/katex.min.css'; 
 
 interface BlogContentProps {
     mdxSource: {
@@ -9,7 +11,10 @@ interface BlogContentProps {
     };
 }
 
-const components = {};
+const components = {
+    InlineMath,
+    BlockMath,
+};
 
 const BlogContent: React.FC<BlogContentProps> = ({ mdxSource }) => (
     <div className="post break-words w-full p-0 m-0">

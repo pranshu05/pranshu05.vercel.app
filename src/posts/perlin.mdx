@@ -1,0 +1,65 @@
+---
+title: 'Perlin Noise'
+date: 'Oct 9, 2024'
+description: 'What is Perlin Noise a brief explanation'
+readTime: 4
+---
+
+# Perlin Noise
+
+Perlin Noise is a gradient noise function developed by Ken Perlin in the 1980s. It is widely used in computer graphics to generate natural-looking textures, terrains, and other organic structures. Unlike random noise, Perlin Noise produces smooth, continuous variations, making it ideal for simulating natural phenomena. This blog will delve into the mathematical foundations of Perlin Noise, its generation process, and its diverse applications.
+
+![Perlin Noise](https://upload.wikimedia.org/wikipedia/commons/8/88/Perlin_noise_example.png)
+
+## Mathematical Foundations of Perlin Noise
+
+Perlin Noise is based on the concept of gradient noise, which involves interpolating random gradients to create smooth, continuous noise. The key idea behind Perlin Noise is to generate a grid of random gradient vectors and interpolate between them to produce a smooth noise function. The interpolation function used in Perlin Noise is typically a cubic polynomial, which ensures that the noise function is continuous and differentiable.
+
+1. **Grid definition:** 
+    The first step in generating Perlin Noise is to define a grid of random gradient vectors. These gradient vectors are typically unit vectors pointing in random directions. The grid points are spaced uniformly in space, and each grid point is associated with a random gradient vector.
+
+2. **Dot Product:**
+    For any given point in space, the value of the Perlin Noise function is computed based on the dot product of the gradient vector and the distance vector from the grid point to the input point. If we denote the gradient vector at point <InlineMath>{String.raw` (i, j)`}</InlineMath> as <InlineMath>{String.raw` \mathbf{g}_{i,j}`}</InlineMath> and the distance vector as <InlineMath>{String.raw` \mathbf{r}_{i,j}`}</InlineMath>, the noise value at the input point <InlineMath>{String.raw` (x, y)`}</InlineMath> is given by:
+
+    <BlockMath>
+        {String.raw`N(x, y) = \mathbf{g}_{i,j} \cdot \mathbf{r}_{i,j}`}
+    </BlockMath>
+
+     For a point in a two dimension space, the gradient vectors at the four nearest grid points are used to compute the noise value. In general terms the complexity of `dot product` is <InlineMath>{String.raw`O(2^d)`}</InlineMath> where <InlineMath>{String.raw`d`}</InlineMath> is the dimension of the space.
+
+3. **Interpolation:**
+    The final step in generating Perlin Noise is to interpolate between the noise values at the grid points to obtain a smooth, continuous noise function. The interpolation function used in Perlin Noise is typically a cubic polynomial, which ensures that the noise function is continuous and differentiable. The interpolation function is designed to produce smooth transitions between grid points, resulting in a natural-looking noise function.
+
+    If we denote the noise value at the four nearest grid points as <InlineMath>{String.raw`N_{i,j}`}</InlineMath>, the noise value at the input point <InlineMath>{String.raw` (x, y)`}</InlineMath> is given by:
+    
+    <BlockMath>
+        {String.raw`N(x, y) = \text{interpolate}(N_{i,j}, N_{i+1,j}, N_{i,j+1}, N_{i+1,j+1})`}
+    </BlockMath>
+
+    Typically, the interpolation function used in Perlin Noise is a cubic polynomial, which ensures that the noise function is continuous and differentiable. The interpolation function is designed to produce smooth transitions between grid points, resulting in a natural-looking noise function. The values produces ranges from -1 to 1.
+
+    Example of a cubic interpolation function:
+
+    <BlockMath>
+        {String.raw`f(t) = 3t^2 - 2t^3`}
+    </BlockMath>
+
+## Applications of Perlin Noise
+
+Perlin Noise has a wide range of applications in computer graphics, simulation, and procedural generation. Some of the key applications of Perlin Noise include:
+
+1. **Texture Generation**: Perlin Noise is commonly used to generate natural-looking textures for terrain, clouds, and other organic structures. By varying the parameters of the Perlin Noise function, it is possible to create a wide range of textures with different visual characteristics.
+
+2. **Terrain Generation**: Perlin Noise is widely used to generate realistic terrains for video games and simulations. By combining multiple layers of Perlin Noise with different parameters, it is possible to create complex terrains with mountains, valleys, and other features.
+
+3. **Procedural Generation**: Perlin Noise is often used in procedural generation algorithms to create random but coherent structures. By combining Perlin Noise with other noise functions and procedural techniques, it is possible to generate complex, realistic worlds with minimal manual input.
+
+4. **Animation**: Perlin Noise is used in animation to create natural-looking motion and deformation effects. By applying Perlin Noise to the parameters of an animation, it is possible to create lifelike movements that mimic the randomness and fluidity of natural phenomena.
+
+5. **Data Visualization**: Perlin Noise is used in data visualization to generate smooth, continuous color gradients. By mapping the noise values to colors, it is possible to create visually appealing representations of data that are easy to interpret and understand.
+
+In conclusion, Perlin Noise is a powerful tool for generating natural-looking textures, terrains, and other organic structures in computer graphics. By leveraging the mathematical foundations of gradient noise and interpolation, Perlin Noise can produce realistic and visually appealing results that are widely used in various applications.
+
+## References
+
+1. [Perlin noise - Wikipedia](https://en.wikipedia.org/wiki/Perlin_noise)
