@@ -24,7 +24,7 @@ const techs = [
 ];
 
 const TechStack: React.FC = () => (
-    <div className="flex my-8 gap-2 md:gap-3 flex-wrap">
+    <div className="flex my-4 gap-2 md:gap-3 flex-wrap">
         {techs.map(({ icon, href, name }, index) => (
             <a key={index} className="flex items-center justify-center p-2 gap-2 md:gap-3 bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg" href={href} target="_blank" rel="noopener noreferrer">{icon}{name}</a>
         ))}

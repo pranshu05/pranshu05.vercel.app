@@ -28,7 +28,7 @@ const MusicGrid: React.FC = () => {
     return (
         <div className="my-4">
             <p>Here are a few albums that filled my past week with colors!!</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-auto my-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-auto my-4">
                 {topAlbums.map((album: any, index: number) => (
                     <a key={index} href={album.url} target="_blank" className="flex flex-col items-center">
                         <img className="rounded-md w-full" src={album.image[3]['#text']} alt={`${album.name}`} />
