@@ -1,5 +1,6 @@
 import TechStack from '@/components/(about)/TechStack'
 import Projects from './Projects'
+import MusicGrid from './MusicGrid'
 import CurrentGame from '@/components/(about)/CurrentGame'
 
 const AboutContainer: React.FC = () => {
@@ -16,6 +17,7 @@ const AboutContainer: React.FC = () => {
             <p>I have worked on various projects and have experience with web development, discord bot development, and UI/UX design. I have also worked on a few open-source projects and have contributed to some of them. I&apos;ve listed some of my projects below.</p>
             <Projects />
             <p>I am always open to learning new technologies and love to work on new projects. If you have any project ideas or want to collaborate, feel free to reach out to me on{' '}<a className="link" href="https://twitter.com/pranshu_05" target="_blank" rel="noopener noreferrer">Twitter</a>{' '}[I may be delayed in responding at times].</p>
+            <MusicGrid />
             <CurrentGame />
         </div>
     )
