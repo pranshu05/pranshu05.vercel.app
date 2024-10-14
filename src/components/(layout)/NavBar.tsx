@@ -1,13 +1,8 @@
 import Link from 'next/link';
-import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const NavBar: React.FC = () => {
     const path = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleLinkClick = () => setIsOpen(false);
-
     const routes = ['/', '/about', '/posts', '/gallery'];
 
     return (
@@ -16,7 +11,7 @@ const NavBar: React.FC = () => {
                 <div className="flex gap-4">
                     {routes.map((route) => (
                         <Link key={route} href={route} passHref>
-                            <p className={`text-zinc-100 py-1 px-2 rounded-lg ${path === route ? 'bg-zinc-600 bg-opacity-40' : 'hover:bg-zinc-700 hover:bg-opacity-30'}`} onClick={handleLinkClick}>{route === '/' ? '/' : route.substring(1)}</p>
+                            <p className={`text-zinc-100 py-1 px-2 rounded-lg ${path === route ? 'bg-zinc-600 bg-opacity-40' : 'hover:bg-zinc-700 hover:bg-opacity-30'}`}>{route === '/' ? '/' : route.substring(1)}</p>
                         </Link>
                     ))}
                 </div>

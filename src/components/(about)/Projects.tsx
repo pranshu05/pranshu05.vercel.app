@@ -1,6 +1,4 @@
-import { FaGlobe } from "react-icons/fa";
-
-const { FaGithub } = require('react-icons/fa');
+import { FaGlobe, FaGithub } from "react-icons/fa";
 
 const projects = [
     {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import BlogPostItem from './BlogPostItem';
-import { getViewCount } from '../../lib/ViewsData';
+import BlogPostItem from '@/components/(posts)/BlogPostItem';
+import { getViewCount } from '@/lib/ViewsData';
 
 interface BlogPostListProps {
     posts: { slug: string; frontmatter: { title: string; date: string; } }[];

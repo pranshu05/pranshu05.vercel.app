@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { auth } from '../../firebase/firebase';
+import { auth } from '@/firebase/firebase';
 import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
-import GoogleLogin from './GoogleLogin';
-import GitHubLogin from './GitHubLogin';
+import GoogleLogin from '@/components/(guestbook)/GoogleLogin';
+import GitHubLogin from '@/components/(guestbook)/GitHubLogin';
 
 const LoginContainer: React.FC = () => {
     const [isSignedIn, setIsSignedIn] = useState<boolean>(false);

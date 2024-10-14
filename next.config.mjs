@@ -5,14 +5,6 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'avatars.githubusercontent.com'
-            },
-            {
-                protocol: 'https',
-                hostname: 'lh3.googleusercontent.com'
-            },
-            {
-                protocol: 'https',
                 hostname: 'images.unsplash.com'
             },
             {
@@ -26,14 +18,6 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'i.imgur.com',
-            },
-            {
-                protocol: 'https',
-                hostname: 'cdn.akamai.steamstatic.com',
-            },
-            {
-                protocol: 'https',
-                hostname: 'shared.akamai.steamstatic.com',
             }
         ],
     },
@@ -49,7 +33,6 @@ const nextConfig = {
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
         LASTFM_KEY: process.env.LASTFM_KEY,
-        STEAM_KEY: process.env.STEAM_KEY,
     },
 };
 

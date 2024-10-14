@@ -1,7 +1,6 @@
 import TechStack from '@/components/(about)/TechStack'
-import Projects from './Projects'
-import MusicGrid from './MusicGrid'
-import CurrentGame from '@/components/(about)/CurrentGame'
+import Projects from '@/components/(about)/Projects'
+import MusicGrid from '@/components/(about)/MusicGrid'
 
 const AboutContainer: React.FC = () => {
     return (
@@ -18,7 +17,6 @@ const AboutContainer: React.FC = () => {
             <Projects />
             <p>I am always open to learning new technologies and love to work on new projects. If you have any project ideas or want to collaborate, feel free to reach out to me on{' '}<a className="link" href="https://twitter.com/pranshu_05" target="_blank" rel="noopener noreferrer">Twitter</a>{' '}[I may be delayed in responding at times].</p>
             <MusicGrid />
-            <CurrentGame />
         </div>
     )
 }

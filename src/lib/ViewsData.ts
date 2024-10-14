@@ -1,4 +1,4 @@
-import { db } from '../firebase/firebase';
+import { db } from '@/firebase/firebase';
 import { collection, doc, getDoc, setDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 
 const viewsCollection = collection(db, 'views');
