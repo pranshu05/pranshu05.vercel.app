@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
+import Masonry from 'react-masonry-css';
 import { MdNavigateBefore, MdNavigateNext, MdOutlineClose } from 'react-icons/md';
 
 interface UnsplashImage {
@@ -54,12 +55,14 @@ const ImageGallery: React.FC = () => {
     }, []);
 
     return (
-        <div className="columns-2 md:columns-3 gap-2 md:gap-4">
-            {imageData.map((image, index) => (
-                <div key={index} className="mb-2 md:mb-4" onClick={() => handleFullscreen(index)}>
-                    <img className="w-full h-auto rounded-lg grayscale transition-all duration-500 ease-in-out transform cursor-pointer" width={1000} height={1000} src={image.urls.regular} alt="" loading="lazy" />
-                </div>
-            ))}
+        <div>
+            <Masonry breakpointCols={{ default: 3, 768: 2, }} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+                {imageData.map((image, index) => (
+                    <div key={index} className="relative mb-4" onClick={() => handleFullscreen(index)}>
+                        <img className="w-full h-auto rounded-lg grayscale transition-all duration-500 ease-in-out transform cursor-pointer" src={image.urls.regular} alt="" loading="lazy" />
+                    </div>
+                ))}
+            </Masonry>
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 backdrop backdrop-blur-md" onClick={closeFullscreen}>
                     <div className="relative h-dvh w-dvw flex items-center">

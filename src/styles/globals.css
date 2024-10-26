@@ -150,3 +150,14 @@ nav a {
   background: rgb(212 212 216);
   color: rgb(10 10 10);
 }
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -15px;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 15px;
+  background-clip: padding-box;
+}
