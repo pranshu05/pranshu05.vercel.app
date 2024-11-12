@@ -11,7 +11,7 @@ const font = Space_Grotesk({
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <div className={`min-h-dvh w-dvw p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col ${font.className}`}>
+        <div className={`min-h-dvh w-[dvw - 10px] p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col ${font.className}`}>
             <NavBar />
             <div className="flex-1">
                 <Component {...pageProps} />
