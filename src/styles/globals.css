@@ -13,6 +13,14 @@
   --bg: #202020;
 }
 
+.main-content {
+  display: none;
+}
+
+.main-content-loaded {
+  display: flex;
+}
+
 .link,
 .post a {
   text-decoration-line: underline;

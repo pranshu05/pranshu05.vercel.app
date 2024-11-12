@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Space_Grotesk } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google';
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import NavBar from "@/components/(layout)/NavBar";
@@ -15,28 +15,36 @@ export default function App({ Component, pageProps }: AppProps) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const handleLoad = () => {
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 1500); // 1.5-second delay for testing
+        const handleLoadProgress = () => {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setIsLoading(false);
+                }
+            }, 100);
         };
 
-        (document.readyState === 'complete') ? handleLoad() : window.addEventListener('load', handleLoad);
+        if (document.readyState === 'complete') {
+            handleLoadProgress();
+        } else {
+            window.addEventListener('load', handleLoadProgress);
+        }
 
-        return () => window.removeEventListener('load', handleLoad);
+        return () => window.removeEventListener('load', handleLoadProgress);
     }, []);
 
-    if (isLoading) {
-        return <Preloader />;
-    }
-
     return (
-        <div className={`min-h-dvh w-[dvw - 10px] p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col ${font.className}`}>
-            <NavBar />
-            <div className="flex-1">
-                <Component {...pageProps} />
+        <>
+            {isLoading && <Preloader />}
+            <div className={`main-content ${!isLoading ? 'main-content-loaded' : ''} min-h-dvh w-[dvw - 10px] p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col ${font.className}`}>
+                <NavBar />
+                <div className="flex-1">
+                    <Component {...pageProps} />
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </>
     );
 }
