@@ -4,42 +4,29 @@ const projects = [
     {
         title: 'AcadVault2.0',
         description: 'A dynamic and collaborative open-source repository of Academic Resources for DA-IICT.',
-        techStack: ['NextJS', 'Tailwind CSS', 'Vercel', 'MongoDB'],
+        techStack: ['Next.js', 'Tailwind CSS', 'Vercel', 'MongoDB'],
         github: 'https://github.com/AcadVault/AcadVault2.0',
         website: 'https://acadvault.vercel.app',
     },
     {
+        title: 'TuneStats',
+        description: 'A simple and elegant spotify activity tracker made with react.',
+        techStack: ['Next.js', 'Spotify API'],
+        github: 'https://github.com/pranshu05/tunestats',
+    },
+    {
         title: 'CPPVault',
         description: 'A dynamic and collaborative open-source repository of C++ and Data Structure documentations.',
-        techStack: ['NextJS', 'Tailwind CSS', 'Vercel', 'MongoDB'],
+        techStack: ['Next.js', 'Tailwind CSS', 'Vercel', 'MongoDB'],
         github: 'https://github.com/pranshu05/CPPVault',
         website: 'https://cppvault.vercel.app',
     },
     {
-        title: 'Protify',
-        description: 'A simple and elegant spotify activity tracker made with react.',
-        techStack: ['ReactJS', 'Spotify API'],
-        github: 'https://github.com/pranshu05/protify',
-        website: 'https://protify.vercel.app',
-    },
-    {
-        title: 'Game of life simulation',
-        description: 'A simple game of life simulation using React.',
-        techStack: ['ReactJS'],
-        website: 'https://conway-alpha.vercel.app',
-    },
-    {
         title: 'Elpha',
         description: 'An open-source verified multi-purpose discord bot with over 150k users.',
-        techStack: ['NodeJS', 'MongoDB', 'Discord.js'],
+        techStack: ['Node.js', 'MongoDB', 'Discord.js'],
         github: 'https://github.com/pranshu05/Elpha',
         website: 'https://elphabot.github.io'
-    },
-    {
-        title: 'Anti Ghost Ping',
-        description: 'Powerful and open-source ghost ping detection bot!',
-        techStack: ['NodeJS', 'Discord.js'],
-        github: 'https://github.com/pranshu05/AGP',
     },
 ]
 
