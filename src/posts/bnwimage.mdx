@@ -53,6 +53,113 @@ By analyzing the 2D matrix representation of an image, we can extract various pr
 - **Image Compression**: By applying compression algorithms to the matrix, we can reduce the size of the image without losing much quality.
 - **Symmetry Detection**: By analyzing the symmetry of the matrix, we can detect symmetrical patterns in the image.
 
+## Edge Detection in grayscale images
+
+Edge detection is a fundamental technique in image processing that is used to identify boundaries within an image. It is commonly used in computer vision, pattern recognition, and machine learning applications. Edge detection works by identifying areas of high contrast in an image, where the intensity values of adjacent pixels change rapidly. This change in intensity values indicates the presence of an edge or boundary.
+
+There are several edge detection algorithms that can be applied to grayscale images to detect edges. Some of the most common algorithms include:
+
+- **Sobel Operator**: The Sobel operator is a popular edge detection algorithm that uses convolution to detect edges in an image. It applies two 3x3 kernels to the image to calculate the gradient in the x and y directions, which are then combined to detect edges.
+- **Canny Edge Detector**: The Canny edge detector is a multi-stage algorithm that is widely used for edge detection. It involves smoothing the image, calculating the gradient, applying non-maximum suppression, and hysteresis thresholding to detect edges.
+- **Laplacian Operator**: The Laplacian operator is another edge detection algorithm that calculates the second derivative of the image to detect edges. It is sensitive to noise but can be used in conjunction with other algorithms to improve edge detection.
+
+### Sobel Operator
+
+In this blog we will be Understanding the Sobel Operator in finest details.
+
+The Sobel operator consists of two 3x3 kernels that are convolved with the image to calculate the gradient in the x and y directions. The kernels are as follows:
+
+- **Sobel X Kernel**:
+
+<BlockMath>{String.raw`\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}`}</BlockMath>
+
+- **Sobel Y Kernel**:
+
+<BlockMath>{String.raw`\begin{bmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{bmatrix}`}</BlockMath>
+
+The Sobel operator works by convolving these kernels with the image to calculate the gradient in the x and y directions. The gradient magnitude is then calculated by combining the x and y gradients using the following formula:
+
+<BlockMath>{String.raw`G = \sqrt{G_x^2 + G_y^2}`}</BlockMath>
+
+Where:
+- **G**: Gradient magnitude
+- **G_x**: Gradient in the x direction
+- **G_y**: Gradient in the y direction
+
+The gradient magnitude represents the strength of the edge at each pixel in the image. By thresholding the gradient magnitude, we can detect edges in the image.
+
+## Convolution in the Sobel Operator
+
+Convolution is a mathematical operation used in image processing to apply filters to images. In the context of the Sobel operator, convolution is used to calculate the gradient of the image in the x and y directions. The process involves sliding the Sobel kernels over the image and performing element-wise multiplication and summation.
+
+### Steps of Convolution
+
+1. **Kernel Placement**: Place the Sobel kernel at the top-left corner of the image.
+2. **Element-wise Multiplication**: Multiply each element of the kernel with the corresponding pixel value in the image.
+3. **Summation**: Sum all the products obtained from the element-wise multiplication.
+4. **Move the Kernel**: Move the kernel one pixel to the right and repeat the process until the entire image is covered.
+
+### Example
+
+Consider a 3x3 image and the Sobel X kernel:
+
+- **Image**:
+
+<BlockMath>{String.raw`\begin{bmatrix} 10 & 10 & 10 \\ 10 & 10 & 10 \\ 10 & 10 & 10 \end{bmatrix}`}</BlockMath>
+
+- **Sobel X Kernel**:
+
+<BlockMath>{String.raw`\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}`}</BlockMath>
+
+The convolution process for the top-left pixel is as follows:
+
+1. **Element-wise Multiplication**:
+
+<BlockMath>{String.raw`\begin{bmatrix} -1*10 & 0*10 & 1*10 \\ -2*10 & 0*10 & 2*10 \\ -1*10 & 0*10 & 1*10 \end{bmatrix}`}</BlockMath>
+
+2. **Summation**:
+
+<BlockMath>{String.raw`(-10 + 0 + 10) + (-20 + 0 + 20) + (-10 + 0 + 10) = 0`}</BlockMath>
+
+The result of the convolution for the top-left pixel is 0. This process is repeated for all pixels in the image to obtain the gradient in the x direction.
+
+By performing convolution with both the Sobel X and Y kernels, we can calculate the gradients in the x and y directions, which are then combined to detect edges in the image.
+
+## Implementing Sobel Operator in Python
+
+Let's implement the Sobel operator in Python to detect edges in a grayscale image. We will use the OpenCV library to read the image and apply the Sobel operator.
+
+```python
+import cv2
+import numpy as np
+
+# Read the image
+image = cv2.imread('image.jpg', cv2.IMREAD_GRAYSCALE)
+
+# Apply the Sobel operator
+sobelx = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
+
+sobely = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
+
+# Calculate the gradient magnitude
+gradient_magnitude = np.sqrt(sobelx**2 + sobely**2)
+
+# Threshold the gradient magnitude
+threshold = 100
+
+edges = np.where(gradient_magnitude > threshold, 255, 0)
+
+# Display the edges
+cv2.imshow('Edges', edges)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+In this code snippet, we first read the grayscale image using the `cv2.imread()` function. We then apply the Sobel operator in the x and y directions using the `cv2.Sobel()` function. The gradient magnitude is calculated by combining the x and y gradients, and edges are detected by thresholding the gradient magnitude. Finally, we display the edges using the `cv2.imshow()` function.
+
+By running this code, we can detect edges in a grayscale image using the Sobel operator. This technique can be used to identify boundaries, contours, and shapes in an image, making it a powerful tool in image processing and computer vision applications.
+
 ## Conclusion
 
 In this post, we explored how computers store black and white images as a 2D matrix. We learned that each pixel in the image is represented by an element in the matrix, with the value of the element representing the color of the pixel. We also discussed how grayscale images can be represented as a 2D matrix, and how we can extract various properties of the image by analyzing the matrix.
