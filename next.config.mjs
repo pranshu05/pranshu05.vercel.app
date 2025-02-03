@@ -10,8 +10,6 @@ const nextConfig = {
         ];
     },
     env: {
-        GITHUB_ID: process.env.GITHUB_ID,
-        GITHUB_SECRET: process.env.GITHUB_SECRET,
         API_KEY: process.env.API_KEY,
         AUTH_DOMAIN: process.env.AUTH_DOMAIN,
         PROJECT_ID: process.env.PROJECT_ID,
@@ -20,7 +18,6 @@ const nextConfig = {
         APP_ID: process.env.APP_ID,
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
-        LASTFM_KEY: process.env.LASTFM_KEY,
     },
 };
 
