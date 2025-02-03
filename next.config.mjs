@@ -1,25 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    images: {
-        remotePatterns: [
+    async rewrites() {
+        return [
             {
-                protocol: 'https',
-                hostname: 'images.unsplash.com'
-            },
-            {
-                protocol: 'https',
-                hostname: 'lastfm.freetls.fastly.net',
-            },
-            {
-                protocol: 'https',
-                hostname: 'github.com',
-            },
-            {
-                protocol: 'https',
-                hostname: 'i.imgur.com',
+                source: "/api/tunestats/:path*", 
+                destination: "https://tunestats.vercel.app/:path*",
             }
-        ],
+        ];
     },
     env: {
         GITHUB_ID: process.env.GITHUB_ID,
