@@ -16,7 +16,6 @@ export interface Post {
 }
 
 const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
-
     const postsByYear: { [year: string]: Post[] } = posts.reduce((acc, post) => {
         const year = post.frontmatter.date.slice(-4);
         acc[year] = [...(acc[year] || []), post];
@@ -24,25 +23,23 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
     }, {});
 
     return (
-        <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
+        <>
             <Head>
                 <title>Posts | Pranshu05</title>
                 <meta name="og:description" content="Technical Blog-Page by Pranshu05." />
                 <meta name="og:title" content="Posts | Pranshu05" />
             </Head>
-            <div className='pb-8'>
-                <h1 className='text-3xl font-bold text-zinc-100'>Posts</h1>
-                <p>Welcome to my post page! I write some cool stuff here. Feel free to read 😅</p>
+            <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
+                <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Posts</h1>
+                <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my post page! I write some cool stuff here. Feel free to read 😅. My RSS feed is available{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                {Object.entries(postsByYear).map(([year, yearPosts]) => (
+                    <div key={year}>
+                        <h2 className="text-xl font-bold my-4 text-zinc-100 border-b border-zinc-800 pb-4">{year}</h2>
+                        <BlogPostList posts={yearPosts} />
+                    </div>
+                ))}
             </div>
-            <p className='mb-4'>My RSS feed is available{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">here</a>.</p>
-            {Object.entries(postsByYear).map(([year, yearPosts]) => (
-                <div key={year}>
-                    <h2 className='text-2xl font-bold'>{year}</h2>
-                    <hr className='g-hr' />
-                    <BlogPostList posts={yearPosts} />
-                </div>
-            ))}
-        </div>
+        </>
     );
 };
 

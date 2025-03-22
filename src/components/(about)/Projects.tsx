@@ -1,4 +1,4 @@
-import { FaGlobe, FaGithub } from "react-icons/fa";
+import { Globe, Github } from "lucide-react";
 
 const projects = [
     {
@@ -31,15 +31,19 @@ const projects = [
 ]
 
 const Projects: React.FC = () => (
-    <div className="w-full my-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="w-full mt-4 mb-8 space-y-4">
         {projects.map(({ title, description, techStack, github, website }, index) => (
-            <div className="bg-transparent outline outline-[2px] outline-zinc-700 rounded-lg w-full p-4 flex flex-col gap-2" key={index}>
-                <div className="text-xl font-bold">{title}</div>
-                <div>{description}</div>
-                <div className="flex gap-2">{techStack.map((tech, index) => (<div key={index} className="rounded-lg bg-zinc-900 p-[6px] text-sm">{tech}</div>))}</div>
-                <div className="flex gap-2 text-xs">
-                    {github && <a href={github} target="_blank" className="text-xl my-1"><FaGithub /></a>}
-                    {website && <a href={website} target="_blank" className="text-xl my-1"><FaGlobe /></a>}
+            <div key={index} className="border-t border-zinc-800 pt-4">
+                <h3 className="text-base font-medium mb-1">{title}</h3>
+                <p className="text-sm mb-2">{description}</p>
+                <div className="flex flex-wrap gap-2 mb-3">{techStack.map((t) => (<span key={t} className="text-xs text-zinc-400">{t}</span>))}</div>
+                <div className="flex gap-3">
+                    {github && (
+                        <a href={github} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Github className="w-4 h-4" /></a>
+                    )}
+                    {website && (
+                        <a href={website} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Globe className="w-4 h-4" /></a>
+                    )}
                 </div>
             </div>
         ))}
