@@ -3,7 +3,7 @@ const Footer: React.FC = () => (
         <div className="border-t border-zinc-900 text-sm">
             <div className="flex items-center pt-2 justify-between">
                 <p className="text-zinc-400">© {new Date().getFullYear()} </p>
-                <a href="https://github.com/pranshu05" target="_blank" rel="noopener noreferrer" className="link text-zinc-400">Pranshu Patel</a>
+                <a aria-label='Links do not have a discernible name' href="https://github.com/pranshu05" target="_blank" rel="noopener noreferrer" className="link text-zinc-400">Pranshu Patel</a>
             </div>
         </div>
     </footer>

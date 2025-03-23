@@ -72,6 +72,8 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .post ul,
@@ -96,6 +98,8 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .post blockquote {
@@ -137,7 +141,8 @@
 }
 
 .katex {
-  color: #Cfffff;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 nav a {

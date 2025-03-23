@@ -2,7 +2,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const NavBar: React.FC = () => {
-    const path = usePathname()
+    const path = usePathname() ?? ""
     const routes = ["/about", "/posts", "/gallery"]
 
     return (
@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
                 <div className="flex gap-4 items-center justify-center">
                     {routes.map((route) => (
                         <Link key={route} href={route} passHref>
-                            <p className={`transition-colorstext-sm ${path === route ? "text-zinc-100" : "text-zinc-500 hover:text-zinc-300"} transition-colors`}>{route === "/" ? "/" : route.substring(1)}</p>
+                            <p className={`transition-colorstext-sm ${path.startsWith(route) ? "text-zinc-100" : "text-zinc-400 hover:text-zinc-300"} transition-colors`}>{route === "/" ? "/" : route.substring(1)}</p>
                         </Link>
                     ))}
                 </div>

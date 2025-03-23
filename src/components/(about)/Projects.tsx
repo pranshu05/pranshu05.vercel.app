@@ -39,10 +39,10 @@ const Projects: React.FC = () => (
                 <div className="flex flex-wrap gap-2 mb-3">{techStack.map((t) => (<span key={t} className="text-xs text-zinc-400">{t}</span>))}</div>
                 <div className="flex gap-3">
                     {github && (
-                        <a href={github} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Github className="w-4 h-4" /></a>
+                        <a aria-label='Links do not have a discernible name' href={github} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Github className="w-4 h-4" /></a>
                     )}
                     {website && (
-                        <a href={website} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Globe className="w-4 h-4" /></a>
+                        <a aria-label='Links do not have a discernible name' href={website} className="text-zinc-400 hover:text-zinc-100 transition-colors"><Globe className="w-4 h-4" /></a>
                     )}
                 </div>
             </div>

@@ -26,7 +26,7 @@ const techs = [
 const TechStack: React.FC = () => (
     <div className="flex gap-1 md:gap-2 flex-wrap mb-6">
         {techs.map(({ icon, href, name }, index) => (
-            <a key={index} className="text-sm flex items-center justify-center p-2 gap-2 bg-zinc-900" href={href} target="_blank" rel="noopener noreferrer">{icon}{name}</a>
+            <a aria-label='Links do not have a discernible name' key={index} className="text-sm flex items-center justify-center p-2 gap-2 bg-zinc-900" href={href} target="_blank" rel="noopener noreferrer">{icon}{name}</a>
         ))}
     </div>
 );

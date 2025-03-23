@@ -30,7 +30,7 @@ const MusicGrid: React.FC = () => {
             <p className="text-zinc-300 text-sm leading-relaxed mb-6">I love listening to music while coding. Here are a few songs that filled my past week with colors!!</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mx-auto">
                 {topTracks.map((track: any, index: number) => (
-                    <a key={index} href={`https://tunestats.vercel.app/track/${track.trackId}`} target="_blank" className="flex flex-col items-center" rel="noreferrer">
+                    <a aria-label='Links do not have a discernible name' key={index} href={`https://tunestats.vercel.app/track/${track.trackId}`} target="_blank" className="flex flex-col items-center" rel="noreferrer">
                         <img className="w-full" src={track.trackAlbumImage || "/placeholder.svg"} alt={`${track.trackName}`} />
                     </a>
                 ))}
