@@ -68,7 +68,7 @@ const ImageGallery: React.FC = () => {
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 backdrop backdrop-blur-md" onClick={closeFullscreen}>
                     <div className="relative h-dvh w-dvw flex items-center">
-                        <img className="max-w-full max-h-full w-auto h-auto my-auto mx-auto" width={1000} height={1000} src={imageData[selectedImageIndex]?.urls.regular} alt="" />
+                        <img className="max-w-full max-h-full w-auto h-auto my-auto mx-auto" src={imageData[selectedImageIndex]?.urls.regular} alt="" />
                         <button className="absolute left-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-sm lg:text-lg" onClick={(e) => { e.stopPropagation(); navigateImage(-1); }}><MdNavigateBefore /></button>
                         <button className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer text-sm lg:text-lg" onClick={(e) => { e.stopPropagation(); navigateImage(1); }}><MdNavigateNext /></button>
                         <button className="absolute top-2 right-2 cursor-pointer text-sm lg:text-lg" onClick={(e) => { e.stopPropagation(); closeFullscreen(); }}><MdOutlineClose /></button>
