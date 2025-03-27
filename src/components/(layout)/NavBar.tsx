@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
     const routes = ["/about", "/posts", "/gallery"]
 
     return (
-        <header className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 max-w-3xl mx-auto py-8">
+        <header className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto py-8">
             <nav className="w-full flex items-center justify-between">
                 <Link href="/" passHref>
                     <p className={`transition-colorstext-sm ${path === '/' ? "text-zinc-100" : "text-zinc-500 hover:text-zinc-300"} transition-colors`}>/</p>

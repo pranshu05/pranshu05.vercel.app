@@ -34,7 +34,7 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
                 <meta name="og:description" content="Technical Blog-Page by Pranshu05." />
                 <meta name="og:title" content="Posts | Pranshu05" />
             </Head>
-            <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto'>
+            <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto'>
                 <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Posts</h1>
                 <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my post page! I write about the coolest tech stuff, often with a sprinkle of math and physics. Dive in and enjoy the nerdy goodness! My RSS feed is available{' '}<a aria-label='Links do not have a discernible name' className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS Feed</a>. 🚀</p>
                 {Object.entries(postsByYear).map(([year, yearPosts]) => (

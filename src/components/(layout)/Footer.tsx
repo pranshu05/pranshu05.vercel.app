@@ -1,5 +1,5 @@
 const Footer: React.FC = () => (
-    <footer className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 max-w-3xl mx-auto pt-8 pb-4">
+    <footer className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto pt-8 pb-4">
         <div className="border-t border-zinc-900 text-sm">
             <div className="flex items-center pt-2 justify-between">
                 <p className="text-zinc-400">© {new Date().getFullYear()} </p>

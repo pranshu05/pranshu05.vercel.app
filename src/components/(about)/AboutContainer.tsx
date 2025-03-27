@@ -4,7 +4,7 @@ import MusicGrid from "@/components/(about)/MusicGrid"
 
 const AboutContainer: React.FC = () => {
     return (
-        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2 mx-auto">
+        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto">
             <h1 className="text-2xl font-bold text-zinc-100 mb-6">About me!</h1>
             <p className="text-zinc-300 text-sm leading-relaxed mb-6">Hey there! 👋🏻 I&apos;m Pranshu, a full-stack developer and uni sophomore based in India, pursuing B.Tech. in ICT from{" "}<a aria-label='Links do not have a discernible name' className="link" href="https://daiict.ac.in" target="_blank" rel="noopener noreferrer">DA-IICT</a>. A technology nerd who likes to code and listen to music instead of focusing on studies. I attend my uni lectures to fulfill my attendance quota. Fun fact: I can write code faster than I can decide what to eat for lunch. Also, I once tried to fix a bug for 6 hours, only to realize it was a missing semicolon. True story!</p>
             <h2 className="text-xl font-bold my-4 text-zinc-100">My Story</h2>

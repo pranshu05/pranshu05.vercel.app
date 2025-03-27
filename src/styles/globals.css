@@ -162,8 +162,7 @@ nav a {
 }
 
 ::selection {
-  background: rgb(212 212 216);
-  color: rgb(10 10 10);
+  background: rgb(40, 40, 40);
 }
 
 .my-masonry-grid {
