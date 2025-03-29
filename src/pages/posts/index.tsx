@@ -16,11 +16,13 @@ export interface Post {
 }
 
 const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
-    const postsByYear: { [year: string]: Post[] } = posts.reduce((acc, post) => {
-        const year = post.frontmatter.date.slice(-4);
+    const postsByYear = posts.reduce((acc, post) => {
+        const year = new Date(post.frontmatter.date).getFullYear().toString();
         acc[year] = [...(acc[year] || []), post];
         return acc;
-    }, {});
+    }, {} as { [year: string]: Post[] });
+
+    const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
     return (
         <>
@@ -37,10 +39,10 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
             <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto'>
                 <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Posts</h1>
                 <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my post page! I write about the coolest tech stuff, often with a sprinkle of math and physics. Dive in and enjoy the nerdy goodness! My RSS feed is available{' '}<a aria-label='Links do not have a discernible name' className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS Feed</a>. 🚀</p>
-                {Object.entries(postsByYear).map(([year, yearPosts]) => (
+                {sortedYears.map((year) => (
                     <div key={year}>
                         <h2 className="text-xl font-bold my-4 text-zinc-100 border-b border-zinc-800 pb-4">{year}</h2>
-                        <BlogPostList posts={yearPosts} />
+                        <BlogPostList posts={postsByYear[year]} />
                     </div>
                 ))}
             </div>
