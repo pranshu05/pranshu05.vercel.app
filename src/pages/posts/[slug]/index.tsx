@@ -68,6 +68,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto">
             <Head>
                 <title>{title}</title>
+                <meta name="title" content={title} />
                 <meta name="description" content={description} />
                 <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
                 <meta name="author" content="Pranshu Patel" />

@@ -28,6 +28,7 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
         <>
             <Head>
                 <title>Posts | Pranshu05</title>
+                <meta name="title" content='Posts | Pranshu05' />
                 <meta name="description" content="Technical Blog-Page by Pranshu05." />
                 <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
                 <meta name="author" content="Pranshu Patel" />

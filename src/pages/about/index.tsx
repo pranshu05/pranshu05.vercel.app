@@ -5,6 +5,7 @@ const AboutPage: React.FC = () => (
     <>
         <Head>
             <title>About | Pranshu05</title>
+            <meta name="title" content='About | Pranshu05' />
             <meta name="description" content="Portfolio website of Pranshu Patel." />
             <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
             <meta name="author" content="Pranshu Patel" />

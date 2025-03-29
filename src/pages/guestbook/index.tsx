@@ -5,6 +5,7 @@ const Guestbook: React.FC = () => (
     <>
         <Head>
             <title>Guestbook | Pranshu05</title>
+            <meta name="title" content='Guestbook | Pranshu05' />
             <meta name="description" content="Guestbook of Pranshu Patel." />
             <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
             <meta name="author" content="Pranshu Patel" />
