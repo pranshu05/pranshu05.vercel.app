@@ -7,11 +7,10 @@ const MusicGrid: React.FC = () => {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        fetch(`/api/tunestats/api/getUserTopTracks?userId=awgtjjqdxae0pw5as3bcadxcd&timeRange=week`)
+        fetch(`/api/tunestats/api/user/awgtjjqdxae0pw5as3bcadxcd/top-tracks`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
-                setTopTracks(data.topTracks.slice(0, 6))
+                setTopTracks(data.slice(0, 6))
                 setLoading(false)
             })
             .catch((error) => {
@@ -31,7 +30,7 @@ const MusicGrid: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mx-auto">
                 {topTracks.map((track: any, index: number) => (
                     <a aria-label='Links do not have a discernible name' key={index} href={`https://tunestats.vercel.app/track/${track.trackId}`} target="_blank" className="flex flex-col items-center" rel="noreferrer">
-                        <img className="w-full" src={track.trackAlbumImage || "/placeholder.svg"} alt={`${track.trackName}`} />
+                        <img className="w-full" src={track.albumImage || "/placeholder.svg"} alt={`${track.name}`} />
                     </a>
                 ))}
             </div>
