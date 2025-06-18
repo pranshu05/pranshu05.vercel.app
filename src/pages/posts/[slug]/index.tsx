@@ -5,11 +5,9 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from "rehype-highlight";
 import Head from 'next/head';
-
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
 import BlogContent from '@/components/(posts)/(slug)/BlogContent';
 import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
-
 import langPython from "highlight.js/lib/languages/python"
 import langJava from "highlight.js/lib/languages/java"
 import langCPP from "highlight.js/lib/languages/cpp"
@@ -28,7 +26,6 @@ const languages = {
     sh: langBash,
     js: langJS
 };
-
 
 interface Frontmatter {
     title: string;

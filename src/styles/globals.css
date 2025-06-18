@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
 .main-content {
-  display: none;
+    display: none;
 }
 
 .main-content-loaded {
-  display: flex;
+    display: flex;
 }
 
 .link,
 .post a {
-  text-decoration-line: underline;
-  text-decoration-color: rgb(63 63 70);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
-  transition-property: all;
-  transition-timing-function: ease-in-out;
-  transition-duration: 300ms;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(63 63 70);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
 }
 
 .link:hover,
 .post a:hover {
-  text-decoration-color: rgb(212, 212, 216);
+    text-decoration-color: rgb(212, 212, 216);
 }
 
 .post h1,
@@ -38,140 +38,141 @@
 .post h4,
 .post h5,
 .post h6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: rgb(244 244 245);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: rgb(244 244 245);
 }
 
 .post h1 {
-  font-size: 1.25rem;
+    font-size: 1.25rem;
 }
 
 .post h2 {
-  font-size: 1.125rem;
+    font-size: 1.125rem;
 }
 
 .post h3 {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .post h4 {
-  font-size: 0.875rem;
+    font-size: 0.875rem;
 }
 
 .post h5 {
-  font-size: 0.75rem;
+    font-size: 0.75rem;
 }
 
 .post h6 {
-  font-size: 0.625rem;
+    font-size: 0.625rem;
 }
 
 .post p {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .post ul,
 .post ol {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 
 .post ul {
-  list-style: disc;
+    list-style: disc;
 }
 
 .post ol {
-  list-style: decimal;
+    list-style: decimal;
 }
 
 .post li {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .post blockquote {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 400;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid #8a8a8a;
-  padding-left: 0.75rem;
-  font-family: 'Courier New', Courier, monospace;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #8a8a8a;
+    padding-left: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .post code {
-  color: #c9d1d9;
-  background: #0d1117;
-  padding: 0.1rem 0.3rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+    color: #c9d1d9;
+    background: #0d1117;
+    padding: 0.1rem 0.3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 }
 
 .post hr {
-  border-color: rgb(39 39 42);
-  border-width: 1px;
-  margin: 32px 0;
+    border-color: rgb(39 39 42);
+    border-width: 1px;
+    margin: 32px 0;
 }
 
 .g-hr {
-  border-color: rgb(39 39 42);
-  border-width: 1px;
-  margin: 10px 0;
+    border-color: rgb(39 39 42);
+    border-width: 1px;
+    margin: 10px 0;
 }
 
 .post img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
 }
 
 .katex {
-  color: #ffffff;
-  font-weight: 700;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 nav a {
-  transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(63, 63, 70, 0.55);
+    background: rgba(63, 63, 70, 0.55);
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(10 10 10);
+    background: rgb(10 10 10);
 }
 
 ::selection {
-  background: rgb(40, 40, 40);
+    background: rgb(40, 40, 40);
 }
 
 .my-masonry-grid {
-  display: flex;
-  margin-left: -7.5px;
-  width: auto;
+    display: flex;
+    margin-left: -7.5px;
+    width: auto;
 }
 
 .my-masonry-grid_column {
-  padding-left: 7.5px;
-  background-clip: padding-box;
+    padding-left: 7.5px;
+    background-clip: padding-box;
 }
