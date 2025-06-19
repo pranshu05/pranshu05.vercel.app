@@ -5,6 +5,7 @@ import type { AppProps } from "next/app"
 import NavBar from "@/components/(layout)/NavBar"
 import Footer from "@/components/(layout)/Footer"
 import Preloader from "@/components/(layout)/Preloader"
+import CRTOverlay from "@/components/(layout)/CRTOverlay"
 
 const font = Space_Grotesk({
     weight: '400',
@@ -45,6 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 </div>
                 <Footer />
             </div>
+            <CRTOverlay />
         </>
     )
 }
