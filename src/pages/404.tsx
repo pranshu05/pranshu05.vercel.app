@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import Head from 'next/head';
+import Game from '@/components/(layout)/Game';
 
 const Custom404: React.FC = () => {
 	return (
@@ -15,10 +16,11 @@ const Custom404: React.FC = () => {
 				<meta name="og:description" content="Portfolio website of Pranshu Patel." />
 				<meta name="og:title" content="Pranshu05 | Portfolio" />
 			</Head>
-			<img src={'https://i.imgur.com/xVIfdHm.gif'} className='rounded-md grayscale' alt="404" width={300} height={300} />
+			<img src={'https://i.imgur.com/xVIfdHm.gif'} className='rounded-md grayscale max-w-xl w-full' alt="404" width={300} height={300} />
 			<p className="text-lg">H-hewwo?? 404 page nut found!! ^•ﻌ•^</p>
 			<p className="text-md">It seems you&apos;ve wandered off the beaten path, but don&apos;t worry, I&apos;ll guide you back home! UwU</p>
 			<Link className='link text-sm' href={'/'} >OWO go back home :P</Link>
+			<Game />
 		</div>
 	);
 };
