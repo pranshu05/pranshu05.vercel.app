@@ -1,0 +1,180 @@
+---
+title: "next-api-analyzer"
+date: "Jul 6, 2025"
+description: "I built a Next.js API route analyzer that actually finds real problems"
+readTime: 4
+---
+
+You know that feeling when you're staring at a 500 error in production at 2 AM, wondering which of your 47 API routes is the culprit? Yeah, I've been there. Too many times.
+
+Last month in one of my projects, I had a security incident where an unauthenticated endpoint was accidentally exposed in production. The endpoint had been sitting there for weeks. That was my breaking point.
+
+I spent the next few weekends building something I wish I had months ago: **next-api-analyzer** - a comprehensive tool that actually understands your Next.js API routes and tells you what's wrong with them.
+
+## The Problem with Manual API Reviews
+
+- Missing authentication on sensitive endpoints
+- Hardcoded secrets
+- SQL injection vulnerabilities
+- Performance bottlenecks
+- Routes that are way too complex
+- Missing input validation
+
+But when you have dozens of routes, things slip through the cracks. I needed something that could scan everything automatically and give me actionable insights.
+
+## What I Built
+
+The analyzer uses TypeScript's AST (Abstract Syntax Tree) to actually parse your code - not just regex matching like most tools. It understands the difference between:
+
+```js
+// This is fine
+const user = await db.user.findUnique({ where: { id } })
+
+// This is a SQL injection waiting to happen
+const user = await db.query(`SELECT * FROM users WHERE id = ${id}`)
+```
+
+Here's what it catches:
+
+### Security Issues
+
+- **Authentication gaps**: Finds POST/PUT/DELETE routes without auth
+- **Hardcoded secrets**: Spots API keys and passwords in your code
+- **SQL injection patterns**: Detects dangerous query construction
+- **CORS misconfigurations**: Catches overly permissive CORS settings
+- **Path traversal vulnerabilities**: Finds unsafe file operations
+
+### Performance Problems
+
+- **Blocking operations**: Identifies synchronous file operations that kill performance
+- **Missing caching**: Spots external API calls without caching
+- **High complexity routes**: Calculates cyclomatic complexity
+- **Memory leaks**: Detects patterns that cause memory issues
+- **Inefficient database queries**: Finds N+1 problems and missing indexes
+
+### Code Quality Issues
+
+- **Large functions**: Routes with too many lines of code
+- **Missing documentation**: Routes without proper JSDoc comments
+- **Inconsistent error handling**: Different error patterns across routes
+- **Missing input validation**: Routes that don't validate request data
+
+## Real Example: What It Found in My Codebase
+
+I ran it on a project I've been working on, and honestly, I was embarrassed by what it found:
+
+```sh
+🔐 Security Report
+─────────────────────────────────────────────────────
+Security Score: 73.2%
+Secure Routes: 8/12
+Risk Distribution:
+  🔴 CRITICAL: 0 route
+  🟠 HIGH: 2 routes  
+  🟡 MEDIUM: 4 routes
+  🟢 LOW: 6 routes
+
+Top Security Issues:
+  1. ⚠️ Missing Authentication (HIGH)
+     Route: /api/comments/[id]
+     Solution: Add authentication middleware
+
+  2. ⚠️ SQL Injection Risk (HIGH)
+     Route: /api/search
+     Solution: Use parameterized queries
+```
+
+The missing auth on the comments route? That was supposed to be temporary during development.
+
+## How to Use It
+
+Installation is straightforward:
+
+```sh
+npm install -g next-api-analyzer
+```
+
+Then run it in your Next.js project:
+
+```sh
+# Basic analysis
+npx next-api-analyzer analyze
+
+# Security-focused audit
+npx next-api-analyzer security --fail-on-threshold
+
+# Performance analysis with benchmarks
+npx next-api-analyzer performance --benchmark
+```
+
+For CI/CD integration, it exports SARIF format for GitHub Security tab:
+
+```sh
+npx next-api-analyzer security --export-sarif
+```
+
+## The CLI is Just the Beginning
+
+The real power comes from the programmatic API. You can integrate it into your build process:
+
+```typescript
+import { NextApiAnalyzer } from 'next-api-analyzer'
+
+const analyzer = new NextApiAnalyzer({
+  thresholds: {
+    security: 90,
+    performance: 80,
+    maintainability: 75
+  }
+})
+
+const analysis = await analyzer.analyzeRoutes()
+
+if (analysis.summary.securityScore < 90) {
+  throw new Error('Security threshold not met')
+}
+```
+
+I've also built a plugin system. Want to check for your company's specific patterns? Write a plugin:
+
+```js
+export class CustomSecurityPlugin implements AnalyzerPlugin {
+  async analyze(route, content, context) {
+    if (this.hasCustomVulnerability(content)) {
+      return {
+        recommendations: [{
+          type: 'SECURITY',
+          severity: 'HIGH',
+          title: 'Custom Security Issue',
+          solution: 'Fix this specific pattern'
+        }]
+      }
+    }
+  }
+}
+```
+
+## What's Next
+
+I'm working on a few more features:
+
+- **OpenAPI generation**: Auto-generate docs from your routes
+- **More integrations**: GitLab CI, Azure DevOps, etc.
+
+The tool is open source and available on npm.
+
+## Try It Out
+
+If you're dealing with similar API maintenance headaches, give it a shot:
+
+```sh
+npx next-api-analyzer analyze
+```
+
+It takes about 10 seconds to analyze a typical Next.js project, and I guarantee it'll find something you didn't know was there.
+
+The worst that happens? You confirm your APIs are actually as secure and performant as you thought. The best case? You catch a critical security issue before your users do.
+
+---
+
+*You can find the full source code and documentation on [GitHub](https://github.com/pranshu05/next-api-analyzer). If you find any bugs or have feature requests, please open an issue - I'm actively maintaining this and would love your feedback.*
