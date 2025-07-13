@@ -21,7 +21,7 @@ const ImageGalleryPage: React.FC = () => {
 
     return (
         <>
-            <MetaTags title="Photography Gallery | Pranshu05" description="Explore my photography gallery featuring campus birds and nature photography. Member of PMMC (Photography and Movie Making Club) at DA-IICT. View more on my Unsplash profile." keywords="Photography, Gallery, Nature Photography, Bird Photography, Campus Photography, PMMC, DA-IICT, Unsplash, Pranshu Patel" canonicalUrl="/gallery" structuredData={structuredData} />
+            <MetaTags title="Photography Gallery | Pranshu05" ogImage={ogImage} description="Explore my photography gallery featuring campus birds and nature photography. Member of PMMC (Photography and Movie Making Club) at DA-IICT. View more on my Unsplash profile." keywords="Photography, Gallery, Nature Photography, Bird Photography, Campus Photography, PMMC, DA-IICT, Unsplash, Pranshu Patel" canonicalUrl="/gallery" structuredData={structuredData} />
             <GalleryContainer />
         </>
     )

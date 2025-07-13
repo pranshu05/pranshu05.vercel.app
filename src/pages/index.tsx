@@ -45,7 +45,7 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <MetaTags title="Pranshu05 | Full Stack Developer Portfolio" description="Full-stack developer and university student from India. Specializing in React, Next.js, TypeScript, and modern web technologies. Explore my projects, blog posts, and photography." keywords="Pranshu Patel, Pranshu05, Full Stack Developer, React Developer, Next.js, TypeScript, JavaScript, Web Developer, Portfolio, India, DA-IICT" canonicalUrl="/" structuredData={structuredData} />
+            <MetaTags title="Pranshu05 | Full Stack Developer Portfolio" ogImage={ogImage} description="Full-stack developer and university student from India. Specializing in React, Next.js, TypeScript, and modern web technologies. Explore my projects, blog posts, and photography." keywords="Pranshu Patel, Pranshu05, Full Stack Developer, React Developer, Next.js, TypeScript, JavaScript, Web Developer, Portfolio, India, DA-IICT" canonicalUrl="/" structuredData={structuredData} />
             <HomeContainer />
         </>
     )

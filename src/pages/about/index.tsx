@@ -28,7 +28,7 @@ const AboutPage: React.FC = () => {
 
     return (
         <>
-            <MetaTags title="About | Pranshu05" description="Learn more about Pranshu Patel - a full-stack developer and university student from India. Discover my journey, tech stack, projects, and interests in web development and photography." keywords="About Pranshu Patel, Full Stack Developer, React, Next.js, TypeScript, DA-IICT, Web Development, Programming, Tech Stack" canonicalUrl="/about" structuredData={structuredData} />
+            <MetaTags title="About | Pranshu05" ogImage={ogImage} description="Learn more about Pranshu Patel - a full-stack developer and university student from India. Discover my journey, tech stack, projects, and interests in web development and photography." keywords="About Pranshu Patel, Full Stack Developer, React, Next.js, TypeScript, DA-IICT, Web Development, Programming, Tech Stack" canonicalUrl="/about" structuredData={structuredData} />
             <AboutContainer />
         </>
     )

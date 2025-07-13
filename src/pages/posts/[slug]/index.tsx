@@ -94,7 +94,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
 
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto">
-            <MetaTags title={title}description={description}keywords={`${title}, Programming, Web Development, Technology, Tutorial, Pranshu Patel`}ogImage={ogImage}ogType="article"canonicalUrl={`/posts/${slug}`}publishedTime={publishedTime}modifiedTime={publishedTime}twitterCard="summary_large_image"structuredData={structuredData}/>
+            <MetaTags title={title} description={description} keywords={`${title}, Programming, Web Development, Technology, Tutorial, Pranshu Patel`} ogImage={ogImage} ogType="article" canonicalUrl={`/posts/${slug}`} publishedTime={publishedTime} modifiedTime={publishedTime} twitterCard="summary_large_image" structuredData={structuredData} />
             <div className="py-28 text-center">
                 <MetaInfo date={date} readTime={readTime} viewCount={viewCount} />
                 <h1 className="text-5xl font-bold text-zinc-100 mt-4 mb-6">{title}</h1>

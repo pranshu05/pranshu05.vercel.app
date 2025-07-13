@@ -54,7 +54,7 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
 
     return (
         <>
-            <MetaTags title="Technical Blog Posts | Pranshu05" description="Technical blog posts about web development, programming, and technology by Pranshu Patel. Covering React, Next.js, TypeScript, algorithms, and more." keywords="Technical Blog, Programming, Web Development, React, Next.js, TypeScript, JavaScript, Tutorials, Pranshu Patel" canonicalUrl="/posts" structuredData={structuredData} />
+            <MetaTags title="Technical Blog Posts | Pranshu05" ogImage={ogImage} description="Technical blog posts about web development, programming, and technology by Pranshu Patel. Covering React, Next.js, TypeScript, algorithms, and more." keywords="Technical Blog, Programming, Web Development, React, Next.js, TypeScript, JavaScript, Tutorials, Pranshu Patel" canonicalUrl="/posts" structuredData={structuredData} />
             <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto'>
                 <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Technical Blog</h1>
                 <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my technical blog! I write about web development, programming concepts, and the latest in tech. Dive into topics covering React, Next.js, TypeScript, algorithms, and more. My RSS feed is available at{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS Feed</a>. 🚀</p>
