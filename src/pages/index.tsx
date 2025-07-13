@@ -6,14 +6,17 @@ const HomeContainer = dynamic(() => import("@/components/(home)/HomeContainer"),
 });
 
 const Home: React.FC = () => {
+    const title = "Pranshu Patel | Full Stack Developer Portfolio";
+    const description = "Full-stack developer and university student from India. Specializing in React, Next.js, TypeScript, and modern web technologies. Explore my projects, blog posts, and photography.";
+    const ogImage = `https://pranshu05.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Pranshu Patel",
+        "image": ogImage,
         "alternateName": "Pranshu05",
         "description": "Full-stack developer and university student specializing in React, Next.js, and modern web technologies",
         "url": "https://pranshu05.vercel.app",
-        "image": "https://pranshu05.vercel.app/og-image.png",
         "sameAs": [
             "https://github.com/pranshu05",
             "https://linkedin.com/in/pranshu05",

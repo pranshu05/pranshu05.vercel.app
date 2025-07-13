@@ -2,9 +2,13 @@ import AboutContainer from "@/components/(about)/AboutContainer"
 import MetaTags from "@/components/SEO/MetaTags"
 
 const AboutPage: React.FC = () => {
+    const title = "About | Pranshu Patel";
+    const description = "Learn more about Pranshu Patel - a full-stack developer and university student from India. Discover my journey, tech stack, projects, and interests in web development and photography.";
+    const ogImage = `https://pranshu05.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "AboutPage",
+        "image": ogImage,
         "mainEntity": {
             "@type": "Person",
             "name": "Pranshu Patel",

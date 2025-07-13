@@ -25,10 +25,14 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
 
     const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
+    const title = "Technical Blog Posts | Pranshu05";
+    const description = "Technical blog posts about web development, programming, and technology by Pranshu Patel. Covering React, Next.js, TypeScript, algorithms, and more.";
+    const ogImage = `https://pranshu05.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "Blog",
         "name": "Pranshu05 Technical Blog",
+        "image": ogImage,
         "description": "Technical blog posts about web development, programming, and technology",
         "url": "https://pranshu05.vercel.app/posts",
         "author": {

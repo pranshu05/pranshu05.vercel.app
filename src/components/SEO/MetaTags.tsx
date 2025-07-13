@@ -14,19 +14,7 @@ interface MetaTagsProps {
     structuredData?: object;
 }
 
-const MetaTags: React.FC<MetaTagsProps> = ({
-    title,
-    description,
-    keywords = "Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Full Stack Developer, React, Next.js, TypeScript, JavaScript",
-    ogImage = "https://pranshu05.vercel.app/og-image.png",
-    ogType = "website",
-    canonicalUrl,
-    publishedTime,
-    modifiedTime,
-    author = "Pranshu Patel",
-    twitterCard = "summary_large_image",
-    structuredData
-}) => {
+const MetaTags: React.FC<MetaTagsProps> = ({ title, description, keywords = "Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Full Stack Developer, React, Next.js, TypeScript, JavaScript", ogType = "website", canonicalUrl, publishedTime, modifiedTime, author = "Pranshu Patel", twitterCard = "summary_large_image", structuredData }) => {
     const siteUrl = "https://pranshu05.vercel.app";
     const fullTitle = title.includes("Pranshu05") ? title : `${title} | Pranshu05`;
 
@@ -43,7 +31,6 @@ const MetaTags: React.FC<MetaTagsProps> = ({
             <meta property="og:description" content={description} />
             <meta property="og:type" content={ogType} />
             <meta property="og:url" content={canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl} />
-            <meta property="og:image" content={ogImage} />
             <meta property="og:site_name" content="Pranshu05 Portfolio" />
             <meta property="og:locale" content="en_US" />
             {publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -52,7 +39,6 @@ const MetaTags: React.FC<MetaTagsProps> = ({
             <meta name="twitter:card" content={twitterCard} />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={ogImage} />
             <meta name="twitter:creator" content="@pranshu_05" />
             <meta name="twitter:site" content="@pranshu_05" />
             <meta name="theme-color" content="#0a0a0a" />
