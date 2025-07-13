@@ -1,21 +1,33 @@
 import AboutContainer from "@/components/(about)/AboutContainer"
-import Head from "next/head"
+import MetaTags from "@/components/SEO/MetaTags"
 
-const AboutPage: React.FC = () => (
-    <>
-        <Head>
-            <title>About | Pranshu05</title>
-            <meta name="title" content='About | Pranshu05' />
-            <meta name="description" content="Portfolio website of Pranshu Patel." />
-            <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
-            <meta name="author" content="Pranshu Patel" />
-            <meta name="robots" content="index, follow" />
-            <meta name="og:type" content="website" />
-            <meta name="og:description" content="Portfolio website of Pranshu Patel." />
-            <meta name="og:title" content="Pranshu05 | Portfolio" />
-        </Head>
-        <AboutContainer />
-    </>
-)
+const AboutPage: React.FC = () => {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Pranshu Patel",
+            "alternateName": "Pranshu05",
+            "description": "Full-stack developer and university student pursuing B.Tech in ICT from DA-IICT",
+            "url": "https://pranshu05.vercel.app/about",
+            "knowsAbout": [
+                "React", "Next.js", "TypeScript", "JavaScript", "Node.js",
+                "MongoDB", "Firebase", "Tailwind CSS", "Web Development"
+            ],
+            "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Full Stack Developer"
+            }
+        }
+    };
+
+    return (
+        <>
+            <MetaTags title="About | Pranshu05" description="Learn more about Pranshu Patel - a full-stack developer and university student from India. Discover my journey, tech stack, projects, and interests in web development and photography." keywords="About Pranshu Patel, Full Stack Developer, React, Next.js, TypeScript, DA-IICT, Web Development, Programming, Tech Stack" canonicalUrl="/about" structuredData={structuredData} />
+            <AboutContainer />
+        </>
+    )
+}
 
 export default AboutPage

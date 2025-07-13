@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/og": "^0.7.2",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
     "gray-matter": "^4.0.3",

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-neutral-950 text-zinc-300 antialiased;
+    }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
@@ -14,22 +24,24 @@
 
 .main-content-loaded {
     display: flex;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .link,
 .post a {
-    text-decoration-line: underline;
-    text-decoration-color: rgb(63 63 70);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 2px;
-    transition-property: all;
-    transition-timing-function: ease-in-out;
-    transition-duration: 300ms;
-}
-
-.link:hover,
-.post a:hover {
-    text-decoration-color: rgb(212, 212, 216);
+    @apply text-zinc-300 underline decoration-zinc-600 decoration-2 underline-offset-2 transition-all duration-300 hover:text-zinc-100 hover:decoration-zinc-400;
 }
 
 .post h1,
@@ -38,142 +50,170 @@
 .post h4,
 .post h5,
 .post h6 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    color: rgb(244 244 245);
+    @apply mt-8 mb-4 font-bold text-zinc-100 scroll-mt-20;
 }
 
 .post h1 {
-    font-size: 1.25rem;
+    @apply text-2xl;
 }
 
 .post h2 {
-    font-size: 1.125rem;
+    @apply text-xl;
 }
 
 .post h3 {
-    font-size: 1rem;
+    @apply text-lg;
 }
 
 .post h4 {
-    font-size: 0.875rem;
+    @apply text-base;
 }
 
 .post h5 {
-    font-size: 0.75rem;
+    @apply text-sm;
 }
 
 .post h6 {
-    font-size: 0.625rem;
+    @apply text-xs;
 }
 
 .post p {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    @apply text-sm leading-relaxed my-4 text-zinc-300;
 }
 
 .post ul,
 .post ol {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+    @apply text-sm leading-relaxed my-4 ml-6 text-zinc-300;
 }
 
 .post ul {
-    list-style: disc;
+    @apply list-disc;
 }
 
 .post ol {
-    list-style: decimal;
+    @apply list-decimal;
 }
 
 .post li {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    @apply my-2;
 }
 
 .post blockquote {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-left: 4px solid #8a8a8a;
-    padding-left: 0.75rem;
-    font-family: 'Courier New', Courier, monospace;
+    @apply text-sm leading-relaxed my-6 border-l-4 border-zinc-600 pl-4 italic text-zinc-400 bg-zinc-900/30 py-2 rounded-r-lg;
 }
 
 .post code {
-    color: #c9d1d9;
-    background: #0d1117;
-    padding: 0.1rem 0.3rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    @apply text-zinc-100 bg-zinc-900 px-2 py-1 rounded text-sm font-mono;
+}
+
+.post pre {
+    @apply my-6 overflow-x-auto rounded-lg;
+}
+
+.post pre code {
+    @apply bg-transparent p-0;
 }
 
 .post hr {
-    border-color: rgb(39 39 42);
-    border-width: 1px;
-    margin: 32px 0;
-}
-
-.g-hr {
-    border-color: rgb(39 39 42);
-    border-width: 1px;
-    margin: 10px 0;
+    @apply border-zinc-800 my-8;
 }
 
 .post img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1rem auto;
+    @apply max-w-full h-auto block mx-auto my-6 rounded-lg shadow-lg;
+}
+
+.post table {
+    @apply w-full my-6 border-collapse;
+}
+
+.post th,
+.post td {
+    @apply border border-zinc-700 px-4 py-2 text-sm;
+}
+
+.post th {
+    @apply bg-zinc-800 font-semibold text-zinc-100;
 }
 
 .katex {
-    color: #ffffff;
-    font-weight: 700;
+    @apply text-zinc-100 font-bold;
     overflow-x: auto;
 }
 
 nav a {
-    transition: background 0.3s ease-in-out;
+    @apply transition-colors duration-300;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    @apply w-1 h-1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(63, 63, 70, 0.55);
+    @apply bg-zinc-600/50 rounded-full;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgb(10 10 10);
+    @apply bg-zinc-900;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-500/70;
 }
 
 ::selection {
-    background: rgb(40, 40, 40);
+    @apply bg-zinc-700 text-zinc-100;
 }
 
 .my-masonry-grid {
-    display: flex;
-    margin-left: -7.5px;
-    width: auto;
+    @apply flex -ml-[7.5px] w-auto;
 }
 
 .my-masonry-grid_column {
-    padding-left: 7.5px;
-    background-clip: padding-box;
+    @apply pl-[7.5px];
+}
+
+.focus-visible {
+    @apply outline-none ring-2 ring-zinc-400 ring-offset-2 ring-offset-zinc-900;
+}
+
+@keyframes pulse-subtle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+}
+
+.hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-zinc-500/10;
+}
+
+.skeleton {
+    @apply animate-pulse bg-zinc-800 rounded;
+}
+
+@media (max-width: 640px) {
+    .post h1 {
+        @apply text-xl;
+    }
+
+    .post h2 {
+        @apply text-lg;
+    }
+
+    .post h3 {
+        @apply text-base;
+    }
 }

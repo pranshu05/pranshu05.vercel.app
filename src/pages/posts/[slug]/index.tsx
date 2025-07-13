@@ -4,7 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from "rehype-highlight";
-import Head from 'next/head';
+import MetaTags from '@/components/SEO/MetaTags';
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
 import BlogContent from '@/components/(posts)/(slug)/BlogContent';
 import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
@@ -61,25 +61,46 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
         fetchViewCount();
     }, [slug]);
 
+    const publishedTime = new Date(date).toISOString();
+    const ogImage = `https://pranshu05.vercel.app/api/og?title=${encodeURIComponent(title)}`;
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": description,
+        "image": ogImage,
+        "author": {
+            "@type": "Person",
+            "name": "Pranshu Patel",
+            "url": "https://pranshu05.vercel.app"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Pranshu Patel",
+            "url": "https://pranshu05.vercel.app"
+        },
+        "datePublished": publishedTime,
+        "dateModified": publishedTime,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://pranshu05.vercel.app/posts/${slug}`
+        },
+        "wordCount": Math.ceil(readTime * 200),
+        "timeRequired": `PT${readTime}M`,
+        "articleSection": "Technology",
+        "keywords": ["Programming", "Web Development", "Technology", "Tutorial"]
+    };
+
     return (
         <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto">
-            <Head>
-                <title>{title}</title>
-                <meta name="title" content={title} />
-                <meta name="description" content={description} />
-                <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
-                <meta name="author" content="Pranshu Patel" />
-                <meta name="robots" content="index, follow" />
-                <meta name="og:type" content="website" />
-                <meta name="og:description" content={description} />
-                <meta name="og:title" color={title} />
-            </Head>
+            <MetaTags title={title} description={description} keywords={`${title}, Programming, Web Development, Technology, Tutorial, Pranshu Patel`} ogImage={ogImage} ogType="article" canonicalUrl={`/posts/${slug}`} publishedTime={publishedTime} modifiedTime={publishedTime} twitterCard="summary_large_image" structuredData={structuredData} />
             <div className="py-28 text-center">
                 <MetaInfo date={date} readTime={readTime} viewCount={viewCount} />
-                <h1 className="text-5xl font-bold text-zinc-100">{title}</h1>
-                <p className="text-lg mt-2 text-zinc-100">{description}</p>
+                <h1 className="text-5xl font-bold text-zinc-100 mt-4 mb-6">{title}</h1>
+                <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">{description}</p>
             </div>
-            <hr className='mt-8 mb-4' />
+            <hr className='mt-8 mb-4 border-zinc-800' />
             <BlogContent mdxSource={mdxSource} />
         </div>
     );

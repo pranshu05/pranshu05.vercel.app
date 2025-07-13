@@ -3,11 +3,12 @@ import path from 'path';
 import matter from 'gray-matter';
 import BlogPostList from '@/components/(posts)/BlogPostList';
 import { generateRSSFeed } from '../../lib/RSS';
-import Head from 'next/head';
+import MetaTags from '@/components/SEO/MetaTags';
 
 interface Frontmatter {
     title: string;
     date: string;
+    description?: string;
 }
 
 export interface Post {
@@ -24,22 +25,35 @@ const Blog: React.FC<{ posts: Post[] }> = ({ posts }) => {
 
     const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Pranshu05 Technical Blog",
+        "description": "Technical blog posts about web development, programming, and technology",
+        "url": "https://pranshu05.vercel.app/posts",
+        "author": {
+            "@type": "Person",
+            "name": "Pranshu Patel"
+        },
+        "blogPost": posts.slice(0, 10).map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.frontmatter.title,
+            "description": post.frontmatter.description || "",
+            "url": `https://pranshu05.vercel.app/posts/${post.slug}`,
+            "datePublished": new Date(post.frontmatter.date).toISOString(),
+            "author": {
+                "@type": "Person",
+                "name": "Pranshu Patel"
+            }
+        }))
+    };
+
     return (
         <>
-            <Head>
-                <title>Posts | Pranshu05</title>
-                <meta name="title" content='Posts | Pranshu05' />
-                <meta name="description" content="Technical Blog-Page by Pranshu05." />
-                <meta name="keywords" content="Pranshu Patel, Pranshu05, Portfolio, Developer, Designer, Engineer, Pranshu, Patel" />
-                <meta name="author" content="Pranshu Patel" />
-                <meta name="robots" content="index, follow" />
-                <meta name="og:type" content="website" />
-                <meta name="og:description" content="Technical Blog-Page by Pranshu05." />
-                <meta name="og:title" content="Posts | Pranshu05" />
-            </Head>
+            <MetaTags title="Technical Blog Posts | Pranshu05" description="Technical blog posts about web development, programming, and technology by Pranshu Patel. Covering React, Next.js, TypeScript, algorithms, and more." keywords="Technical Blog, Programming, Web Development, React, Next.js, TypeScript, JavaScript, Tutorials, Pranshu Patel" canonicalUrl="/posts" structuredData={structuredData} />
             <div className='w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto'>
-                <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Posts</h1>
-                <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my post page! I write about the coolest tech stuff, often with a sprinkle of math and physics. Dive in and enjoy the nerdy goodness! My RSS feed is available{' '}<a aria-label='Links do not have a discernible name' className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS Feed</a>. 🚀</p>
+                <h1 className='text-2xl font-bold text-zinc-100 mb-6'>Technical Blog</h1>
+                <p className="text-zinc-300 text-sm leading-relaxed mb-6">Welcome to my technical blog! I write about web development, programming concepts, and the latest in tech. Dive into topics covering React, Next.js, TypeScript, algorithms, and more. My RSS feed is available at{' '}<a className="link" href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS Feed</a>. 🚀</p>
                 {sortedYears.map((year) => (
                     <div key={year}>
                         <h2 className="text-xl font-bold my-4 text-zinc-100 border-b border-zinc-800 pb-4">{year}</h2>
@@ -63,7 +77,8 @@ export async function getStaticProps() {
             slug: fileName.replace(/\.mdx$/, ''),
             frontmatter: {
                 title: data.title || '',
-                date: data.date || ''
+                date: data.date || '',
+                description: data.description || ''
             },
         };
     });

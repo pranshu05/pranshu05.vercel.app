@@ -1,6 +1,6 @@
 import TechStack from "@/components/(about)/TechStack"
 import Projects from "@/components/(about)/Projects"
-import MusicGrid from "@/components/(about)/MusicGrid"
+import TopTracks from "@/components/(about)/TopTracks"
 
 const AboutContainer: React.FC = () => {
     return (
@@ -18,7 +18,8 @@ const AboutContainer: React.FC = () => {
             <h2 className="text-xl font-bold my-4 text-zinc-100">Let&apos;s connect</h2>
             <p className="text-zinc-300 text-sm leading-relaxed mb-6">I am always open to learning new technologies and love to work on new projects. If you have any project ideas or want to collaborate, feel free to reach out to me on{" "}<a aria-label='Links do not have a discernible name' className="link" href="https://twitter.com/pranshu_05" target="_blank" rel="noopener noreferrer">Twitter</a>{" "}[I may be delayed in responding at times].</p>
             <h2 className="text-xl font-bold my-4 text-zinc-100">Music</h2>
-            <MusicGrid />
+            <p className="text-zinc-300 text-sm leading-relaxed mb-6">I love listening to music while coding. Here are my top tracks from Last.fm that have been filling my week with colors!</p>
+            <TopTracks />
         </div>
     )
 }
