@@ -103,15 +103,7 @@
 }
 
 .post code {
-    @apply text-zinc-100 bg-zinc-900 px-2 py-1 rounded text-sm font-mono;
-}
-
-.post pre {
-    @apply my-6 overflow-x-auto rounded-lg;
-}
-
-.post pre code {
-    @apply bg-transparent p-0;
+    @apply text-zinc-100 bg-zinc-900/30 px-2 py-1 rounded text-sm font-mono;
 }
 
 .post hr {
@@ -136,8 +128,7 @@
 }
 
 .katex {
-    @apply text-zinc-100 font-bold;
-    overflow-x: auto;
+    @apply text-zinc-100 font-bold overflow-x-auto overflow-y-hidden;
 }
 
 nav a {
