@@ -7,7 +7,7 @@ import rehypeHighlight from "rehype-highlight";
 import MetaTags from '@/components/SEO/MetaTags';
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
 import BlogContent from '@/components/(posts)/(slug)/BlogContent';
-import { getViewCount, incrementViewCount } from '../../../lib/ViewsData';
+import { getViewCount, incrementViewCount } from '@/lib/ViewsData';
 import langPython from "highlight.js/lib/languages/python"
 import langJava from "highlight.js/lib/languages/java"
 import langCPP from "highlight.js/lib/languages/cpp"
@@ -53,8 +53,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ frontMatter, mdxSource }) => {
             try {
                 await incrementViewCount(slug);
                 setViewCount(await getViewCount(slug));
-            } catch (error) {
-                console.error('Error getting view count:', error);
+            } catch {
+                setViewCount(null);
             }
         };
 

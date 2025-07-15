@@ -15,8 +15,7 @@ const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
             for (const post of posts) {
                 try {
                     counts[post.slug] = await getViewCount(post.slug);
-                } catch (error) {
-                    console.error(`Error getting view count for ${post.slug}:`, error);
+                } catch {
                     counts[post.slug] = null;
                 }
             }

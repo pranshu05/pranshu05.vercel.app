@@ -30,8 +30,8 @@ const ImageGallery: React.FC = () => {
             const allImages = imageResponses.flatMap(response => response.data);
 
             setImageData(allImages);
-        } catch (error) {
-            console.error('Error fetching images:', error);
+        } catch {
+            setImageData([]);
         }
     };
 

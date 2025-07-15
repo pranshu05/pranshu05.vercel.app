@@ -24,8 +24,8 @@ const CopyButton: React.FC<CopyButtonProps> = ({ text, className = "" }) => {
                 document.execCommand("copy")
                 setCopied(true)
                 setTimeout(() => setCopied(false), 2000)
-            } catch (fallbackErr) {
-                console.error("Fallback copy failed: ", fallbackErr)
+            } catch {
+                setCopied(false)
             }
             document.body.removeChild(textArea)
         }

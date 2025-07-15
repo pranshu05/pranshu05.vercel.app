@@ -1,5 +1,5 @@
 import RSS from 'rss';
-import { Post } from '../pages/posts/index';
+import { Post } from '@/pages/posts';
 
 export const generateRSSFeed = (posts: Post[]) => {
     const feed = new RSS({

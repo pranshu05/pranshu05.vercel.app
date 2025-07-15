@@ -9,8 +9,7 @@ export async function getViewCount(slug: string): Promise<number> {
     try {
         const docSnapshot = await getDoc(viewsDoc);
         return docSnapshot.exists() ? docSnapshot.data().count : 0;
-    } catch (error) {
-        console.error('Error getting view count:', error);
+    } catch {
         return 0;
     }
 }
@@ -31,7 +30,7 @@ export async function incrementViewCount(slug: string): Promise<void> {
                 lastUpdated: serverTimestamp(),
             });
         }
-    } catch (error) {
-        console.error('Error incrementing view count:', error);
+    } catch {
+        
     }
 }

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import BlogPostList from '@/components/(posts)/BlogPostList';
-import { generateRSSFeed } from '../../lib/RSS';
+import { generateRSSFeed } from '@/lib/RSS';
 import MetaTags from '@/components/SEO/MetaTags';
 
 interface Frontmatter {
