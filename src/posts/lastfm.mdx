@@ -1,0 +1,134 @@
+---
+title: 'API Hell: My Last.fm and MusicBrainz Nightmare'
+date: 'Jul 15, 2025'
+description: 'Why Last.fm and MusicBrainz Made Me Question My Life Choices'
+readTime: 5
+---
+
+So I had this "simple" idea. Get my top artists from Last.fm and show them with nice images. How hard could it be, right? WRONG. Dead fucking wrong.
+
+## The Deception Begins
+
+Last.fm's API documentation looks innocent enough. They've got this neat `user.gettopartists` endpoint that gives you everything you need, artist name, URL, and... wait for it... **images**. 
+
+Great! Problem solved in 20 minutes, time to grab a coffee and call it a day.
+
+But then I actually looked at the images they return. Every. Single. One. Is the same generic placeholder bullshit. Not even a decent placeholder, just some ugly default image that screams "we gave up caring about this API sometime in 2012."
+
+```json
+{
+  "image": [
+    {"#text": "https://lastfm.freetls.fastly.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png", "size": "small"},
+    {"#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png", "size": "medium"},
+    {"#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png", "size": "large"},
+    {"#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png", "size": "extralarge"}
+  ]
+}
+```
+
+Look at that hash. `2a96cbd8b46e442fc41c2b86b821562f.png`. That's the same fucking hash for EVERY artist. Linkin Park? That hash. Radiohead? Same hash. My obscure indie band that three people have heard of? You guessed it, same goddamn hash.
+
+What's the point of having an image field if you're just going to return the same placeholder for everything? It's like serving everyone the same cardboard sandwich and calling it a restaurant.
+
+## Enter MusicBrainz: The "Solution"
+
+Fine, I thought. Last.fm is clearly run by people who've given up on life. But they do provide MusicBrainz IDs (MBID) for artists. MusicBrainz is supposed to be this comprehensive music database. Surely they'll have proper artist images or at least link to Spotify where I can get decent images.
+
+So I thought I'll get the MBID from the last.fm API response and pass it to the MB API and get the image... simple right? No, they've fucking included all the non relevant data, but not a single image of the artist!!? I mean why tf they do that? They claim to have the biggest music DB in the world and they forgot to add images of artists!
+
+So I cooked up this elaborate plan:
+1. Get artists from Last.fm
+2. Use their MBID to query MusicBrainz 
+3. Find Spotify URLs in MusicBrainz relations
+4. Extract Spotify artist IDs
+5. Use Spotify API to get actual good images
+
+Seemed reasonable. I mean, it's only hitting three different APIs to get a fucking image, but whatever.
+
+## The MusicBrainz Nightmare
+
+First problem: MusicBrainz has a rate limit of 1 request per second. Not 10, not 5, not even 2. **ONE**. Per second. 
+
+So getting images for 6 artists takes 6 seconds minimum. Want to display 20 artists? Hope your users enjoy staring at loading spinners for 20+ seconds.
+
+But wait, there's more! MusicBrainz also requires a User-Agent header. Not just any User-Agent, a specific format with your app name and email. Because apparently they need to know who to blame when their API inevitably breaks.
+
+```js
+headers: {
+    'User-Agent': 'FuckLast.fm/1.0.0 (emailid@gmail.com)'
+}
+```
+
+And if you don't include this? Silent failures. No error message, no warning. Just... nothing. Your requests disappear into the void.
+
+## The Spotify Goose Chase
+
+Assuming you've jumped through all the MusicBrainz hoops, now you get to parse their convoluted response format to find Spotify URLs buried in the `relations` array:
+
+```js
+const spotifyUrl = data.relations?.find((rel: any) => 
+    rel.type === 'streaming music' && 
+    rel.url?.resource?.includes('open.spotify.com/artist')
+)?.url?.resource;
+```
+
+Because why make it simple when you can make it a treasure hunt?
+
+Then you extract the Spotify ID from the URL, hit Spotify's API (after getting an OAuth token, of course), and FINALLY get a decent image.
+
+All this just to avoid Last.fm's placeholder garbage.
+
+## The Reality Check
+
+After implementing this Rube Goldberg machine of API calls, I realized something depressing: half the artists don't even have MBIDs. And of those that do, many don't have Spotify links in MusicBrainz. So I'm still getting fallback placeholder images for a bunch of artists.
+
+I'm hitting three APIs, dealing with rate limits, OAuth tokens, and XML-style JSON responses, all to get images for maybe 60% of my artists. The other 40% still get the same shitty Last.fm placeholder.
+
+## The Actual Solution (Why Didn't I Think of This First?)
+
+Then it hit me. Why the hell am I using MusicBrainz as a middleman? Spotify has a search API. I can just search for the artist by name directly.
+
+```js
+async function searchSpotifyArtist(artistName: string, token: string): Promise<string | null> {
+    const query = encodeURIComponent(artistName);
+    const url = `https://api.spotify.com/v1/search?q=${query}&type=artist&limit=1`;
+    
+    // Just search directly, you absolute muppet
+    const res = await fetch(url, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    
+    const data = await res.json();
+    return data.artists?.items?.[0]?.images?.[0]?.url || null;
+}
+```
+
+That's it. No MusicBrainz. No MBID lookups. No rate limiting hell. Just search Spotify directly by artist name and get the image.
+
+This works for like 95% of artists. The matching is actually really good, Spotify's search knows that "Radiohead" is "Radiohead" without needing some UUID from a third-party database.
+
+## The Lessons Learned
+
+1. **Last.fm's image API is a joke.** They should just remove the image field entirely instead of this placeholder charade.
+
+2. **MusicBrainz is overcomplicated for simple use cases.** Sure, it's great if you're building the next Spotify, but for getting artist images? Overkill.
+
+3. **Sometimes the obvious solution is the right one.** Search by name works. Who knew?
+
+4. **APIs lie.** Just because an API returns an "image" field doesn't mean it contains actual images.
+
+## Final Thoughts
+
+I wasted an entire day on this. A full day of my life I'll never get back, all because Last.fm couldn't be bothered to maintain proper artist images and I thought I was being clever by architecting some elaborate workaround.
+
+The worst part? The simple solution works better than the complex one. It's faster, more reliable, and has better coverage. 
+
+So if you're reading this and thinking about using Last.fm for artist images: don't. Just don't. Save yourself the headache and search Spotify directly. Your sanity will thank you.
+
+And Last.fm? Fix your damn API or remove the image field. This placeholder bullshit helps nobody.
+
+I hope this saves someone else the pain I went through. If you ever find yourself in a similar situation, refer to this code which I finally came up with after all that hassle: [Code of my API](https://github.com/pranshu05/pranshu05.vercel.app/blob/master/src/pages/api/top-artists.ts)
+
+---
+
+*P.S., If you work at Last.fm and you're reading this: I'm sorry for the harsh words, but seriously, what were you thinking?*

@@ -9,23 +9,12 @@
 
     body {
         @apply bg-neutral-950 text-zinc-300 antialiased;
-        background-image: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.02) 0%, transparent 50%);
     }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
-    }
-
-    .glass-effect {
-        @apply bg-zinc-900/30 backdrop-blur-sm border border-zinc-800/50;
-    }
-
-    .modern-shadow {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.02);
     }
 }
 
@@ -35,13 +24,13 @@
 
 .main-content-loaded {
     display: flex;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
     }
 
     to {
@@ -50,82 +39,9 @@
     }
 }
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.animate-slide-in-left {
-    animation: slideInFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-slide-in-right {
-    animation: slideInFromRight 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-scale-in {
-    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .link,
 .post a {
-    @apply text-zinc-300 relative;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.link::after,
-.post a::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #a1a1aa, #f4f4f5);
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.link:hover::after,
-.post a:hover::after {
-    width: 100%;
-}
-
-.link:hover,
-.post a:hover {
-    @apply text-zinc-100;
-    transform: translateY(-1px);
+    @apply text-zinc-300 underline decoration-zinc-600 decoration-2 underline-offset-2 transition-all duration-300 hover:text-zinc-100 hover:decoration-zinc-400;
 }
 
 .post h1,
@@ -135,16 +51,10 @@
 .post h5,
 .post h6 {
     @apply mt-8 mb-4 font-bold text-zinc-100 scroll-mt-20;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
 }
 
 .post h1 {
     @apply text-2xl;
-    background: linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .post h2 {
@@ -169,7 +79,6 @@
 
 .post p {
     @apply text-sm leading-relaxed my-4 text-zinc-300;
-    line-height: 1.7;
 }
 
 .post ul,
@@ -187,110 +96,43 @@
 
 .post li {
     @apply my-2;
-    transition: all 0.2s ease;
-}
-
-.post li:hover {
-    @apply text-zinc-200;
-    transform: translateX(2px);
 }
 
 .post blockquote {
-    @apply text-sm leading-relaxed my-6 border-l-4 border-zinc-600 pl-4 italic text-zinc-400 rounded-r-lg;
-    background: linear-gradient(90deg, rgba(39, 39, 42, 0.3) 0%, transparent 100%);
-    padding: 1rem;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.post blockquote:hover {
-    @apply border-zinc-500;
-    background: linear-gradient(90deg, rgba(39, 39, 42, 0.5) 0%, transparent 100%);
+    @apply text-sm leading-relaxed my-6 border-l-4 border-zinc-600 pl-4 italic text-zinc-400 bg-zinc-900/30 py-2 rounded-r-lg;
 }
 
 .post code {
-    @apply text-zinc-100 px-2 py-1 rounded text-sm font-mono;
-    background: linear-gradient(135deg, rgba(39, 39, 42, 0.8) 0%, rgba(63, 63, 70, 0.4) 100%);
-    border: 1px solid rgba(113, 113, 122, 0.2);
-    transition: all 0.2s ease;
-}
-
-.post code:hover {
-    @apply text-white;
-    background: linear-gradient(135deg, rgba(39, 39, 42, 1) 0%, rgba(63, 63, 70, 0.6) 100%);
-    border-color: rgba(113, 113, 122, 0.4);
+    @apply text-zinc-100 bg-zinc-900/30 px-2 py-1 rounded text-sm font-mono;
 }
 
 .post hr {
     @apply border-zinc-800 my-8;
-    background: linear-gradient(90deg, transparent 0%, #27272a 50%, transparent 100%);
-    height: 1px;
-    border: none;
 }
 
 .post img {
-    @apply max-w-full h-auto block mx-auto my-6 rounded-lg;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.post img:hover {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    @apply max-w-full h-auto block mx-auto my-6 rounded-lg shadow-lg;
 }
 
 .post table {
-    @apply w-full my-6 border-collapse rounded-lg overflow-hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    @apply w-full my-6 border-collapse;
 }
 
 .post th,
 .post td {
-    @apply border border-zinc-700/50 px-4 py-2 text-sm;
-    transition: all 0.2s ease;
+    @apply border border-zinc-700 px-4 py-2 text-sm;
 }
 
 .post th {
-    @apply font-semibold text-zinc-100;
-    background: linear-gradient(135deg, #27272a 0%, #18181b 100%);
-}
-
-.post td:hover {
-    @apply bg-zinc-800/30;
+    @apply bg-zinc-800 font-semibold text-zinc-100;
 }
 
 .katex {
     @apply text-zinc-100 font-bold overflow-x-auto overflow-y-hidden;
-    transition: all 0.2s ease;
-}
-
-.katex:hover {
-    @apply text-white;
 }
 
 nav a {
-    @apply transition-all duration-300 relative;
-    position: relative;
-}
-
-nav a::before {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #a1a1aa, #f4f4f5);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateX(-50%);
-}
-
-nav a:hover::before {
-    width: 100%;
-}
-
-nav a:hover {
-    transform: translateY(-1px);
+    @apply transition-colors duration-300;
 }
 
 ::-webkit-scrollbar {
@@ -298,9 +140,7 @@ nav a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply rounded-full;
-    background: linear-gradient(180deg, #52525b 0%, #3f3f46 100%);
-    transition: all 0.2s ease;
+    @apply bg-zinc-600/50 rounded-full;
 }
 
 ::-webkit-scrollbar-track {
@@ -308,12 +148,11 @@ nav a:hover {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #71717a 0%, #52525b 100%);
+    @apply bg-zinc-500/70;
 }
 
 ::selection {
-    @apply text-zinc-100;
-    background: linear-gradient(135deg, #52525b 0%, #71717a 100%);
+    @apply bg-zinc-700 text-zinc-100;
 }
 
 .my-masonry-grid {
@@ -325,112 +164,35 @@ nav a:hover {
 }
 
 .focus-visible {
-    @apply outline-none ring-2 ring-offset-2 ring-offset-zinc-900;
-    ring-color: rgba(161, 161, 170, 0.5);
+    @apply outline-none ring-2 ring-zinc-400 ring-offset-2 ring-offset-zinc-900;
 }
 
-@keyframes pulse-modern {
+@keyframes pulse-subtle {
 
     0%,
     100% {
         opacity: 1;
-        transform: scale(1);
     }
 
     50% {
         opacity: 0.8;
-        transform: scale(1.02);
     }
 }
 
-.animate-pulse-modern {
-    animation: pulse-modern 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .hover-lift {
-    @apply transition-all duration-300;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hover-lift:hover {
-    transform: translateY(-4px) scale(1.01);
+    @apply transition-transform duration-200 hover:-translate-y-1;
 }
 
 .hover-glow {
-    @apply transition-all duration-300;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hover-glow:hover {
-    box-shadow: 0 10px 25px -5px rgba(161, 161, 170, 0.1), 0 10px 10px -5px rgba(161, 161, 170, 0.04);
+    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-zinc-500/10;
 }
 
 .skeleton {
-    @apply rounded;
-    background: linear-gradient(90deg, #27272a 25%, #3f3f46 50%, #27272a 75%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-.modern-card {
-    @apply transition-all duration-300;
-    background: linear-gradient(135deg, rgba(39, 39, 42, 0.4) 0%, rgba(24, 24, 27, 0.4) 100%);
-    border: 1px solid rgba(113, 113, 122, 0.1);
-    backdrop-filter: blur(10px);
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.modern-card:hover {
-    background: linear-gradient(135deg, rgba(39, 39, 42, 0.6) 0%, rgba(24, 24, 27, 0.6) 100%);
-    border-color: rgba(113, 113, 122, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.gradient-text {
-    background: linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.stagger-animation>* {
-    opacity: 0;
-    animation: slideInFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.stagger-animation>*:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.stagger-animation>*:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.stagger-animation>*:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.stagger-animation>*:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.stagger-animation>*:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-.stagger-animation>*:nth-child(6) {
-    animation-delay: 0.6s;
+    @apply animate-pulse bg-zinc-800 rounded;
 }
 
 @media (max-width: 640px) {
@@ -444,17 +206,5 @@ nav a:hover {
 
     .post h3 {
         @apply text-base;
-    }
-
-    .hover-lift:hover {
-        transform: translateY(-2px) scale(1.005);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
     }
 }
