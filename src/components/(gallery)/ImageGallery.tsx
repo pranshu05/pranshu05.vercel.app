@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
-import axios, { AxiosResponse } from 'axios';
 import Masonry from 'react-masonry-css';
 import { MdNavigateBefore, MdNavigateNext, MdOutlineClose } from 'react-icons/md';
 
@@ -9,29 +8,25 @@ interface UnsplashImage {
 }
 
 const ImageGallery: React.FC = () => {
-    const [imageData, setImageData] = useState<UnsplashImage[]>([]);
-    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+    const [imageData, setImageData] = useState<UnsplashImage[]>([])
+    const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
 
-    const fetchImagesFromUnsplash = async () => {
+    const fetchImages = async () => {
         try {
-            const totalImages = 100;
-            const totalPages = Math.ceil(totalImages / 30);
-            const imageRequests: Promise<AxiosResponse<UnsplashImage[]>>[] = [];
+            const response = await fetch("/api/unsplash-images")
+            const data = await response.json()
 
-            for (let page = 1; page <= totalPages; page++) {
-                imageRequests.push(
-                    axios.get<UnsplashImage[]>('https://api.unsplash.com/users/pranshu05/photos', {
-                        params: { client_id: process.env.UNSPLASH_KEY, per_page: 30, page },
-                    })
-                );
+            if (response.ok) {
+                setImageData(data.images)
+            } else {
+                setError(data.error || "Failed to fetch images")
             }
-
-            const imageResponses = await Promise.all(imageRequests);
-            const allImages = imageResponses.flatMap(response => response.data);
-
-            setImageData(allImages);
-        } catch {
-            setImageData([]);
+        } catch (err) {
+            setError("Network error occurred while fetching images")
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -53,8 +48,30 @@ const ImageGallery: React.FC = () => {
     };
 
     useEffect(() => {
-        fetchImagesFromUnsplash();
+        fetchImages()
     }, []);
+
+    if (loading) {
+        return (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mx-auto">
+                {Array.from({ length: 12 }).map((_, i) => (
+                    <div key={i} className="aspect-square bg-zinc-800 rounded-lg animate-pulse"></div>
+                ))}
+            </div>
+        )
+    }
+
+    if (error) {
+        return (
+            <div className="text-center py-8 text-zinc-400"><p>{error}</p></div>
+        )
+    }
+
+    if (!imageData.length) {
+        return (
+            <div className="text-center py-8 text-zinc-400"><p>No images found.</p></div>
+        )
+    }
 
     return (
         <div>
