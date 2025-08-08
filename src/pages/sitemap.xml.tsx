@@ -14,12 +14,6 @@ function generateSiteMap(posts: string[]) {
             <priority>1.0</priority>
         </url>
         <url>
-            <loc>${baseUrl}/about</loc>
-            <lastmod>${new Date().toISOString()}</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.8</priority>
-        </url>
-        <url>
             <loc>${baseUrl}/posts</loc>
             <lastmod>${new Date().toISOString()}</lastmod>
             <changefreq>weekly</changefreq>

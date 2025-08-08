@@ -69,7 +69,7 @@ const TopArtists: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mx-auto">
             {artists.map((artist, index) => (
                 <a href={artist.url} key={index} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center" aria-label={`Listen to ${artist.name}`}>
-                    <img className="w-full" src={artist.image} alt={`${artist.name}`} loading="lazy" />
+                    <img className="w-full aspect-square object-cover" src={artist.image} alt={`${artist.name}`} loading="lazy" />
                 </a>
             ))}
         </div>
