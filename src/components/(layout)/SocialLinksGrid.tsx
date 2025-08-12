@@ -13,7 +13,7 @@ const socialLinks = [
 const SocialLinksGrid: React.FC = () => (
     <div className="flex flex-wrap gap-4">
         {socialLinks.map((item, index) => (
-            <a key={index} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-xl" aria-label={`Link to ${item.href.split('//')[1]}`}>{item.icon}</a>
+            <a key={index} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center text-zinc-400 hover:text-zinc-100 transition-colors text-lg" aria-label={`Link to ${item.href.split('//')[1]}`}>{item.icon}</a>
         ))}
     </div>
 )
