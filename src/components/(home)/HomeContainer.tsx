@@ -4,7 +4,6 @@ import { getFormattedTime } from '@/lib/Time';
 import TechStack from "@/components/(home)/TechStack";
 import Projects from "@/components/(home)/Projects";
 import TopArtists from "@/components/(home)/TopArtists";
-import ColorAscii from "@/components/(layout)/ASCIIArt";
 import Link from 'next/link';
 
 const HomeContainer: React.FC = () => {
@@ -33,9 +32,6 @@ const HomeContainer: React.FC = () => {
             <h2 className="text-xl font-bold mt-6 mb-4 text-zinc-100">Music</h2>
             <p className="text-zinc-300 text-sm leading-relaxed mb-4">I love listening to music while coding. Here are my top artists from Last.fm that have been filling my week with colors!</p>
             <TopArtists />
-            <div className='w-full mt-4 rounded-lg'>
-                <ColorAscii src="/art.png" fontSize={4} lineHeight={3} colorMode='color' maxPixels={500000} />
-            </div>
         </div>
     )
 }
