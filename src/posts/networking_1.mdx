@@ -1,0 +1,231 @@
+---
+title: "TCP vs UDP"
+date: "Sep 27, 2025"
+description: "A deep dive into transport layer protocols"
+readTime: 8
+---
+
+# TCP vs UDP
+
+Picture this: You're downloading the latest Linux distro (because you're that type of person) while simultaneously watching a YouTube video about why Arch is superior to Ubuntu (again, because you're that type of person). 
+
+Your file download? Robust. Every single byte arrives perfectly, in order, uncorrupted.
+Your video stream? Smooth as butter, but if a few frames get lost in the void of the internet, nobody cares.
+
+In this post, I will write my understanding of why these happens, and what TCP and UDP for me is. My primary source of knowledge is the book [Computer Networking: A Top-Down Approach](https://gaia.cs.umass.edu/kurose_ross/).
+
+---
+
+## The Reliability Spectrum
+
+Before we dive into the nitty-gritty, let's talk about what "reliability" actually means in networking.
+
+1. **Data Integrity**: Did the bits arrive uncorrupted?
+2. **Delivery Guarantee**: Did all the data actually arrive?
+3. **Ordering**: Did the data arrive in the right sequence?
+4. **Flow Control**: Are we overwhelming the receiver?
+5. **Congestion Control**: Are we overwhelming the network?
+
+TCP says "YES" to all of these. UDP says "NOPE" and runs away at lightning speed.
+
+---
+
+## TCP: Transmission Control Protocol
+
+**Transmission Control Protocol** is like me who triple-checks everything, sends messages, checks read receipts, and follows up to make sure if my crush got my message. Annoying? Maybe. Reliable? Absolutely.
+
+### The Three-Way Handshake: TCP's Awkward Small Talk
+
+Every TCP connection starts with what I like to call "the world's most formal introduction":
+
+```
+Client: "Hey server, wanna chat?" (SYN)
+Server: "Sure! I heard you, and here's my response" (SYN-ACK)  
+Client: "Cool, I got your response. Let's do this!" (ACK)
+```
+
+This handshake establishes:
+- **Initial sequence numbers** (for ordering)
+- **Window sizes** (for flow control)
+- **Maximum segment sizes** (for optimization)
+
+It's like exchanging business cards before having a conversation, but in the networking world, this formality prevents chaos.
+
+### Sequence Numbers: TCP's Obsession with Order
+
+TCP assigns a sequence number to every byte of data. Not every packet - every **byte**. If you're sending "Hello World!" (12 bytes), TCP might number them like this:
+
+<BlockMath>
+{String.raw`\text{Sequence: } 1000, 1001, 1002, ..., 1011`}
+</BlockMath>
+
+When the receiver gets these bytes, it can detect:
+- **Missing data**: "Wait, where's byte 1005?"
+- **Duplicate data**: "I already got byte 1003"  
+- **Out-of-order data**: "Byte 1008 arrived before 1007"
+
+The receiver sends back **ACK (Acknowledgment)** messages saying "I got everything up to byte X." If the sender doesn't get an ACK for byte Y within a timeout period, it resends that data.
+
+### TCP's Sliding Window: The Traffic Control System
+
+Here's where TCP gets really clever. Instead of sending one byte and waiting for an ACK, it uses a "sliding window" mechanism.
+
+Think of it like this: The sender can have multiple "unacknowledged" packets in flight simultaneously. The window size determines how many bytes can be sent before waiting for an ACK.
+
+<BlockMath>
+{String.raw`\text{Window Size} = \min(\text{Receiver Buffer}, \text{Congestion Window})`}
+</BlockMath>
+
+This balances:
+- **Speed**: More data in flight = higher throughput
+- **Reliability**: Limited window prevents overwhelming receiver/network
+
+### Congestion Control: TCP's Social Awareness
+
+TCP implements several algorithms to detect and respond to network congestion:
+
+**1. Slow Start**: Start small, grow exponentially
+- Begin with a small congestion window (typically 1-4 segments)
+- Double the window size for each RTT until reaching a threshold
+- This prevents flooding the network right from the start
+
+**2. Congestion Avoidance**: Linear growth after slow start
+- Once the slow start threshold is reached, grow linearly
+- Increase window by 1 segment per RTT
+
+**3. Fast Recovery**: Smart response to packet loss
+- When duplicate ACKs are detected (indicating packet loss)
+- Reduce congestion window by half
+- Resume from congestion avoidance phase
+
+This is why your downloads sometimes start slow and then speed up - TCP is feeling out the network capacity.
+
+---
+
+## UDP: The Speed Demon
+
+**User Datagram Protocol** is TCP's rebellious younger sibling. It looked at all of TCP's complexity and said "Nah, I'm good."
+
+UDP is basically IP with port numbers. That's it. No handshakes, no sequence numbers, no acknowledgments, no guarantees. Just pure, unadulterated speed. Again me sending messages to my crush without caring if she got it or not. Annoying? Maybe. Fast? Absolutely.
+
+```
+UDP Header: 8 bytes
+TCP Header: 20+ bytes (often much more with options)
+```
+
+### UDP's Philosophy: "Fire and Forget"
+
+When UDP wants to send data:
+1. Slap on an 8-byte header
+2. Throw it at the network
+3. Hope for the best
+4. Move on with life (Sad but true :()
+
+No ACKs, no retransmissions, no ordering guarantees. If a packet gets lost, corrupted, or arrives out of order, UDP shrugs and says "not my problem."
+
+### When UDP Actually Makes Sense
+
+You might think UDP is just for lazy programmers, but there are legitimate use cases where its "unreliability" is actually a feature:
+
+**1. Real-time Applications**
+- Video streaming: A lost frame 500ms ago is useless now
+- Online gaming: Old position updates are worthless
+- Voice calls: A missing syllable is better than delayed audio
+
+**2. Simple Request-Response**
+- DNS lookups: "What's google.com's IP?" - if no response, just ask again
+- DHCP: Network configuration requests
+- SNMP: Simple network monitoring
+
+**3. Custom Reliability**
+- Some applications implement their own reliability on top of UDP
+- This allows fine-tuned control over what gets retransmitted and when
+
+---
+
+## The Math Behind Reliability
+
+Let's get nerdy for a second. If a network has a packet loss rate of <InlineMath>{String.raw`p`}</InlineMath>, what's the probability of successfully transmitting <InlineMath>{String.raw`n`}</InlineMath> packets?
+
+For UDP (no retransmission):
+<BlockMath>
+{String.raw`P(\text{success}) = (1-p)^n`}
+</BlockMath>
+
+For TCP (with infinite retransmissions):
+<BlockMath>
+{String.raw`P(\text{success}) = 1`}
+</BlockMath>
+
+But TCP's reliability comes with a cost. The expected number of transmissions per packet in TCP is:
+<BlockMath>
+{String.raw`E[\text{transmissions}] = \frac{1}{1-p}`}
+</BlockMath>
+
+With 1% packet loss (<InlineMath>{String.raw`p = 0.01`}</InlineMath>), TCP needs about 1.01 transmissions per packet on average. With 10% packet loss, it needs about 1.11 transmissions. Not too bad!
+
+But as packet loss increases, this gets expensive fast. At 50% packet loss, you need 2 transmissions per packet on average.
+
+---
+
+## Real-World Protocol Choices
+
+**When Netflix uses TCP:**
+- Video manifest files
+- Subtitle files  
+- User authentication
+- Payment processing
+
+**When Netflix uses UDP:**
+- The actual video stream (via QUIC, which is UDP-based)
+- Real-time analytics
+- Some control plane communications
+
+**When your browser uses TCP:**
+- Loading web pages (HTTP/HTTPS)
+- Downloading files
+- WebSocket connections
+- Most API calls
+
+**When your browser uses UDP:**
+- DNS resolution
+- WebRTC video calls
+- Some modern HTTP/3 connections (QUIC)
+- Real-time notifications (sometimes)
+
+---
+
+## The Plot Twist: QUIC
+
+Just when I thought I understood the TCP vs UDP, Google said "hold my beer" and created **QUIC** (Quick UDP Internet Connections).
+
+QUIC is basically "what if we took UDP's speed and added back some of TCP's reliability, but better?" It runs on top of UDP but implements:
+- Connection establishment (faster than TCP's 3-way handshake)
+- Reliable delivery with selective acknowledgments
+- Built-in encryption (TLS 1.3)
+- Stream multiplexing without head-of-line blocking
+
+HTTP/3 uses QUIC, and it's starting to take over the web. So the future might not be TCP vs UDP - it might be QUIC eating both their lunches.
+
+---
+
+## The Bottom Line
+
+TCP and UDP aren't enemies - they're tools for different jobs:
+
+**Choose TCP when:**
+- Data integrity is non-negotiable
+- You need guaranteed delivery
+- Order matters
+- You're building traditional web services
+
+**Choose UDP when:**
+- Speed trumps reliability  
+- You're handling real-time data
+- You want to implement custom reliability
+- You're doing simple request-response operations
+
+
+The internet is a wild place, and I just love exploring its depths.
+
+TIP: Don't double text your crush if she doesn't reply immediately. She might just be busy.
