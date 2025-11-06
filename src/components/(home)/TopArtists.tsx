@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from "react";
 import Card from "@/components/UI/Card";
+import ColorPalette from "@/components/(home)/ColorPalette";
+import { extractColorsFromMultipleImages } from "@/lib/ColorExtractor";
 import { Music } from 'lucide-react';
 
 interface Artist {
@@ -13,6 +15,8 @@ const TopArtists: React.FC = () => {
     const [artists, setArtists] = useState<Artist[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [colors, setColors] = useState<string[]>([]);
+    const [extractingColors, setExtractingColors] = useState(false);
 
     useEffect(() => {
         const fetchArtists = async () => {
@@ -34,6 +38,24 @@ const TopArtists: React.FC = () => {
 
         fetchArtists();
     }, []);
+
+    useEffect(() => {
+        if (artists.length > 0 && colors.length === 0) {
+            setExtractingColors(true);
+            const imageUrls = artists.map(artist => artist.image);
+
+            extractColorsFromMultipleImages(imageUrls, 10)
+                .then(extractedColors => {
+                    setColors(extractedColors);
+                })
+                .catch(err => {
+                    console.error('Failed to extract colors:', err);
+                })
+                .finally(() => {
+                    setExtractingColors(false);
+                });
+        }
+    }, [artists, colors.length]);
 
     if (loading) {
         return (
@@ -66,13 +88,16 @@ const TopArtists: React.FC = () => {
     }
 
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mx-auto">
-            {artists.map((artist, index) => (
-                <a href={artist.url} key={index} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center" aria-label={`Listen to ${artist.name}`}>
-                    <img className="w-full aspect-square object-cover" src={artist.image} alt={`${artist.name}`} loading="lazy" />
-                </a>
-            ))}
-        </div>
+        <>
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mx-auto">
+                {artists.map((artist, index) => (
+                    <a href={artist.url} key={index} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center" aria-label={`Listen to ${artist.name}`}>
+                        <img className="w-full aspect-square object-cover" src={artist.image} alt={`${artist.name}`} loading="lazy" />
+                    </a>
+                ))}
+            </div>
+            {!extractingColors && colors.length > 0 && <ColorPalette colors={colors} />}
+        </>
     );
 };
 
