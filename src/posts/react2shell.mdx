@@ -1,0 +1,274 @@
+---
+title: "React2Shell: A Vulnerability That Broke Almost Half Of The Internet"
+date: "Dec 6, 2025"
+description: "CVE-2025-55182 broke the internet. Here's what actually happened, why it's scary as hell, and what you need to know."
+readTime: 10
+---
+
+# What Happened?
+
+So I woke up to an email from Vercel that basically said "Hey, your site is vulnerable to a critical RCE. Fix it now or we're blocking your deployments."
+
+Great. Just what I needed on a Saturday morning.
+
+At first I thought it was one of those overhyped security bulletins that shows up every few weeks. You know the type, "CRITICAL: Your website might be vulnerable if you're using this specific configuration that literally nobody uses." But then I saw the CVSS score: **10.0**.
+
+For context, a CVSS score of 10.0 is like getting a perfect score on a test where every question is "how fucked are you?" It's the maximum possible severity. The kind of vulnerability that makes security researchers panic and CTOs lose sleep.
+
+The vulnerability? **CVE-2025-55182**, also known as **React2Shell**. And it's affecting React Server Components in Next.js.
+
+Yeah, the framework half the internet is built on.
+
+## What Actually Happened
+
+Let me break this down without the corporate security speak.
+
+On November 29, 2025, a security researcher named Lachlan Davidson found a critical vulnerability in React Server Components. Not some obscure edge case, but a fundamental design flaw in how React handles server-side function calls.
+
+The vulnerability was responsibly disclosed to Meta (who maintains React) and Vercel (who maintains Next.js). They patched it quickly and coordinated with cloud providers. Then on December 3, 2025, they made it public. (Instead of giving sweaters to their partners on December 3, they gave them patches.)
+
+And within **hours**, multiple state-sponsored hacking groups started actively exploiting it in the wild.
+
+## The Technical Breakdown
+
+Alright, here's what makes React2Shell so dangerous.
+
+React Server Components let you write server-side code that runs on your backend and returns React components to the client. It's actually pretty cool, you can do database queries, call APIs, all that stuff without exposing credentials to the browser.
+
+But here's the problem: React was **unsafely deserializing** the payloads from HTTP requests to these server function endpoints.
+
+If you don't know what deserialization is, think of it like this:
+
+When you send data between a client and server, you "serialize" it (convert it to a format that can be transmitted). On the other end, you "deserialize" it (convert it back to its original form). The danger comes when you deserialize untrusted data without proper validation.
+
+In React's case, attackers could craft malicious payloads that, when deserialized, would execute arbitrary code on your server. Not read some data. Not cause a crash. **Execute. Arbitrary. Code.**
+
+That means:
+- Install malware
+- Steal environment variables
+- Access your entire filesystem
+- Pivot to other systems on your network
+- Turn your server into a botnet node
+- Basically anything you can do in a terminal
+
+And the worst part? **You didn't even need to be using server functions explicitly.** As long as your Next.js app used the App Router with React Server Components enabled (which is the default in modern Next.js), you were vulnerable.
+
+## The Affected Versions
+
+Here's what's vulnerable:
+
+**React:**
+- 19.0.0
+- 19.1.0
+- 19.1.1
+- 19.2.0
+
+**Next.js:**
+- Everything from 14.3.0-canary.77 onwards
+- 15.x versions below 15.5.7
+- 16.x versions below 16.0.7
+
+My site was running Next.js 14.1.0. Solidly in the danger zone.
+
+The patched versions are:
+- Next.js: 15.0.5, 15.1.9, 15.2.6, 15.3.6, 15.4.8, 15.5.7, or 16.0.7
+- React: Upgrade through Next.js, don't try to patch React independently
+
+## Why This is Scarier Than Most Vulnerabilities
+
+Most security vulnerabilities require some specific configuration or user interaction. SQL injection? You need to be building queries wrong. XSS? User has to click a malicious link. CSRF? Need to trick someone into submitting a form.
+
+React2Shell? Nah.
+
+- **No authentication required.** Anyone on the internet can exploit it.
+- **No user interaction.** Just send a POST request.
+- **Works on default configurations.** If you're using Next.js App Router, you're vulnerable.
+- **Pre-authentication RCE.** Attackers don't need to log in or bypass any security.
+
+It's like leaving your front door not just unlocked, but removed entirely. And then posting your address on the internet.
+
+## The China Connection: React2Shell in the Wild
+
+Now here's where it gets really interesting (and concerning).
+
+AWS published a threat intelligence report that's honestly terrifying. Within **hours** of the public disclosure, multiple China state-sponsored hacking groups started actively exploiting React2Shell.
+
+We're not talking about script kiddies or random hackers. We're talking about:
+
+### Earth Lamia
+A China-nexus threat group known for exploiting web vulnerabilities to target organizations in Latin America, Middle East, and Southeast Asia. They go after financial services, logistics, retail, IT companies, universities, and government organizations.
+
+### Jackpot Panda
+Another China-nexus group primarily targeting East and Southeast Asia. Their activity aligns with domestic security and corruption monitoring priorities.
+
+### Unattributed Threat Clusters
+Dozens of other groups using shared Chinese anonymization infrastructure. Because of course they share VPNs and proxy networks, making attribution even harder.
+
+## How Fast Were They?
+
+Let me give you a specific example from AWS's honeypot data.
+
+On December 4, 2025 (literally one day after public disclosure), an IP address from China spent **52 minutes** systematically attacking a honeypot server:
+
+- 116 total requests
+- Tried multiple exploit payloads
+- Executed reconnaissance commands (`whoami`, `id`, `uname`)
+- Attempted to read `/etc/passwd`
+- Tried writing files to `/tmp/pwned.txt`
+
+This wasn't automated scanning. This was a human actively debugging their exploit against a live target.
+
+They were iterating. Testing. Refining their approach in real-time.
+
+And this is just what we can see in honeypots. Imagine how many successful compromises happened on real websites.
+
+## The PoC Problem
+
+One fascinating thing AWS noted: a lot of the public proof-of-concept (PoC) exploits on GitHub don't actually work.
+
+Some of the example vulnerable applications explicitly register dangerous Node.js modules like `fs`, `child_process`, and `vm` in the server manifest. Real applications would never do this (or at least, they shouldn't).
+
+Several PoC repositories contain code that would remain vulnerable even after upgrading to patched versions. They're demonstrating the wrong thing entirely.
+
+But here's the scary part: **threat actors are still using these broken PoCs.**
+
+Why? Because they're playing a numbers game:
+
+1. **Speed over accuracy:** Operationalize exploits fast, worry about success rate later
+2. **Volume-based approach:** Scan thousands of targets, even a 1% success rate is profitable
+3. **Low barrier to entry:** Even less sophisticated actors can copy-paste exploit code
+4. **Noise generation:** Failed attempts flood logs, potentially hiding more sophisticated attacks
+
+## What Attackers Are Looking For
+
+When security teams analyzed the exploit attempts, they found attackers checking for specific HTTP headers:
+
+- `next-action` header
+- `rsc-action-id` header
+
+These headers identify React Server Component endpoints. Attackers scan for POST requests with these headers, then send crafted payloads.
+
+The payload itself contains patterns like:
+- `$@` markers
+- `"status":"resolved_model"` strings
+
+If your server deserializes these without validation, game over.
+
+## The Real-World Impact
+
+Let's talk about what actually happens if you get compromised.
+
+**Immediate Impact:**
+- Attackers get shell access to your server
+- All environment variables are exposed
+- They can read your entire codebase
+- Access to customer data in memory or databases
+
+**Short-term Impact:**
+- Server becomes part of a botnet
+- Used to attack other systems
+- Cryptocurrency miners installed
+- Backdoors planted for persistent access
+
+And the worst part? **You might not even know you've been compromised** until it's too late.
+
+## The Upgrade Path (aka, How to Not Be Fucked)
+
+Okay, so how do you actually fix this?
+
+### Step 1: Check Your Version
+
+```bash
+# Check your Next.js version
+cat package.json | grep next
+```
+
+If you're on anything before 15.0.5 (or in the 15.x/16.x ranges without patches), you're vulnerable.
+
+### Step 2: Update Next.js
+
+```bash
+npm install next@latest
+```
+
+Make sure you end up on one of these versions:
+- 15.0.5
+- 15.1.9
+- 15.2.6
+- 15.3.6
+- 15.4.8
+- 15.5.7
+- 16.0.7
+
+### Step 3: Test Everything
+
+This isn't a minor update. Test your entire application:
+- API routes
+- Server components
+- Server actions
+- Data fetching
+- Authentication flows
+
+Breaking changes might exist. Better to find them in dev than production.
+
+### Step 4: Deploy ASAP
+
+Don't wait for your next sprint. Don't wait for code review. This is a **drop everything and patch now** situation.
+
+Vercel has already started blocking deployments of vulnerable versions. If you're on Vercel and haven't updated, your next deployment will fail.
+
+## The Bigger Picture: Why This Keeps Happening
+
+React2Shell isn't an isolated incident. It's part of a pattern.
+
+In the past year alone, we've seen:
+- Log4Shell (CVE-2021-44228) - RCE in Java logging
+- Spring4Shell (CVE-2022-22965) - RCE in Spring Framework  
+- Text4Shell (CVE-2022-42889) - RCE in Apache Commons Text
+- And now React2Shell (CVE-2025-55182)
+
+Notice a pattern? They're all deserialization vulnerabilities in widely-used frameworks.
+
+The problem isn't individual developers making mistakes. The problem is that modern web frameworks are incredibly complex, with massive attack surfaces. A single mistake in a core library affects millions of applications.
+
+And here's the scary part: **we're not getting better at preventing these.** We're just getting faster at patching after disclosure.
+
+## What Vercel and Meta Could Have Done Better
+
+Look, I love Next.js. It's a great framework. But this vulnerability reveals some serious problems:
+
+### 1. Security by Default
+
+React Server Components should have been designed with security as a primary concern, not an afterthought. Unsafe deserialization is a known vulnerability class. This shouldn't have made it to production.
+
+### 2. Earlier Detection
+
+This vulnerability existed for months before it was discovered. Where were the security audits? The penetration tests? The automated security scanning?
+
+### 3. Clearer Documentation
+
+The React Server Components docs never mentioned security implications of server functions. Developers were building vulnerable apps without knowing it.
+
+## The Geopolitical Angle
+
+Let's talk about the elephant in the room: China.
+
+AWS's threat intelligence report makes it clear that Chinese state-sponsored groups are the primary exploiters of React2Shell. This isn't new. China has been the most prolific source of state-sponsored cyber attacks for years.
+
+But here's what's changed: **the speed.**
+
+It used to take weeks or months for nation-state actors to weaponize public exploits. Now it's hours. They have sophisticated monitoring infrastructure that watches for new CVEs, automatically downloads PoCs, and starts scanning within hours of public disclosure.
+
+The implication? **There is no grace period.** You can't wait a few days to patch. By the time you read the security bulletin, attackers are already scanning your infrastructure.
+
+## Final Thoughts
+
+I spent the last two days understanding this vulnerability, very annoying!!
+
+But you know what's more annoying? Getting hacked by a Chinese state-sponsored group and having to explain to users why their data was stolen.
+
+React2Shell is a wake-up call. Modern web development is complex, and that complexity creates vulnerabilities. We need to take security seriously from day one, not as an afterthought.
+
+I wrote this blog before updating dependencies in my own projects, and now I'm off to patch everything. I suggest you to do the same.
+
+Done? Good.
