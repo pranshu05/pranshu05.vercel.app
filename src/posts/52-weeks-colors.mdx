@@ -1,0 +1,186 @@
+---
+title: "52 Weeks of Colors"
+date: "Feb 4, 2026"
+description: "How I built a system to capture the visual essence of my music taste every week and generate a composite image of my entire year in colors."
+readTime: 5
+---
+
+# 52 Weeks of Colors
+
+You know that feeling when you listen to a song and it just **hits** differently? Like the artist poured their entire soul into those 3-4 minutes and somehow you feel less alone in the world? Yeah, music does that to me. Every single time.
+
+But here's the thing, I wanted to capture that feeling. Not just remember it, but **visualize** it. And that's how this whole color palette obsession started.
+
+## Why Colors? Why Music?
+
+Music isn't just sound waves hitting your ears. It's a mood, a vibe, an entire emotional landscape compressed into a rhythm and melody. Every artist I listen to has a visual identity. Their album art, the way their website looks, their overall aesthetic it's all part of the experience.
+
+When I look at my top artists every week, I see colors. Dominant, beautiful, sometimes chaotic colors that represent the music I've been vibing with. And I thought, what if I could capture those colors? What if I could save them every single week and at the end of the year, I'd have a visual timeline of my entire year?
+
+Not just a list. A literal painting made up of 52 weeks of tiny color squares. Each one a snapshot of what I was listening to when.
+
+That's poetic as fuck, right? Or maybe I'm just weird. Probably both.
+
+## The Problem: How Do You Even Do That?
+
+So I had this idea. Now what? Build a system that:
+
+1. Automatically extracts dominant colors from my top artists' images every week
+2. Saves those colors somewhere permanent (database)
+3. At the end of the year, generates a composite image with all 52 weeks of colors
+4. Makes it pretty enough that I'd actually want to hang it on my wall
+
+Sounds simple in theory. Turns out, "simple" is a six-letter word that programmers use when they want to lie to themselves.
+
+## The Architecture (For the Tech People)
+
+Here's what I actually built:
+
+### The Weekly Save Flow
+
+Every Monday at midnight (because I'm that person), a cron job hits an API endpoint that does this:
+
+1. ****Extract colors from top artists**** – I already had a function that uses the `canvas` library to analyze album artwork and pull out the dominant colors using image processing
+2. ****Validate the colors**** – Make sure they're actual hex codes, not garbage
+3. ****Save to Firestore**** – Store them with metadata: week number, year, start/end dates
+
+The entire process is protected by a secret token (CRON_SECRET). Why? Because I don't want some random asshole on the internet sending fake palette data to my database.
+
+```js
+// The database schema is stupid simple:
+{
+  week: 6,              // 1-52 (ISO 8601)
+  year: 2026,
+  colors: ["#FF5733", "#33FF57", ...],  // 10 dominant colors
+  startDate: "2026-02-03",
+  endDate: "2026-02-09",
+  createdAt: "2026-02-04T00:00:00Z"
+}
+```
+
+One document per week. 52 documents per year. Done.
+
+### The Image Generation (The Fun Part)
+
+When I want the composite image (which is... now, at the end of my year, or whenever I want really), I hit a GET endpoint that:
+
+1. ****Queries Firestore**** for all 52 weeks of color data
+2. ****Renders to a canvas**** using Node.js (`canvas` library is a lifesaver)
+3. ****Generates a PNG**** with all the colors laid out in a grid or strip format
+4. ****Returns the image**** to download
+
+The grid layout does 10 colors per row, so you get a nice 5-row display of your entire year. Or if you want something for social media, the strip layout is just a long horizontal bar of all your colors.
+
+Here's what the canvas code basically does:
+
+```js
+for each palette in year:
+  for each color in palette:
+    draw 80x80 pixel square
+    add week label underneath
+    move to next position
+
+add title and date range
+render to PNG buffer
+return as image file
+```
+
+It's not rocket science, but it's effective. And it produces something genuinely cool-looking.
+
+## The Why Behind the How (For the Non-Tech People)
+
+Okay, so technically what's happening is: my taste in music gets translated into numbers (hex codes), those numbers get stored in a database, and then those numbers get turned back into visual colors on an image. It's a full circle.
+
+But here's why that matters to me:
+
+****It's creative documentation.**** I'm a programmer. I build things. But I'm not a traditional artist. This is my way of creating something visual and beautiful out of data and music. It's the intersection of my two worlds – the technical and the creative.
+
+****It's a flex, not gonna lie.**** At the end of the year, I get to say "hey, here's what my music from last year looked like in colors." It's a conversation starter. It's different. It's genuinely interesting because nobody else is doing this weird shit.
+
+
+## The Implementation Reality
+
+Here's the honest truth: I didn't just wake up and build this on a Wednesday. It took actual thought.
+
+### Week Number Calculations
+
+I needed to figure out what "week 1" of 2026 even means. Turns out, there's a whole standard for this called ISO 8601. Which day does the week start? Monday. What if a year has 53 weeks? It can happen. Is January 1st always week 1? Nope.
+
+```js
+function getWeekNumber(date: Date): number {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+}
+```
+
+Yeah. That's the math. Looks horrible, but it works perfectly.
+
+### Preventing Duplicates
+
+I don't want to save the same palette twice in one week. So before saving, I check: "Hey Firestore, do we already have week 6 of 2026?" If yes, reject it. If no, save.
+
+This is important because the cron job runs reliably, but the world isn't perfect. What if the job runs twice by accident? What if someone manually triggers it? Gotta have safeguards.
+
+### The Canvas Library Drama
+
+Drawing images on a server using Node.js is weird because, well, there's no display. Enter the `canvas` library – it's basically Chromium's canvas API but for Node.
+
+The installation is annoying (it requires build tools), but once it's working, you can literally draw anything:
+
+```js
+const canvas = createCanvas(1400, 1200);
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = '#0a0a0a';  // Dark background
+ctx.fillRect(0, 0, 1400, 1200);
+
+ctx.fillStyle = '#FF5733';  // A color from my palette
+ctx.fillRect(x, y, 80, 80);  // Draw a square
+
+const buffer = canvas.toBuffer('image/png');
+// Now I have a PNG file ready to send
+```
+
+It's satisfying. You're literally painting with code.
+
+## The Cron Job: The Automated Heart
+
+The whole system needs to run automatically. Every Monday. Without me doing anything. That's where cron jobs come in.
+
+I set it up as:
+
+```json
+{
+  "crons": [{
+    "path": "/api/palettes/save-weekly",
+    "schedule": "0 0 ** ** 1"
+  }]
+}
+```
+
+That's it. Every Monday at 00:00 UTC, Vercel's infrastructure hits my API endpoint. The endpoint validates the secret (because security), extracts my current top artists from Last.fm, pulls the dominant colors, and saves them.
+
+No user intervention. No manual clicks. It just... happens.
+
+## What This Means To Me
+
+At the end of 2026, I'm going to have a PNG image that represents my entire year. Not in words or numbers, but in colors. It's going to be hanging somewhere in my room.
+
+It's a data visualization, but it's also a memory. It's technical, but it's also deeply personal. It's art made by algorithms, but it means something real.
+
+## Why This Matters
+
+In a world where everything is data, everything is metrics, everything is trying to be optimized, I built this thing that's basically me saying: "I want to remember what my year felt like in colors."
+
+It's not useful in the traditional sense. It doesn't make me money. It doesn't solve a world problem. It doesn't even have practical applications beyond "that's pretty cool."
+
+But that's exactly why it matters.
+
+This is what happens when a programmer becomes obsessed with music and decides to merge the two. This is what happens when you don't accept the limitations of what tools are designed for, and you just... make something new.
+
+Music shaped my year. And now, my year is going to be a painting.
+
+**At the end of 2026, I'll generate the final image. And honestly? I can't wait to see what colors my year is made of.**

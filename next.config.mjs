@@ -18,6 +18,7 @@ const nextConfig = {
         APP_ID: process.env.APP_ID,
         MEASUREMENT_ID: process.env.MEASUREMENT_ID,
         UNSPLASH_KEY: process.env.UNSPLASH_KEY,
+        PALETTE_API_SECRET: process.env.PALETTE_API_SECRET,
     },
 };
 
