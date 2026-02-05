@@ -11,8 +11,6 @@
   "dependencies": {
     "@vercel/og": "^0.7.2",
     "axios": "^1.6.7",
-    "canvas": "^2.11.2",
-    "check-site-meta": "^0.3.8",
     "firebase": "^10.8.0",
     "gray-matter": "^4.0.3",
     "katex": "^0.16.11",
