@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
+import remarkGfm from 'remark-gfm';
 import rehypeHighlight from "rehype-highlight";
 import MetaTags from '@/components/SEO/MetaTags';
 import MetaInfo from '@/components/(posts)/(slug)/MetaInfo';
@@ -123,6 +124,7 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
 
     const mdxSource = await serialize(content, {
         mdxOptions: {
+            remarkPlugins: [remarkGfm],
             rehypePlugins: [[rehypeHighlight, {
                 ignoreMissing: true,
                 languages,

@@ -23,6 +23,7 @@
     "react-katex": "^3.0.1",
     "react-masonry-css": "^1.0.16",
     "rehype-highlight": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "rss": "^1.2.2"
   },
   "devDependencies": {
