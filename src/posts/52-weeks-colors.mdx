@@ -184,3 +184,117 @@ This is what happens when a programmer becomes obsessed with music and decides t
 Music shaped my year. And now, my year is going to be a painting.
 
 **At the end of 2026, I'll generate the final image. And honestly? I can't wait to see what colors my year is made of.**
+
+---
+
+## Update: February 9, 2026 - Making It Actually Historical
+
+So, I fucked up. Well, not fucked up exactly, but I realized something crucial after building the whole system: **saving the current week's palette for past weeks is not the same as capturing what I was actually listening to back then.**
+
+When I wrote this post on February 4th, I was hyped about the automation. The cron job would save colors every Monday. Beautiful. Elegant. Automated.
+
+But then I thought: "Wait. What about the weeks I already missed? What if I want to go back and fill in Week 1, 2, 3, etc.?"
+
+The old system would just use my **current** top artists for those past weeks. That's... not accurate. That's cheating. That's not a real representation of my year.
+
+So I rewrote the whole thing to be truly historical.
+
+### What Changed?
+
+#### 1. **Historical Data Fetching**
+
+Last.fm has this beautiful method called `user.getWeeklyArtistChart` that I completely overlooked at first. It lets you fetch your top artists for **any specific week in the past** using Unix timestamps.
+
+I built a new API endpoint (`/api/weekly-artists`) that:
+- Takes a week number and year as parameters
+- Calculates the Unix timestamps for that specific week using ISO 8601 standards
+- Fetches your **actual** top artists from that week using Last.fm's historical data
+- Returns the same format as the current top-artists API
+
+```js
+const weekStart = getWeekStartByWeekNumber(weekNum, yearNum);
+const weekEnd = getWeekEndByWeekNumber(weekNum, yearNum);
+const fromTimestamp = Math.floor(weekStart.getTime() / 1000);
+const toTimestamp = Math.floor(weekEnd.getTime() / 1000);
+
+// Fetch historical chart
+const lastFmUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=${username}&from=${fromTimestamp}&to=${toTimestamp}`;
+```
+
+Now when I request Week 4's palette, it fetches the artists I was **actually** listening to during Week 4. Not Week 7. Not current artists. Week 4's artists.
+
+#### 2. **Dynamic Palette Extraction**
+
+The save flow now works like this:
+
+- **Current Week (Week 7)**: Fetches current top artists using `/api/top-artists` (7-day period)
+- **Past Weeks (1-6)**: Fetches historical data using `/api/weekly-artists?week=X&year=2026`
+- Each week gets its own unique color extraction based on the actual artists from that time period
+
+The color extraction still uses the same Canvas-based algorithm (because that's proven and works perfectly), but the **source images** are now historically accurate.
+
+#### 3. **Database Function Updates**
+
+The `saveWeeklyPalette` function in my PaletteDB now accepts optional week and year parameters:
+
+```typescript
+async saveWeeklyPalette(
+  colors: string[], 
+  targetWeek?: number, 
+  targetYear?: number
+): Promise<string>
+```
+
+This means I can save palettes for any week, not just the current one. The function calculates the correct start and end dates for that specific week using helper functions:
+
+```typescript
+const weekStart = targetWeek && targetYear 
+  ? getWeekStartByWeekNumber(targetWeek, targetYear)
+  : getWeekStart(now);
+```
+
+#### 4. **UI Improvements**
+
+The save-weekly-palette page now displays all weeks in a clean column layout (matching the landing page aesthetic). Each week shows:
+- Week number with "(current week)" indicator
+- If saved: The actual 10-color palette in a hover-able grid (shows hex codes on hover)
+- If not saved: Gray placeholder squares with a "Save Palette" button
+
+When you click save on any week, it:
+1. Fetches that week's actual historical data
+2. Extracts colors from those artist images
+3. Saves the palette with correct metadata
+4. Updates the UI to show the colors
+
+### Why This Matters More
+
+The original system was cool, but it was like taking a photo of yourself today and claiming it's from last month. Technically you're in it, but it's not authentic.
+
+This new system is **genuinely historical**. Each week's palette is a true snapshot of what I was listening to during that exact week. It's data archaeology mixed with music visualization.
+
+When I generate the final composite image at the end of 2026, it won't just be "52 random weeks of colors that vaguely represent my year." It'll be **exactly** what each week sounded like, translated into color.
+
+### The Technical Beauty of It
+
+Here's what I love about this update: Last.fm has been tracking my listening history since I started using it. That data is just sitting there, timestamped, waiting to be used.
+
+By using `user.getWeeklyArtistChart`, I can go back to **any week** I've been using Last.fm and extract those colors. I'm not limited to "whatever the cron job captured." I can retroactively build my entire year's palette history.
+
+That's powerful. That's the difference between automation and intelligent data retrieval.
+
+### The Edge Cases
+
+Of course, there are edge cases:
+- What if I didn't listen to music during a specific week? The API returns an error: "No listening data available for week X." Fair. I accept that void.
+- What if Last.fm's data is incomplete? Then the image data won't exist, and I'll get fewer colors. Also fair. That's reality.
+- What if I manually run the cron job twice for the same week? The database prevents duplicates. Already handled.
+
+---
+
+**So yeah. Update complete. The system is better now. More honest. More accurate. More... real.**
+
+**And when I hang that final image on my wall at the end of 2026, I'll know every single square of color is exactly what I was listening to when.**
+
+**That's the kind of data integrity I can respect.**
+
+You can see my color wall updating each week at [pranshu05.vercel.app/save-weekly-palette](https://pranshu05.vercel.app/save-weekly-palette).

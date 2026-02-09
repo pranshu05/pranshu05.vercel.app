@@ -14,12 +14,18 @@ export interface WeeklyPalette {
 const COLLECTION_NAME = 'weekly_palettes';
 
 export const paletteDB = {
-    async saveWeeklyPalette(colors: string[]): Promise<string> {
+    async saveWeeklyPalette(colors: string[], targetWeek?: number, targetYear?: number): Promise<string> {
         const now = new Date();
-        const weekStart = getWeekStart(now);
-        const weekEnd = getWeekEnd(now);
-        const week = getWeekNumber(now);
-        const year = now.getFullYear();
+        
+        const week = targetWeek ?? getWeekNumber(now);
+        const year = targetYear ?? now.getFullYear();
+        
+        const weekStart = targetWeek && targetYear 
+            ? getWeekStartByWeekNumber(targetWeek, targetYear)
+            : getWeekStart(now);
+        const weekEnd = targetWeek && targetYear
+            ? getWeekEndByWeekNumber(targetWeek, targetYear)
+            : getWeekEnd(now);
 
         const palette: Omit<WeeklyPalette, 'id'> = {
             week,
@@ -145,5 +151,26 @@ export function getWeekEnd(date: Date): Date {
     const start = getWeekStart(date);
     const end = new Date(start);
     end.setDate(end.getDate() + 6);
+    return end;
+}
+
+export function getWeekStartByWeekNumber(weekNumber: number, year: number): Date {
+    const jan4 = new Date(Date.UTC(year, 0, 4));
+    
+    const jan4DayOfWeek = jan4.getUTCDay() || 7;
+    
+    const week1Monday = new Date(jan4);
+    week1Monday.setUTCDate(jan4.getUTCDate() - jan4DayOfWeek + 1);
+    
+    const targetWeekMonday = new Date(week1Monday);
+    targetWeekMonday.setUTCDate(week1Monday.getUTCDate() + (weekNumber - 1) * 7);
+    
+    return targetWeekMonday;
+}
+
+export function getWeekEndByWeekNumber(weekNumber: number, year: number): Date {
+    const start = getWeekStartByWeekNumber(weekNumber, year);
+    const end = new Date(start);
+    end.setUTCDate(end.getUTCDate() + 6);
     return end;
 }
