@@ -200,7 +200,8 @@ export default function SaveWeeklyPalette() {
         <>
             <MetaTags title="Save Weekly Palettes | Pranshu05" description="Manage and save weekly color palettes extracted from top artists" keywords="color palette, weekly colors, music visualization, Last.fm" canonicalUrl="/save-weekly-palette" />
             <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 max-w-3xl mx-auto">
-                <h1 className="text-3xl font-bold text-zinc-100">Weekly Color Palettes</h1>
+                <h1 className="text-3xl font-bold text-zinc-100 mb-4">Weekly Color Palettes</h1>
+                <p className="text-zinc-300 mb-6">My wall of colors, updated weekly. Read more about it <a href="posts/52-weeks-colors" className="link">here</a>.</p>
                 {!apiKey ? (
                     <div className="mb-6">
                         <p className="text-zinc-300 text-sm mb-3">API key required to save palettes. <button onClick={() => setShowApiKeyInput(!showApiKeyInput)} className="link">Click here</button> to set it up.</p>
