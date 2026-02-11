@@ -237,7 +237,7 @@ The color extraction still uses the same Canvas-based algorithm (because that's 
 
 The `saveWeeklyPalette` function in my PaletteDB now accepts optional week and year parameters:
 
-```typescript
+```jsx
 async saveWeeklyPalette(
   colors: string[], 
   targetWeek?: number, 
@@ -247,7 +247,7 @@ async saveWeeklyPalette(
 
 This means I can save palettes for any week, not just the current one. The function calculates the correct start and end dates for that specific week using helper functions:
 
-```typescript
+```jsx
 const weekStart = targetWeek && targetYear 
   ? getWeekStartByWeekNumber(targetWeek, targetYear)
   : getWeekStart(now);
