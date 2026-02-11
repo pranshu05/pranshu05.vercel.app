@@ -102,8 +102,8 @@
     @apply text-sm leading-relaxed my-6 border-l-4 border-zinc-600 pl-4 italic text-zinc-400 bg-zinc-900/30 py-2 rounded-r-lg;
 }
 
-.post code {
-    @apply text-zinc-100 bg-zinc-900/30 px-2 py-1 rounded text-sm font-mono;
+.post pre code {
+    @apply bg-transparent px-2 py-1 rounded text-sm leading-relaxed block;
 }
 
 .post hr {
@@ -207,4 +207,32 @@ nav a {
     .post h3 {
         @apply text-base;
     }
+}
+
+.post pre {
+    @apply bg-zinc-900/50 my-6 rounded-lg overflow-x-auto shadow-lg border border-zinc-800/50;
+}
+
+.post pre code.hljs {
+    @apply p-4;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.875rem;
+    line-height: 1.7;
+}
+
+.post :not(pre) > code {
+    @apply text-sm bg-[#1e1e2e] px-1.5 py-0.5 rounded font-mono text-[##89b4fa];
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post pre::-webkit-scrollbar {
+    @apply h-1;
+}
+
+.post pre::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700 rounded-none;
+}
+
+.post pre::-webkit-scrollbar-track {
+    @apply bg-zinc-900/50;
 }

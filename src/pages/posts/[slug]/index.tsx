@@ -16,7 +16,7 @@ import langCSS from "highlight.js/lib/languages/css"
 import langHTML from "highlight.js/lib/languages/xml"
 import langJS from "highlight.js/lib/languages/javascript"
 import langBash from "highlight.js/lib/languages/bash"
-import "highlight.js/styles/github-dark.css";
+import "@catppuccin/highlightjs/css/catppuccin-mocha.css";
 
 const languages = {
     cpp: langCPP,
