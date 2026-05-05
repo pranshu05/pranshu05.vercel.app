@@ -1,9 +1,10 @@
-import { SiGithub, SiInstagram, SiLinkedin, SiNpm, SiProducthunt, SiTwitter, SiYoutube } from "react-icons/si"
+import { FaLinkedin } from "react-icons/fa";
+import { SiGithub, SiInstagram, SiNpm, SiProducthunt, SiX, SiYoutube } from "react-icons/si";
 
 const socialLinks = [
     { href: "https://github.com/pranshu05", icon: <SiGithub /> },
-    { href: "https://linkedin.com/in/pranshu05", icon: <SiLinkedin /> },
-    { href: "https://twitter.com/pranshu_05", icon: <SiTwitter /> },
+    { href: "https://linkedin.com/in/pranshu05", icon: <FaLinkedin /> },
+    { href: "https://twitter.com/pranshu_05", icon: <SiX /> },
     { href: "https://instagram.com/pranshu.05", icon: <SiInstagram /> },
     { href: "https://youtube.com/@pranshu05", icon: <SiYoutube /> },
     { href: "https://www.npmjs.com/~pranshu05", icon: <SiNpm /> },

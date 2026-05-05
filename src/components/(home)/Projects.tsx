@@ -1,4 +1,5 @@
-import { Globe, Github } from "lucide-react";
+import { Globe } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { projects } from "@/data/projects";
 
 const Projects: React.FC = () => (
@@ -8,7 +9,7 @@ const Projects: React.FC = () => (
                 <div className="flex items-start justify-between gap-4">
                     <h3 className="text-sm font-medium text-zinc-100">{title}</h3>
                     <div className="flex shrink-0 gap-2">
-                        {github && (<a href={github}className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5"aria-label={`${title} on GitHub`}target="_blank"rel="noopener noreferrer"><Github className="w-4 h-4" /></a>)}
+                        {github && (<a href={github}className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5"aria-label={`${title} on GitHub`}target="_blank"rel="noopener noreferrer"><FaGithub className="w-4 h-4" /></a>)}
                         {website && (<a href={website} className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5" aria-label={`${title} website`} target="_blank" rel="noopener noreferrer"><Globe className="w-4 h-4" /></a>)}
                     </div>
                 </div>

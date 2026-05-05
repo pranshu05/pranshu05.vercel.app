@@ -1,5 +1,6 @@
 import { FaHtml5, FaCss3, FaJsSquare, FaReact, FaNodeJs, FaGithub, FaDiscord, FaGit } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiVisualstudiocode, SiMongodb, SiTypescript, SiFirebase, SiVim, SiObsidian, SiPython, SiPostgresql, SiRedis, SiDjango, SiExpress, SiCplusplus, SiPostman, SiRailway, SiKotlin, SiSpringboot, SiDocker } from 'react-icons/si';
+import { SiNextdotjs, SiTailwindcss, SiMdx, SiVercel, SiMongodb, SiTypescript, SiFirebase, SiVim, SiObsidian, SiPython, SiPostgresql, SiRedis, SiDjango, SiExpress, SiCplusplus, SiPostman, SiRailway, SiKotlin, SiSpringboot, SiDocker } from 'react-icons/si';
+import { TbBrandVisualStudio } from 'react-icons/tb';
 
 const techs = [
     { icon: <FaHtml5 />, href: 'https://developer.mozilla.org/en-US/docs/Web/HTML', name: 'HTML' },
@@ -27,7 +28,7 @@ const techs = [
     { icon: <FaGit />, href: 'https://git-scm.com/', name: 'Git' },
     { icon: <FaGithub />, href: 'https://github.com/', name: 'GitHub' },
     { icon: <SiVercel />, href: 'https://vercel.com/', name: 'Vercel' },
-    { icon: <SiVisualstudiocode />, href: 'https://code.visualstudio.com/', name: 'VSCode' },
+    { icon: <TbBrandVisualStudio />, href: 'https://code.visualstudio.com/', name: 'VSCode' },
     { icon: <SiVim />, href: 'https://neovim.io', name: 'NeoVim' },
     { icon: <SiObsidian />, href: 'https://obsidian.md', name: 'Obsidian' },
     { icon: <FaDiscord />, href: 'https://discord.com/', name: 'Discord' }
