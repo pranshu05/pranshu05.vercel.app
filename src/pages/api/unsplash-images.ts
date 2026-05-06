@@ -1,9 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import axios, { all } from "axios"
-
-interface UnsplashImage {
-    urls: { regular: string }
-}
+import axios from "axios"
+import type { UnsplashApiPhoto } from "@/lib/unsplashPhoto"
+import { normalizeUnsplashPhoto } from "@/lib/unsplashPhoto"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {
@@ -23,7 +21,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         for (let page = 1; page <= totalPages; page++) {
             imageRequests.push(
-                axios.get<UnsplashImage[]>("https://api.unsplash.com/users/pranshu05/photos", {
+                axios.get<UnsplashApiPhoto[]>("https://api.unsplash.com/users/pranshu05/photos", {
                     params: { client_id: unsplashKey, per_page: perPage, page },
                 }),
             )
@@ -31,9 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const imageResponses = await Promise.all(imageRequests)
         const allImages = imageResponses.flatMap((response) => response.data)
-        const allImageUrls = allImages.map((image) => ({
-            urls: { regular: image.urls.regular },
-        }))
+        const allImageUrls = allImages.map((image: UnsplashApiPhoto) => normalizeUnsplashPhoto(image))
 
         res.status(200).json({ images: allImageUrls })
     } catch {

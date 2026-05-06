@@ -155,11 +155,40 @@ nav a {
 }
 
 .my-masonry-grid {
-    @apply flex -ml-[7.5px] w-auto;
+    @apply flex -ml-2 w-auto;
 }
 
 .my-masonry-grid_column {
-    @apply pl-[7.5px];
+    @apply pl-2;
+}
+
+.gallery-photo-frame {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+}
+
+.gallery-photo-frame.gallery-photo-inview {
+    animation: gallery-photo-enter 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes gallery-photo-enter {
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-photo-frame.gallery-photo-inview {
+        animation: gallery-photo-enter-reduced 0.45s ease forwards;
+    }
+}
+
+@keyframes gallery-photo-enter-reduced {
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .focus-visible {
