@@ -7,7 +7,7 @@ const Projects: React.FC = () => (
         {projects.map(({ title, blurb, stack, github, website }) => (
             <article key={title} className="py-5 first:pt-0 last:pb-0">
                 <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-sm font-medium text-zinc-100">{title}</h3>
+                    <h3 className="text-base font-bold text-zinc-100">{title}</h3>
                     <div className="flex shrink-0 gap-2">
                         {github && (<a href={github}className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5"aria-label={`${title} on GitHub`}target="_blank"rel="noopener noreferrer"><FaGithub className="w-4 h-4" /></a>)}
                         {website && (<a href={website} className="text-zinc-500 hover:text-zinc-300 transition-colors p-0.5" aria-label={`${title} website`} target="_blank" rel="noopener noreferrer"><Globe className="w-4 h-4" /></a>)}

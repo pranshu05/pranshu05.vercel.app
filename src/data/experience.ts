@@ -25,10 +25,10 @@ export const experiences: ExperienceEntry[] = [
     },
     {
         company: "Google Developer Groups on Campus, DAU",
-        period: "Oct 2024 – Present · Gandhinagar",
+        period: "Oct 2024 – Apr 2026 · Gandhinagar",
         title: "Core Member & Convener",
         paragraphs: [
-            "Workshops and build sessions for 200+ student developers; coordination with faculty and industry for content and networking.",
+            "Workshops and build sessions for 500+ student developers; coordination with faculty and industry for content and networking.",
         ],
     },
 ];

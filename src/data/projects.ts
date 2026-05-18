@@ -11,6 +11,7 @@ export const projects: ProjectEntry[] = [
         title: "DBSync",
         blurb: "PostgreSQL schema drift analyzer: versioned snapshots from system catalogs, structural diffs (tables, constraints, indexes, RLS, …), forward-only DDL planner with preview and optional single-transaction apply, React Flow ER view of foreign keys.",
         stack: "TypeScript · Next.js · PostgreSQL · React Flow",
+        website: "https://dbsynx.vercel.app",
     },
     {
         title: "Song2Vec",
