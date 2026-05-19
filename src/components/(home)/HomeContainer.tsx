@@ -31,7 +31,7 @@ const HomeContainer: React.FC = () => {
             <p className="text-zinc-500 text-sm mb-0">Languages, frameworks, and tools I use often.</p>
             <TechStack />
             <h2 className="text-xl font-bold mt-6 mb-1 text-zinc-100">Writing</h2>
-            <p className="text-zinc-300 text-sm leading-relaxed mb-4">I keep a blog for work that does not fit in a README: walkthroughs of things I built or broke, performance and debugging stories where the fix was embarrassing in hindsight, and longer notes on React, Next.js, APIs, databases, and whatever toolchain I am wrestling with that month.</p><p>Some posts are tutorials, some are experiments or visuals, and some are basically rubber ducks with syntax highlighting, mostly so future me can grep my own mistakes.{" "}<Link href="/posts" className="link">Read the posts</Link>{" "}when you want the full version.</p>
+            <p className="text-zinc-300 text-sm leading-relaxed mb-4">I keep a blog for work that does not fit in a README: walkthroughs of things I built or broke, performance and debugging stories where the fix was embarrassing in hindsight, and longer notes on React, Next.js, APIs, databases, and whatever toolchain I am wrestling with that month. Some posts are tutorials, some are experiments or visuals, and some are basically rubber ducks with syntax highlighting, mostly so future me can grep my own mistakes.{" "}<Link href="/posts" className="link">Read the posts</Link>{" "}when you want the full version.</p>
             {/* <h2 className="text-xl font-bold mt-6 mb-1 text-zinc-100">Music</h2>
             <p className="text-zinc-300 text-sm leading-relaxed mb-4">Top artists from my Last.fm week while coding.</p>
             <TopArtists /> */}
