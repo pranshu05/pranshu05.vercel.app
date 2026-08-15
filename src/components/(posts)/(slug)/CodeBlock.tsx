@@ -2,6 +2,7 @@
 import type { ReactNode } from "react"
 import type React from "react"
 import CopyButton from "@/components/UI/CopyButton"
+import Mermaid from "@/components/(posts)/(slug)/Mermaid"
 
 interface CodeBlockProps {
     children: ReactNode
@@ -23,6 +24,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ children, className }) => {
             return getTextContent((node as any).props.children)
         }
         return ""
+    }
+
+    if (children && typeof children === "object" && "props" in children) {
+        const codeProps = (children as any).props
+        if (codeProps && typeof codeProps.className === "string" && codeProps.className.includes("language-mermaid")) {
+            const chart = getTextContent(codeProps.children)
+            return <Mermaid chart={chart} />
+        }
     }
 
     const codeText = getTextContent(children)
