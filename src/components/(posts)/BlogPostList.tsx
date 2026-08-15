@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react';
 import BlogPostItem from '@/components/(posts)/BlogPostItem';
 import { getViewCount } from '@/lib/ViewsData';

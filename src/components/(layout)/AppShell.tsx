@@ -1,17 +1,11 @@
+"use client"
+import type React from "react"
 import { useEffect, useState } from "react"
-import { Space_Grotesk } from "next/font/google"
-import "@/styles/globals.css"
-import type { AppProps } from "next/app"
 import NavBar from "@/components/(layout)/NavBar"
 import Footer from "@/components/(layout)/Footer"
 import Preloader from "@/components/(layout)/Preloader"
 
-const font = Space_Grotesk({
-    weight: '400',
-    subsets: ['latin'],
-})
-
-export default function App({ Component, pageProps }: AppProps) {
+export default function AppShell({ children }: { children: React.ReactNode }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -38,10 +32,10 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             {isLoading && <Preloader />}
-            <div className={`main-content ${!isLoading ? "main-content-loaded" : ""} min-h-dvh w-[dvw - 5px] p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col ${font.className}`}>
+            <div className={`main-content ${!isLoading ? "main-content-loaded" : ""} min-h-dvh w-full p-0 m-0 bg-neutral-950 text-zinc-300 flex flex-col`}>
                 <NavBar />
                 <div className="flex-1">
-                    <Component {...pageProps} />
+                    {children}
                 </div>
                 <Footer />
             </div>

@@ -1,13 +1,13 @@
-import { ImageResponse } from '@vercel/og';
-import { NextRequest } from 'next/server';
+import { ImageResponse } from '@vercel/og'
+import type { NextRequest } from 'next/server'
 
-export const config = { runtime: 'edge', };
+export const runtime = 'edge'
 
-export default function handler(req: NextRequest) {
+export async function GET(req: NextRequest) {
     try {
-        const { searchParams } = new URL(req.url);
-        const title = searchParams.get('title') || 'Pranshu05 | Portfolio';
-        const description = searchParams.get('description') || 'Full Stack Developer';
+        const { searchParams } = new URL(req.url)
+        const title = searchParams.get('title') || 'Pranshu05 | Portfolio'
+        const description = searchParams.get('description') || 'Full Stack Developer'
 
         return new ImageResponse(
             (
@@ -23,8 +23,8 @@ export default function handler(req: NextRequest) {
                 width: 1200,
                 height: 630,
             }
-        );
+        )
     } catch {
-        return new Response(`Failed to generate the image`, { status: 500, });
+        return new Response(`Failed to generate the image`, { status: 500 })
     }
 }

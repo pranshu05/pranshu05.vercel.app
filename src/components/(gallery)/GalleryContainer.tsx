@@ -1,3 +1,4 @@
+"use client"
 import ImageGallery from '@/components/(gallery)/ImageGallery';
 
 const GalleryContainer: React.FC = () => {

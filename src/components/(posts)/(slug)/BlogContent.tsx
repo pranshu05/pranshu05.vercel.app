@@ -1,3 +1,4 @@
+"use client"
 import type React from "react"
 import { MDXRemote } from "next-mdx-remote"
 import { InlineMath as KatexInlineMath, BlockMath as KatexBlockMath } from "react-katex"

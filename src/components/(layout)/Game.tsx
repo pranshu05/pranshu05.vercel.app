@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect, useCallback } from 'react';
 
 type Target = { id: number; x: number; y: number };

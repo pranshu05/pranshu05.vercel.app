@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react';
 import { ageInYears } from '@/lib/AgeInYears';
 import { getFormattedTime } from '@/lib/Time';
