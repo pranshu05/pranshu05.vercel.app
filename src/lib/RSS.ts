@@ -1,5 +1,13 @@
 import RSS from 'rss';
-import { Post } from '@/pages/posts';
+
+export interface Post {
+    slug: string;
+    frontmatter: {
+        title: string;
+        date: string;
+        description?: string;
+    };
+}
 
 export const generateRSSFeed = (posts: Post[]) => {
     const feed = new RSS({

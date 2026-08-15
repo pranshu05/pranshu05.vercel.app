@@ -204,7 +204,7 @@ const ImageGallery: React.FC = () => {
             </Masonry>
             {lightboxPhoto && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md" onClick={closeFullscreen} role="dialog" aria-modal="true" aria-label="Photo">
-                    <div className="flex h-full max-h-dvh w-full max-w-[1400px] flex-col px-3 pb-4 pt-14 md:px-10" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex h-full max-h-dvh w-full max-w-350 flex-col px-3 pb-4 pt-14 md:px-10" onClick={(e) => e.stopPropagation()}>
                         <div className="relative flex min-h-0 flex-1 items-center justify-center">
                             <img className="max-h-[min(78vh,calc(100dvh-11rem))] max-w-full object-contain" src={lightboxPhoto.urls.regular} alt={lightboxPhoto.caption || 'Gallery photo'} />
                             <button type="button" className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer text-2xl text-zinc-200 md:text-3xl" onClick={(e) => { e.stopPropagation(); navigateImage(-1); }} aria-label="Previous photo"><MdNavigateBefore /></button>

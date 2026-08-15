@@ -1,18 +1,32 @@
-"use client"
 import type React from "react"
-import { MDXRemote } from "next-mdx-remote"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
+import rehypeHighlight from "rehype-highlight"
 import { InlineMath as KatexInlineMath, BlockMath as KatexBlockMath } from "react-katex"
 import CodeBlock from "@/components/(posts)/(slug)/CodeBlock"
 import Mermaid from "@/components/(posts)/(slug)/Mermaid"
+import langPython from "highlight.js/lib/languages/python"
+import langJava from "highlight.js/lib/languages/java"
+import langCPP from "highlight.js/lib/languages/cpp"
+import langCSS from "highlight.js/lib/languages/css"
+import langHTML from "highlight.js/lib/languages/xml"
+import langJS from "highlight.js/lib/languages/javascript"
+import langBash from "highlight.js/lib/languages/bash"
 import "katex/dist/katex.min.css"
+import "@catppuccin/highlightjs/css/catppuccin-mocha.css"
+
+const languages = {
+    cpp: langCPP,
+    java: langJava,
+    python: langPython,
+    css: langCSS,
+    html: langHTML,
+    sh: langBash,
+    js: langJS,
+}
 
 interface BlogContentProps {
-    mdxSource: {
-        compiledSource: string
-        renderedOutput: string
-        scope: Record<string, unknown>
-        frontmatter: unknown
-    }
+    content: string
 }
 
 const extractMathString = (props: any): string => {
@@ -44,10 +58,10 @@ const components = {
     pre: CodeBlock,
 }
 
-const BlogContent: React.FC<BlogContentProps> = ({ mdxSource }) => (
-    <div className="post wrap-break-word w-full p-0 m-0">
-        <MDXRemote {...mdxSource} components={components} />
-    </div>
-)
-
-export default BlogContent
+export default function BlogContent({ content }: BlogContentProps) {
+    return (
+        <div className="post wrap-break-word w-full p-0 m-0">
+            <MDXRemote source={content} components={components} options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [[rehypeHighlight, { ignoreMissing: true, languages, aliases: {}, },],] as any, }, }} />
+        </div>
+    )
+}
