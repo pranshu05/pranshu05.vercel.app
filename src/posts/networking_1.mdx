@@ -145,24 +145,18 @@ You might think UDP is just for lazy programmers, but there are legitimate use c
 
 ## The Math Behind Reliability
 
-Let's get nerdy for a second. If a network has a packet loss rate of <InlineMath>{String.raw`p`}</InlineMath>, what's the probability of successfully transmitting <InlineMath>{String.raw`n`}</InlineMath> packets?
+Let's get nerdy for a second. If a network has a packet loss rate of <InlineMath math="p" />, what's the probability of successfully transmitting <InlineMath math="n" /> packets?
 
 For UDP (no retransmission):
-<BlockMath>
-{String.raw`P(\text{success}) = (1-p)^n`}
-</BlockMath>
+<BlockMath math="P(\text{success}) = (1-p)^n" />
 
 For TCP (with infinite retransmissions):
-<BlockMath>
-{String.raw`P(\text{success}) = 1`}
-</BlockMath>
+<BlockMath math="P(\text{success}) = 1" />
 
 But TCP's reliability comes with a cost. The expected number of transmissions per packet in TCP is:
-<BlockMath>
-{String.raw`E[\text{transmissions}] = \frac{1}{1-p}`}
-</BlockMath>
+<BlockMath math="E[\text{transmissions}] = \frac{1}{1-p}" />
 
-With 1% packet loss (<InlineMath>{String.raw`p = 0.01`}</InlineMath>), TCP needs about 1.01 transmissions per packet on average. With 10% packet loss, it needs about 1.11 transmissions. Not too bad!
+With 1% packet loss (<InlineMath math="p = 0.01" />), TCP needs about 1.01 transmissions per packet on average. With 10% packet loss, it needs about 1.11 transmissions. Not too bad!
 
 But as packet loss increases, this gets expensive fast. At 50% packet loss, you need 2 transmissions per packet on average.
 

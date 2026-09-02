@@ -253,19 +253,6 @@ const weekStart = targetWeek && targetYear
   : getWeekStart(now);
 ```
 
-#### 4. **UI Improvements**
-
-The save-weekly-palette page now displays all weeks in a clean column layout (matching the landing page aesthetic). Each week shows:
-- Week number with "(current week)" indicator
-- If saved: The actual 10-color palette in a hover-able grid (shows hex codes on hover)
-- If not saved: Gray placeholder squares with a "Save Palette" button
-
-When you click save on any week, it:
-1. Fetches that week's actual historical data
-2. Extracts colors from those artist images
-3. Saves the palette with correct metadata
-4. Updates the UI to show the colors
-
 ### Why This Matters More
 
 The original system was cool, but it was like taking a photo of yourself today and claiming it's from last month. Technically you're in it, but it's not authentic.

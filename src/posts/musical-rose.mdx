@@ -27,7 +27,7 @@ Rose curves (or rhodonea curves, if you want to sound fancy) have been fascinati
 
 ### The Fundamental Equation
 
-<BlockMath>{String.raw`r = n \cdot \cos(k \cdot \theta + \phi)`}</BlockMath>
+<BlockMath math="r = n \cdot \cos(k \cdot \theta + \phi)" />
 
 Let's break down what each variable does:
 
@@ -45,7 +45,7 @@ When you vary θ from 0 to 2π, r oscillates between positive and negative value
 
 Here's where it gets interesting. The number of petals depends on whether k is odd or even:
 
-<BlockMath>{String.raw`\text{Number of petals} = \begin{cases} k & \text{if } k \text{ is odd} \\ 2k & \text{if } k \text{ is even} \end{cases}`}</BlockMath>
+<BlockMath math="\text{Number of petals} = \begin{cases} k & \text{if } k \text{ is odd} \\ 2k & \text{if } k \text{ is even} \end{cases}" />
 
 So:
 - k = 5 → 5 petals
@@ -66,13 +66,13 @@ So k varies between approximately 4.2 and 5.8. Each layer has a slightly differe
 
 The canvas needs (x, y) coordinates, not polar. The conversion is:
 
-<BlockMath>{String.raw`x = x_0 + r \cdot \cos(\theta)`}</BlockMath>
-<BlockMath>{String.raw`y = y_0 + r \cdot \sin(\theta)`}</BlockMath>
+<BlockMath math="x = x_0 + r \cdot \cos(\theta)" />
+<BlockMath math="y = y_0 + r \cdot \sin(\theta)" />
 
 Substituting r from our rose equation:
 
-<BlockMath>{String.raw`x = x_0 + n \cdot \cos(k\theta + \phi) \cdot \cos(\theta)`}</BlockMath>
-<BlockMath>{String.raw`y = y_0 + n \cdot \cos(k\theta + \phi) \cdot \sin(\theta)`}</BlockMath>
+<BlockMath math="x = x_0 + n \cdot \cos(k\theta + \phi) \cdot \cos(\theta)" />
+<BlockMath math="y = y_0 + n \cdot \cos(k\theta + \phi) \cdot \sin(\theta)" />
 
 Where (x₀, y₀) is the center of the canvas.
 
@@ -80,18 +80,18 @@ Where (x₀, y₀) is the center of the canvas.
 
 If you're wondering how much "space" one petal takes up (mathematically speaking):
 
-<BlockMath>{String.raw`A = \int_{0}^{\pi/k} \frac{1}{2} r^2 d\theta = \frac{1}{2} \int_{0}^{\pi/k} n^2 \cos^2(k\theta) d\theta`}</BlockMath>
+<BlockMath math="A = \int_{0}^{\pi/k} \frac{1}{2} r^2 d\theta = \frac{1}{2} \int_{0}^{\pi/k} n^2 \cos^2(k\theta) d\theta" />
 
-Using the identity <InlineMath>{String.raw`\cos^2(x) = \frac{1 + \cos(2x)}{2}`}</InlineMath>:
+Using the identity <InlineMath math="\cos^2(x) = \frac{1 + \cos(2x)}{2}" />:
 
-<BlockMath>{String.raw`A = \frac{n^2}{4} \int_{0}^{\pi/k} (1 + \cos(2k\theta)) d\theta`}</BlockMath>
-<BlockMath>{String.raw`A = \frac{n^2}{4} \left[ \theta + \frac{\sin(2k\theta)}{2k} \right]_{0}^{\pi/k}`}</BlockMath>
-<BlockMath>{String.raw`A = \frac{n^2}{4} \left( \frac{\pi}{k} + \frac{\sin(2\pi)}{2k} \right)`}</BlockMath>
-<BlockMath>{String.raw`A = \frac{n^2 \pi}{4k}`}</BlockMath>
+<BlockMath math="A = \frac{n^2}{4} \int_{0}^{\pi/k} (1 + \cos(2k\theta)) d\theta" />
+<BlockMath math="A = \frac{n^2}{4} \left[ \theta + \frac{\sin(2k\theta)}{2k} \right]_{0}^{\pi/k}" />
+<BlockMath math="A = \frac{n^2}{4} \left( \frac{\pi}{k} + \frac{\sin(2\pi)}{2k} \right)" />
+<BlockMath math="A = \frac{n^2 \pi}{4k}" />
 
 For a unit rose (n = 1) with k = 5:
 
-<BlockMath>{String.raw`A = \frac{\pi}{20}`}</BlockMath>
+<BlockMath math="A = \frac{\pi}{20}" />
 
 Each petal has an area of π/20. The entire rose has area 5π/20 = π/4.
 
@@ -164,7 +164,7 @@ Audio starts as a waveform (amplitude over time). FFT (Fast Fourier Transform) c
 
 With `fftSize = 1024`, we get 512 frequency bins. Each bin represents a frequency range:
 
-<BlockMath>{String.raw`\text{bin width} = \frac{\text{sample rate}}{2 \times \text{fftSize}} = \frac{48000}{2048} \approx 23.4 \text{ Hz}`}</BlockMath>
+<BlockMath math="\text{bin width} = \frac{\text{sample rate}}{2 \times \text{fftSize}} = \frac{48000}{2048} \approx 23.4 \text{ Hz}" />
 
 For a 48kHz audio sample, each bin is about 23.4 Hz wide. The first bin is 0-23 Hz, second is 23-47 Hz, etc.
 
@@ -191,7 +191,7 @@ const trebleRange = dataArray.slice(Math.floor(bufferLength * 0.5));
 
 Each band is normalized to [0, 1]:
 
-<BlockMath>{String.raw`\text{band intensity} = \frac{1}{N} \sum_{i=1}^{N} \frac{\text{dataArray}[i]}{255}`}</BlockMath>
+<BlockMath math="\text{band intensity} = \frac{1}{N} \sum_{i=1}^{N} \frac{\text{dataArray}[i]}{255}" />
 
 Why divide by 255? Because `Uint8Array` stores values 0-255. We want a normalized value where 1.0 = maximum possible intensity.
 
@@ -209,11 +209,11 @@ Here's where the magic happens. The drawing speed isn't constant. It pulses with
 
 Let S be the number of points to draw in a frame:
 
-<BlockMath>{String.raw`S = S_{base} \cdot M \cdot E \cdot P`}</BlockMath>
+<BlockMath math="S = S_{\text{base}} \cdot M \cdot E \cdot P" />
 
 Where M combines the musical components:
 
-<BlockMath>{String.raw`M = \beta_B \cdot B \cdot I_B + \beta_M \cdot M \cdot I_M + \beta_T \cdot T \cdot I_T`}</BlockMath>
+<BlockMath math="M = \beta_B \cdot B \cdot I_B + \beta_M \cdot M \cdot I_M + \beta_T \cdot T \cdot I_T" />
 
 In code terms:
 

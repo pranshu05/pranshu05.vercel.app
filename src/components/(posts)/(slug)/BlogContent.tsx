@@ -2,7 +2,7 @@ import type React from "react"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
-import { InlineMath as KatexInlineMath, BlockMath as KatexBlockMath } from "react-katex"
+import katex from "katex"
 import CodeBlock from "@/components/(posts)/(slug)/CodeBlock"
 import Mermaid from "@/components/(posts)/(slug)/Mermaid"
 import langPython from "highlight.js/lib/languages/python"
@@ -12,7 +12,6 @@ import langCSS from "highlight.js/lib/languages/css"
 import langHTML from "highlight.js/lib/languages/xml"
 import langJS from "highlight.js/lib/languages/javascript"
 import langBash from "highlight.js/lib/languages/bash"
-import "katex/dist/katex.min.css"
 import "@catppuccin/highlightjs/css/catppuccin-mocha.css"
 
 const languages = {
@@ -41,17 +40,76 @@ const extractMathString = (props: any): string => {
     return ""
 }
 
+const extractNodeText = (children: any): string => {
+    if (typeof children === "string") return children
+    if (typeof children === "number") return String(children)
+    if (Array.isArray(children)) {
+        return children.map(extractNodeText).join("")
+    }
+    if (children && typeof children === "object" && children.props && children.props.children) {
+        return extractNodeText(children.props.children)
+    }
+    return ""
+}
+
+const slugify = (text: string): string => {
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-")
+        .trim()
+}
+
+const CustomH2: React.FC<any> = ({ children, ...props }) => {
+    const text = extractNodeText(children)
+    const id = slugify(text)
+    return (
+        <h2 id={id} className="scroll-mt-24" {...props}>{children}</h2>
+    )
+}
+
+const CustomH3: React.FC<any> = ({ children, ...props }) => {
+    const text = extractNodeText(children)
+    const id = slugify(text)
+    return (
+        <h3 id={id} className="scroll-mt-24" {...props}>{children}</h3>
+    )
+}
+
 const SafeInlineMath: React.FC<any> = (props) => {
     const math = extractMathString(props)
-    return <KatexInlineMath math={math} />
+    let html: string | null = null
+    try {
+        html = katex.renderToString(math, { displayMode: false, throwOnError: false })
+    } catch {
+        html = null
+    }
+
+    if (html) {
+        return <span dangerouslySetInnerHTML={{ __html: html }} />
+    }
+    return <span>{math}</span>
 }
 
 const SafeBlockMath: React.FC<any> = (props) => {
     const math = extractMathString(props)
-    return <KatexBlockMath math={math} />
+    let html: string | null = null
+    try {
+        html = katex.renderToString(math, { displayMode: true, throwOnError: false })
+    } catch {
+        html = null
+    }
+
+    if (html) {
+        return <div className="my-6 text-center overflow-x-auto" dangerouslySetInnerHTML={{ __html: html }} />
+    }
+    return <div>{math}</div>
 }
 
 const components = {
+    h2: CustomH2,
+    h3: CustomH3,
     InlineMath: SafeInlineMath,
     BlockMath: SafeBlockMath,
     Mermaid,

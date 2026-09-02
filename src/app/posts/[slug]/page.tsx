@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import BlogContent from '@/components/(posts)/(slug)/BlogContent'
 import PostViewCounter from '@/components/(posts)/(slug)/PostViewCounter'
+import TableOfContents from '@/components/(posts)/(slug)/TableOfContents'
+import { extractToc } from '@/lib/TocExtractor'
 
 interface PageProps {
     params: Promise<{ slug: string }>
@@ -85,6 +87,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     const { title, date, description, readTime } = frontMatter
     const publishedTime = new Date(date).toISOString()
     const ogImage = `https://pranshu05.vercel.app/api/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
+    const tocItems = extractToc(content)
 
     const structuredData = {
         "@context": "https://schema.org",
@@ -115,14 +118,18 @@ export default async function BlogPostPage({ params }: PageProps) {
     }
 
     return (
-        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto">
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <div className="w-11/12 md:w-4/5 lg:w-3/4 xl:w-3/5 2xl:w-1/2 max-w-3xl mx-auto relative">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
             <div className="py-28 text-center">
                 <PostViewCounter slug={slug} date={date} readTime={readTime} />
                 <h1 className="text-5xl font-bold text-zinc-100 mt-4 mb-6">{title}</h1>
                 <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto">{description}</p>
             </div>
-            <hr className="mt-8 mb-4 border-zinc-800" />
+            <hr className="mt-8 mb-6 border-zinc-800" />
+            <TableOfContents items={tocItems} />
             <BlogContent content={content} />
         </div>
     )

@@ -19,30 +19,24 @@ Perlin Noise is based on the concept of gradient noise, which involves interpola
     The first step in generating Perlin Noise is to define a grid of random gradient vectors. These gradient vectors are typically unit vectors pointing in random directions. The grid points are spaced uniformly in space, and each grid point is associated with a random gradient vector.
 
 2. **Dot Product:**
-    For any given point in space, the value of the Perlin Noise function is computed based on the dot product of the gradient vector and the distance vector from the grid point to the input point. If we denote the gradient vector at point <InlineMath>{String.raw` (i, j)`}</InlineMath> as <InlineMath>{String.raw` \mathbf{g}_{i,j}`}</InlineMath> and the distance vector as <InlineMath>{String.raw` \mathbf{r}_{i,j}`}</InlineMath>, the noise value at the input point <InlineMath>{String.raw` (x, y)`}</InlineMath> is given by:
+    For any given point in space, the value of the Perlin Noise function is computed based on the dot product of the gradient vector and the distance vector from the grid point to the input point. If we denote the gradient vector at point <InlineMath math="(i, j)" /> as <InlineMath math="\mathbf{g}_{i,j}" /> and the distance vector as <InlineMath math="\mathbf{r}_{i,j}" />, the noise value at the input point <InlineMath math="(x, y)" /> is given by:
 
-    <BlockMath>
-        {String.raw`N(x, y) = \mathbf{g}_{i,j} \cdot \mathbf{r}_{i,j}`}
-    </BlockMath>
+    <BlockMath math="N(x, y) = \mathbf{g}_{i,j} \cdot \mathbf{r}_{i,j}" />
 
-     For a point in a two dimension space, the gradient vectors at the four nearest grid points are used to compute the noise value. In general terms the complexity of `dot product` is <InlineMath>{String.raw`O(2^d)`}</InlineMath> where <InlineMath>{String.raw`d`}</InlineMath> is the dimension of the space.
+     For a point in a two dimension space, the gradient vectors at the four nearest grid points are used to compute the noise value. In general terms the complexity of `dot product` is <InlineMath math="O(2^d)" /> where <InlineMath math="d" /> is the dimension of the space.
 
 3. **Interpolation:**
     The final step in generating Perlin Noise is to interpolate between the noise values at the grid points to obtain a smooth, continuous noise function. The interpolation function used in Perlin Noise is typically a cubic polynomial, which ensures that the noise function is continuous and differentiable. The interpolation function is designed to produce smooth transitions between grid points, resulting in a natural-looking noise function.
 
-    If we denote the noise value at the four nearest grid points as <InlineMath>{String.raw`N_{i,j}`}</InlineMath>, the noise value at the input point <InlineMath>{String.raw` (x, y)`}</InlineMath> is given by:
+    If we denote the noise value at the four nearest grid points as <InlineMath math="N_{i,j}" />, the noise value at the input point <InlineMath math="(x, y)" /> is given by:
     
-    <BlockMath>
-        {String.raw`N(x, y) = \text{interpolate}(N_{i,j}, N_{i+1,j}, N_{i,j+1}, N_{i+1,j+1})`}
-    </BlockMath>
+    <BlockMath math="N(x, y) = \text{interpolate}(N_{i,j}, N_{i+1,j}, N_{i,j+1}, N_{i+1,j+1})" />
 
     Typically, the interpolation function used in Perlin Noise is a cubic polynomial, which ensures that the noise function is continuous and differentiable. The interpolation function is designed to produce smooth transitions between grid points, resulting in a natural-looking noise function. The values produces ranges from -1 to 1.
 
     Example of a cubic interpolation function:
 
-    <BlockMath>
-        {String.raw`f(t) = 3t^2 - 2t^3`}
-    </BlockMath>
+    <BlockMath math="f(t) = 3t^2 - 2t^3" />
 
 ## Applications of Perlin Noise
 

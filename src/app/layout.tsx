@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type React from "react"
 import { Space_Grotesk } from "next/font/google"
+import "katex/dist/katex.min.css"
 import "@/styles/globals.css"
 import AppShell from "@/components/(layout)/AppShell"
 
