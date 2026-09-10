@@ -38,7 +38,7 @@ TCP says "YES" to all of these. UDP says "NOPE" and runs away at lightning speed
 
 Every TCP connection starts with what I like to call "the world's most formal introduction":
 
-```
+```sh
 Client: "Hey server, wanna chat?" (SYN)
 Server: "Sure! I heard you, and here's my response" (SYN-ACK)  
 Client: "Cool, I got your response. Let's do this!" (ACK)
@@ -55,9 +55,7 @@ It's like exchanging business cards before having a conversation, but in the net
 
 TCP assigns a sequence number to every byte of data. Not every packet - every **byte**. If you're sending "Hello World!" (12 bytes), TCP might number them like this:
 
-<BlockMath>
-{String.raw`\text{Sequence: } 1000, 1001, 1002, ..., 1011`}
-</BlockMath>
+<BlockMath math="\text{Sequence: } 1000, 1001, 1002, ..., 1011" />
 
 When the receiver gets these bytes, it can detect:
 - **Missing data**: "Wait, where's byte 1005?"
@@ -72,9 +70,7 @@ Here's where TCP gets really clever. Instead of sending one byte and waiting for
 
 Think of it like this: The sender can have multiple "unacknowledged" packets in flight simultaneously. The window size determines how many bytes can be sent before waiting for an ACK.
 
-<BlockMath>
-{String.raw`\text{Window Size} = \min(\text{Receiver Buffer}, \text{Congestion Window})`}
-</BlockMath>
+<BlockMath math="\text{Window Size} = \min(\text{Receiver Buffer}, \text{Congestion Window})" />
 
 This balances:
 - **Speed**: More data in flight = higher throughput
@@ -108,7 +104,7 @@ This is why your downloads sometimes start slow and then speed up - TCP is feeli
 
 UDP is basically IP with port numbers. That's it. No handshakes, no sequence numbers, no acknowledgments, no guarantees. Just pure, unadulterated speed. Again me sending messages to my crush without caring if she got it or not. Annoying? Maybe. Fast? Absolutely.
 
-```
+```sh
 UDP Header: 8 bytes
 TCP Header: 20+ bytes (often much more with options)
 ```

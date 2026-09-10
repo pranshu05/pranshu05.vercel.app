@@ -24,7 +24,7 @@ To store a black and white image, we can use a 2D matrix where each element of t
 
 Let's consider a simple 3x3 black and white image:
 
-<BlockMath>{String.raw`\begin{bmatrix}0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix}0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{bmatrix}" />
 
 In this matrix, the value 0 represents black and the value 1 represents white. Each row of the matrix corresponds to a row of pixels in the image, and each column corresponds to a column of pixels.
 
@@ -71,15 +71,15 @@ The Sobel operator consists of two 3x3 kernels that are convolved with the image
 
 - **Sobel X Kernel**:
 
-<BlockMath>{String.raw`\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}" />
 
 - **Sobel Y Kernel**:
 
-<BlockMath>{String.raw`\begin{bmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{bmatrix}" />
 
 The Sobel operator works by convolving these kernels with the image to calculate the gradient in the x and y directions. The gradient magnitude is then calculated by combining the x and y gradients using the following formula:
 
-<BlockMath>{String.raw`G = \sqrt{G_x^2 + G_y^2}`}</BlockMath>
+<BlockMath math="G = \sqrt{G_x^2 + G_y^2}" />
 
 Where:
 - **G**: Gradient magnitude
@@ -105,21 +105,21 @@ Consider a 3x3 image and the Sobel X kernel:
 
 - **Image**:
 
-<BlockMath>{String.raw`\begin{bmatrix} 10 & 10 & 10 \\ 10 & 10 & 10 \\ 10 & 10 & 10 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix} 10 & 10 & 10 \\ 10 & 10 & 10 \\ 10 & 10 & 10 \end{bmatrix}" />
 
 - **Sobel X Kernel**:
 
-<BlockMath>{String.raw`\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{bmatrix}" />
 
 The convolution process for the top-left pixel is as follows:
 
 1. **Element-wise Multiplication**:
 
-<BlockMath>{String.raw`\begin{bmatrix} -1*10 & 0*10 & 1*10 \\ -2*10 & 0*10 & 2*10 \\ -1*10 & 0*10 & 1*10 \end{bmatrix}`}</BlockMath>
+<BlockMath math="\begin{bmatrix} -1*10 & 0*10 & 1*10 \\ -2*10 & 0*10 & 2*10 \\ -1*10 & 0*10 & 1*10 \end{bmatrix}" />
 
 2. **Summation**:
 
-<BlockMath>{String.raw`(-10 + 0 + 10) + (-20 + 0 + 20) + (-10 + 0 + 10) = 0`}</BlockMath>
+<BlockMath math="(-10 + 0 + 10) + (-20 + 0 + 20) + (-10 + 0 + 10) = 0" />
 
 The result of the convolution for the top-left pixel is 0. This process is repeated for all pixels in the image to obtain the gradient in the x direction.
 

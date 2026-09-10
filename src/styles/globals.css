@@ -127,7 +127,12 @@
 }
 
 .katex {
-    @apply text-zinc-100 font-bold overflow-x-auto overflow-y-hidden;
+    @apply text-zinc-300 font-normal overflow-x-auto overflow-y-hidden;
+    font-size: inherit;
+}
+
+.katex-display > .katex {
+    font-size: inherit;
 }
 
 nav a {
