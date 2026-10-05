@@ -8,6 +8,12 @@ export type ProjectEntry = {
 
 export const projects: ProjectEntry[] = [
     {
+        title: "pgQuant",
+        blurb: "A PostgreSQL extension written in Rust bringing quantitative finance primitives (returns, risk, volatility models, covariance, factor construction) directly into SQL.",
+        stack: "Rust · PostgreSQL · pgrx",
+        github: "https://github.com/pranshu05/pgQuant",
+    },
+    {
         title: "DBSync",
         blurb: "PostgreSQL schema drift analyzer: versioned snapshots from system catalogs, structural diffs (tables, constraints, indexes, RLS, …), forward-only DDL planner with preview and optional single-transaction apply, React Flow ER view of foreign keys.",
         stack: "TypeScript · Next.js · PostgreSQL · React Flow",
